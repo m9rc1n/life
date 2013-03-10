@@ -11,10 +11,8 @@ x Co może być tu abstrakcyjnego?
 	
 x Propozycje funkcji życiowych:
 
-	x podstawowe potrzeby życiowe wg. Maslowa, piramida potrzeb	
-	
+	x podstawowe potrzeby życiowe wg. Maslowa, piramida potrzeb		
 	x sex
-	
 	x jedzenie
 	x spanie
 
@@ -22,30 +20,21 @@ x Jak świat wpływa na obiekty?
 	
 	x różne środowisko = różne wychowanie
 
-_ Rodzaje środowisk
-___ pustynia
+x Rodzaje środowisk
 
-___ dżungla
+	x pustynia
+	x dżungla
+	x knieje
+	x góry
+	x step
+	x coś tam innego
 
-___ knieje
+x Jak pogrupować obiekty?
 
-___ góry
-
-___ step
-
-___ coś tam innego
-
-_ Jak pogrupować obiekty?
-
-___ roślinożercy i mięsożercy
-
-___ ułożyć specjalną hierarchię członków gatunku
-
-_____ lista klanów 
-
-_______ na jej czele głowy klanów
-
-_________ najstarsi, członkowie klanu
-
-_____poniżej członkowie rodu niżsi i w jakichś sposób pogrupowani
+	x roślinożercy i mięsożercy
+ 	x ułożyć specjalną hierarchię członków gatunku
+	x lista klanów? 
+		x na jej czele głowy klanów
+		x najstarsi, członkowie klanu
+		x poniżej członkowie rodu niżsi i w jakichś sposób pogrupowani
 
