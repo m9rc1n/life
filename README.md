@@ -1,7 +1,7 @@
 Life
 ====
 
-Let's play game of life!
+Let's play game for life!
 
 Strategia:
 _ Co może być tu abstrakcyjnego?
