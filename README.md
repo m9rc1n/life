@@ -5,20 +5,13 @@ Let's play game for life!
 
 Strategia:
 
-_ Co może być tu abstrakcyjnego?
-
-___ abstrakcja strategii, która będzie służyła obiektom do przetrwania
-
-_ Propozycje funkcji życiowych:
-
-___ podstawowe potrzeby życiowe wg. Maslowa, piramida potrzeb
-
+x Co może być tu abstrakcyjnego?
+	x abstrakcja strategii, która będzie służyła obiektom do przetrwania
+x Propozycje funkcji życiowych:
+	x podstawowe potrzeby życiowe wg. Maslowa, piramida potrzeb
 _____ sex
-
 _____ jedzenie
-
 _____ spanie
-
 _ Jak świat wpływa na obiekty?
 
 ___ różne środowisko = różne wychowanie
