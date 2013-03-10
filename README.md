@@ -14,7 +14,7 @@ x Co może być tu abstrakcyjnego?
 x Propozycje funkcji życiowych:
 
 	x podstawowe potrzeby życiowe wg. Maslowa, piramida potrzeb		
-	x sex
+	x sex, potrzeba utrzymania gatunku
 	x jedzenie
 	x picie
 	x spanie
@@ -31,11 +31,13 @@ x Jak świat wpływa na obiekty?
 
 x Rodzaje środowisk
 
+	x mapa różnych środowisk
 	x pustynia
 	x dżungla
 	x knieje
 	x góry
 	x step
+	x mazury
 	x coś tam innego
 
 x Jak pogrupować obiekty?
