@@ -22,7 +22,8 @@ x Propozycje funkcji życiowych:
 x Jak działają funkcje życiowe
 
 	x gdy niski poziom wody w obiekcie
-		x uruchamiamy szukaj_wodę()?
+		x uruchamiamy szukajWodę()?
+			x potem rozpaczliwieSzukajWodę()?
 
 x Jak świat wpływa na obiekty?
 	
