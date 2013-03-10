@@ -24,7 +24,6 @@ _ Jak świat wpływa na obiekty?
 ___ różne środowisko = różne wychowanie
 
 _ Rodzaje środowisk
-
 ___ pustynia
 
 ___ dżungla
