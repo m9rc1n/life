@@ -1,10 +1,11 @@
 Life
 ====
-
+					
 Let's play game for life!
 
 Strategia:
-_ Co może być tu abstrakcyjnego?
+_ 
+	Co może być tu abstrakcyjnego?
 ___ abstrakcja strategii, która będzie służyła obiektom do przetrwania
 _ Propozycje funkcji życiowych:
 ___ podstawowe potrzeby życiowe wg. Maslowa, piramida potrzeb
