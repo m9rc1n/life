@@ -11,13 +11,16 @@ x Co może być tu abstrakcyjnego?
 	
 x Propozycje funkcji życiowych:
 
-	x podstawowe potrzeby życiowe wg. Maslowa, piramida potrzeb
-_____ sex
-_____ jedzenie
-_____ spanie
-_ Jak świat wpływa na obiekty?
+	x podstawowe potrzeby życiowe wg. Maslowa, piramida potrzeb	
+	
+	x sex
+	
+	x jedzenie
+	x spanie
 
-___ różne środowisko = różne wychowanie
+x Jak świat wpływa na obiekty?
+	
+	x różne środowisko = różne wychowanie
 
 _ Rodzaje środowisk
 ___ pustynia
