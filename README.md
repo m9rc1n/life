@@ -6,8 +6,11 @@ Let's play game for life!
 Strategia:
 
 x Co może być tu abstrakcyjnego?
+
 	x abstrakcja strategii, która będzie służyła obiektom do przetrwania
+	
 x Propozycje funkcji życiowych:
+
 	x podstawowe potrzeby życiowe wg. Maslowa, piramida potrzeb
 _____ sex
 _____ jedzenie
