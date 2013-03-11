@@ -11,7 +11,8 @@ Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy
 
 - [x] Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer.
 
-	x Klient – program, którego zadaniem jest komunikacja z użytkownikiem. 
+	x Klient
+		program, którego zadaniem jest komunikacja z użytkownikiem. 
 		Na początku wyświetla okno z opcjami (zwane dalej ekranem startowym), 
 		w którym użytkownik może dobrać pewne parametry „rozgrywki”. 
 		Następnie uruchamia Serwer i przesyła mu zebrane dane, wtedy rozpoczyna się właściwa symulacja. 
@@ -20,7 +21,8 @@ Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy
 		o kliknięciach użytkownika (w czasie symulacji użytkownik 
 		może przyspieszać, zwalniać lub wstrzymywać symulację). 
 		Do wyświetlania planszy klient używa biblioteki OpenGL. 
-	x Serwer – program, którego zadaniem jest obliczać kolejne kroki symulacji z zadaną częstotliwością 
+	x Serwer
+		program, którego zadaniem jest obliczać kolejne kroki symulacji z zadaną częstotliwością 
 		i wysyłać wyniki obliczeń do klienta. Serwer może także przyspieszać, zwalniać lub wstrzymywać symulację 
 		na żądanie użytkownika (przekazywane za pośrednictwem klienta).
 
