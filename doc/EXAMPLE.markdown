@@ -1,20 +1,3 @@
-This post examines the features of [R Markdown](http://www.rstudio.org/docs/authoring/using_markdown) 
-using [knitr](http://yihui.name/knitr/) in Rstudio 0.96.
-This combination of tools provides an exciting improvement in usability for 
-[reproducible analysis](http://stats.stackexchange.com/a/15006/183).
-Specifically, this post 
-(1) discusses getting started with R Markdown and `knitr` in  Rstudio 0.96;
-(2) provides a basic example of producing console output and plots using R Markdown;
-(3) highlights several code chunk options such as caching and controlling how input and output is displayed;
-(4) demonstrates use of standard Markdown notation as well as the extended features of formulas and tables; and 
-(5) discusses the implications of R Markdown.
-This post was produced with R Markdown. The source code is available here as a gist. 
-The post may be most useful if the source code and displayed post are viewed side by side. 
-In some instances, I include a copy of the R Markdown in the displayed HTML, but most of the time I assume you are reading the source and post side by side.
-
-<!-- more -->
-
-
 ## Getting started
 To work with R Markdown, if necessary:
 

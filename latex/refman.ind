@@ -1,0 +1,59 @@
+\begin{theindex}
+
+  \item {$\sim $\discretionary {-}{}{}Test}
+    \subitem {Test}, \hyperpage{7}
+
+  \indexspace
+
+  \item {As}, \hyperpage{5}
+    \subitem {test\discretionary {-}{}{}Me\discretionary {-}{}{}Too}, 
+		\hyperpage{6}
+
+  \indexspace
+
+  \item {enum\discretionary {-}{}{}Ptr}
+    \subitem {Test}, \hyperpage{8}
+  \item {enum\discretionary {-}{}{}Var}
+    \subitem {Test}, \hyperpage{8}
+
+  \indexspace
+
+  \item {handler}
+    \subitem {Test}, \hyperpage{8}
+
+  \indexspace
+
+  \item {public\discretionary {-}{}{}Var}
+    \subitem {Test}, \hyperpage{8}
+
+  \indexspace
+
+  \item {T\-Val1}
+    \subitem {Test}, \hyperpage{7}
+  \item {T\-Val2}
+    \subitem {Test}, \hyperpage{7}
+  \item {T\-Val3}
+    \subitem {Test}, \hyperpage{7}
+  \item {T\discretionary {-}{}{}Enum}
+    \subitem {Test}, \hyperpage{7}
+  \item {Test}, \hyperpage{6}
+    \subitem {$\sim $\discretionary {-}{}{}Test}, \hyperpage{7}
+    \subitem {enum\discretionary {-}{}{}Ptr}, \hyperpage{8}
+    \subitem {enum\discretionary {-}{}{}Var}, \hyperpage{8}
+    \subitem {handler}, \hyperpage{8}
+    \subitem {public\discretionary {-}{}{}Var}, \hyperpage{8}
+    \subitem {T\-Val1}, \hyperpage{7}
+    \subitem {T\-Val2}, \hyperpage{7}
+    \subitem {T\-Val3}, \hyperpage{7}
+    \subitem {T\discretionary {-}{}{}Enum}, \hyperpage{7}
+    \subitem {Test}, \hyperpage{7}
+    \subitem {test\discretionary {-}{}{}Me}, \hyperpage{7}
+    \subitem {test\discretionary {-}{}{}Me\discretionary {-}{}{}Too}, 
+		\hyperpage{8}
+  \item {test\discretionary {-}{}{}Me}
+    \subitem {Test}, \hyperpage{7}
+  \item {test\discretionary {-}{}{}Me\discretionary {-}{}{}Too}
+    \subitem {As}, \hyperpage{6}
+    \subitem {Test}, \hyperpage{8}
+
+\end{theindex}
