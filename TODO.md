@@ -10,10 +10,12 @@ Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy
 <b>Budowa programu</b>
 
 - [x] Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer.
-	
+
+dsdsad
+
 x Klient
 
-	x program, którego zadaniem jest komunikacja z użytkownikiem. 
+	program, którego zadaniem jest komunikacja z użytkownikiem. 
 	Na początku wyświetla okno z opcjami (zwane dalej ekranem startowym), 
 	w którym użytkownik może dobrać pewne parametry „rozgrywki”. 
 	Następnie uruchamia Serwer i przesyła mu zebrane dane, wtedy rozpoczyna się właściwa symulacja. 
