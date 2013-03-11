@@ -2,8 +2,8 @@
 \indexentry{As@{As}!test\discretionary {-}{}{}Me\discretionary {-}{}{}Too@{test\discretionary {-}{}{}Me\discretionary {-}{}{}Too}|hyperpage}{6}
 \indexentry{test\discretionary {-}{}{}Me\discretionary {-}{}{}Too@{test\discretionary {-}{}{}Me\discretionary {-}{}{}Too}!As@{As}|hyperpage}{6}
 \indexentry{Test@{Test}|hyperpage}{7}
-\indexentry{Test@{Test}!T\discretionary {-}{}{}Enum@{T\discretionary {-}{}{}Enum}|hyperpage}{7}
-\indexentry{T\discretionary {-}{}{}Enum@{T\discretionary {-}{}{}Enum}!Test@{Test}|hyperpage}{7}
+\indexentry{Test@{Test}!T\discretionary {-}{}{}Enum@{T\discretionary {-}{}{}Enum}|hyperpage}{8}
+\indexentry{T\discretionary {-}{}{}Enum@{T\discretionary {-}{}{}Enum}!Test@{Test}|hyperpage}{8}
 \indexentry{T\-Val1@{T\-Val1}!Test@{Test}|hyperpage}{8}
 \indexentry{Test@{Test}!T\-Val1@{T\-Val1}|hyperpage}{8}
 \indexentry{T\-Val2@{T\-Val2}!Test@{Test}|hyperpage}{8}

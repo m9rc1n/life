@@ -78,30 +78,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1>Propozycja dokumentacji funkcjonalnej</h1>
-<p>Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy damy radę, czy warto etc.)</p>
+<p>Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy damy radę, czy warto etc)</p>
 <h2>Budowa programu</h2>
-<p>Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer.</p>
+<p>Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer</p>
 <ul>
-<li>Klient <pre class="fragment">  * Program, którego zadaniem jest komunikacja z użytkownikiem. 
+<li>Klient <pre class="fragment">  * Program, którego zadaniem jest komunikacja z użytkownikiem 
 
-  * Na początku wyświetla okno z opcjami (zwane dalej ekranem startowym), w którym użytkownik może dobrać pewne parametry „rozgrywki”. 
+  * Na początku wyświetla okno z opcjami (zwane dalej ekranem startowym), w którym użytkownik może dobrać pewne parametry „rozgrywki” 
 
-  * Następnie uruchamia Serwer i przesyła mu zebrane dane, wtedy rozpoczyna się właściwa symulacja. 
+  * Następnie uruchamia Serwer i przesyła mu zebrane dane, wtedy rozpoczyna się właściwa symulacja 
 
-  * Podczas symulacji Klient odbiera od Serwera informacje o obecnych wynikach symulacji i na bieżąco wyświetla graficzną planszę oraz wysyła Serwerowi informacje o kliknięciach użytkownika (w czasie symulacji użytkownik może przyspieszać, zwalniać lub wstrzymywać symulację). 
+  * Podczas symulacji Klient odbiera od Serwera informacje o obecnych wynikach symulacji i na bieżąco wyświetla graficzną planszę oraz wysyła Serwerowi informacje o kliknięciach użytkownika (w czasie symulacji użytkownik może przyspieszać, zwalniać lub wstrzymywać symulację) 
 
-  * Do wyświetlania planszy klient używa biblioteki OpenGL. 
+  * Do wyświetlania planszy klient używa biblioteki OpenGL 
 </pre></li>
 </ul>
 <ul>
-<li>Serwer <pre class="fragment">  * Program, którego zadaniem jest obliczać kolejne kroki symulacji z zadaną częstotliwością i wysyłać wyniki obliczeń do klienta.
+<li>Serwer <pre class="fragment">  * Program, którego zadaniem jest obliczać kolejne kroki symulacji z zadaną częstotliwością i wysyłać wyniki obliczeń do klienta
 
-  * Serwer może także przyspieszać, zwalniać lub wstrzymywać symulację na żądanie użytkownika (przekazywane za pośrednictwem klienta).
+  * Serwer może także przyspieszać, zwalniać lub wstrzymywać symulację na żądanie użytkownika (przekazywane za pośrednictwem klienta)
 </pre></li>
 </ul>
-<p>Klient i serwer komunikują się za pomocą współdzielonej pamięci, która jest zrealizowana przy pomocy biblioteki Boost::Interprocess.</p>
+<p>Klient i serwer komunikują się za pomocą współdzielonej pamięci, która jest zrealizowana przy pomocy biblioteki Boost::Interprocess</p>
 <h2>Świat gry</h2>
-<p>Symulacja rozgrywa się na prostokątnej planszy, której wymiary ustala użytkownik na ekranie startowym. Początkowo obiekty zostają umieszczone w sposób losowy, ale z ograniczeniami opisanymi niżej. Rodzaje obiektów:</p>
+<p>Symulacja rozgrywa się na prostokątnej planszy, której wymiary ustala użytkownik na ekranie startowym Początkowo obiekty zostają umieszczone w sposób losowy, ale z ograniczeniami opisanymi niżej. Rodzaje obiektów:</p>
 <ul>
 <li>osobnik (roślinożerca lub drapieżnik) <pre class="fragment">  * posiada zestaw indywidualnych cech; stanowi punkt (nie ma wymiarów), może się poruszać
 </pre></li>
@@ -125,54 +125,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h2>Cechy (parametry) osobników</h2>
 <p>Każdy osobnik posiada zestaw indywidualnych cech, ustalanych w momencie narodzin (liczby całkowite):</p>
 <ul>
-<li>Zasięg widzenia (ozn. R), R  [5, 100]</li>
+<li>Zasięg widzenia (ozn R), R należy do [5, 100]</li>
 </ul>
 <ul>
-<li>Szybkość biegu (V), V  [5, 100]</li>
+<li>Szybkość biegu (V), V należy do [5, 100]</li>
 </ul>
 <ul>
-<li>Odporność na głód (F), F  [5, 100]</li>
+<li>Odporność na głód (F), F należy do [5, 100]</li>
 </ul>
 <ul>
-<li>Odporność na pragnienie (W), W  [5, 100]</li>
+<li>Odporność na pragnienie (W), W należy do [5, 100]</li>
 </ul>
 <ul>
-<li>Wytrzymałość [odporność na zmęczenie] (S), S  [5, 100]</li>
+<li>Wytrzymałość [odporność na zmęczenie] (S), S należy do [5, 100]</li>
 </ul>
 <ul>
-<li>Wydajność reprodukcyjna (P), P  [5, 100]</li>
+<li>Wydajność reprodukcyjna (P), P należy do [5, 100]</li>
 </ul>
 <ul>
-<li>Maksymalny czas życia (L), L  [5, 100]</li>
+<li>Maksymalny czas życia (L), L należy do [5, 100]</li>
 </ul>
 <ul>
-<li>Płeć (X), X  {„F”, „M”}</li>
+<li>Płeć (X), X należy do {„F”, „M”}</li>
 </ul>
 <h2>Zależności</h2>
 <ul>
-<li>Indywidualne cechy osobnika (z wyjątkiem płci) mają tę własność, że „więcej = lepiej”. Spełniają one warunek: R+V+F+W+S+P = 200</li>
+<li>Indywidualne cechy osobnika (z wyjątkiem płci) mają tę własność, że „więcej = lepiej” Spełniają one warunek: <code>R+V+F+W+S+P = 200</code></li>
 </ul>
 <ul>
-<li>A także parametry chwilowe (liczby rzeczywiste, zmieniające się w sposób pseudo-ciągły): Poziom najedzenia (ozn. f), f  [0, F], maleje w stałym tempie</li>
+<li>A także parametry chwilowe (liczby rzeczywiste, zmieniające się w sposób pseudo-ciągły):</li>
+</ul>
+<h3>Poziom najedzenia</h3>
+<p>Poziom najedzenia (ozn f), f należy do [0, F], maleje w stałym tempie</p>
+<ul>
+<li>Jeśli poziom najedzenia spadnie poniżej połowy (f należy do [0, ½F]), to osobnik znajduje się w stanie „głodny”</li>
 </ul>
 <ul>
-<li>Jeśli poziom najedzenia spadnie poniżej połowy (f  [0, ½F]), to osobnik znajduje się w stanie „głodny”</li>
+<li>Jeśli głodny osobnik dotrze do drzewa (roślinożerca) lub złapie roślinożercę (drapieżnik) jego poziom napojenia natychmiast rośnie do poziomu F</li>
 </ul>
 <ul>
-<li>Jeśli głodny osobnik dotrze do drzewa (roślinożerca) lub złapie roślinożercę (drapieżnik) jego poziom napojenia natychmiast rośnie do poziomu F.</li>
-</ul>
-<ul>
-<li>Roślinożerca zjedzony przez drapieżnika znika z gry.</li>
+<li>Roślinożerca zjedzony przez drapieżnika znika z gry</li>
 </ul>
 <ul>
 <li>Jeśli poziom najedzenia spadnie do zera, osobnik umiera z głodu</li>
 </ul>
 <h3>Poziom napojenia</h3>
 <ul>
-<li>Poziom napojenia (w) w  [0, W], maleje w stałym tempie</li>
+<li>Poziom napojenia (w) w należy do [0, W], maleje w stałym tempie</li>
 </ul>
 <ul>
-<li>Jeśli poziom napojenia spadnie poniżej połowy (w  [0, ½w]), to osobnik znajduje się w stanie „spragniony”.</li>
+<li>Jeśli poziom napojenia spadnie poniżej połowy (w należy do [0, ½w]), to osobnik znajduje się w stanie „spragniony”</li>
 </ul>
 <ul>
 <li>Jeśli spragniony osobnik dotrze do wodopoju, jego poziom napojenia natychmiast rośnie do poziomu W</li>
@@ -181,74 +183,74 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Jeśli poziom napojenia spadnie do zera, osobnik umiera z pragnienia</li>
 </ul>
 <h3>Poziom energii</h3>
-<p>Poziom energii (wypoczęcia) (s) s  [0, S], maleje w zmiennym tempie</p>
+<p>Poziom energii (wypoczęcia) (s) s należy do [0, S], maleje w zmiennym tempie</p>
 <ul>
-<li>Jeśli poziom energii spadnie poniżej połowy (s  [0, ½S]), to osobnik znajduje się w stanie „zmęczony”.</li>
+<li>Jeśli poziom energii spadnie poniżej połowy (s należy do [0, ½S]), to osobnik znajduje się w stanie „zmęczony”</li>
 </ul>
 <ul>
-<li>Jeśli głodny osobnik dotrze do kryjówki, jego poziom napojenia energii rośnie do poziomu S, ale jednocześnie zapada on w sen trwający stały czas TS.</li>
+<li>Jeśli głodny osobnik dotrze do kryjówki, jego poziom napojenia energii rośnie do poziomu S, ale jednocześnie zapada on w sen trwający stały czas TS</li>
 </ul>
 <ul>
-<li>W czasie snu osobnik nie porusza się, jest niewidoczny dla innych osobników, ale może zostać zjedzony przez drapieżnika, który akurat wejdzie do tej samej kryjówki.</li>
+<li>W czasie snu osobnik nie porusza się, jest niewidoczny dla innych osobników, ale może zostać zjedzony przez drapieżnika, który akurat wejdzie do tej samej kryjówki</li>
 </ul>
 <ul>
-<li>Jeśli poziom energii spadnie do zera, osobnik umiera z wycieńczenia Poziom energii maleje dwa razy szybciej podczas biegu.</li>
+<li>Jeśli poziom energii spadnie do zera, osobnik umiera z wycieńczenia Poziom energii maleje dwa razy szybciej podczas biegu</li>
 </ul>
 <h3>Poziom zaspokojenia reprodukcyjnego</h3>
-<p>Czas do reprodukcji (p), p  [0, 1], maleje w stałym tempie (zależnym od wartości P)</p>
+<p>Czas do reprodukcji (p), p należy do [0, 1], maleje w stałym tempie (zależnym od wartości P)</p>
 <ul>
-<li>Jeśli p = 0, to osobnik może się rozmnażać; po akcie „kopulacji” wartość p jest ustawiana na 1.</li>
+<li>Jeśli <code>p = 0</code>, to osobnik może się rozmnażać; po akcie „kopulacji” wartość <code>p</code> jest ustawiana na 1</li>
 </ul>
 <ul>
-<li>Wartość ta maleje w tempie P/1000 na sekundę (czyli osobnik o najwyższej możliwej zdolności reprodukcyjnej P=100 będzie „pauzować” 10 sekund, a o najniższej możliwej P=5, będzie „pauzować” 200 sekund).</li>
+<li>Wartość ta maleje w tempie <code>P/1000</code> na sekundę (czyli osobnik o najwyższej możliwej zdolności reprodukcyjnej <code>P = 100</code> będzie „pauzować” 10 sekund, a o najniższej możliwej <code>P = 5</code>, będzie „pauzować” 200 sekund)</li>
 </ul>
 <h3>Wiek</h3>
-<p>Wiek (l), l  [0, L], rośnie w stałym tempie</p>
+<p>Wiek (l), l należy do [0, L], rośnie w stałym tempie</p>
 <ul>
-<li>Przy narodzinach jest ustawiane l = 0, po osiągnięciu l = L osobnik umiera ze starości</li>
+<li>Przy narodzinach jest ustawiane <code>l = 0</code>, po osiągnięciu <code>l = L</code> osobnik umiera ze starości</li>
 </ul>
 <h2>Zachowanie osobników</h2>
 <p>Każdy osobnik porusza się po planszy w sposób losowy, dopóki w jego polu widzenia (okrąg o promieniu R) nie znajdzie się jakiś interesujący go obiekt:</p>
 <ul>
-<li>Jeśli w polu widzenia osobnika znajduje się jaskinia i osobnik jest zmęczony, to idzie w stronę wodopoju – priorytet 1.</li>
+<li>Jeśli w polu widzenia osobnika znajduje się jaskinia i osobnik jest zmęczony, to idzie w stronę wodopoju – priorytet 1</li>
 </ul>
 <ul>
-<li>Jeśli w polu widzenia osobnika znajduje się drzewo, osobnik jest głodny i jest roślinożercą, to osobnik idzie w stronę drzewa – priorytet 2.</li>
+<li>Jeśli w polu widzenia osobnika znajduje się drzewo, osobnik jest głodny i jest roślinożercą, to osobnik idzie w stronę drzewa – priorytet 2</li>
 </ul>
 <ul>
-<li>Jeśli w polu widzenia osobnika znajduje się wodopój i osobnik jest spragniony, to osobnik idzie w stronę wodopoju – priorytet 3.</li>
+<li>Jeśli w polu widzenia osobnika znajduje się wodopój i osobnik jest spragniony, to osobnik idzie w stronę wodopoju – priorytet 3</li>
 </ul>
 <ul>
-<li>Jeśli w polu widzenia osobnika znajduje się drugi osobnik tego samego gatunku i przeciwnej płci oraz oba te osobniki mają p=0 (są gotowe do reprodukcji) oraz żaden z nich nie jest głodny, spragniony, ani zmęczony, to osobniki idą w swoim kierunku – priorytet 4.</li>
+<li>Jeśli w polu widzenia osobnika znajduje się drugi osobnik tego samego gatunku i przeciwnej płci oraz oba te osobniki mają p=0 (są gotowe do reprodukcji) oraz żaden z nich nie jest głodny, spragniony, ani zmęczony, to osobniki idą w swoim kierunku – priorytet 4</li>
 </ul>
 <ul>
-<li>Jeśli w polu widzenia osobnika znajduje się roślinożerca, osobnik jest głodny i jest drapieżnikiem, to osobnik biegnie w stronę roślinożercy (poluje) – priorytet 5.</li>
+<li>Jeśli w polu widzenia osobnika znajduje się roślinożerca, osobnik jest głodny i jest drapieżnikiem, to osobnik biegnie w stronę roślinożercy (poluje) – priorytet 5</li>
 </ul>
 <ul>
-<li>Jeśli w polu widzenia osobnika znajduje się drapieżnik i osobnik jest roślinożercą, to osobnik biegnie w stronę przeciwną (ucieka), niezależnie od tego, czy drapieżnik jest głodny – priorytet 5.</li>
+<li>Jeśli w polu widzenia osobnika znajduje się drapieżnik i osobnik jest roślinożercą, to osobnik biegnie w stronę przeciwną (ucieka), niezależnie od tego, czy drapieżnik jest głodny – priorytet 5</li>
 </ul>
-<p>Jakieś zachowania społeczne – osobniki mogą trzymać się innych osobników swojego gatunku, wspólnie polować etc. – tylko nie mam pojęcia, jak to realizować.</p>
-<p>Jeśli w zasięgu wzroku osobnika znajduje się kilka interesujących obiektów, to wybiera akcję o najwyższym priorytecie (najpierw polowanie / ucieczka itd.).</p>
+<p>Jakieś zachowania społeczne – osobniki mogą trzymać się innych osobników swojego gatunku, wspólnie polować etc – tylko nie mam pojęcia, jak to realizować</p>
+<p>Jeśli w zasięgu wzroku osobnika znajduje się kilka interesujących obiektów, to wybiera akcję o najwyższym priorytecie (najpierw polowanie / ucieczka itd)</p>
 <h3>Rozmnażanie</h3>
 <p>Jeśli dwa osobniki tego samego gatunku i różnych płci spotkają się, następuje akt prokreacji – pojawia się nowy osobnik, którego cechy (R, V, F, W, S, P, L) wynikają z odpowiednich cech rodziców:</p>
 <p><code>RDZIECKA = random(ROJCA, RMATKI) + random(-10, 10)</code></p>
-<p>(analogicznie dla pozostałych cech) gdzie <code>random(a,b)</code> jest funkcją zwracającą losową wartość z zakresu <code>[min(a,b);max(a,b)]</code>. Cechy są skalowane w taki sposób, aby spełniały warunki: <code>R+V+F+W+S+P+L=200; R, V, F, W, S, P, L \epsilon [5, 100]</code></p>
+<p>(analogicznie dla pozostałych cech) gdzie <code>random(a,b)</code> jest funkcją zwracającą losową wartość z zakresu <code>[min(a,b);max(a,b)]</code> Cechy są skalowane w taki sposób, aby spełniały warunki: <code>R+V+F+W+S+P+L=200; R, V, F, W, S, P, L należy do [5, 100]</code></p>
 <h2>Możliwości modyfikacji scenariusza</h2>
 <p>Na ekranie startowym użytkownik może ustalić pewne parametry symulacji, takie jak:</p>
 <ul>
 <li>wielkość planszy</li>
 </ul>
 <ul>
-<li>gęstość rozmieszczenia drzew, wodopojów, skał, ilość drapieżników i roślinożerców etc.,</li>
+<li>gęstość rozmieszczenia drzew, wodopojów, skał, ilość drapieżników i roślinożerców etc,</li>
 </ul>
-<p>Może także wpłynąć na określone cechy całej populacji (np. dodać wszystkim roślinożercom +30 do szybkości).</p>
-<p>Do programu będzie też dołączonych kilka (wybranych przez twórców gry) ciekawych scenariuszy.</p>
+<p>Może także wpłynąć na określone cechy całej populacji (np dodać wszystkim roślinożercom +30 do szybkości)</p>
+<p>Do programu będzie też dołączonych kilka (wybranych przez twórców gry) ciekawych scenariuszy</p>
 <h2>Wizualizacja</h2>
-<p>Osobniki i inne obiekty będą reprezentowane przez proste figury geometryczne, po najechaniu myszką na obiekt wyświetli się więcej informacji o nim. </p>
+<p>Osobniki i inne obiekty będą reprezentowane przez proste figury geometryczne, po najechaniu myszką na obiekt wyświetli się więcej informacji o nim </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 11 2013 22:50:34 for Life -- Fight! by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 11 2013 23:30:55 for Life -- Fight! by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

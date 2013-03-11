@@ -6,25 +6,25 @@ md_SCENARIO \- SCENARIO
 .SH "Propozycja dokumentacji funkcjonalnej"
 .PP
 .PP
-Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy damy radę, czy warto etc\&.)
+Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy damy radę, czy warto etc)
 .PP
 .SS "Budowa programu"
 .PP
-Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer\&.
+Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer
 .PP
 .IP "\(bu" 2
 Klient 
 .PP
 .nf
-  * Program, którego zadaniem jest komunikacja z użytkownikiem. 
+  * Program, którego zadaniem jest komunikacja z użytkownikiem 
 
-  * Na początku wyświetla okno z opcjami (zwane dalej ekranem startowym), w którym użytkownik może dobrać pewne parametry „rozgrywki”. 
+  * Na początku wyświetla okno z opcjami (zwane dalej ekranem startowym), w którym użytkownik może dobrać pewne parametry „rozgrywki” 
 
-  * Następnie uruchamia Serwer i przesyła mu zebrane dane, wtedy rozpoczyna się właściwa symulacja. 
+  * Następnie uruchamia Serwer i przesyła mu zebrane dane, wtedy rozpoczyna się właściwa symulacja 
 
-  * Podczas symulacji Klient odbiera od Serwera informacje o obecnych wynikach symulacji i na bieżąco wyświetla graficzną planszę oraz wysyła Serwerowi informacje o kliknięciach użytkownika (w czasie symulacji użytkownik może przyspieszać, zwalniać lub wstrzymywać symulację). 
+  * Podczas symulacji Klient odbiera od Serwera informacje o obecnych wynikach symulacji i na bieżąco wyświetla graficzną planszę oraz wysyła Serwerowi informacje o kliknięciach użytkownika (w czasie symulacji użytkownik może przyspieszać, zwalniać lub wstrzymywać symulację) 
 
-  * Do wyświetlania planszy klient używa biblioteki OpenGL. 
+  * Do wyświetlania planszy klient używa biblioteki OpenGL 
 
 .fi
 .PP
@@ -35,20 +35,20 @@ Klient
 Serwer 
 .PP
 .nf
-  * Program, którego zadaniem jest obliczać kolejne kroki symulacji z zadaną częstotliwością i wysyłać wyniki obliczeń do klienta.
+  * Program, którego zadaniem jest obliczać kolejne kroki symulacji z zadaną częstotliwością i wysyłać wyniki obliczeń do klienta
 
-  * Serwer może także przyspieszać, zwalniać lub wstrzymywać symulację na żądanie użytkownika (przekazywane za pośrednictwem klienta).
+  * Serwer może także przyspieszać, zwalniać lub wstrzymywać symulację na żądanie użytkownika (przekazywane za pośrednictwem klienta)
 
 .fi
 .PP
 
 .PP
 .PP
-Klient i serwer komunikują się za pomocą współdzielonej pamięci, która jest zrealizowana przy pomocy biblioteki Boost::Interprocess\&.
+Klient i serwer komunikują się za pomocą współdzielonej pamięci, która jest zrealizowana przy pomocy biblioteki Boost::Interprocess
 .PP
 .SS "Świat gry"
 .PP
-Symulacja rozgrywa się na prostokątnej planszy, której wymiary ustala użytkownik na ekranie startowym\&. Początkowo obiekty zostają umieszczone w sposób losowy, ale z ograniczeniami opisanymi niżej\&. Rodzaje obiektów:
+Symulacja rozgrywa się na prostokątnej planszy, której wymiary ustala użytkownik na ekranie startowym Początkowo obiekty zostają umieszczone w sposób losowy, ale z ograniczeniami opisanymi niżej\&. Rodzaje obiektów:
 .PP
 .IP "\(bu" 2
 osobnik (roślinożerca lub drapieżnik) 
@@ -110,57 +110,61 @@ skały
 Każdy osobnik posiada zestaw indywidualnych cech, ustalanych w momencie narodzin (liczby całkowite):
 .PP
 .IP "\(bu" 2
-Zasięg widzenia (ozn\&. R), R  [5, 100]
+Zasięg widzenia (ozn R), R należy do [5, 100]
 .PP
 .PP
 .IP "\(bu" 2
-Szybkość biegu (V), V  [5, 100]
+Szybkość biegu (V), V należy do [5, 100]
 .PP
 .PP
 .IP "\(bu" 2
-Odporność na głód (F), F  [5, 100]
+Odporność na głód (F), F należy do [5, 100]
 .PP
 .PP
 .IP "\(bu" 2
-Odporność na pragnienie (W), W  [5, 100]
+Odporność na pragnienie (W), W należy do [5, 100]
 .PP
 .PP
 .IP "\(bu" 2
-Wytrzymałość [odporność na zmęczenie] (S), S  [5, 100]
+Wytrzymałość [odporność na zmęczenie] (S), S należy do [5, 100]
 .PP
 .PP
 .IP "\(bu" 2
-Wydajność reprodukcyjna (P), P  [5, 100]
+Wydajność reprodukcyjna (P), P należy do [5, 100]
 .PP
 .PP
 .IP "\(bu" 2
-Maksymalny czas życia (L), L  [5, 100]
+Maksymalny czas życia (L), L należy do [5, 100]
 .PP
 .PP
 .IP "\(bu" 2
-Płeć (X), X  {„F”, „M”}
+Płeć (X), X należy do {„F”, „M”}
 .PP
 .PP
 .SS "Zależności"
 .PP
 .IP "\(bu" 2
-Indywidualne cechy osobnika (z wyjątkiem płci) mają tę własność, że „więcej = lepiej”\&. Spełniają one warunek: R+V+F+W+S+P = 200
+Indywidualne cechy osobnika (z wyjątkiem płci) mają tę własność, że „więcej = lepiej” Spełniają one warunek: \fCR+V+F+W+S+P = 200\fP
 .PP
 .PP
 .IP "\(bu" 2
-A także parametry chwilowe (liczby rzeczywiste, zmieniające się w sposób pseudo-ciągły): Poziom najedzenia (ozn\&. f), f  [0, F], maleje w stałym tempie
+A także parametry chwilowe (liczby rzeczywiste, zmieniające się w sposób pseudo-ciągły):
+.PP
+.PP
+.SS "Poziom najedzenia"
+.PP
+Poziom najedzenia (ozn f), f należy do [0, F], maleje w stałym tempie
+.PP
+.IP "\(bu" 2
+Jeśli poziom najedzenia spadnie poniżej połowy (f należy do [0, ½F]), to osobnik znajduje się w stanie „głodny”
 .PP
 .PP
 .IP "\(bu" 2
-Jeśli poziom najedzenia spadnie poniżej połowy (f  [0, ½F]), to osobnik znajduje się w stanie „głodny”
+Jeśli głodny osobnik dotrze do drzewa (roślinożerca) lub złapie roślinożercę (drapieżnik) jego poziom napojenia natychmiast rośnie do poziomu F
 .PP
 .PP
 .IP "\(bu" 2
-Jeśli głodny osobnik dotrze do drzewa (roślinożerca) lub złapie roślinożercę (drapieżnik) jego poziom napojenia natychmiast rośnie do poziomu F\&.
-.PP
-.PP
-.IP "\(bu" 2
-Roślinożerca zjedzony przez drapieżnika znika z gry\&.
+Roślinożerca zjedzony przez drapieżnika znika z gry
 .PP
 .PP
 .IP "\(bu" 2
@@ -170,11 +174,11 @@ Jeśli poziom najedzenia spadnie do zera, osobnik umiera z głodu
 .SS "Poziom napojenia"
 .PP
 .IP "\(bu" 2
-Poziom napojenia (w) w  [0, W], maleje w stałym tempie
+Poziom napojenia (w) w należy do [0, W], maleje w stałym tempie
 .PP
 .PP
 .IP "\(bu" 2
-Jeśli poziom napojenia spadnie poniżej połowy (w  [0, ½w]), to osobnik znajduje się w stanie „spragniony”\&.
+Jeśli poziom napojenia spadnie poniżej połowy (w należy do [0, ½w]), to osobnik znajduje się w stanie „spragniony”
 .PP
 .PP
 .IP "\(bu" 2
@@ -187,42 +191,42 @@ Jeśli poziom napojenia spadnie do zera, osobnik umiera z pragnienia
 .PP
 .SS "Poziom energii"
 .PP
-Poziom energii (wypoczęcia) (s) s  [0, S], maleje w zmiennym tempie
+Poziom energii (wypoczęcia) (s) s należy do [0, S], maleje w zmiennym tempie
 .PP
 .IP "\(bu" 2
-Jeśli poziom energii spadnie poniżej połowy (s  [0, ½S]), to osobnik znajduje się w stanie „zmęczony”\&.
-.PP
-.PP
-.IP "\(bu" 2
-Jeśli głodny osobnik dotrze do kryjówki, jego poziom napojenia energii rośnie do poziomu S, ale jednocześnie zapada on w sen trwający stały czas TS\&.
+Jeśli poziom energii spadnie poniżej połowy (s należy do [0, ½S]), to osobnik znajduje się w stanie „zmęczony”
 .PP
 .PP
 .IP "\(bu" 2
-W czasie snu osobnik nie porusza się, jest niewidoczny dla innych osobników, ale może zostać zjedzony przez drapieżnika, który akurat wejdzie do tej samej kryjówki\&.
+Jeśli głodny osobnik dotrze do kryjówki, jego poziom napojenia energii rośnie do poziomu S, ale jednocześnie zapada on w sen trwający stały czas TS
 .PP
 .PP
 .IP "\(bu" 2
-Jeśli poziom energii spadnie do zera, osobnik umiera z wycieńczenia Poziom energii maleje dwa razy szybciej podczas biegu\&.
+W czasie snu osobnik nie porusza się, jest niewidoczny dla innych osobników, ale może zostać zjedzony przez drapieżnika, który akurat wejdzie do tej samej kryjówki
+.PP
+.PP
+.IP "\(bu" 2
+Jeśli poziom energii spadnie do zera, osobnik umiera z wycieńczenia Poziom energii maleje dwa razy szybciej podczas biegu
 .PP
 .PP
 .SS "Poziom zaspokojenia reprodukcyjnego"
 .PP
-Czas do reprodukcji (p), p  [0, 1], maleje w stałym tempie (zależnym od wartości P)
+Czas do reprodukcji (p), p należy do [0, 1], maleje w stałym tempie (zależnym od wartości P)
 .PP
 .IP "\(bu" 2
-Jeśli p = 0, to osobnik może się rozmnażać; po akcie „kopulacji” wartość p jest ustawiana na 1\&.
+Jeśli \fCp = 0\fP, to osobnik może się rozmnażać; po akcie „kopulacji” wartość \fCp\fP jest ustawiana na 1
 .PP
 .PP
 .IP "\(bu" 2
-Wartość ta maleje w tempie P/1000 na sekundę (czyli osobnik o najwyższej możliwej zdolności reprodukcyjnej P=100 będzie „pauzować” 10 sekund, a o najniższej możliwej P=5, będzie „pauzować” 200 sekund)\&.
+Wartość ta maleje w tempie \fCP/1000\fP na sekundę (czyli osobnik o najwyższej możliwej zdolności reprodukcyjnej \fCP = 100\fP będzie „pauzować” 10 sekund, a o najniższej możliwej \fCP = 5\fP, będzie „pauzować” 200 sekund)
 .PP
 .PP
 .SS "Wiek"
 .PP
-Wiek (l), l  [0, L], rośnie w stałym tempie
+Wiek (l), l należy do [0, L], rośnie w stałym tempie
 .PP
 .IP "\(bu" 2
-Przy narodzinach jest ustawiane l = 0, po osiągnięciu l = L osobnik umiera ze starości
+Przy narodzinach jest ustawiane \fCl = 0\fP, po osiągnięciu \fCl = L\fP osobnik umiera ze starości
 .PP
 .PP
 .SS "Zachowanie osobników"
@@ -230,32 +234,32 @@ Przy narodzinach jest ustawiane l = 0, po osiągnięciu l = L osobnik umiera ze 
 Każdy osobnik porusza się po planszy w sposób losowy, dopóki w jego polu widzenia (okrąg o promieniu R) nie znajdzie się jakiś interesujący go obiekt:
 .PP
 .IP "\(bu" 2
-Jeśli w polu widzenia osobnika znajduje się jaskinia i osobnik jest zmęczony, to idzie w stronę wodopoju – priorytet 1\&.
+Jeśli w polu widzenia osobnika znajduje się jaskinia i osobnik jest zmęczony, to idzie w stronę wodopoju – priorytet 1
 .PP
 .PP
 .IP "\(bu" 2
-Jeśli w polu widzenia osobnika znajduje się drzewo, osobnik jest głodny i jest roślinożercą, to osobnik idzie w stronę drzewa – priorytet 2\&.
+Jeśli w polu widzenia osobnika znajduje się drzewo, osobnik jest głodny i jest roślinożercą, to osobnik idzie w stronę drzewa – priorytet 2
 .PP
 .PP
 .IP "\(bu" 2
-Jeśli w polu widzenia osobnika znajduje się wodopój i osobnik jest spragniony, to osobnik idzie w stronę wodopoju – priorytet 3\&.
+Jeśli w polu widzenia osobnika znajduje się wodopój i osobnik jest spragniony, to osobnik idzie w stronę wodopoju – priorytet 3
 .PP
 .PP
 .IP "\(bu" 2
-Jeśli w polu widzenia osobnika znajduje się drugi osobnik tego samego gatunku i przeciwnej płci oraz oba te osobniki mają p=0 (są gotowe do reprodukcji) oraz żaden z nich nie jest głodny, spragniony, ani zmęczony, to osobniki idą w swoim kierunku – priorytet 4\&.
+Jeśli w polu widzenia osobnika znajduje się drugi osobnik tego samego gatunku i przeciwnej płci oraz oba te osobniki mają p=0 (są gotowe do reprodukcji) oraz żaden z nich nie jest głodny, spragniony, ani zmęczony, to osobniki idą w swoim kierunku – priorytet 4
 .PP
 .PP
 .IP "\(bu" 2
-Jeśli w polu widzenia osobnika znajduje się roślinożerca, osobnik jest głodny i jest drapieżnikiem, to osobnik biegnie w stronę roślinożercy (poluje) – priorytet 5\&.
+Jeśli w polu widzenia osobnika znajduje się roślinożerca, osobnik jest głodny i jest drapieżnikiem, to osobnik biegnie w stronę roślinożercy (poluje) – priorytet 5
 .PP
 .PP
 .IP "\(bu" 2
-Jeśli w polu widzenia osobnika znajduje się drapieżnik i osobnik jest roślinożercą, to osobnik biegnie w stronę przeciwną (ucieka), niezależnie od tego, czy drapieżnik jest głodny – priorytet 5\&.
+Jeśli w polu widzenia osobnika znajduje się drapieżnik i osobnik jest roślinożercą, to osobnik biegnie w stronę przeciwną (ucieka), niezależnie od tego, czy drapieżnik jest głodny – priorytet 5
 .PP
 .PP
-Jakieś zachowania społeczne – osobniki mogą trzymać się innych osobników swojego gatunku, wspólnie polować etc\&. – tylko nie mam pojęcia, jak to realizować\&.
+Jakieś zachowania społeczne – osobniki mogą trzymać się innych osobników swojego gatunku, wspólnie polować etc – tylko nie mam pojęcia, jak to realizować
 .PP
-Jeśli w zasięgu wzroku osobnika znajduje się kilka interesujących obiektów, to wybiera akcję o najwyższym priorytecie (najpierw polowanie / ucieczka itd\&.)\&.
+Jeśli w zasięgu wzroku osobnika znajduje się kilka interesujących obiektów, to wybiera akcję o najwyższym priorytecie (najpierw polowanie / ucieczka itd)
 .PP
 .SS "Rozmnażanie"
 .PP
@@ -263,7 +267,7 @@ Jeśli dwa osobniki tego samego gatunku i różnych płci spotkają się, nastę
 .PP
 \fCRDZIECKA = random(ROJCA, RMATKI) + random(-10, 10)\fP
 .PP
-(analogicznie dla pozostałych cech) gdzie \fCrandom(a,b)\fP jest funkcją zwracającą losową wartość z zakresu \fC[min(a,b);max(a,b)]\fP\&. Cechy są skalowane w taki sposób, aby spełniały warunki: \fCR+V+F+W+S+P+L=200; R, V, F, W, S, P, L \\epsilon [5, 100]\fP
+(analogicznie dla pozostałych cech) gdzie \fCrandom(a,b)\fP jest funkcją zwracającą losową wartość z zakresu \fC[min(a,b);max(a,b)]\fP Cechy są skalowane w taki sposób, aby spełniały warunki: \fCR+V+F+W+S+P+L=200; R, V, F, W, S, P, L należy do [5, 100]\fP
 .PP
 .SS "Możliwości modyfikacji scenariusza"
 .PP
@@ -274,13 +278,13 @@ wielkość planszy
 .PP
 .PP
 .IP "\(bu" 2
-gęstość rozmieszczenia drzew, wodopojów, skał, ilość drapieżników i roślinożerców etc\&.,
+gęstość rozmieszczenia drzew, wodopojów, skał, ilość drapieżników i roślinożerców etc,
 .PP
 .PP
-Może także wpłynąć na określone cechy całej populacji (np\&. dodać wszystkim roślinożercom +30 do szybkości)\&.
+Może także wpłynąć na określone cechy całej populacji (np dodać wszystkim roślinożercom +30 do szybkości)
 .PP
-Do programu będzie też dołączonych kilka (wybranych przez twórców gry) ciekawych scenariuszy\&.
+Do programu będzie też dołączonych kilka (wybranych przez twórców gry) ciekawych scenariuszy
 .PP
 .SS "Wizualizacja"
 .PP
-Osobniki i inne obiekty będą reprezentowane przez proste figury geometryczne, po najechaniu myszką na obiekt wyświetli się więcej informacji o nim\&. 
+Osobniki i inne obiekty będą reprezentowane przez proste figury geometryczne, po najechaniu myszką na obiekt wyświetli się więcej informacji o nim 
