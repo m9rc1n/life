@@ -4,7 +4,7 @@ Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy
 
 Budowa programu
 
-  [x] Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer.
+	x Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer.
 
 Klient – program, którego zadaniem jest komunikacja z użytkownikiem. Na początku wyświetla okno z opcjami (zwane dalej ekranem startowym), w którym użytkownik może dobrać pewne parametry „rozgrywki”. Następnie uruchamia Serwer i przesyła mu zebrane dane, wtedy rozpoczyna się właściwa symulacja. Podczas symulacji Klient odbiera od Serwera informacje o obecnych wynikach symulacji i na bieżąco wyświetla graficzną planszę oraz wysyła Serwerowi informacje o kliknięciach użytkownika (w czasie symulacji użytkownik może przyspieszać, zwalniać lub wstrzymywać symulację). Do wyświetlania planszy klient używa biblioteki OpenGL. 
 Serwer – program, którego zadaniem jest obliczać kolejne kroki symulacji z zadaną częstotliwością i wysyłać wyniki obliczeń do klienta. Serwer może także przyspieszać, zwalniać lub wstrzymywać symulację na żądanie użytkownika (przekazywane za pośrednictwem klienta).
