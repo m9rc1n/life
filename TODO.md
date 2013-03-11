@@ -12,6 +12,7 @@ Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy
 - [x] Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer.
 
 	x Klient
+	
 		program, którego zadaniem jest komunikacja z użytkownikiem. 
 		Na początku wyświetla okno z opcjami (zwane dalej ekranem startowym), 
 		w którym użytkownik może dobrać pewne parametry „rozgrywki”. 
