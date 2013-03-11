@@ -1,4 +1,5 @@
 Wstępna propozycja szkicu dokumentacji funkcjonalnej
+-
 
 Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy damy radę, czy warto etc.)
 
