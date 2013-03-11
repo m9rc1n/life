@@ -1,5 +1,5 @@
 eLife
-=
+-
 					
 Let's play game for life!
 
