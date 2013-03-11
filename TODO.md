@@ -10,7 +10,6 @@ Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy
 <b>Budowa programu</b>
 
 - [x] Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer.
-
 	
 	x Klient
 		x program, którego zadaniem jest komunikacja z użytkownikiem. 
