@@ -1,9 +1,7 @@
-eLife
--
-					
+# eLife
 Let's play game for life!
 
-Strategia:
+## Strategia:
 
 x Co może być tu abstrakcyjnego?
 
@@ -54,3 +52,28 @@ x Mutacje?
 	
 	x blisko spokrewnione klany mogą generować zmodyfikowane dziecka
 	x kopulacja dwóch różnych gatunków powoduje stworzenie muła?
+
+## Klasy
+### Związane z obsługą interfejsu na różnych systemach
+
+* `Okno`
+* Wzorzec
+	* Most? 
+### Związane z tworzeniem mapy
+
+* `Mapa`
+	* 
+* Wzorzec
+	* Budowniczy?
+	
+### Związane z tworzeniem obiektów na mapie
+
+* `Zwierzak`
+	* klasa abstrakcyjna, interfejs
+
+* `ZwierzakRoslinozerca : Zwierzak`
+	* na jej podstawie tworzone będą nowe klony roślinożernych zwierzątek
+
+* Wzorzec : 
+	* Prototyp
+		* Służy do tworzenia nowych obiektów w czasie rzeczywistym
