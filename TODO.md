@@ -2,7 +2,7 @@ Wstępna propozycja szkicu dokumentacji funkcjonalnej
 
 Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy damy radę, czy warto etc.)
 
-Budowa programu
+<b>Budowa programu</b>
 
 	x Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer.
 		x Klient – program, którego zadaniem jest komunikacja z użytkownikiem. 
