@@ -2,6 +2,11 @@ Wstępna propozycja szkicu dokumentacji funkcjonalnej
 
 Fragmenty oznaczone kursywą to funkcjonalności których nie jestem pewien (czy damy radę, czy warto etc.)
 
+- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+
 <b>Budowa programu</b>
 
 	- [x] Aplikacja będzie się składać z dwóch modułów, nazwanych roboczo Klient i Serwer.
