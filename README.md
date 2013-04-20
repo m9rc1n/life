@@ -1,6 +1,23 @@
 # eLife
 Let's play game for life!
 
+# Sposób działania
+
+## Klient
+
+x Na początku przesyła dane do serwera o
+	
+	x liczbie początkowej populacji i wysyła indentyfikatory początkowej populacji
+	x szybkości przesyłania elementów?
+	
+x wyświetla na bieżąco wyniki które dostał od serwera
+
+	x ja
+	
+## Serwer
+
+
+
 ## Strategia:
 
 x Co może być tu abstrakcyjnego?
