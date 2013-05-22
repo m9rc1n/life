@@ -1,0 +1,8 @@
+ 
+namespace init
+{
+    int main(Config *config)
+    {
+        
+    }
+}

@@ -1,0 +1,9 @@
+
+#include "Map.hpp"
+
+
+BOOST_CLASS_EXPORT(Predator)
+
+BOOST_CLASS_EXPORT(Herbivore)
+
+BOOST_CLASS_EXPORT(Creature)

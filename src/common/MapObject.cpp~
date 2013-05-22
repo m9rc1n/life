@@ -1,0 +1,4 @@
+#include "MapObject.hpp"
+
+
+BOOST_CLASS_EXPORT(MapObject);
