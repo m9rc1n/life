@@ -1,3 +1,0 @@
-#include "Herbivore.hpp"
-
-BOOST_CLASS_EXPORT(Herbivore)
