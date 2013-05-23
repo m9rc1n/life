@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['age_5f',['age_',['../classCreature.html#abf62d53b9178d950e98fc0167f51b824',1,'Creature']]],
-  ['angle_5f',['angle_',['../classCreature.html#afa39083bf461c18b35a4c0deac5c68f1',1,'Creature']]]
+  ['age_5f',['age_',['../classcommon_1_1Creature.html#a9b3a262eedc2abbfc3e0ebc471a90be8',1,'common::Creature']]],
+  ['angle_5f',['angle_',['../classcommon_1_1Creature.html#a51251c0be55bcde1fb24611fb5657a2b',1,'common::Creature']]]
 ];

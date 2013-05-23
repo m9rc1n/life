@@ -3,31 +3,29 @@
 }
 
 \begin{DoxyCode}
-00001 \textcolor{preprocessor}{#ifndef HERBIVORE\_H}
-00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HERBIVORE\_H}
+00001 \textcolor{preprocessor}{#ifndef COMMON\_HERBIVORE\_H}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define COMMON\_HERBIVORE\_H}
 00003 \textcolor{preprocessor}{}
 00004 \textcolor{preprocessor}{#include "Creature.hpp"}
 00005 
-00006 
-\hypertarget{Herbivore_8hpp_source_l00013}{}\hyperlink{classHerbivore}{00013} \textcolor{keyword}{class }\hyperlink{classHerbivore}{Herbivore}: \textcolor{keyword}{public} \hyperlink{classCreature}{Creature}
-00014 \{ 
-00015 \textcolor{keyword}{public}:  
-\hypertarget{Herbivore_8hpp_source_l00023}{}\hyperlink{classHerbivore_a2174349eed9903363d2840e0484a61d5}{00023}     \hyperlink{classHerbivore_a2174349eed9903363d2840e0484a61d5}{Herbivore}(\textcolor{keywordtype}{double} x\_pos, \textcolor{keywordtype}{double} y\_pos):
-00024         \hyperlink{classCreature}{Creature}(x\_pos, y\_pos)
-00025     \{\} \textcolor{comment}{// kod w klasie Creature}
-00026     
-\hypertarget{Herbivore_8hpp_source_l00037}{}\hyperlink{classHerbivore_a728f136b4489a168df89dadd244a86a8}{00037}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classHerbivore_a728f136b4489a168df89dadd244a86a8}{simulationStep}(\textcolor{keywordtype}{int} miliseconds)
-00038     \{
-00039         
-00040     \}
-00041     
-00048     \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>
-\hypertarget{Herbivore_8hpp_source_l00049}{}\hyperlink{classHerbivore_a05a43de5c6a5fa07fd3091692c3f4e94}{00049}     \textcolor{keywordtype}{void} \hyperlink{classHerbivore_a05a43de5c6a5fa07fd3091692c3f4e94}{serialize}(Archive & ar, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} version)
-00050     \{
-00051         ar & boost::serialization::base\_object<Creature>(*this);
-00052     \}
-00053 \};
-00054 
-00055 
-00056 \textcolor{preprocessor}{#endif}
+00006 \textcolor{keyword}{namespace }common
+00007 \{
+00008         
+\hypertarget{Herbivore_8hpp_source_l00015}{}\hyperlink{classcommon_1_1Herbivore}{00015}     \textcolor{keyword}{class }\hyperlink{classcommon_1_1Herbivore}{Herbivore}: \textcolor{keyword}{public} \hyperlink{classcommon_1_1Creature}{Creature}
+00016     \{ 
+00017     \textcolor{keyword}{public}:  
+\hypertarget{Herbivore_8hpp_source_l00025}{}\hyperlink{classcommon_1_1Herbivore_afd574119349d162e90030ec101c5d6f9}{00025}         \hyperlink{classcommon_1_1Herbivore_afd574119349d162e90030ec101c5d6f9}{Herbivore}(\textcolor{keywordtype}{double} x\_pos, \textcolor{keywordtype}{double} y\_pos):
+00026             \hyperlink{classcommon_1_1Creature}{Creature}(x\_pos, y\_pos)
+00027         \{\} \textcolor{comment}{// kod w klasie Creature}
+00028         
+00029         
+00036         \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>
+\hypertarget{Herbivore_8hpp_source_l00037}{}\hyperlink{classcommon_1_1Herbivore_affb4a1d96e6f92d41223d2f5eb2d6f03}{00037}         \textcolor{keywordtype}{void} \hyperlink{classcommon_1_1Herbivore_affb4a1d96e6f92d41223d2f5eb2d6f03}{serialize}(Archive & ar, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} version)
+00038         \{
+00039             ar & boost::serialization::base\_object<Creature>(*this);
+00040         \}
+00041     \};
+00042 \};
+00043 
+00044 \textcolor{preprocessor}{#endif}
 \end{DoxyCode}

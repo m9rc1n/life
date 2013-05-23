@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['config',['Config',['../structConfig.html',1,'']]],
-  ['creature',['Creature',['../classCreature.html',1,'']]]
+  ['config',['Config',['../structcommon_1_1Config.html',1,'common']]],
+  ['creature',['Creature',['../classcommon_1_1Creature.html',1,'common']]]
 ];

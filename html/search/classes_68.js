@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['herbivore',['Herbivore',['../classHerbivore.html',1,'']]]
+  ['herbivore',['Herbivore',['../classcommon_1_1Herbivore.html',1,'common']]]
 ];

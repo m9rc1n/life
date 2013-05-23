@@ -3,22 +3,19 @@
 }
 
 \begin{DoxyCode}
-00001 \textcolor{preprocessor}{#include "../common/Map.hpp"}
-00002 \textcolor{preprocessor}{#include "../common/MapObject.hpp"}
-00003 \textcolor{preprocessor}{#include "../common/Creature.hpp"}
-00004 \textcolor{preprocessor}{#include "../common/Herbivore.hpp"}
-00005 \textcolor{preprocessor}{#include "../common/Predator.hpp"}
-00006 \textcolor{preprocessor}{#include "../common/Config.hpp"}
-00007 
-00008 \textcolor{preprocessor}{#include <iostream>}
-00009 \textcolor{preprocessor}{#include <mutex>}
-00010 \textcolor{preprocessor}{#include <thread>} \textcolor{comment}{// c++11}
-00011 \textcolor{preprocessor}{#include <chrono>} \textcolor{comment}{// c++11}
-00012 
-00013 \textcolor{keyword}{namespace }client
-00014 \{
-00015     \textcolor{keywordtype}{void} run(std::mutex *mutex, \hyperlink{classMap}{Map} *map, \hyperlink{structConfig}{Config} *config);
-00016     \textcolor{comment}{// tutaj deklaracje jakichs klas uzytych w kliencie, np.}
-00017     \textcolor{comment}{// class GameWindow;}
-00018 \};
+00001 
+00002 \textcolor{preprocessor}{#include <iostream>}
+00003 \textcolor{preprocessor}{#include <mutex>}
+00004 \textcolor{preprocessor}{#include <thread>} \textcolor{comment}{// c++11}
+00005 \textcolor{preprocessor}{#include <chrono>} \textcolor{comment}{// c++11}
+00006 
+00007 \textcolor{preprocessor}{#include "../include.hpp"}
+00008 
+00009 \textcolor{keyword}{namespace }client
+00010 \{
+00011     \textcolor{keywordtype}{void} run(std::mutex *mutex, \hyperlink{classcommon_1_1Map}{common::Map} *map, \hyperlink{structcommon_1_1Config}{common::Config}
+       *config);
+00012     \textcolor{comment}{// tutaj deklaracje jakichs klas uzytych w kliencie, np.}
+00013     \textcolor{comment}{// class GameWindow;}
+00014 \};
 \end{DoxyCode}

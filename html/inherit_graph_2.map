@@ -1,6 +1,7 @@
 <map id="Graficzna hierarchia klas" name="Graficzna hierarchia klas">
-<area shape="rect" id="node1" href="$classMapObject.html" title="Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp)." alt="" coords="5,32,91,61"/>
-<area shape="rect" id="node3" href="$classCreature.html" title="Abstrakcyjna klasa reprezentująca stworzenie." alt="" coords="139,32,211,61"/>
-<area shape="rect" id="node5" href="$classHerbivore.html" title="Klasa reprezentujaca roslinozerce." alt="" coords="260,5,337,35"/>
-<area shape="rect" id="node7" href="$classPredator.html" title="Klasa reprezentujaca drapieznika." alt="" coords="264,59,333,88"/>
+<area shape="rect" id="node1" href="$classcommon_1_1MapObject.html" title="Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp)." alt="" coords="7,59,148,88"/>
+<area shape="rect" id="node3" href="$classcommon_1_1Creature.html" title="Abstrakcyjna klasa reprezentująca stworzenie." alt="" coords="197,32,328,61"/>
+<area shape="rect" id="node9" href="$classcommon_1_1Tree.html" title="common::Tree" alt="" coords="209,85,316,115"/>
+<area shape="rect" id="node5" href="$classcommon_1_1Herbivore.html" title="Abstrakcyjna klasa reprezentujaca roslinozerce." alt="" coords="376,5,512,35"/>
+<area shape="rect" id="node7" href="$classcommon_1_1Predator.html" title="Abstrakcyjna klasa reprezentujaca drapieznika." alt="" coords="380,59,508,88"/>
 </map>

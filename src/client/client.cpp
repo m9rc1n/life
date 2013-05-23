@@ -9,7 +9,8 @@ void client::run(std::mutex *mutex, common::Map *map, common::Config *config)
         std::this_thread::sleep_for(std::chrono::milliseconds(820));
         
         mutex->lock();
-            std::cout <<"klient czyta plansze, liczba obiektow: " << map->countObjects() << std::endl;
+         // do something with map
         mutex->unlock();
+        
     }
 }

@@ -11,7 +11,6 @@
 #include "init/init.hpp"
 
 #include "client/client.hpp"
-#include "client/Map.hpp"
 
 #include "server/server.hpp"
 

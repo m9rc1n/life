@@ -36,43 +36,20 @@ namespace common
             
         }
         
-        /**
-        * @brief
-        * TYMCZASOWA FUNKCJA DO TESTOWANIA
-        * 
-        * @todo USUN MNIE GDY NAPISZESZ BARDZIEJ ZAAWANSOWANE TESTY!!!
-        */
-        void createSomeRandomObjects()
-        {
-            objects.push_back(new Herbivore(2, 3));
-            objects.push_back(new Predator(5, 2));
-            objects.push_back(new Predator(7, 3));
-        }
-        
-        /**
-        * @brief
-        * TYMCZASOWA FUNKCJA DO TESTOWANIA
-        * 
-        * @todo USUN MNIE GDY NAPISZESZ BARDZIEJ ZAAWANSOWANE TESTY!!!
-        */
-        int countObjects()
-        {
-            return objects.size();
-        }
-        
+        /*  
         /**
         * @brief
         * Przeprowadza jeden krok symulacji dla wszystkich obiektow na mapie.
         *
         * @param miliseconds czas w milisekundach, który upłynął od poprzedniego kroku
-        */
-        void simulationStep(int miliseconds)
+        *
+        void simulationStep(int miliseconds) 
         {
             for(std::vector<MapObject*>::iterator iter = objects.begin(); iter != objects.end(); ++iter)
             {
                 (*iter) -> simulationStep(miliseconds);
             }
-        }
+        } */
         
     protected:
         /**

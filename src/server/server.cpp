@@ -12,8 +12,7 @@ void server::run(std::mutex *mutex, common::Map *map, common::Config *config)
         std::this_thread::sleep_for(std::chrono::milliseconds(1200));
         
         mutex->lock();
-            map->createSomeRandomObjects();
-            std::cout <<"serwer modyfikuje plansze, liczba obiektow: " << map->countObjects() << std::endl;
+         // do something with it   
         mutex->unlock();
     }
 }

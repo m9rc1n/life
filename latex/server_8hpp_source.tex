@@ -3,20 +3,18 @@
 }
 
 \begin{DoxyCode}
-00001 \textcolor{preprocessor}{#include "../common/Map.hpp"}
-00002 \textcolor{preprocessor}{#include "../common/MapObject.hpp"}
-00003 \textcolor{preprocessor}{#include "../common/Creature.hpp"}
-00004 \textcolor{preprocessor}{#include "../common/Herbivore.hpp"}
-00005 \textcolor{preprocessor}{#include "../common/Predator.hpp"}
-00006 \textcolor{preprocessor}{#include "../common/Config.hpp"}
+00001 
+00002 
+00003 \textcolor{preprocessor}{#include <mutex>} \textcolor{comment}{// c++11}
+00004 \textcolor{preprocessor}{#include <iostream>}
+00005 \textcolor{preprocessor}{#include <thread>} \textcolor{comment}{// c++11}
+00006 \textcolor{preprocessor}{#include <chrono>} \textcolor{comment}{// c++11}
 00007 
-00008 \textcolor{preprocessor}{#include <mutex>} \textcolor{comment}{// c++11}
-00009 \textcolor{preprocessor}{#include <iostream>}
-00010 \textcolor{preprocessor}{#include <thread>} \textcolor{comment}{// c++11}
-00011 \textcolor{preprocessor}{#include <chrono>} \textcolor{comment}{// c++11}
-00012 
-00013 \textcolor{keyword}{namespace }server
-00014 \{
-00015     \textcolor{keywordtype}{void} run(std::mutex *mutex, \hyperlink{classMap}{Map} *map, \hyperlink{structConfig}{Config} *config);
-00016 \};
+00008 \textcolor{preprocessor}{#include "../include.hpp"}
+00009 
+00010 \textcolor{keyword}{namespace }server
+00011 \{
+00012     \textcolor{keywordtype}{void} run(std::mutex *mutex, \hyperlink{classcommon_1_1Map}{common::Map} *map, \hyperlink{structcommon_1_1Config}{common::Config}
+       *config);
+00013 \};
 \end{DoxyCode}

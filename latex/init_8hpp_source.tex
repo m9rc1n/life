@@ -4,12 +4,16 @@
 
 \begin{DoxyCode}
 00001  
-00002 \textcolor{keyword}{namespace }init
-00003 \{
-00007     \textcolor{keywordtype}{void} run(\hyperlink{structConfig}{Config} *config)
-00008     \{
-00009         config->map\_width = 4;
-00010         config->map\_height = 5;
-00011     \}
-00012 \}
+00002 \textcolor{preprocessor}{#ifndef INIT\_INIT\_HPP}
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define INIT\_INIT\_HPP }
+00004 \textcolor{preprocessor}{}
+00005 \textcolor{preprocessor}{#include "../include.hpp"}
+00006 
+00007  
+00008 \textcolor{keyword}{namespace }init
+00009 \{
+00020     \textcolor{keywordtype}{void} run(\hyperlink{structcommon_1_1Config}{common::Config} *config);
+00021 \}
+00022 
+00023 \textcolor{preprocessor}{#endif}
 \end{DoxyCode}
