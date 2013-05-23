@@ -9,6 +9,7 @@ namespace common
     * startowym.
     * 
     * @todo moze zrobmy z tego singleton?
+    * @marcin tak zdecydowanie pasuje tu singleton
     */
     struct Config
     {
