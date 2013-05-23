@@ -60,7 +60,7 @@ namespace common
         /// zwraca współrzędną Y położenia
         double getY() const
         {
-            return x_pos_;
+            return y_pos_;
         }
         
         /**
