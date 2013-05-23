@@ -5,7 +5,7 @@
 
 
 all:
-	g++ main.cpp common/*.cpp init/*.cpp client/*.cpp server/*.cpp common/*.cpp -g -std=c++11 -lboost_thread -lboost_serialization -o ../bin/life
+	g++ main.cpp init/*.cpp client/*.cpp server/*.cpp common/*.cpp -g -std=c++11 -lboost_thread -lboost_serialization -o ../bin/life
 
 run:
 	./../bin/life

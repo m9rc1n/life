@@ -5,7 +5,6 @@
 
 namespace common
 {
-        
     /**
     * @brief
     * Abstrakcyjna klasa reprezentujaca roslinozerce
@@ -26,6 +25,25 @@ namespace common
             Creature(x_pos, y_pos)
         {} // kod w klasie Creature
         
+        
+        /**
+         * @brief
+         * Tworzy głęboką kopię obiektu
+         * 
+         * @returns wskaznik do nowego obiektu (utworzonego przez new)
+         * 
+         * @todo moze zmienic na sprytny wskaznik?
+         */
+        virtual MapObject *clone()
+        {
+            return new Herbivore(*this);
+        }
+        
+        /**
+         * @brief
+         * Przyjecie (acceptance) wizytatora.
+         */
+        virtual void accept(Visitor &visitor);
         
         /**
         * @brief

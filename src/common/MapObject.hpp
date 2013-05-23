@@ -4,8 +4,11 @@
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/nvp.hpp>
 
+#include "Visitor.hpp"
+
 namespace common
 {
+    
     /**
     * @brief
     * Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie
@@ -59,7 +62,23 @@ namespace common
         {
             return x_pos_;
         }
-
+        
+        /**
+         * @brief
+         * Tworzy głęboką kopię obiektu
+         * 
+         * @returns wskaznik do nowego obiektu (utworzonego przez new)
+         * 
+         * @todo moze zmienic na sprytny wskaznik?
+         */
+        virtual MapObject *clone() = 0;
+        
+        /**
+         * @brief
+         * Przyjecie (acceptance) wizytatora.
+         */
+        virtual void accept(Visitor &) = 0;
+        
         /**
         * @brief
         * Serializacja

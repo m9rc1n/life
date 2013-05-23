@@ -6,6 +6,7 @@
 
 namespace common
 {
+    
     /**
     * @brief
     * Abstrakcyjna klasa reprezentująca stworzenie
@@ -60,21 +61,37 @@ namespace common
         }
 
         /**
+         * @brief
+         * Tworzy głęboką kopię obiektu
+         * 
+         * @returns wskaznik do nowego obiektu (utworzonego przez new)
+         * 
+         * @todo moze zmienic na sprytny wskaznik?
+         */
+        virtual MapObject *clone() = 0;
+        
+        /**
         * @brief
         * Funkcja podaje informację czy stworzenie jest martwe.
         *
         * Dzieje się tak, gdy najedzenie, napojenie lub energia spadnie do zera
         * lub gdy stworzenie osiągnie swój maksymalny wiek.
         *
-        * Po stwierdzeniu, że stworzenie jest martwe, funkcja nadrzędna powinna zniszczyć
+        * Po stwierdzeniu, że stworzenie jest martwe, funkcja wołająca powinna zniszczyć
         * obiekt klasy Creature.
         *
         * @returns true wtedy i tylko wtedy gdy osobnik jest martwy.
         */
         bool isDead() const
         {
-            /// @todo write me
+            return is_dead_;
         }
+        
+        /**
+         * @brief
+         * Przyjecie (acceptance) wizytatora.
+         */
+        virtual void accept(Visitor &) = 0;
         
         /**
         * @brief
@@ -140,7 +157,7 @@ namespace common
         /// Obecny wiek
         double age_;
         
-        /// Czy zwierze jest martwe?
+        /// Czy zwierzę jest martwe?
         bool is_dead_;
 
     };

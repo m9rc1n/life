@@ -5,6 +5,7 @@
 
 namespace common
 {
+    
     /**
      * @brief
      * Abstrakcyjna klasa reprezentujaca drapieznika
@@ -38,7 +39,26 @@ namespace common
         Predator(double x_pos, double y_pos):
             Creature(x_pos, y_pos)
         {} // kod w klasie Creature
-
+        
+        /**
+         * @brief
+         * Tworzy głęboką kopię obiektu
+         * 
+         * @returns wskaznik do nowego obiektu (utworzonego przez new)
+         * 
+         * @todo moze zmienic na sprytny wskaznik?
+         */
+        virtual MapObject *clone()
+        {
+            return new Predator(*this);
+        }
+        
+        /**
+         * @brief
+         * Przyjecie (acceptance) wizytatora.
+         */
+        virtual void accept(Visitor &);
+        
         /**
          * @brief
          * Serializacja

@@ -2,9 +2,7 @@
 
 using namespace common;
 
-
-
-//void Predator::simulationStep(int miliseconds)
-//{
-
-//}
+void Predator::accept(Visitor &visitor)
+{
+    visitor.visit(*this);
+}
