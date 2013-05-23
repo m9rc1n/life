@@ -1,1 +1,5 @@
 \contentsline {section}{\numberline {1}e\discretionary {-}{}{}Life}{1}{section.1}
+\contentsline {section}{\numberline {2}D\discretionary {-}{}{}N\discretionary {-}{}{}A\discretionary {-}{}{}: linie papilarne}{2}{section.2}
+\contentsline {section}{\numberline {3}e\discretionary {-}{}{}Life}{4}{section.3}
+\contentsline {section}{\numberline {4}S\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}O}{6}{section.4}
+\contentsline {section}{\numberline {5}T\discretionary {-}{}{}O\discretionary {-}{}{}D\discretionary {-}{}{}O}{9}{section.5}

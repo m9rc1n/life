@@ -1,0 +1,119 @@
+\hypertarget{classMapObject}{\subsection{Dokumentacja klasy Map\-Object}
+\label{classMapObject}\index{Map\-Object@{Map\-Object}}
+}
+
+
+Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp).  
+
+
+
+
+{\ttfamily \#include $<$Map\-Object.\-hpp$>$}
+
+
+
+Diagram dziedziczenia dla Map\-Object
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMapObject__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Map\-Object\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classMapObject__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMapObject_a568754515cc72ce0861d30c3040d26d2}{\hyperlink{classMapObject_a568754515cc72ce0861d30c3040d26d2}{Map\-Object} ()}\label{classMapObject_a568754515cc72ce0861d30c3040d26d2}
+
+\begin{DoxyCompactList}\small\item\em konstruktor losujący pozycję dla obiektu \end{DoxyCompactList}\item 
+\hypertarget{classMapObject_a2b742185ede789e5cb5beabb18e24eb2}{\hyperlink{classMapObject_a2b742185ede789e5cb5beabb18e24eb2}{Map\-Object} (double x\-\_\-pos, double y\-\_\-pos)}\label{classMapObject_a2b742185ede789e5cb5beabb18e24eb2}
+
+\begin{DoxyCompactList}\small\item\em konstruktor z podaną pozycją startową \end{DoxyCompactList}\item 
+\hypertarget{classMapObject_adbba6351e2a4a25fdd40d7c00ca37222}{\hyperlink{classMapObject_adbba6351e2a4a25fdd40d7c00ca37222}{Map\-Object} (const \hyperlink{classMapObject}{Map\-Object} \&another)}\label{classMapObject_adbba6351e2a4a25fdd40d7c00ca37222}
+
+\begin{DoxyCompactList}\small\item\em konstruktor kopiujący pozycję z innego obiektu \end{DoxyCompactList}\item 
+\hypertarget{classMapObject_a49b4b675ef2895fc05ef2eec72f4cd46}{void \hyperlink{classMapObject_a49b4b675ef2895fc05ef2eec72f4cd46}{move\-To} (double x\-\_\-pos, double y\-\_\-pos)}\label{classMapObject_a49b4b675ef2895fc05ef2eec72f4cd46}
+
+\begin{DoxyCompactList}\small\item\em przemieszcza obiekt na zadaną pozycję \end{DoxyCompactList}\item 
+\hypertarget{classMapObject_a9c111830e35093dd3b2f668c6d7d9736}{void \hyperlink{classMapObject_a9c111830e35093dd3b2f668c6d7d9736}{move\-By\-Vector} (double x\-\_\-vec, double y\-\_\-vec)}\label{classMapObject_a9c111830e35093dd3b2f668c6d7d9736}
+
+\begin{DoxyCompactList}\small\item\em przemieszcza obiekt o zadany wektor \end{DoxyCompactList}\item 
+\hypertarget{classMapObject_ad1a16784ebfef39db99b003b007e4aaa}{double \hyperlink{classMapObject_ad1a16784ebfef39db99b003b007e4aaa}{get\-X} () const }\label{classMapObject_ad1a16784ebfef39db99b003b007e4aaa}
+
+\begin{DoxyCompactList}\small\item\em zwraca współrzędną X położenia \end{DoxyCompactList}\item 
+\hypertarget{classMapObject_a1a14c2702a4afff02e8c037c1aebf73c}{double \hyperlink{classMapObject_a1a14c2702a4afff02e8c037c1aebf73c}{get\-Y} () const }\label{classMapObject_a1a14c2702a4afff02e8c037c1aebf73c}
+
+\begin{DoxyCompactList}\small\item\em zwraca współrzędną Y położenia \end{DoxyCompactList}\item 
+virtual void \hyperlink{classMapObject_a8bd8926db59af00a61b8860352abfdd9}{simulation\-Step} (int miliseconds)=0
+\begin{DoxyCompactList}\small\item\em Funkcja wykonuje jeden krok symulacji dla obiektu. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Archive $>$ }\\void \hyperlink{classMapObject_af7bd38411bbc26af1e0133538688d909}{serialize} (Archive \&ar, const unsigned int version)
+\begin{DoxyCompactList}\small\item\em Serializacja. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{double \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\-\_\-pos\-\_\-}}\label{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}
+
+\begin{DoxyCompactList}\small\item\em składowa x położenia \end{DoxyCompactList}\item 
+\hypertarget{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{double \hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{y\-\_\-pos\-\_\-}}\label{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}
+
+\begin{DoxyCompactList}\small\item\em składowa y położenia \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Opis szczegółowy}
+Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp). 
+
+\subsubsection{Dokumentacja funkcji składowych}
+\hypertarget{classMapObject_af7bd38411bbc26af1e0133538688d909}{\index{Map\-Object@{Map\-Object}!serialize@{serialize}}
+\index{serialize@{serialize}!MapObject@{Map\-Object}}
+\paragraph[{serialize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Archive $>$ void Map\-Object\-::serialize (
+\begin{DoxyParamCaption}
+\item[{Archive \&}]{ar, }
+\item[{const unsigned int}]{version}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMapObject_af7bd38411bbc26af1e0133538688d909}
+
+
+Serializacja. 
+
+\begin{DoxySeeAlso}{Zobacz również}
+\hyperlink{classMap_a247075c0c8b390cdd3afab8f627d1e8d}{Map\-::serialize} 
+\end{DoxySeeAlso}
+
+
+Reimplementowana w \hyperlink{classCreature_a03b0a51a8c6421046ce9ed004526566b}{Creature}, \hyperlink{classPredator_abf2e6236a7a0a26d97fbd6ebbfa09733}{Predator} i \hyperlink{classHerbivore_a05a43de5c6a5fa07fd3091692c3f4e94}{Herbivore}.
+
+\hypertarget{classMapObject_a8bd8926db59af00a61b8860352abfdd9}{\index{Map\-Object@{Map\-Object}!simulation\-Step@{simulation\-Step}}
+\index{simulation\-Step@{simulation\-Step}!MapObject@{Map\-Object}}
+\paragraph[{simulation\-Step}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Map\-Object\-::simulation\-Step (
+\begin{DoxyParamCaption}
+\item[{int}]{miliseconds}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classMapObject_a8bd8926db59af00a61b8860352abfdd9}
+
+
+Funkcja wykonuje jeden krok symulacji dla obiektu. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em miliseconds} & czas w milisekundach, który upłynął od poprzedniego kroku \\
+\hline
+\end{DoxyParams}
+
+
+Implementowany w \hyperlink{classCreature_af31d92f059f848284d371d3232384538}{Creature}, \hyperlink{classPredator_a7d8004ead868419138c8782fb392a1b1}{Predator} i \hyperlink{classHerbivore_a728f136b4489a168df89dadd244a86a8}{Herbivore}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\-:\begin{DoxyCompactItemize}
+\item 
+src/common/Map\-Object.\-hpp\end{DoxyCompactItemize}

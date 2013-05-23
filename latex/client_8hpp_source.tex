@@ -1,0 +1,24 @@
+\hypertarget{client_8hpp}{\subsection{client.\-hpp}
+\label{client_8hpp}\index{src/client/client.\-hpp@{src/client/client.\-hpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "../common/Map.hpp"}
+00002 \textcolor{preprocessor}{#include "../common/MapObject.hpp"}
+00003 \textcolor{preprocessor}{#include "../common/Creature.hpp"}
+00004 \textcolor{preprocessor}{#include "../common/Herbivore.hpp"}
+00005 \textcolor{preprocessor}{#include "../common/Predator.hpp"}
+00006 \textcolor{preprocessor}{#include "../common/Config.hpp"}
+00007 
+00008 \textcolor{preprocessor}{#include <iostream>}
+00009 \textcolor{preprocessor}{#include <mutex>}
+00010 \textcolor{preprocessor}{#include <thread>} \textcolor{comment}{// c++11}
+00011 \textcolor{preprocessor}{#include <chrono>} \textcolor{comment}{// c++11}
+00012 
+00013 \textcolor{keyword}{namespace }client
+00014 \{
+00015     \textcolor{keywordtype}{void} run(std::mutex *mutex, \hyperlink{classMap}{Map} *map, \hyperlink{structConfig}{Config} *config);
+00016     \textcolor{comment}{// tutaj deklaracje jakichs klas uzytych w kliencie, np.}
+00017     \textcolor{comment}{// class GameWindow;}
+00018 \};
+\end{DoxyCode}

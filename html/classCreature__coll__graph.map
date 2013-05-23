@@ -1,0 +1,3 @@
+<map id="Creature" name="Creature">
+<area shape="rect" id="node2" href="$classMapObject.html" title="Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp)." alt="" coords="5,5,133,264"/>
+</map>

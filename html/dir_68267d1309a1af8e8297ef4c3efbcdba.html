@@ -39,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
       <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
       <li><a href="pages.html"><span>Dodatkowe&#160;strony</span></a></li>
       <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -62,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Strony</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Strony</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -81,7 +82,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 <div class="title">Dokumentacja katalogu src</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Wykres zależności katalogu dla src/:</div>
+<div class="dyncontent">
+<div class="center"><img src="dir_68267d1309a1af8e8297ef4c3efbcdba_dep.png" border="0" usemap="#dir__68267d1309a1af8e8297ef4c3efbcdba__dep" alt="src/"/></div>
+<map name="dir__68267d1309a1af8e8297ef4c3efbcdba__dep" id="dir__68267d1309a1af8e8297ef4c3efbcdba__dep">
+<area shape="rect" id="node3" href="dir_6908ff505388a07996d238c763adbdab.html" title="client" alt="" coords="315,27,387,75"/><area shape="rect" id="node4" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html" title="common" alt="" coords="219,27,291,75"/><area shape="rect" id="node5" href="dir_93ef7a03ae011ca5032e526d863e8f9f.html" title="init" alt="" coords="123,27,195,75"/><area shape="rect" id="node6" href="dir_075bb3ff235063c77951cd176d15a741.html" title="server" alt="" coords="27,27,99,75"/><area shape="rect" id="graph2" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" alt="" coords="16,16,493,85"/></map>
+</div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="subdirs"></a>
+Katalogi</h2></td></tr>
+<tr class="memitem:dir_6908ff505388a07996d238c763adbdab"><td class="memItemLeft" align="right" valign="top">katalog &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_6908ff505388a07996d238c763adbdab.html">client</a></td></tr>
+<tr class="memitem:dir_fdedb0aba14d44ce9d99bc100e026e6a"><td class="memItemLeft" align="right" valign="top">katalog &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html">common</a></td></tr>
+<tr class="memitem:dir_93ef7a03ae011ca5032e526d863e8f9f"><td class="memItemLeft" align="right" valign="top">katalog &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_93ef7a03ae011ca5032e526d863e8f9f.html">init</a></td></tr>
+<tr class="memitem:dir_075bb3ff235063c77951cd176d15a741"><td class="memItemLeft" align="right" valign="top">katalog &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_075bb3ff235063c77951cd176d15a741.html">server</a></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="files"></a>
 Pliki</h2></td></tr>
 <tr class="memitem:main_8cpp"><td class="memItemLeft" align="right" valign="top">plik &#160;</td><td class="memItemRight" valign="bottom"><b>main.cpp</b></td></tr>
@@ -89,7 +104,7 @@ Pliki</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 12 mar 2013 12:37:37 dla Life -- Fight! programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 23 maj 2013 12:00:03 dla Life -- Fight! programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

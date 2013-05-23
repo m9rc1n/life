@@ -39,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
       <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
       <li><a href="pages.html"><span>Dodatkowe&#160;strony</span></a></li>
       <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -61,7 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;klas</span></a></li>
       <li><a href="classes.html"><span>Indeks&#160;klas</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarchia&#160;klas</span></a></li>
+      <li><a href="inherits.html"><span>Hierarchia&#160;klas</span></a></li>
       <li class="current"><a href="functions.html"><span>Składowe&#160;klas</span></a></li>
     </ul>
   </div>
@@ -70,8 +71,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Funkcje</span></a></li>
       <li><a href="functions_vars.html"><span>Zmienne</span></a></li>
-      <li><a href="functions_enum.html"><span>Wyliczenia</span></a></li>
-      <li><a href="functions_eval.html"><span>Wartości&#160;wyliczeń</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_x"><span>x</span></a></li>
+      <li><a href="#index_y"><span>y</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -80,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Strony</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Strony</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,49 +107,164 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </div>
 
 <div class="contents">
-<div class="textblock">Tutaj znajduje się lista wszystkich udokumentowanych składowych wraz z odnośnikami do dokumentacji klas dla każdej składowej:</div><ul>
-<li>enumPtr
-: <a class="el" href="classTest.html#add1f72d205230e7bac3fcc70a65c1de2">Test</a>
+<div class="textblock">Tutaj znajduje się lista wszystkich udokumentowanych składowych wraz z odnośnikami do dokumentacji klas dla każdej składowej:</div>
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>age_
+: <a class="el" href="classCreature.html#abf62d53b9178d950e98fc0167f51b824">Creature</a>
 </li>
-<li>enumVar
-: <a class="el" href="classTest.html#a0bd371828a36ad7ea83dfd07b2a672b5">Test</a>
+<li>angle_
+: <a class="el" href="classCreature.html#afa39083bf461c18b35a4c0deac5c68f1">Creature</a>
 </li>
-<li>handler
-: <a class="el" href="classTest.html#a8bef142724c4059c18f752e630a4d925">Test</a>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>countObjects()
+: <a class="el" href="classMap.html#ade3f961a8981ef66c159f968e4f98eb4">Map</a>
 </li>
-<li>publicVar
-: <a class="el" href="classTest.html#a3085f973ef857d85d647bf04e89760d0">Test</a>
+<li>createSomeRandomObjects()
+: <a class="el" href="classMap.html#a2ea398c824a67d162ce4017b9173d685">Map</a>
 </li>
-<li>TEnum
-: <a class="el" href="classTest.html#ad8d13fe56b896633273087859b89a1a3">Test</a>
+<li>Creature()
+: <a class="el" href="classCreature.html#a85b135bb56773ebd20a30e7efc216a47">Creature</a>
 </li>
-<li>Test()
-: <a class="el" href="classTest.html#a99f2bbfac6c95612322b0f10e607ebe5">Test</a>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>energy_
+: <a class="el" href="classCreature.html#a64dae275114dc06c39eeb71d9f8e08ed">Creature</a>
 </li>
-<li>testMe()
-: <a class="el" href="classTest.html#af7115d71dda64654a7104c24f130e8d0">Test</a>
+</ul>
+
+
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>fecundity_
+: <a class="el" href="classCreature.html#a44c060eec028a0802ef4a0126139192b">Creature</a>
 </li>
-<li>testMeToo()
-: <a class="el" href="classTest.html#a3edb9fdc1e9f0d5274b57386ab03704c">Test</a>
-, <a class="el" href="classAs.html#aade2dcd0ff4daf62cd578a6f1c11bdff">As</a>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>getX()
+: <a class="el" href="classMapObject.html#ad1a16784ebfef39db99b003b007e4aaa">MapObject</a>
 </li>
-<li>TVal1
-: <a class="el" href="classTest.html#ad8d13fe56b896633273087859b89a1a3abf8059769020a35c76df3d8b02521273">Test</a>
+<li>getY()
+: <a class="el" href="classMapObject.html#a1a14c2702a4afff02e8c037c1aebf73c">MapObject</a>
 </li>
-<li>TVal2
-: <a class="el" href="classTest.html#ad8d13fe56b896633273087859b89a1a3a38ab2f54365cee5e5561b04f32f053e3">Test</a>
+</ul>
+
+
+<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>Herbivore()
+: <a class="el" href="classHerbivore.html#a2174349eed9903363d2840e0484a61d5">Herbivore</a>
 </li>
-<li>TVal3
-: <a class="el" href="classTest.html#ad8d13fe56b896633273087859b89a1a3ad63507e26f2168659722f1ef575b50b2">Test</a>
+<li>hydration_
+: <a class="el" href="classCreature.html#a6650b16786f49d3dbc4dbde39ab21796">Creature</a>
 </li>
-<li>~Test()
-: <a class="el" href="classTest.html#a2b0a62f1e667bbe8d8cb18d785bfa991">Test</a>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>is_dead_
+: <a class="el" href="classCreature.html#a55f70b769ee6a6be67a2ea23ac1b563f">Creature</a>
+</li>
+<li>isDead()
+: <a class="el" href="classCreature.html#ab4019c0b7940cd1b9fb19bf3399348ce">Creature</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>Map()
+: <a class="el" href="classMap.html#a8497952fd6e1f0584d868e6ceb97d42d">Map</a>
+</li>
+<li>MapObject()
+: <a class="el" href="classMapObject.html#a568754515cc72ce0861d30c3040d26d2">MapObject</a>
+</li>
+<li>max_age_
+: <a class="el" href="classCreature.html#a3c85c0418b1036d292d4d598082626eb">Creature</a>
+</li>
+<li>max_energy_
+: <a class="el" href="classCreature.html#a30ca7a39a52b5dc36828fc2ea835a95f">Creature</a>
+</li>
+<li>max_hydration_
+: <a class="el" href="classCreature.html#aaee7a3d9488cdeda758315440af15f30">Creature</a>
+</li>
+<li>max_repletion_
+: <a class="el" href="classCreature.html#ad7ac348b54af3efd118ef36b6c753962">Creature</a>
+</li>
+<li>moveByVector()
+: <a class="el" href="classMapObject.html#a9c111830e35093dd3b2f668c6d7d9736">MapObject</a>
+</li>
+<li>moveTo()
+: <a class="el" href="classMapObject.html#a49b4b675ef2895fc05ef2eec72f4cd46">MapObject</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>objects
+: <a class="el" href="classMap.html#a77f2877faf3096da591f2e2d17d92a25">Map</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>Predator()
+: <a class="el" href="classPredator.html#adebc1d4ae0858caf8ea906c167a32650">Predator</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>radius_
+: <a class="el" href="classCreature.html#a319be828285119ac6d619bf1f926ada5">Creature</a>
+</li>
+<li>repletion_
+: <a class="el" href="classCreature.html#a48a77085b53f40477bfb6bfc2eb3f241">Creature</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>serialize()
+: <a class="el" href="classCreature.html#a03b0a51a8c6421046ce9ed004526566b">Creature</a>
+, <a class="el" href="classHerbivore.html#a05a43de5c6a5fa07fd3091692c3f4e94">Herbivore</a>
+, <a class="el" href="classMapObject.html#af7bd38411bbc26af1e0133538688d909">MapObject</a>
+, <a class="el" href="classPredator.html#abf2e6236a7a0a26d97fbd6ebbfa09733">Predator</a>
+, <a class="el" href="classMap.html#a247075c0c8b390cdd3afab8f627d1e8d">Map</a>
+</li>
+<li>simulationStep()
+: <a class="el" href="classHerbivore.html#a728f136b4489a168df89dadd244a86a8">Herbivore</a>
+, <a class="el" href="classMapObject.html#a8bd8926db59af00a61b8860352abfdd9">MapObject</a>
+, <a class="el" href="classPredator.html#a7d8004ead868419138c8782fb392a1b1">Predator</a>
+, <a class="el" href="classMap.html#a71d87cb69a70ab3b3c2dc4ad39d13fcc">Map</a>
+, <a class="el" href="classCreature.html#af31d92f059f848284d371d3232384538">Creature</a>
+</li>
+<li>speed_
+: <a class="el" href="classCreature.html#ae473a3d0259ba0da2516b8500009283a">Creature</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_x"></a>- x -</h3><ul>
+<li>x_pos_
+: <a class="el" href="classMapObject.html#a6083da4dfdf4efca1021a8486a40cd5f">MapObject</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_y"></a>- y -</h3><ul>
+<li>y_pos_
+: <a class="el" href="classMapObject.html#afc248d9c7b5433767aa711d0a7a7399f">MapObject</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 12 mar 2013 12:37:37 dla Life -- Fight! programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 23 maj 2013 12:00:03 dla Life -- Fight! programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

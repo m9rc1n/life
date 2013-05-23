@@ -39,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
       <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
       <li class="current"><a href="pages.html"><span>Dodatkowe&#160;strony</span></a></li>
       <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -62,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Strony</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Strony</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,7 +79,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Let's play game for life!</p>
-<h1>Strategia:</h1>
+<h1>Sposób działania</h1>
+<h2>Klient</h2>
+<p>x Na początku przesyła dane do serwera o </p>
+<pre class="fragment">    x liczbie początkowej populacji i wysyła indentyfikatory początkowej populacji
+    x szybkości przesyłania elementów?
+</pre><p>x wyświetla na bieżąco wyniki które dostał od serwera </p>
+<pre class="fragment">    x ja
+</pre><h2>Serwer</h2>
+<h2>Strategia:</h2>
 <p>x Co może być tu abstrakcyjnego? </p>
 <pre class="fragment">    x abstrakcja strategii, która będzie służyła obiektom do przetrwania
     x abstrakcja obiektu-zwierzaka, z jego podstawowymi cechami i funkcjami
@@ -89,6 +98,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
     x jedzenie
     x picie
     x spanie
+</pre><p>x Jak kształcić cechy u nowych osobnikóœ? </p>
+<pre class="fragment">    x kod DNA
+    x dziedziczenie różnych recesywnych i dominujących cech
 </pre><p>x Jak działają funkcje życiowe </p>
 <pre class="fragment">    x gdy niski poziom wody w obiekcie
             x uruchamiamy szukajWodę()?
@@ -112,11 +124,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
             x na jej czele głowy klanów
             x najstarsi, członkowie klanu
             x poniżej członkowie rodu niżsi i w jakichś sposób pogrupowani
+</pre><p>x Rozdzielanie strategii: </p>
+<pre class="fragment">    x gra podzielona na kilka trybów generujących różne zachowania populacji
+            x teoria Darwina
+            x teoria Mendela
+            x chromosomy
+            x kod DNA
 </pre><p>x Mutacje? </p>
 <pre class="fragment">    x blisko spokrewnione klany mogą generować zmodyfikowane dziecka
     x kopulacja dwóch różnych gatunków powoduje stworzenie muła?
-</pre><h1>Klasy</h1>
-<h2>Związane z obsługą interfejsu na różnych systemach</h2>
+</pre><h2>Klasy</h2>
+<h3>Związane z obsługą interfejsu na różnych systemach</h3>
 <ul>
 <li><code>Okno</code></li>
 <li><code>Wzorzec</code><ul>
@@ -124,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </ul>
 </li>
 </ul>
-<h2>Związane z tworzeniem mapy</h2>
+<h3>Związane z tworzeniem mapy</h3>
 <ul>
 <li><code>Mapa</code><ul>
 <li></li>
@@ -135,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </ul>
 </li>
 </ul>
-<h2>Związane z tworzeniem obiektów na mapie</h2>
+<h3>Związane z tworzeniem obiektów na mapie</h3>
 <ul>
 <li><code>Zwierzak</code><ul>
 <li>klasa abstrakcyjna, interfejs</li>
@@ -156,7 +174,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 12 mar 2013 12:37:37 dla Life -- Fight! programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 23 maj 2013 12:00:03 dla Life -- Fight! programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

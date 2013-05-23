@@ -1,0 +1,98 @@
+.TH "MapObject" 3 "Cz, 23 maj 2013" "Version 0.1" "Life -- Fight!" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MapObject \- 
+.PP
+Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <MapObject\&.hpp>\fP
+.PP
+Dziedziczona przez \fBCreature\fP\&.
+.SS "Metody publiczne"
+
+.in +1c
+.ti -1c
+.RI "\fBMapObject\fP ()"
+.br
+.RI "\fIkonstruktor losujący pozycję dla obiektu \fP"
+.ti -1c
+.RI "\fBMapObject\fP (double x_pos, double y_pos)"
+.br
+.RI "\fIkonstruktor z podaną pozycją startową \fP"
+.ti -1c
+.RI "\fBMapObject\fP (const \fBMapObject\fP &another)"
+.br
+.RI "\fIkonstruktor kopiujący pozycję z innego obiektu \fP"
+.ti -1c
+.RI "void \fBmoveTo\fP (double x_pos, double y_pos)"
+.br
+.RI "\fIprzemieszcza obiekt na zadaną pozycję \fP"
+.ti -1c
+.RI "void \fBmoveByVector\fP (double x_vec, double y_vec)"
+.br
+.RI "\fIprzemieszcza obiekt o zadany wektor \fP"
+.ti -1c
+.RI "double \fBgetX\fP () const "
+.br
+.RI "\fIzwraca współrzędną X położenia \fP"
+.ti -1c
+.RI "double \fBgetY\fP () const "
+.br
+.RI "\fIzwraca współrzędną Y położenia \fP"
+.ti -1c
+.RI "virtual void \fBsimulationStep\fP (int miliseconds)=0"
+.br
+.RI "\fIFunkcja wykonuje jeden krok symulacji dla obiektu\&. \fP"
+.ti -1c
+.RI "template<class Archive > void \fBserialize\fP (Archive &ar, const unsigned int version)"
+.br
+.RI "\fISerializacja\&. \fP"
+.in -1c
+.SS "Atrybuty chronione"
+
+.in +1c
+.ti -1c
+.RI "double \fBx_pos_\fP"
+.br
+.RI "\fIskładowa x położenia \fP"
+.ti -1c
+.RI "double \fBy_pos_\fP"
+.br
+.RI "\fIskładowa y położenia \fP"
+.in -1c
+.SH "Opis szczegółowy"
+.PP 
+Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp)\&. 
+.SH "Dokumentacja funkcji składowych"
+.PP 
+.SS "template<class Archive > void MapObject::serialize (Archive &ar, const unsigned intversion)\fC [inline]\fP"
+
+.PP
+Serializacja\&. \fBZobacz również:\fP
+.RS 4
+\fBMap::serialize\fP 
+.RE
+.PP
+
+.PP
+Reimplementowana w \fBCreature\fP, \fBPredator\fP i \fBHerbivore\fP\&.
+.SS "virtual void MapObject::simulationStep (intmiliseconds)\fC [pure virtual]\fP"
+
+.PP
+Funkcja wykonuje jeden krok symulacji dla obiektu\&. \fBParametry:\fP
+.RS 4
+\fImiliseconds\fP czas w milisekundach, który upłynął od poprzedniego kroku 
+.RE
+.PP
+
+.PP
+Implementowany w \fBCreature\fP, \fBPredator\fP i \fBHerbivore\fP\&.
+
+.SH "Autor"
+.PP 
+Wygenerowano automatycznie z kodu źródłowego programem Doxygen dla Life -- Fight!\&.

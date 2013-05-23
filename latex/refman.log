@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.28)  12 MAR 2013 12:49
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.17)  23 MAY 2013 11:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1171,8 +1171,13 @@ Type  H <return>  for immediate help.
                                                   
 l.57 ...sÅ‚ugÄ… interfejsu na rÃ³Å¼nych systemach}
                                                   
-? q
-OK, entering \batchmode...
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.57 ...sÅ‚ugÄ… interfejsu na rÃ³Å¼nych systemach}
+                                                  
+? 
 
 ! LaTeX Error: Command \k unavailable in encoding OT1.
 
@@ -1182,17 +1187,20 @@ Type  H <return>  for immediate help.
                                                   
 l.57 ...sÅ‚ugÄ… interfejsu na rÃ³Å¼nych systemach}
                                                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.57 ...sÅ‚ugÄ… interfejsu na rÃ³Å¼nych systemach}
+                                                  
+? 
 LaTeX Font Info:    Try loading font information for TS1+phv on input line 61.
-
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 61.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 12.22644pt.
@@ -1203,7 +1211,7 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 65.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 65.
- [1]
+[1]
 
 ! LaTeX Error: Command \k unavailable in encoding OT1.
 
@@ -1213,10 +1221,7 @@ Type  H <return>  for immediate help.
                                                   
 l.68 \subsubsection*{ZwiÄ…zane z tworzeniem mapy}
                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+? 
 
 ! LaTeX Error: Command \k unavailable in encoding OT1.
 
@@ -1226,18 +1231,108 @@ Type  H <return>  for immediate help.
                                                   
 l.82 ...ZwiÄ…zane z tworzeniem obiektÃ³w na mapie}
                                                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.82 ...ZwiÄ…zane z tworzeniem obiektÃ³w na mapie}
+                                                  
+? 
+) (./md_GENETYKA.tex [2] [3]) (./md_README.tex [4]
 
-)
+! LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 ...sÅ‚ugÄ… interfejsu na rÃ³Å¼nych systemach}
+                                                  
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.85 ...sÅ‚ugÄ… interfejsu na rÃ³Å¼nych systemach}
+                                                  
+? 
+
+! LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 ...sÅ‚ugÄ… interfejsu na rÃ³Å¼nych systemach}
+                                                  
+? 
+
+! LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.96 \paragraph*{ZwiÄ…zane z tworzeniem mapy}
+                                             
+? 
+
+! LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...wiÄ…zane z tworzeniem obiektÃ³w na mapie}
+                                                  
+? 
+[5]) (./md_SCENARIO.tex
+Overfull \hbox (208.15633pt too wide) in paragraph at lines 13--13
+ []  \T1/pcr/m/n/8 * Na pocz¡tku wy±wietla okno z opcjami (zwane dalej ekranem 
+startowym), w którym u»ytkownik mo»e dobra¢ pewne parametry ^^Rrozgrywki^^Q[] 
+ []
+
+
+Overfull \hbox (40.15622pt too wide) in paragraph at lines 15--15
+ []  \T1/pcr/m/n/8 * Nast¦pnie uruchamia Serwer i przesyªa mu zebrane dane, wte
+dy rozpoczyna si¦ wªa±ciwa symulacja[] 
+ []
+
+
+Overfull \hbox (889.75676pt too wide) in paragraph at lines 17--17
+ []  \T1/pcr/m/n/8 * Podczas symulacji Klient odbiera od Serwera informacje o o
+becnych wynikach symulacji i na bie»¡co wy±wietla graficzn¡ plansz¦ oraz wysyªa
+ Serwerowi informacje o klikni¦ciach u»ytkownika (w czasie symulacji u»ytkownik
+ mo»e przyspiesza¢, zwalnia¢ lub wstrzymywa¢ symulacj¦)[] 
+ []
+
+
+Overfull \hbox (188.95631pt too wide) in paragraph at lines 26--26
+ []  \T1/pcr/m/n/8 * Program, którego zadaniem jest oblicza¢ kolejne kroki symu
+lacji z zadan¡ cz¦stotliwo±ci¡ i wysyªa¢ wyniki oblicze« do klienta 
+ []
+
+
+Overfull \hbox (208.15633pt too wide) in paragraph at lines 28--28
+ []  \T1/pcr/m/n/8 * Serwer mo»e tak»e przyspiesza¢, zwalnia¢ lub wstrzymywa¢ s
+ymulacj¦ na »¡danie u»ytkownika (przekazywane za po±rednictwem klienta)[] 
+ []
+
+[6]
+Overfull \hbox (352.15642pt too wide) in paragraph at lines 69--69
+ []  \T1/pcr/m/n/8 * obszar na planszy, po którym osobniki nie mog¡ chodzi¢, st
+anowi koªo o promieniu 5 jednostek; takie koªa mog¡ si¦ cz¦±ciowo nakªada¢, two
+rz¡c wi¦ksze struktury 
+ []
+
+[7] [8]) (./md_TODO.tex)
 No file refman.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 72.
- [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 72.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 88.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 88.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 72.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 72.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 88.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 88.
+
 
 Package rerunfilecheck Warning: File `refman.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -1245,29 +1340,29 @@ Package rerunfilecheck Warning: File `refman.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `refman.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  69F6879C265969342C8C6F97707B95BD;68.
+(rerunfilecheck)             After:  4725C8589B6560D36DA4BC81D3911FF5;431.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 72.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
  ) 
 Here is how much of TeX's memory you used:
- 11466 strings out of 495024
- 157347 string characters out of 3181154
- 279391 words of memory out of 3000000
- 14447 multiletter control sequences out of 15000+200000
+ 11522 strings out of 495024
+ 157935 string characters out of 3181154
+ 281391 words of memory out of 3000000
+ 14453 multiletter control sequences out of 15000+200000
  33378 words of font info for 42 fonts, out of 3000000 for 9000
  34 hyphenation exceptions out of 8191
- 41i,12n,58p,282b,450s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,13n,58p,925b,450s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
 c/uhvr8a.pfb>
-Output written on refman.pdf (3 pages, 44851 bytes).
+Output written on refman.pdf (10 pages, 77849 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
+ 117 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
+ 49 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

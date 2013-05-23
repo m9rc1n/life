@@ -1,0 +1,92 @@
+.TH "Predator" 3 "Cz, 23 maj 2013" "Version 0.1" "Life -- Fight!" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Predator \- 
+.PP
+Klasa reprezentujaca drapieznika\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Predator\&.hpp>\fP
+.PP
+Dziedziczy \fBCreature\fP\&.
+.SS "Metody publiczne"
+
+.in +1c
+.ti -1c
+.RI "\fBPredator\fP (const \fBPredator\fP &mother, const \fBPredator\fP &father)"
+.br
+.RI "\fIKonstruktor wywoływany w momencie narodzin stworzenia\&. \fP"
+.ti -1c
+.RI "\fBPredator\fP (double x_pos, double y_pos)"
+.br
+.RI "\fIKonstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry\&. \fP"
+.ti -1c
+.RI "virtual void \fBsimulationStep\fP (int miliseconds)"
+.br
+.RI "\fIFunkcja wykonuje jeden krok symulacji dla obiektu\&. \fP"
+.ti -1c
+.RI "template<class Archive > void \fBserialize\fP (Archive &ar, const unsigned int version)"
+.br
+.RI "\fISerializacja\&. \fP"
+.in -1c
+.SS "Dodatkowe Dziedziczone Składowe"
+.SH "Opis szczegółowy"
+.PP 
+Klasa reprezentujaca drapieznika\&. 
+.SH "Dokumentacja konstruktora i destruktora"
+.PP 
+.SS "Predator::Predator (const \fBPredator\fP &mother, const \fBPredator\fP &father)\fC [inline]\fP"
+
+.PP
+Konstruktor wywoływany w momencie narodzin stworzenia\&. Parametry stworzenia są ustalane na podstawie odpowiednich parametrów ojca i matki\&.
+.PP
+Ten konstruktor zakłada, że matka i ojciec znajdują się w tym samym miejscu\&. Nowe stworzenie również pojawi się w tym samym miejscu\&.
+.PP
+\fBParametry:\fP
+.RS 4
+\fImother\fP referencja do matki 
+.br
+\fIfather\fP referencja do ojca 
+.RE
+.PP
+
+.SS "Predator::Predator (doublex_pos, doubley_pos)\fC [inline]\fP"
+
+.PP
+Konstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry\&. Wspolrzedne stworzenia są podawane jako parametry konstruktora\&.
+.PP
+Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne)\&. 
+.SH "Dokumentacja funkcji składowych"
+.PP 
+.SS "template<class Archive > void Predator::serialize (Archive &ar, const unsigned intversion)\fC [inline]\fP"
+
+.PP
+Serializacja\&. \fBZobacz również:\fP
+.RS 4
+\fBMap::serialize\fP 
+.RE
+.PP
+
+.PP
+Reimplementowana z \fBCreature\fP\&.
+.SS "virtual void Predator::simulationStep (intmiliseconds)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Funkcja wykonuje jeden krok symulacji dla obiektu\&. Poszczególne elementy symulacji (poszukiwanie pożywienia, poszukiwanie wody, polowanie, ucieczka, poszukiwanie schronienia, poszukiwanie partnera do reprodukcji) są wywoływane w odpowiedniej kolejności, wg piramidy potrzeb osobnika\&.
+.PP
+\fBParametry:\fP
+.RS 4
+\fImiliseconds\fP czas w milisekundach, który upłynął od poprzedniego kroku 
+.RE
+.PP
+
+.PP
+Implementuje \fBCreature\fP\&.
+
+.SH "Autor"
+.PP 
+Wygenerowano automatycznie z kodu źródłowego programem Doxygen dla Life -- Fight!\&.

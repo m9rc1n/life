@@ -2,7 +2,7 @@
 
 
 
-int server::main(std::mutex *mutex, Map *map, Config *config)
+void server::run(std::mutex *mutex, common::Map *map, common::Config *config)
 {
     std::cout << "Jestem serwerem!\n" << std::endl;
     

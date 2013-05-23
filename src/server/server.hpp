@@ -1,16 +1,13 @@
-#include "../common/Map.hpp"
-#include "../common/MapObject.hpp"
-#include "../common/Creature.hpp"
-#include "../common/Herbivore.hpp"
-#include "../common/Predator.hpp"
-#include "../common/Config.hpp"
 
-#include <mutex>
+
+#include <mutex> // c++11
 #include <iostream>
 #include <thread> // c++11
 #include <chrono> // c++11
 
+#include "../include.hpp"
+
 namespace server
 {
-    int main(std::mutex *mutex, Map *map, Config *config);
+    void run(std::mutex *mutex, common::Map *map, common::Config *config);
 };

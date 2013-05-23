@@ -1,0 +1,5 @@
+<map id="MapObject" name="MapObject">
+<area shape="rect" id="node3" href="$classCreature.html" title="Abstrakcyjna klasa reprezentująca stworzenie." alt="" coords="81,312,209,675"/>
+<area shape="rect" id="node5" href="$classHerbivore.html" title="Klasa reprezentujaca roslinozerce." alt="" coords="5,732,133,852"/>
+<area shape="rect" id="node7" href="$classPredator.html" title="Klasa reprezentujaca drapieznika." alt="" coords="157,723,285,861"/>
+</map>

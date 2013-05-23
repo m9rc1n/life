@@ -1,0 +1,72 @@
+\hypertarget{MapObject_8hpp}{\subsection{Map\-Object.\-hpp}
+\label{MapObject_8hpp}\index{src/common/\-Map\-Object.\-hpp@{src/common/\-Map\-Object.\-hpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef MAPOBJECT\_H}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define MAPOBJECT\_H}
+00003 \textcolor{preprocessor}{}
+00004 \textcolor{preprocessor}{#include <boost/serialization/export.hpp>}
+00005 \textcolor{preprocessor}{#include <boost/serialization/nvp.hpp>}
+00006 
+\hypertarget{MapObject_8hpp_source_l00012}{}\hyperlink{classMapObject}{00012} \textcolor{keyword}{class }\hyperlink{classMapObject}{MapObject}
+00013 \{
+00014 \textcolor{keyword}{public}:
+\hypertarget{MapObject_8hpp_source_l00016}{}\hyperlink{classMapObject_a568754515cc72ce0861d30c3040d26d2}{00016}     \hyperlink{classMapObject_a568754515cc72ce0861d30c3040d26d2}{MapObject}():
+00017         \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_}(0),
+00018         \hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{y\_pos\_}(0)
+00019     \{\}
+00020     
+\hypertarget{MapObject_8hpp_source_l00022}{}\hyperlink{classMapObject_a2b742185ede789e5cb5beabb18e24eb2}{00022}     \hyperlink{classMapObject_a568754515cc72ce0861d30c3040d26d2}{MapObject}(\textcolor{keywordtype}{double} x\_pos, \textcolor{keywordtype}{double} y\_pos):
+00023         \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_}(x\_pos),
+00024         \hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{y\_pos\_}(y\_pos)
+00025     \{\}
+00026 
+\hypertarget{MapObject_8hpp_source_l00028}{}\hyperlink{classMapObject_adbba6351e2a4a25fdd40d7c00ca37222}{00028}     \hyperlink{classMapObject_a568754515cc72ce0861d30c3040d26d2}{MapObject}(\textcolor{keyword}{const} \hyperlink{classMapObject}{MapObject} &another):
+00029         \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_}(another.\hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_}),
+00030         \hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{y\_pos\_}(another.\hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{y\_pos\_})
+00031     \{\}
+00032 
+00033     \textcolor{keyword}{virtual} ~\hyperlink{classMapObject}{MapObject}()\{\}
+00034 
+\hypertarget{MapObject_8hpp_source_l00036}{}\hyperlink{classMapObject_a49b4b675ef2895fc05ef2eec72f4cd46}{00036}     \textcolor{keywordtype}{void} \hyperlink{classMapObject_a49b4b675ef2895fc05ef2eec72f4cd46}{moveTo}(\textcolor{keywordtype}{double} x\_pos, \textcolor{keywordtype}{double} y\_pos)
+00037     \{
+00038         \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_} = x\_pos;
+00039         \hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{y\_pos\_} = y\_pos;
+00040     \}
+00041 
+\hypertarget{MapObject_8hpp_source_l00043}{}\hyperlink{classMapObject_a9c111830e35093dd3b2f668c6d7d9736}{00043}     \textcolor{keywordtype}{void} \hyperlink{classMapObject_a9c111830e35093dd3b2f668c6d7d9736}{moveByVector}(\textcolor{keywordtype}{double} x\_vec, \textcolor{keywordtype}{double} y\_vec)
+00044     \{
+00045         \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_} += x\_vec;
+00046         \hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{y\_pos\_} += y\_vec;
+00047     \}
+00048 
+\hypertarget{MapObject_8hpp_source_l00050}{}\hyperlink{classMapObject_ad1a16784ebfef39db99b003b007e4aaa}{00050}     \textcolor{keywordtype}{double} \hyperlink{classMapObject_ad1a16784ebfef39db99b003b007e4aaa}{getX}()\textcolor{keyword}{ const}
+00051 \textcolor{keyword}{    }\{
+00052         \textcolor{keywordflow}{return} \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_};
+00053     \}
+00054 
+\hypertarget{MapObject_8hpp_source_l00056}{}\hyperlink{classMapObject_a1a14c2702a4afff02e8c037c1aebf73c}{00056}     \textcolor{keywordtype}{double} \hyperlink{classMapObject_a1a14c2702a4afff02e8c037c1aebf73c}{getY}()\textcolor{keyword}{ const}
+00057 \textcolor{keyword}{    }\{
+00058         \textcolor{keywordflow}{return} \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_};
+00059     \}
+00060 
+00067     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classMapObject_a8bd8926db59af00a61b8860352abfdd9}{simulationStep}(\textcolor{keywordtype}{int} miliseconds) = 0;
+00068     
+00069     
+00076     \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>
+\hypertarget{MapObject_8hpp_source_l00077}{}\hyperlink{classMapObject_af7bd38411bbc26af1e0133538688d909}{00077}     \textcolor{keywordtype}{void} \hyperlink{classMapObject_af7bd38411bbc26af1e0133538688d909}{serialize}(Archive & ar, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} version)
+00078     \{
+00079         ar & \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_};
+00080         ar & \hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{y\_pos\_};
+00081     \}
+00082 
+00083 \textcolor{keyword}{protected}:
+\hypertarget{MapObject_8hpp_source_l00085}{}\hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{00085}     \textcolor{keywordtype}{double} \hyperlink{classMapObject_a6083da4dfdf4efca1021a8486a40cd5f}{x\_pos\_};
+00086 
+\hypertarget{MapObject_8hpp_source_l00088}{}\hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{00088}     \textcolor{keywordtype}{double} \hyperlink{classMapObject_afc248d9c7b5433767aa711d0a7a7399f}{y\_pos\_};
+00089 \};
+00090 BOOST\_SERIALIZATION\_ASSUME\_ABSTRACT(\hyperlink{classMapObject}{MapObject});
+00091 
+00092 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

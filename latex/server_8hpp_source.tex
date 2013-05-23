@@ -1,0 +1,22 @@
+\hypertarget{server_8hpp}{\subsection{server.\-hpp}
+\label{server_8hpp}\index{src/server/server.\-hpp@{src/server/server.\-hpp}}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "../common/Map.hpp"}
+00002 \textcolor{preprocessor}{#include "../common/MapObject.hpp"}
+00003 \textcolor{preprocessor}{#include "../common/Creature.hpp"}
+00004 \textcolor{preprocessor}{#include "../common/Herbivore.hpp"}
+00005 \textcolor{preprocessor}{#include "../common/Predator.hpp"}
+00006 \textcolor{preprocessor}{#include "../common/Config.hpp"}
+00007 
+00008 \textcolor{preprocessor}{#include <mutex>} \textcolor{comment}{// c++11}
+00009 \textcolor{preprocessor}{#include <iostream>}
+00010 \textcolor{preprocessor}{#include <thread>} \textcolor{comment}{// c++11}
+00011 \textcolor{preprocessor}{#include <chrono>} \textcolor{comment}{// c++11}
+00012 
+00013 \textcolor{keyword}{namespace }server
+00014 \{
+00015     \textcolor{keywordtype}{void} run(std::mutex *mutex, \hyperlink{classMap}{Map} *map, \hyperlink{structConfig}{Config} *config);
+00016 \};
+\end{DoxyCode}

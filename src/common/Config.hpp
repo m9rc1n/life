@@ -1,15 +1,20 @@
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef COMMON_CONFIG_H
+#define COMMON_CONFIG_H
 
-/**
- * @brief
- * Klasa przechowujaca komplet ustawien wybranych przez uzytkownika na ekranie
- * startowym.
- */
-struct Config
+namespace common
 {
-    int map_width;
-    int map_height;
+    /**
+    * @brief
+    * Klasa przechowujaca komplet ustawien wybranych przez uzytkownika na ekranie
+    * startowym.
+    * 
+    * @todo moze zrobmy z tego singleton?
+    */
+    struct Config
+    {
+        int map_width;
+        int map_height;
+    };
 };
 
 #endif
