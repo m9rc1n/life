@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     common/Herbivore.cpp \
     common/Creature.cpp \
     init/init.cpp \
-    server/server.cpp
+    server/server.cpp \
+    common/Visitor.cpp
 
 HEADERS  += mainwindow.hpp \
     include.hpp \

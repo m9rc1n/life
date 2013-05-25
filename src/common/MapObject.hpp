@@ -111,7 +111,7 @@ namespace common
         // @todo zrobić z tego wskaźnik?
         DrawingAPI api;
     };
-    BOOST_SERIALIZATION_ASSUME_ABSTRACT(MapObject);
-};
+    BOOST_SERIALIZATION_ASSUME_ABSTRACT(MapObject)
+}
 
 #endif

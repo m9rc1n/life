@@ -1,9 +1,17 @@
 #ifndef VISITOR_H
 #define VISITOR_H
 
-class Visitor
+#include "MapObject.hpp"
+#include "Map.hpp"
+
+namespace common
 {
-  virtual void visit() = 0;
-};
+    class Visitor
+    {
+        virtual void visitMapObject(MapObject&);
+        virtual void visitMap(Map&);
+        virtual void visitStat();
+    };
+}
 
 #endif // VISITOR_H

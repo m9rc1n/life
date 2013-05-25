@@ -59,7 +59,7 @@ namespace common
          * @brief
          * Przyjecie (acceptance) wizytatora.
          */
-        virtual void accept(Visitor &);
+        virtual void accept(Visitor & visitor);
 
         /**
          * @brief
