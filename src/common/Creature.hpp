@@ -27,8 +27,8 @@ namespace common
         * @param api draw using specific api
         * @todo potrzebujesz fathera?
         */
-        Creature(const Creature &mother, DrawingAPI &api_p/*const Creature &father*/):
-            MapObject(mother, api_p),
+        Creature(const Creature &mother/*const Creature &father*/):
+            MapObject(mother),
             radius_(0),
             angle_(0),
             speed_(0),
@@ -48,7 +48,7 @@ namespace common
         *
         * Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne).
         */
-        Creature(double x_pos, double y_pos, DrawingAPI &api_p):
+        Creature(double x_pos, double y_pos, DrawingAPI api_p):
             MapObject(x_pos, y_pos, api_p),
             radius_(0),
             angle_(0),

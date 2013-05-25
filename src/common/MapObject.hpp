@@ -34,7 +34,7 @@ namespace common
         {}
 
         /// konstruktor kopiujący pozycję z innego obiektu
-        MapObject(const MapObject another):
+        MapObject(const MapObject &another):
             x_pos_(another.x_pos_),
             y_pos_(another.y_pos_),
             api(another.api)
@@ -69,7 +69,7 @@ namespace common
         }
 
         /// draw this specific shape on the map
-        virtual void draw() = 0;
+        virtual void draw();
 
         /**
          * @brief

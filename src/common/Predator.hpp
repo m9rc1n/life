@@ -25,9 +25,9 @@ namespace common
          * @param father referencja do ojca
          * @param api referencja do konkretnego api za pomocą którego rysujemy
          */
-        Predator(const Predator &mother,/* const Predator &father,*/ DrawingAPI api_p):
+        Predator(const Predator &mother/* const Predator &father,*/):
             /// @todo fathera tez przekazujemy? narazie usune
-            Creature(mother, api_p)
+            Creature(mother)
         {} // kod w klasie Creature
 
 
