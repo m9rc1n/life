@@ -10,6 +10,8 @@
 # ignoruj doc/notatki.txt, ale nie doc/server/arch.txt
 # doc/*.txt
 
+*.swp
+*~
 *.a
 *.o
 bin/
