@@ -1,7 +1,0 @@
-<map id="Graficzna hierarchia klas" name="Graficzna hierarchia klas">
-<area shape="rect" id="node1" href="$classcommon_1_1MapObject.html" title="Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp)." alt="" coords="7,59,148,88"/>
-<area shape="rect" id="node3" href="$classcommon_1_1Creature.html" title="Abstrakcyjna klasa reprezentująca stworzenie." alt="" coords="197,32,328,61"/>
-<area shape="rect" id="node9" href="$classcommon_1_1Tree.html" title="common::Tree" alt="" coords="209,85,316,115"/>
-<area shape="rect" id="node5" href="$classcommon_1_1Herbivore.html" title="Abstrakcyjna klasa reprezentujaca roslinozerce." alt="" coords="376,5,512,35"/>
-<area shape="rect" id="node7" href="$classcommon_1_1Predator.html" title="Abstrakcyjna klasa reprezentujaca drapieznika." alt="" coords="380,59,508,88"/>
-</map>
