@@ -3,7 +3,7 @@
 
 class Visitor
 {
-
+  virtual void visit() = 0;
 };
 
 #endif // VISITOR_H
