@@ -5,10 +5,11 @@
 #include <boost/serialization/nvp.hpp>
 
 #include "Visitor.hpp"
+#include "../client/drawingQT.hpp"
 
 namespace common
 {
-    
+
     /**
     * @brief
     * Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie
@@ -18,21 +19,25 @@ namespace common
     {
     public:
         /// konstruktor losujący pozycję dla obiektu
-        MapObject():
+        MapObject(DrawingAPI api_p):
+            /// musimy chyba przekazać na samym początku api w argumentach
             x_pos_(0),
-            y_pos_(0)
+            y_pos_(0),
+            api(api_p)
         {}
-        
+
         /// konstruktor z podaną pozycją startową
-        MapObject(double x_pos, double y_pos):
+        MapObject(double x_pos, double y_pos, DrawingAPI api_p):
             x_pos_(x_pos),
-            y_pos_(y_pos)
+            y_pos_(y_pos),
+            api(api_p)
         {}
 
         /// konstruktor kopiujący pozycję z innego obiektu
-        MapObject(const MapObject &another):
+        MapObject(const MapObject another):
             x_pos_(another.x_pos_),
-            y_pos_(another.y_pos_)
+            y_pos_(another.y_pos_),
+            api(another.api)
         {}
 
         virtual ~MapObject(){}
@@ -62,27 +67,30 @@ namespace common
         {
             return y_pos_;
         }
-        
+
+        /// draw this specific shape on the map
+        virtual void draw() = 0;
+
         /**
          * @brief
          * Tworzy głęboką kopię obiektu
-         * 
+         *
          * @returns wskaznik do nowego obiektu (utworzonego przez new)
-         * 
+         *
          * @todo moze zmienic na sprytny wskaznik?
          */
         virtual MapObject *clone() = 0;
-        
+
         /**
          * @brief
          * Przyjecie (acceptance) wizytatora.
          */
         virtual void accept(Visitor &) = 0;
-        
+
         /**
         * @brief
         * Serializacja
-        * 
+        *
         * @see Map::serialize
         */
         template<class Archive>
@@ -98,6 +106,10 @@ namespace common
 
         /// składowa y położenia
         double y_pos_;
+
+        /// API, which I use to draw Object
+        // @todo zrobić z tego wskaźnik?
+        DrawingAPI api;
     };
     BOOST_SERIALIZATION_ASSUME_ABSTRACT(MapObject);
 };

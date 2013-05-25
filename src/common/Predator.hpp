@@ -5,11 +5,11 @@
 
 namespace common
 {
-    
+
     /**
      * @brief
      * Abstrakcyjna klasa reprezentujaca drapieznika
-     */ 
+     */
     class Predator: public Creature
     {
     public:
@@ -23,12 +23,14 @@ namespace common
          *
          * @param mother referencja do matki
          * @param father referencja do ojca
+         * @param api referencja do konkretnego api za pomocą którego rysujemy
          */
-        Predator(const Predator &mother, const Predator &father):
-            Creature(mother, father)
+        Predator(const Predator &mother,/* const Predator &father,*/ DrawingAPI api_p):
+            /// @todo fathera tez przekazujemy? narazie usune
+            Creature(mother, api_p)
         {} // kod w klasie Creature
 
-        
+
         /**
          * @brief
          * Konstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry.
@@ -36,33 +38,44 @@ namespace common
          *
          * Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne).
          */
-        Predator(double x_pos, double y_pos):
-            Creature(x_pos, y_pos)
+        Predator(double x_pos, double y_pos, DrawingAPI api_p):
+            Creature(x_pos, y_pos, api_p)
         {} // kod w klasie Creature
-        
+
         /**
          * @brief
          * Tworzy głęboką kopię obiektu
-         * 
+         *
          * @returns wskaznik do nowego obiektu (utworzonego przez new)
-         * 
+         *
          * @todo moze zmienic na sprytny wskaznik?
          */
         virtual MapObject *clone()
         {
             return new Predator(*this);
         }
-        
+
         /**
          * @brief
          * Przyjecie (acceptance) wizytatora.
          */
         virtual void accept(Visitor &);
-        
+
+        /**
+         * @brief
+         * Draw Predator
+         */
+        virtual void draw(void);
+        /**
+         * @example
+         * how to use
+         * api.drawPredator();
+         */
+
         /**
          * @brief
          * Serializacja
-         * 
+         *
          * @see Map::serialize
          */
         template<class Archive>

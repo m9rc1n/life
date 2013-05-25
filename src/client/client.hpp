@@ -11,4 +11,4 @@ namespace client
     void run(std::mutex *mutex, common::Map *map, common::Config *config);
     // tutaj deklaracje jakichs klas uzytych w kliencie, np.
     // class GameWindow;
-};
+}

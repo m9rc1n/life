@@ -6,7 +6,7 @@
 
 namespace common
 {
-    
+
     /**
     * @brief
     * Abstrakcyjna klasa reprezentująca stworzenie
@@ -24,9 +24,11 @@ namespace common
         *
         * @param mother referencja do matki
         * @param father referencja do ojca
+        * @param api draw using specific api
+        * @todo potrzebujesz fathera?
         */
-        Creature(const Creature &mother, const Creature &father):
-            MapObject(mother),
+        Creature(const Creature &mother, DrawingAPI &api_p/*const Creature &father*/):
+            MapObject(mother, api_p),
             radius_(0),
             angle_(0),
             speed_(0),
@@ -38,7 +40,7 @@ namespace common
         {
             /// @todo write me
         }
-        
+
         /**
         * @brief
         * Konstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry.
@@ -46,8 +48,8 @@ namespace common
         *
         * Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne).
         */
-        Creature(double x_pos, double y_pos):
-            MapObject(x_pos, y_pos),
+        Creature(double x_pos, double y_pos, DrawingAPI &api_p):
+            MapObject(x_pos, y_pos, api_p),
             radius_(0),
             angle_(0),
             speed_(0),
@@ -63,13 +65,13 @@ namespace common
         /**
          * @brief
          * Tworzy głęboką kopię obiektu
-         * 
+         *
          * @returns wskaznik do nowego obiektu (utworzonego przez new)
-         * 
+         *
          * @todo moze zmienic na sprytny wskaznik?
          */
         virtual MapObject *clone() = 0;
-        
+
         /**
         * @brief
         * Funkcja podaje informację czy stworzenie jest martwe.
@@ -86,19 +88,25 @@ namespace common
         {
             return is_dead_;
         }
-        
+
         /**
          * @brief
          * Przyjecie (acceptance) wizytatora.
          */
         virtual void accept(Visitor &) = 0;
-        
+
+        /**
+         * @brief
+         * Draw MapObject
+         */
+        virtual void draw() = 0;
+
         /**
         * @brief
         * Serializacja
-        * 
+        *
         * Serializuje skladowe obiektu oraz klase bazowa.
-        * 
+        *
         * @see Map::serialize
         */
         template<class Archive>
@@ -156,12 +164,13 @@ namespace common
 
         /// Obecny wiek
         double age_;
-        
+
         /// Czy zwierzę jest martwe?
         bool is_dead_;
 
     };
-};
+}
+
 BOOST_SERIALIZATION_ASSUME_ABSTRACT(Creature);
 
 #endif
