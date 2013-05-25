@@ -1,16 +1,18 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
+# komentarz — ta linia jest ignorowana
+# żadnych plików .a
+# *.a
+# ale uwzględniaj lib.a, pomimo ignorowania .a w linijce powyżej
+# !lib.a
+# ignoruj plik TODO w katalogu głównym, ale nie podkatalog/TODO
+# /TODO
+# ignoruj wszystkie pliki znajdujące się w katalogu build/
+# build/
+# ignoruj doc/notatki.txt, ale nie doc/server/arch.txt
+# doc/*.txt
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-
-# Compiled Static libraries
-*.lai
-*.la
 *.a
-
-# pliki tymczasowe
-*~
+*.o
+bin/
+man/
+html/
+latex/
