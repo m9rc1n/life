@@ -3,7 +3,10 @@
 #define INIT_INIT_HPP 
 
 #include "../include.hpp"
-
+#include <QApplication>
+#include <QGraphicsEllipseItem>
+#include <QGraphicsScene>
+#include <QGraphicsView>
  
 namespace init
 {
@@ -17,7 +20,7 @@ namespace init
      * 
      * @todo write me
      */
-    void run(common::Config *config);
+    int run(common::Config *config, int argc, char **argv);
 }
 
 #endif
