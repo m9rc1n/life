@@ -4,5 +4,9 @@ using namespace common;
 
 void Predator::accept(Visitor &visitor)
 {
-    visitor.visit(*this);
+    visitor.visitMapObject(*this);
+}
+
+void Predator::draw()
+{
 }

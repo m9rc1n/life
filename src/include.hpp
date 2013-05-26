@@ -1,7 +1,6 @@
 #ifndef INCLUDE_HPP
 #define INCLUDE_HPP
 
-#include "common/Visitor.hpp"
 
 #include "common/Config.hpp"
 
@@ -15,6 +14,7 @@
 #include "common/Tree.hpp"
 #include "common/Waterhole.hpp"
 
+#include "common/Visitor.hpp"
 #include "init/init.hpp"
 
 #include "client/client.hpp"

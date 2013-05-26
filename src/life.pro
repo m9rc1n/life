@@ -53,4 +53,4 @@ OTHER_FILES += \
 
 QMAKE_CXXFLAGS += -std=c++11
 
-LIBS += -lboost_system -lboost_filesystem -lboost_asio
+LIBS += -lboost_system -lboost_thread -lboost_serialization

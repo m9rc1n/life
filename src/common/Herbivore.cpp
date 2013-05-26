@@ -7,3 +7,8 @@ void Herbivore::accept(Visitor &visitor)
 {
     visitor.visitMapObject(*this);
 }
+
+
+void Herbivore::draw()
+{
+}

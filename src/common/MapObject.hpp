@@ -69,7 +69,7 @@ namespace common
         }
 
         /// draw this specific shape on the map
-        virtual void draw();
+        virtual void draw() = 0;
 
         /**
          * @brief
