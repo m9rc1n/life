@@ -27,7 +27,6 @@ private slots:
 private:
     Ui::Init_UI *ui;
     Client_UI *cui;
-
     common::Config *config;
 };
 
