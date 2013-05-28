@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #ifndef COMMON_WATERHOLE_HPP
 #define COMMON_WATERHOLE_HPP
 
@@ -30,12 +29,6 @@ namespace common
         virtual void accept(Visitor &);
         
     };
-};
-
-#endif
-=======
-#ifndef WATERHOLE_HPP
-#define WATERHOLE_HPP
+}
 
 #endif // WATERHOLE_HPP
->>>>>>> 7c59914ddb14ddda7465e784eb78c267d664536a

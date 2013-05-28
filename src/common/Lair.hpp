@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 #ifndef COMMON_LAIR_HPP
 #define COMMON_LAIR_HPP
 
@@ -30,12 +30,6 @@ namespace common
             return new Lair(*this);
         }
     };
-};
-
-#endif
-=======
-#ifndef LAIR_HPP
-#define LAIR_HPP
+}
 
 #endif // LAIR_HPP
->>>>>>> 7c59914ddb14ddda7465e784eb78c267d664536a
