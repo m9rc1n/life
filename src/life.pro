@@ -13,7 +13,6 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     client/client.cpp \
     common/Predator.cpp \
     common/MapObject.cpp \
@@ -28,13 +27,15 @@ SOURCES += main.cpp\
     common/Lair.cpp \
     init/init_ui.cpp \
     client/client_ui.cpp \
+    client/StatisticsVisitor.cpp \
+    client/PaintingVisitor.cpp \
     common/MaslovPyramid.cpp \
-    common/GeneticEquation.cpp
+    common/GeneticEquation.cpp \
+    init/initui.cpp \
+    server/genetics/Genome.cpp
 
-HEADERS  += mainwindow.hpp \
+HEADERS  += \
     include.hpp \
-    client/drawingQT.hpp \
-    client/drawingAPI.hpp \
     client/client.hpp \
     common/Waterhole.hpp \
     common/Visitor.hpp \
@@ -51,8 +52,12 @@ HEADERS  += mainwindow.hpp \
     server/Map.hpp \
     init/init_ui.hpp \
     client/client_ui.hpp \
+    client/PaintingVisitor.hpp \
+    client/StatisticsVisitor.hpp \
+    common/MaslovPyramid.hpp \
     common/GeneticEquation.hpp \
-    common/MaslovPyramid.hpp
+    init/initui.h \
+    server/genetics/Genome.hpp
 
 OTHER_FILES += \
     makefile \
@@ -62,10 +67,13 @@ OTHER_FILES += \
     init/makefile \
     server/makefile
 
-QMAKE_CXXFLAGS += -std=c++11
-
-LIBS += -lboost_system -lboost_thread -lboost_serialization
 
 FORMS += \
     init/init_ui.ui \
-    client/client_ui.ui
+    client/client_ui.ui \
+    init/initui.ui
+
+
+QMAKE_CXXFLAGS += -std=c++11
+
+LIBS += -lboost_system -lboost_thread -lboost_serialization

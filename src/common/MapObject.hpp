@@ -5,7 +5,6 @@
 #include <boost/serialization/nvp.hpp>
 
 #include "Visitor.hpp"
-#include "../client/drawingQT.hpp"
 
 namespace common
 {
