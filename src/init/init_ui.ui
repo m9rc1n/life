@@ -21,8 +21,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>781</width>
-     <height>141</height>
+     <width>771</width>
+     <height>101</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -60,9 +60,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>190</y>
-     <width>391</width>
-     <height>151</height>
+     <y>120</y>
+     <width>381</width>
+     <height>141</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -121,10 +121,10 @@
   <widget class="QWidget" name="formLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>190</y>
+     <x>400</x>
+     <y>120</y>
      <width>381</width>
-     <height>151</height>
+     <height>141</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout_3">
@@ -187,9 +187,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>350</y>
-     <width>781</width>
-     <height>241</height>
+     <y>470</y>
+     <width>771</width>
+     <height>121</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -205,6 +205,196 @@
        <string>Let's START THE GAME</string>
       </property>
      </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>320</y>
+     <width>381</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout_2">
+    <property name="fieldGrowthPolicy">
+     <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_13">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_14">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_15">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_16">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_17">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="spinBox"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="spinBox_2"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="spinBox_3"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QSpinBox" name="spinBox_4"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QSpinBox" name="spinBox_5"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>270</y>
+     <width>381</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="label_23">
+      <property name="font">
+       <font>
+        <family>Cantarell</family>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>MASLOV PYRAMID FOR HERBIVORS</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>270</y>
+     <width>381</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QLabel" name="label_24">
+      <property name="font">
+       <font>
+        <family>Cantarell</family>
+        <pointsize>13</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>MASLOV PYRAMID FOR PREDATORS</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget_4">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>320</y>
+     <width>381</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout_4">
+    <property name="fieldGrowthPolicy">
+     <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_18">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_19">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_20">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_21">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_22">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="spinBox_6"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="spinBox_7"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="spinBox_8"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QSpinBox" name="spinBox_9"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QSpinBox" name="spinBox_10"/>
     </item>
    </layout>
   </widget>

@@ -24,3 +24,8 @@ void Init_UI::on_pushButton_clicked()
     this->hide();
     this->cui->show();
 }
+
+void Init_UI::on_spinBox_valueChanged(int arg1)
+{
+    std::cout << arg1;
+}
