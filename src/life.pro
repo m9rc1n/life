@@ -27,7 +27,9 @@ SOURCES += main.cpp\
     common/Tree.cpp \
     common/Lair.cpp \
     init/init_ui.cpp \
-    client/client_ui.cpp
+    client/client_ui.cpp \
+    common/MaslovPyramid.cpp \
+    common/GeneticEquation.cpp
 
 HEADERS  += mainwindow.hpp \
     include.hpp \
@@ -48,7 +50,9 @@ HEADERS  += mainwindow.hpp \
     server/server.hpp \
     server/Map.hpp \
     init/init_ui.hpp \
-    client/client_ui.hpp
+    client/client_ui.hpp \
+    common/GeneticEquation.hpp \
+    common/MaslovPyramid.hpp
 
 OTHER_FILES += \
     makefile \
