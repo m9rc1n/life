@@ -1,0 +1,168 @@
+.TH "common::Creature" 3 "Cz, 23 maj 2013" "Version 0.1" "Life -- Fight!" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+common::Creature \- 
+.PP
+Abstrakcyjna klasa reprezentująca stworzenie\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Creature\&.hpp>\fP
+.PP
+Dziedziczy \fBcommon::MapObject\fP\&.
+.PP
+Dziedziczona przez \fBcommon::Herbivore\fP i \fBcommon::Predator\fP\&.
+.SS "Metody publiczne"
+
+.in +1c
+.ti -1c
+.RI "\fBCreature\fP (const \fBCreature\fP &mother, const \fBCreature\fP &father)"
+.br
+.RI "\fIKonstruktor wywoływany w momencie narodzin stworzenia\&. \fP"
+.ti -1c
+.RI "\fBCreature\fP (double x_pos, double y_pos)"
+.br
+.RI "\fIKonstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry\&. \fP"
+.ti -1c
+.RI "bool \fBisDead\fP () const "
+.br
+.RI "\fIFunkcja podaje informację czy stworzenie jest martwe\&. \fP"
+.ti -1c
+.RI "template<class Archive > void \fBserialize\fP (Archive &ar, const unsigned int version)"
+.br
+.RI "\fISerializacja\&. \fP"
+.in -1c
+.SS "Atrybuty chronione"
+
+.in +1c
+.ti -1c
+.RI "const int \fBradius_\fP"
+.br
+.RI "\fIZasięg widzenia\&. \fP"
+.ti -1c
+.RI "const int \fBangle_\fP"
+.br
+.RI "\fIKąt widzenia\&. \fP"
+.ti -1c
+.RI "const int \fBspeed_\fP"
+.br
+.RI "\fIPrędkość poruszania się \fP"
+.ti -1c
+.RI "const int \fBfecundity_\fP"
+.br
+.RI "\fIPłodność \fP"
+.ti -1c
+.RI "const int \fBmax_repletion_\fP"
+.br
+.RI "\fIMaksymalny poziom najedzenia (inaczej: odporność na głód) \fP"
+.ti -1c
+.RI "const int \fBmax_hydration_\fP"
+.br
+.RI "\fIMaksymalny poziom napojenia (inaczej: odporność na pragnienie) \fP"
+.ti -1c
+.RI "const int \fBmax_energy_\fP"
+.br
+.RI "\fIMaksymalny poziom energii (inaczej: odporność na zmęczenie) \fP"
+.ti -1c
+.RI "const int \fBmax_age_\fP"
+.br
+.RI "\fIMaksymalna długość życia\&. \fP"
+.ti -1c
+.RI "double \fBrepletion_\fP"
+.br
+.RI "\fIObecny poziom najedzenia\&. \fP"
+.ti -1c
+.RI "double \fBhydration_\fP"
+.br
+.RI "\fIObecny poziom napojenia\&. \fP"
+.ti -1c
+.RI "double \fBenergy_\fP"
+.br
+.RI "\fIObecny poziom energii\&. \fP"
+.ti -1c
+.RI "double \fBage_\fP"
+.br
+.RI "\fIObecny wiek\&. \fP"
+.ti -1c
+.RI "bool \fBis_dead_\fP"
+.br
+.RI "\fICzy zwierze jest martwe? \fP"
+.in -1c
+.SH "Opis szczegółowy"
+.PP 
+Abstrakcyjna klasa reprezentująca stworzenie\&. 
+.SH "Dokumentacja konstruktora i destruktora"
+.PP 
+.SS "common::Creature::Creature (const \fBCreature\fP &mother, const \fBCreature\fP &father)\fC [inline]\fP"
+
+.PP
+Konstruktor wywoływany w momencie narodzin stworzenia\&. Parametry stworzenia są ustalane na podstawie odpowiednich parametrów ojca i matki\&.
+.PP
+Ten konstruktor zakłada, że matka i ojciec znajdują się w tym samym miejscu\&. Nowe stworzenie również pojawi się w tym samym miejscu\&.
+.PP
+\fBParametry:\fP
+.RS 4
+\fImother\fP referencja do matki 
+.br
+\fIfather\fP referencja do ojca 
+.RE
+.PP
+\fBDo zrobienia\fP
+.RS 4
+write me 
+.RE
+.PP
+
+.SS "common::Creature::Creature (doublex_pos, doubley_pos)\fC [inline]\fP"
+
+.PP
+Konstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry\&. Wspolrzedne stworzenia są podawane jako parametry konstruktora\&.
+.PP
+Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne)\&. \fBDo zrobienia\fP
+.RS 4
+write me 
+.RE
+.PP
+
+.SH "Dokumentacja funkcji składowych"
+.PP 
+.SS "bool common::Creature::isDead () const\fC [inline]\fP"
+
+.PP
+Funkcja podaje informację czy stworzenie jest martwe\&. Dzieje się tak, gdy najedzenie, napojenie lub energia spadnie do zera lub gdy stworzenie osiągnie swój maksymalny wiek\&.
+.PP
+Po stwierdzeniu, że stworzenie jest martwe, funkcja nadrzędna powinna zniszczyć obiekt klasy \fBCreature\fP\&.
+.PP
+\fBZwraca:\fP
+.RS 4
+true wtedy i tylko wtedy gdy osobnik jest martwy\&. 
+.RE
+.PP
+\fBDo zrobienia\fP
+.RS 4
+write me 
+.RE
+.PP
+
+.SS "template<class Archive > void common::Creature::serialize (Archive &ar, const unsigned intversion)\fC [inline]\fP"
+
+.PP
+Serializacja\&. Serializuje skladowe obiektu oraz klase bazowa\&.
+.PP
+\fBZobacz również:\fP
+.RS 4
+\fBMap::serialize\fP 
+.RE
+.PP
+
+.PP
+Reimplementowana z \fBcommon::MapObject\fP\&.
+.PP
+Reimplementowana w \fBcommon::Predator\fP i \fBcommon::Herbivore\fP\&.
+
+.SH "Autor"
+.PP 
+Wygenerowano automatycznie z kodu źródłowego programem Doxygen dla Life -- Fight!\&.

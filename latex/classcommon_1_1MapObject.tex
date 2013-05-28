@@ -1,0 +1,97 @@
+\hypertarget{classcommon_1_1MapObject}{\subsection{Dokumentacja klasy common\-:\-:Map\-Object}
+\label{classcommon_1_1MapObject}\index{common\-::\-Map\-Object@{common\-::\-Map\-Object}}
+}
+
+
+Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp).  
+
+
+
+
+{\ttfamily \#include $<$Map\-Object.\-hpp$>$}
+
+
+
+Diagram dziedziczenia dla common\-:\-:Map\-Object
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcommon_1_1MapObject__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla common\-:\-:Map\-Object\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classcommon_1_1MapObject__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classcommon_1_1MapObject_aa7e804e093f2c4d6a15d96ed17151ef0}{\hyperlink{classcommon_1_1MapObject_aa7e804e093f2c4d6a15d96ed17151ef0}{Map\-Object} ()}\label{classcommon_1_1MapObject_aa7e804e093f2c4d6a15d96ed17151ef0}
+
+\begin{DoxyCompactList}\small\item\em konstruktor losujący pozycję dla obiektu \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1MapObject_a78971c4fc577cb20a7fe7f4a549ed7bc}{\hyperlink{classcommon_1_1MapObject_a78971c4fc577cb20a7fe7f4a549ed7bc}{Map\-Object} (double x\-\_\-pos, double y\-\_\-pos)}\label{classcommon_1_1MapObject_a78971c4fc577cb20a7fe7f4a549ed7bc}
+
+\begin{DoxyCompactList}\small\item\em konstruktor z podaną pozycją startową \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1MapObject_a5f962bad3bf12fea425c55b314343808}{\hyperlink{classcommon_1_1MapObject_a5f962bad3bf12fea425c55b314343808}{Map\-Object} (const \hyperlink{classcommon_1_1MapObject}{Map\-Object} \&another)}\label{classcommon_1_1MapObject_a5f962bad3bf12fea425c55b314343808}
+
+\begin{DoxyCompactList}\small\item\em konstruktor kopiujący pozycję z innego obiektu \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1MapObject_a888242bef61289b92e6a8f2856863e56}{void \hyperlink{classcommon_1_1MapObject_a888242bef61289b92e6a8f2856863e56}{move\-To} (double x\-\_\-pos, double y\-\_\-pos)}\label{classcommon_1_1MapObject_a888242bef61289b92e6a8f2856863e56}
+
+\begin{DoxyCompactList}\small\item\em przemieszcza obiekt na zadaną pozycję \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1MapObject_a11931d24f329b92c623ecb91f8c8cfc0}{void \hyperlink{classcommon_1_1MapObject_a11931d24f329b92c623ecb91f8c8cfc0}{move\-By\-Vector} (double x\-\_\-vec, double y\-\_\-vec)}\label{classcommon_1_1MapObject_a11931d24f329b92c623ecb91f8c8cfc0}
+
+\begin{DoxyCompactList}\small\item\em przemieszcza obiekt o zadany wektor \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1MapObject_aa9e8a4c9ecbb9ee68344af018dcd7f1d}{double \hyperlink{classcommon_1_1MapObject_aa9e8a4c9ecbb9ee68344af018dcd7f1d}{get\-X} () const }\label{classcommon_1_1MapObject_aa9e8a4c9ecbb9ee68344af018dcd7f1d}
+
+\begin{DoxyCompactList}\small\item\em zwraca współrzędną X położenia \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1MapObject_a34d9d7d94ef963954bc276de4fc7d19c}{double \hyperlink{classcommon_1_1MapObject_a34d9d7d94ef963954bc276de4fc7d19c}{get\-Y} () const }\label{classcommon_1_1MapObject_a34d9d7d94ef963954bc276de4fc7d19c}
+
+\begin{DoxyCompactList}\small\item\em zwraca współrzędną Y położenia \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Archive $>$ }\\void \hyperlink{classcommon_1_1MapObject_ac9f0fecb3c62b2fae69bbad56eb18944}{serialize} (Archive \&ar, const unsigned int version)
+\begin{DoxyCompactList}\small\item\em Serializacja. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classcommon_1_1MapObject_a453b223be3378af582d03003153d4254}{double \hyperlink{classcommon_1_1MapObject_a453b223be3378af582d03003153d4254}{x\-\_\-pos\-\_\-}}\label{classcommon_1_1MapObject_a453b223be3378af582d03003153d4254}
+
+\begin{DoxyCompactList}\small\item\em składowa x położenia \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1MapObject_acb4cfa86774eb5319447d6bfe143006a}{double \hyperlink{classcommon_1_1MapObject_acb4cfa86774eb5319447d6bfe143006a}{y\-\_\-pos\-\_\-}}\label{classcommon_1_1MapObject_acb4cfa86774eb5319447d6bfe143006a}
+
+\begin{DoxyCompactList}\small\item\em składowa y położenia \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Opis szczegółowy}
+Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp). 
+
+\subsubsection{Dokumentacja funkcji składowych}
+\hypertarget{classcommon_1_1MapObject_ac9f0fecb3c62b2fae69bbad56eb18944}{\index{common\-::\-Map\-Object@{common\-::\-Map\-Object}!serialize@{serialize}}
+\index{serialize@{serialize}!common::MapObject@{common\-::\-Map\-Object}}
+\paragraph[{serialize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Archive $>$ void common\-::\-Map\-Object\-::serialize (
+\begin{DoxyParamCaption}
+\item[{Archive \&}]{ar, }
+\item[{const unsigned int}]{version}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcommon_1_1MapObject_ac9f0fecb3c62b2fae69bbad56eb18944}
+
+
+Serializacja. 
+
+\begin{DoxySeeAlso}{Zobacz również}
+\hyperlink{classcommon_1_1Map_adea5eca91ec93db01ec5920bb26a3fd3}{Map\-::serialize} 
+\end{DoxySeeAlso}
+
+
+Reimplementowana w \hyperlink{classcommon_1_1Creature_a975a4df236259ce2d72126c040c5cce0}{common\-::\-Creature}, \hyperlink{classcommon_1_1Predator_a2b9515fa6275dd582259cb144dc1d8cf}{common\-::\-Predator} i \hyperlink{classcommon_1_1Herbivore_affb4a1d96e6f92d41223d2f5eb2d6f03}{common\-::\-Herbivore}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\-:\begin{DoxyCompactItemize}
+\item 
+src/common/Map\-Object.\-hpp\end{DoxyCompactItemize}

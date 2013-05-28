@@ -1,0 +1,112 @@
+\hypertarget{classcommon_1_1Predator}{\subsection{Dokumentacja klasy common\-:\-:Predator}
+\label{classcommon_1_1Predator}\index{common\-::\-Predator@{common\-::\-Predator}}
+}
+
+
+Abstrakcyjna klasa reprezentujaca drapieznika.  
+
+
+
+
+{\ttfamily \#include $<$Predator.\-hpp$>$}
+
+
+
+Diagram dziedziczenia dla common\-:\-:Predator
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcommon_1_1Predator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla common\-:\-:Predator\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcommon_1_1Predator__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcommon_1_1Predator_a79cf6c0e3f7575058e92b827fbf2ae7a}{Predator} (const \hyperlink{classcommon_1_1Predator}{Predator} \&mother, const \hyperlink{classcommon_1_1Predator}{Predator} \&father)
+\begin{DoxyCompactList}\small\item\em Konstruktor wywoływany w momencie narodzin stworzenia. \end{DoxyCompactList}\item 
+\hyperlink{classcommon_1_1Predator_a7b2cded6d46ea57ebe3658c2e0ad2d40}{Predator} (double x\-\_\-pos, double y\-\_\-pos)
+\begin{DoxyCompactList}\small\item\em Konstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Archive $>$ }\\void \hyperlink{classcommon_1_1Predator_a2b9515fa6275dd582259cb144dc1d8cf}{serialize} (Archive \&ar, const unsigned int version)
+\begin{DoxyCompactList}\small\item\em Serializacja. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Dodatkowe Dziedziczone Składowe}
+
+
+\subsubsection{Opis szczegółowy}
+Abstrakcyjna klasa reprezentujaca drapieznika. 
+
+\subsubsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcommon_1_1Predator_a79cf6c0e3f7575058e92b827fbf2ae7a}{\index{common\-::\-Predator@{common\-::\-Predator}!Predator@{Predator}}
+\index{Predator@{Predator}!common::Predator@{common\-::\-Predator}}
+\paragraph[{Predator}]{\setlength{\rightskip}{0pt plus 5cm}common\-::\-Predator\-::\-Predator (
+\begin{DoxyParamCaption}
+\item[{const {\bf Predator} \&}]{mother, }
+\item[{const {\bf Predator} \&}]{father}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcommon_1_1Predator_a79cf6c0e3f7575058e92b827fbf2ae7a}
+
+
+Konstruktor wywoływany w momencie narodzin stworzenia. 
+
+Parametry stworzenia są ustalane na podstawie odpowiednich parametrów ojca i matki.
+
+Ten konstruktor zakłada, że matka i ojciec znajdują się w tym samym miejscu. Nowe stworzenie również pojawi się w tym samym miejscu.
+
+
+\begin{DoxyParams}{Parametry}
+{\em mother} & referencja do matki \\
+\hline
+{\em father} & referencja do ojca \\
+\hline
+\end{DoxyParams}
+\hypertarget{classcommon_1_1Predator_a7b2cded6d46ea57ebe3658c2e0ad2d40}{\index{common\-::\-Predator@{common\-::\-Predator}!Predator@{Predator}}
+\index{Predator@{Predator}!common::Predator@{common\-::\-Predator}}
+\paragraph[{Predator}]{\setlength{\rightskip}{0pt plus 5cm}common\-::\-Predator\-::\-Predator (
+\begin{DoxyParamCaption}
+\item[{double}]{x\-\_\-pos, }
+\item[{double}]{y\-\_\-pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcommon_1_1Predator_a7b2cded6d46ea57ebe3658c2e0ad2d40}
+
+
+Konstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry. 
+
+Wspolrzedne stworzenia są podawane jako parametry konstruktora.
+
+Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne). 
+
+\subsubsection{Dokumentacja funkcji składowych}
+\hypertarget{classcommon_1_1Predator_a2b9515fa6275dd582259cb144dc1d8cf}{\index{common\-::\-Predator@{common\-::\-Predator}!serialize@{serialize}}
+\index{serialize@{serialize}!common::Predator@{common\-::\-Predator}}
+\paragraph[{serialize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Archive $>$ void common\-::\-Predator\-::serialize (
+\begin{DoxyParamCaption}
+\item[{Archive \&}]{ar, }
+\item[{const unsigned int}]{version}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcommon_1_1Predator_a2b9515fa6275dd582259cb144dc1d8cf}
+
+
+Serializacja. 
+
+\begin{DoxySeeAlso}{Zobacz również}
+\hyperlink{classcommon_1_1Map_adea5eca91ec93db01ec5920bb26a3fd3}{Map\-::serialize} 
+\end{DoxySeeAlso}
+
+
+Reimplementowana z \hyperlink{classcommon_1_1Creature_a975a4df236259ce2d72126c040c5cce0}{common\-::\-Creature}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\-:\begin{DoxyCompactItemize}
+\item 
+src/common/Predator.\-hpp\end{DoxyCompactItemize}

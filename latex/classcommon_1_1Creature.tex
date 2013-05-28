@@ -1,0 +1,185 @@
+\hypertarget{classcommon_1_1Creature}{\subsection{Dokumentacja klasy common\-:\-:Creature}
+\label{classcommon_1_1Creature}\index{common\-::\-Creature@{common\-::\-Creature}}
+}
+
+
+Abstrakcyjna klasa reprezentująca stworzenie.  
+
+
+
+
+{\ttfamily \#include $<$Creature.\-hpp$>$}
+
+
+
+Diagram dziedziczenia dla common\-:\-:Creature
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcommon_1_1Creature__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla common\-:\-:Creature\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcommon_1_1Creature__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcommon_1_1Creature_a1aef36038cf8c079ea534175ce34966c}{Creature} (const \hyperlink{classcommon_1_1Creature}{Creature} \&mother, const \hyperlink{classcommon_1_1Creature}{Creature} \&father)
+\begin{DoxyCompactList}\small\item\em Konstruktor wywoływany w momencie narodzin stworzenia. \end{DoxyCompactList}\item 
+\hyperlink{classcommon_1_1Creature_ac92d5a9bd6bbcc2a78e37278ed335a18}{Creature} (double x\-\_\-pos, double y\-\_\-pos)
+\begin{DoxyCompactList}\small\item\em Konstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry. \end{DoxyCompactList}\item 
+bool \hyperlink{classcommon_1_1Creature_a604e9f9a6765a8c90eb250be48813ac5}{is\-Dead} () const 
+\begin{DoxyCompactList}\small\item\em Funkcja podaje informację czy stworzenie jest martwe. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Archive $>$ }\\void \hyperlink{classcommon_1_1Creature_a975a4df236259ce2d72126c040c5cce0}{serialize} (Archive \&ar, const unsigned int version)
+\begin{DoxyCompactList}\small\item\em Serializacja. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classcommon_1_1Creature_ad019065e6b0638edbfed51095b3db3ba}{const int \hyperlink{classcommon_1_1Creature_ad019065e6b0638edbfed51095b3db3ba}{radius\-\_\-}}\label{classcommon_1_1Creature_ad019065e6b0638edbfed51095b3db3ba}
+
+\begin{DoxyCompactList}\small\item\em Zasięg widzenia. \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a51251c0be55bcde1fb24611fb5657a2b}{const int \hyperlink{classcommon_1_1Creature_a51251c0be55bcde1fb24611fb5657a2b}{angle\-\_\-}}\label{classcommon_1_1Creature_a51251c0be55bcde1fb24611fb5657a2b}
+
+\begin{DoxyCompactList}\small\item\em Kąt widzenia. \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a338506f13353f65510e624d26ec10187}{const int \hyperlink{classcommon_1_1Creature_a338506f13353f65510e624d26ec10187}{speed\-\_\-}}\label{classcommon_1_1Creature_a338506f13353f65510e624d26ec10187}
+
+\begin{DoxyCompactList}\small\item\em Prędkość poruszania się \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a6a53cc520a5c130873ac57ba7eb7bd6e}{const int \hyperlink{classcommon_1_1Creature_a6a53cc520a5c130873ac57ba7eb7bd6e}{fecundity\-\_\-}}\label{classcommon_1_1Creature_a6a53cc520a5c130873ac57ba7eb7bd6e}
+
+\begin{DoxyCompactList}\small\item\em Płodność \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a2dfdcfd875ba7e84e3d2cb7252f25527}{const int \hyperlink{classcommon_1_1Creature_a2dfdcfd875ba7e84e3d2cb7252f25527}{max\-\_\-repletion\-\_\-}}\label{classcommon_1_1Creature_a2dfdcfd875ba7e84e3d2cb7252f25527}
+
+\begin{DoxyCompactList}\small\item\em Maksymalny poziom najedzenia (inaczej\-: odporność na głód) \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a2eb6497d81a27cb5fd40ad254a940dca}{const int \hyperlink{classcommon_1_1Creature_a2eb6497d81a27cb5fd40ad254a940dca}{max\-\_\-hydration\-\_\-}}\label{classcommon_1_1Creature_a2eb6497d81a27cb5fd40ad254a940dca}
+
+\begin{DoxyCompactList}\small\item\em Maksymalny poziom napojenia (inaczej\-: odporność na pragnienie) \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_af76202c52941304ac19cba1ad51e6300}{const int \hyperlink{classcommon_1_1Creature_af76202c52941304ac19cba1ad51e6300}{max\-\_\-energy\-\_\-}}\label{classcommon_1_1Creature_af76202c52941304ac19cba1ad51e6300}
+
+\begin{DoxyCompactList}\small\item\em Maksymalny poziom energii (inaczej\-: odporność na zmęczenie) \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a79c9b6b2a9e7b580057ec18eff9222be}{const int \hyperlink{classcommon_1_1Creature_a79c9b6b2a9e7b580057ec18eff9222be}{max\-\_\-age\-\_\-}}\label{classcommon_1_1Creature_a79c9b6b2a9e7b580057ec18eff9222be}
+
+\begin{DoxyCompactList}\small\item\em Maksymalna długość życia. \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a247767f10ca5ceeac4d9c930f8e9a739}{double \hyperlink{classcommon_1_1Creature_a247767f10ca5ceeac4d9c930f8e9a739}{repletion\-\_\-}}\label{classcommon_1_1Creature_a247767f10ca5ceeac4d9c930f8e9a739}
+
+\begin{DoxyCompactList}\small\item\em Obecny poziom najedzenia. \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a75c8ffa7e45395c3b5d75357a758c59f}{double \hyperlink{classcommon_1_1Creature_a75c8ffa7e45395c3b5d75357a758c59f}{hydration\-\_\-}}\label{classcommon_1_1Creature_a75c8ffa7e45395c3b5d75357a758c59f}
+
+\begin{DoxyCompactList}\small\item\em Obecny poziom napojenia. \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a2e7c6636dea5d26cbef2703e9b5d7e95}{double \hyperlink{classcommon_1_1Creature_a2e7c6636dea5d26cbef2703e9b5d7e95}{energy\-\_\-}}\label{classcommon_1_1Creature_a2e7c6636dea5d26cbef2703e9b5d7e95}
+
+\begin{DoxyCompactList}\small\item\em Obecny poziom energii. \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a9b3a262eedc2abbfc3e0ebc471a90be8}{double \hyperlink{classcommon_1_1Creature_a9b3a262eedc2abbfc3e0ebc471a90be8}{age\-\_\-}}\label{classcommon_1_1Creature_a9b3a262eedc2abbfc3e0ebc471a90be8}
+
+\begin{DoxyCompactList}\small\item\em Obecny wiek. \end{DoxyCompactList}\item 
+\hypertarget{classcommon_1_1Creature_a294e9e780f31a5f544737e25697e9572}{bool \hyperlink{classcommon_1_1Creature_a294e9e780f31a5f544737e25697e9572}{is\-\_\-dead\-\_\-}}\label{classcommon_1_1Creature_a294e9e780f31a5f544737e25697e9572}
+
+\begin{DoxyCompactList}\small\item\em Czy zwierze jest martwe? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Opis szczegółowy}
+Abstrakcyjna klasa reprezentująca stworzenie. 
+
+\subsubsection{Dokumentacja konstruktora i destruktora}
+\hypertarget{classcommon_1_1Creature_a1aef36038cf8c079ea534175ce34966c}{\index{common\-::\-Creature@{common\-::\-Creature}!Creature@{Creature}}
+\index{Creature@{Creature}!common::Creature@{common\-::\-Creature}}
+\paragraph[{Creature}]{\setlength{\rightskip}{0pt plus 5cm}common\-::\-Creature\-::\-Creature (
+\begin{DoxyParamCaption}
+\item[{const {\bf Creature} \&}]{mother, }
+\item[{const {\bf Creature} \&}]{father}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcommon_1_1Creature_a1aef36038cf8c079ea534175ce34966c}
+
+
+Konstruktor wywoływany w momencie narodzin stworzenia. 
+
+Parametry stworzenia są ustalane na podstawie odpowiednich parametrów ojca i matki.
+
+Ten konstruktor zakłada, że matka i ojciec znajdują się w tym samym miejscu. Nowe stworzenie również pojawi się w tym samym miejscu.
+
+
+\begin{DoxyParams}{Parametry}
+{\em mother} & referencja do matki \\
+\hline
+{\em father} & referencja do ojca \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Do zrobienia}
+\item[\hyperlink{todo__todo000002}{Do zrobienia}]write me \end{DoxyRefDesc}
+\hypertarget{classcommon_1_1Creature_ac92d5a9bd6bbcc2a78e37278ed335a18}{\index{common\-::\-Creature@{common\-::\-Creature}!Creature@{Creature}}
+\index{Creature@{Creature}!common::Creature@{common\-::\-Creature}}
+\paragraph[{Creature}]{\setlength{\rightskip}{0pt plus 5cm}common\-::\-Creature\-::\-Creature (
+\begin{DoxyParamCaption}
+\item[{double}]{x\-\_\-pos, }
+\item[{double}]{y\-\_\-pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcommon_1_1Creature_ac92d5a9bd6bbcc2a78e37278ed335a18}
+
+
+Konstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry. 
+
+Wspolrzedne stworzenia są podawane jako parametry konstruktora.
+
+Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne). \begin{DoxyRefDesc}{Do zrobienia}
+\item[\hyperlink{todo__todo000003}{Do zrobienia}]write me \end{DoxyRefDesc}
+
+
+\subsubsection{Dokumentacja funkcji składowych}
+\hypertarget{classcommon_1_1Creature_a604e9f9a6765a8c90eb250be48813ac5}{\index{common\-::\-Creature@{common\-::\-Creature}!is\-Dead@{is\-Dead}}
+\index{is\-Dead@{is\-Dead}!common::Creature@{common\-::\-Creature}}
+\paragraph[{is\-Dead}]{\setlength{\rightskip}{0pt plus 5cm}bool common\-::\-Creature\-::is\-Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcommon_1_1Creature_a604e9f9a6765a8c90eb250be48813ac5}
+
+
+Funkcja podaje informację czy stworzenie jest martwe. 
+
+Dzieje się tak, gdy najedzenie, napojenie lub energia spadnie do zera lub gdy stworzenie osiągnie swój maksymalny wiek.
+
+Po stwierdzeniu, że stworzenie jest martwe, funkcja nadrzędna powinna zniszczyć obiekt klasy \hyperlink{classcommon_1_1Creature}{Creature}.
+
+\begin{DoxyReturn}{Zwraca}
+true wtedy i tylko wtedy gdy osobnik jest martwy. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Do zrobienia}
+\item[\hyperlink{todo__todo000004}{Do zrobienia}]write me \end{DoxyRefDesc}
+\hypertarget{classcommon_1_1Creature_a975a4df236259ce2d72126c040c5cce0}{\index{common\-::\-Creature@{common\-::\-Creature}!serialize@{serialize}}
+\index{serialize@{serialize}!common::Creature@{common\-::\-Creature}}
+\paragraph[{serialize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Archive $>$ void common\-::\-Creature\-::serialize (
+\begin{DoxyParamCaption}
+\item[{Archive \&}]{ar, }
+\item[{const unsigned int}]{version}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcommon_1_1Creature_a975a4df236259ce2d72126c040c5cce0}
+
+
+Serializacja. 
+
+Serializuje skladowe obiektu oraz klase bazowa.
+
+\begin{DoxySeeAlso}{Zobacz również}
+\hyperlink{classcommon_1_1Map_adea5eca91ec93db01ec5920bb26a3fd3}{Map\-::serialize} 
+\end{DoxySeeAlso}
+
+
+Reimplementowana z \hyperlink{classcommon_1_1MapObject_ac9f0fecb3c62b2fae69bbad56eb18944}{common\-::\-Map\-Object}.
+
+
+
+Reimplementowana w \hyperlink{classcommon_1_1Predator_a2b9515fa6275dd582259cb144dc1d8cf}{common\-::\-Predator} i \hyperlink{classcommon_1_1Herbivore_affb4a1d96e6f92d41223d2f5eb2d6f03}{common\-::\-Herbivore}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\-:\begin{DoxyCompactItemize}
+\item 
+src/common/Creature.\-hpp\end{DoxyCompactItemize}

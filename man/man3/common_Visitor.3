@@ -1,0 +1,38 @@
+.TH "common::Visitor" 3 "Cz, 23 maj 2013" "Version 0.1" "Life -- Fight!" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+common::Visitor \- 
+.PP
+Abstrakcyjny wizytator wizytujący obiekty na mapie\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Visitor\&.hpp>\fP
+.SS "Metody publiczne"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBvisit\fP (\fBPredator\fP &)=0"
+.br
+.ti -1c
+.RI "virtual void \fBvisit\fP (\fBHerbivore\fP &)=0"
+.br
+.ti -1c
+.RI "virtual void \fBvisit\fP (Waterhole &)=0"
+.br
+.ti -1c
+.RI "virtual void \fBvisit\fP (Lair &)=0"
+.br
+.in -1c
+.SH "Opis szczegółowy"
+.PP 
+Abstrakcyjny wizytator wizytujący obiekty na mapie\&. 
+
+Konkretne wizytatory mogą np\&. symulować poszczególne obiekty, wyświetlać je na ekranie, zbierać statystyki etc\&. 
+
+.SH "Autor"
+.PP 
+Wygenerowano automatycznie z kodu źródłowego programem Doxygen dla Life -- Fight!\&.

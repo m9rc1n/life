@@ -1,0 +1,6 @@
+<map id="common::MapObject" name="common::MapObject">
+<area shape="rect" id="node3" href="$classcommon_1_1Creature.html" title="Abstrakcyjna klasa reprezentująca stworzenie." alt="" coords="85,297,216,642"/>
+<area shape="rect" id="node9" href="$classcommon_1_1Tree.html" title="{common::Tree\n||}" alt="" coords="240,427,347,512"/>
+<area shape="rect" id="node5" href="$classcommon_1_1Herbivore.html" title="Abstrakcyjna klasa reprezentujaca roslinozerce." alt="" coords="5,699,141,802"/>
+<area shape="rect" id="node7" href="$classcommon_1_1Predator.html" title="Abstrakcyjna klasa reprezentujaca drapieznika." alt="" coords="165,691,293,811"/>
+</map>
