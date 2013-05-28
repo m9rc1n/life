@@ -35,7 +35,7 @@ namespace common
             width_ (width),
             height_(height)
         {
-            
+            std::cout << "Jestem mapą!" << std::endl;
         }
         
         /**

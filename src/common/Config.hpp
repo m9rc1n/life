@@ -15,7 +15,17 @@ namespace common
     {
         int map_width;
         int map_height;
+        int amount_predators;
+        int amount_herbivores;
+        int amount_trees;
+        int amount_waterholes;
+        int amount_lairs;
+
+        /// @todo różne scenariusze?
+        /// np. kiedy dwa różne są w tym samym miejscu to walczą, jak takie same to kopulują
+        /// np. pora sucha i pora deszczowa
+        /// czy wolisz jeden bardziej spójny i złożony?
     };
-};
+}
 
 #endif

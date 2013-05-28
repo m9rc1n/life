@@ -1,32 +1,31 @@
-
-
+#include <thread> // c++11
+#include <mutex>  // c++11
 #include "../include.hpp"
 
-using namespace init;
-// using namespace Ui;
+using namespace Ui;
 
-int init::run(common::Config *config, int argc, char **argv)
+int init::run(Ui::Init_UI *init_ui)
 {
     config->map_width = 4;
     config->map_height = 5;
-/*
-    QApplication app(argc, argv);
+    init_ui->show();
+}
 
-    QGraphicsScene scene;
-    scene.setSceneRect( -100.0, -100.0, 200.0, 200.0 );
+int init::startGame()
+{
+    // ta struktura zawiera wszystkie dane gry
+    common::Map *map = new common::Map(config->map_width, config->map_height);
 
-    QGraphicsEllipseItem *item = new QGraphicsEllipseItem( 0, &scene );
-    item->setRect( -50.0, -50.0, 100.0, 100.0 );
+    // mutex do synchronizacji
+    std::mutex *mutex = new std::mutex;
 
-    QGraphicsView view( &scene );
-    view.setRenderHints( QPainter::Antialiasing );
-    view.show();
-*/
+    std::thread client_thread(bind(client::run, mutex, map, config, argc, argv));
+    std::thread server_thread(bind(server::run, mutex, map, config));
 
-    QApplication a(argc, argv);
-    Init_UI w;
-    w.show();
+    client_thread.join();
+    server_thread.join();
 
-    return a.exec();
-    // return app.exec();
+    /// @todo zakończenie gry!
+    // delete map;
+    // delete mutex;
 }

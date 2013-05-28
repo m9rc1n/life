@@ -48,7 +48,7 @@ HEADERS  += mainwindow.hpp \
     server/server.hpp \
     server/Map.hpp \
     init/init_ui.hpp \
-    client/client_ui.h
+    client/client_ui.hpp
 
 OTHER_FILES += \
     makefile \

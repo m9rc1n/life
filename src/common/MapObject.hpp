@@ -19,25 +19,22 @@ namespace common
     {
     public:
         /// konstruktor losujący pozycję dla obiektu
-        MapObject(DrawingAPI api_p):
+        MapObject():
             /// musimy chyba przekazać na samym początku api w argumentach
             x_pos_(0),
-            y_pos_(0),
-            api(api_p)
+            y_pos_(0)
         {}
 
         /// konstruktor z podaną pozycją startową
-        MapObject(double x_pos, double y_pos, DrawingAPI api_p):
+        MapObject(double x_pos, double y_pos):
             x_pos_(x_pos),
-            y_pos_(y_pos),
-            api(api_p)
+            y_pos_(y_pos)
         {}
 
         /// konstruktor kopiujący pozycję z innego obiektu
         MapObject(const MapObject &another):
             x_pos_(another.x_pos_),
-            y_pos_(another.y_pos_),
-            api(another.api)
+            y_pos_(another.y_pos_)
         {}
 
         virtual ~MapObject(){}
@@ -67,9 +64,6 @@ namespace common
         {
             return y_pos_;
         }
-
-        /// draw this specific shape on the map
-        virtual void draw() = 0;
 
         /**
          * @brief
@@ -106,10 +100,6 @@ namespace common
 
         /// składowa y położenia
         double y_pos_;
-
-        /// API, which I use to draw Object
-        // @todo zrobić z tego wskaźnik?
-        DrawingAPI api;
     };
     BOOST_SERIALIZATION_ASSUME_ABSTRACT(MapObject)
 }

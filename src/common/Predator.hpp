@@ -23,10 +23,8 @@ namespace common
          *
          * @param mother referencja do matki
          * @param father referencja do ojca
-         * @param api referencja do konkretnego api za pomocą którego rysujemy
          */
-        Predator(const Predator &mother/* const Predator &father,*/):
-            /// @todo fathera tez przekazujemy? narazie usune
+        Predator(const Predator &mother, const Predator &father):
             Creature(mother)
         {} // kod w klasie Creature
 
@@ -38,8 +36,8 @@ namespace common
          *
          * Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne).
          */
-        Predator(double x_pos, double y_pos, DrawingAPI api_p):
-            Creature(x_pos, y_pos, api_p)
+        Predator(double x_pos, double y_pos):
+            Creature(x_pos, y_pos)
         {} // kod w klasie Creature
 
         /**
@@ -60,17 +58,6 @@ namespace common
          * Przyjecie (acceptance) wizytatora.
          */
         virtual void accept(Visitor & visitor);
-
-        /**
-         * @brief
-         * Draw Predator
-         */
-        virtual void draw(void);
-        /**
-         * @example
-         * how to use
-         * api.drawPredator();
-         */
 
         /**
          * @brief

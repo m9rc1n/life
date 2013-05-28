@@ -4,10 +4,8 @@
 
 #include "../include.hpp"
 #include <QApplication>
-#include <QGraphicsEllipseItem>
-#include <QGraphicsScene>
-#include <QGraphicsView>
- 
+#include "../include.hpp"
+
 namespace init
 {
     /**
@@ -20,7 +18,17 @@ namespace init
      * 
      * @todo write me
      */
-    int run(common::Config *config, int argc, char **argv);
+    int run(Ui::Init_UI *init);
+
+    /**
+     * @brief startGame
+     * Za pomocą tej funkcji rozpoczynamy nową grę z parametrami ustalonymi
+     * przez gracza.
+     * Przechodzimy do widoku clienta!
+     *
+     * @return
+     */
+    int startGame();
 }
 
 #endif

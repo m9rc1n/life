@@ -19,6 +19,7 @@
 #include "init/init_ui.hpp"
 
 #include "client/client.hpp"
+#include "client/client_ui.hpp"
 
 #include "server/server.hpp"
 

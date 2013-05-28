@@ -6,7 +6,3 @@ void Predator::accept(Visitor &visitor)
 {
     visitor.visit(*this);
 }
-
-void Predator::draw()
-{
-}

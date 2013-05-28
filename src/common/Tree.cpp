@@ -6,6 +6,3 @@ void Tree::accept(Visitor &visitor)
 {
     visitor.visit(*this);
 }
-
-void Tree::draw()
-{}

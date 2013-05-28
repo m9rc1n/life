@@ -26,13 +26,6 @@ namespace common
          * Przyjecie (acceptance) wizytatora.
          */
         virtual void accept(Visitor &);
-
-
-        /**
-          * @brief
-          * Drawing Tree on the screen
-          */
-        virtual void draw();
         
     };
 }

@@ -27,13 +27,6 @@ namespace common
          * Przyjecie (acceptance) wizytatora.
          */
         virtual void accept(Visitor &);
-
-        /**
-          * @brief
-          * Drawing Waterhole on the screen
-          */
-        virtual void draw();
-        
     };
 }
 

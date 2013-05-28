@@ -7,8 +7,3 @@ void Herbivore::accept(Visitor &visitor)
 {
     visitor.visit(*this);
 }
-
-
-void Herbivore::draw()
-{
-}

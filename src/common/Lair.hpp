@@ -29,13 +29,6 @@ namespace common
         {
             return new Lair(*this);
         }
-
-
-        /**
-          * @brief
-          * Drawing Lair on the screen
-          */
-        virtual void draw();
     };
 }
 

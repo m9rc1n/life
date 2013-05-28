@@ -22,8 +22,8 @@ namespace common
         *
         * Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne).
         */
-        Herbivore(double x_pos, double y_pos, DrawingAPI& api):
-            Creature(x_pos, y_pos, api)
+        Herbivore(double x_pos, double y_pos):
+            Creature(x_pos, y_pos)
         {} // kod w klasie Creature
 
 
@@ -48,12 +48,6 @@ namespace common
         virtual void accept(Visitor &visitor);
 
         /**
-         * @brief
-         * Draw Herbivore
-         */
-        virtual void draw();
-
-        /**
         * @brief
         * Serializacja
         *
@@ -65,6 +59,6 @@ namespace common
             ar & boost::serialization::base_object<Creature>(*this);
         }
     };
-};
+}
 
 #endif
