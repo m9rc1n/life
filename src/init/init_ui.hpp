@@ -20,16 +20,20 @@ class Init_UI : public QWidget
 public:
     explicit Init_UI(common::Config *config, Client_UI *client_ui, QWidget *parent = 0);
     ~Init_UI();
+
     
 private slots:
     void on_pushButton_clicked();
-
-    void on_spinBox_valueChanged(int arg1);
+    void comboBox_Activated(int);
+    void comboBox2_Activated(int);
 
 private:
     Ui::Init_UI *ui;
     Client_UI *cui;
     common::Config *config;
+
+    QVector<bool> predatorsBool;
+    QVector<bool> herbivoresBool;
 };
 
 #endif // INIT_UI_H

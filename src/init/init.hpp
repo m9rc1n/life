@@ -26,6 +26,7 @@ namespace init
      * @return
      */
     int startGame();
+
 }
 
 #endif
