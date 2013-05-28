@@ -1,20 +1,20 @@
 #include <thread> // c++11
 #include <mutex>  // c++11
-#include "../include.hpp"
+#include "init.hpp"
 
 using namespace Ui;
 
 int init::run(Ui::Init_UI *init_ui)
 {
-    config->map_width = 4;
-    config->map_height = 5;
-    //init_ui->show();
+    // init_ui->config->map_width = 4;
+    // init_ui->config->map_height = 5;
+    init_ui->show();
 }
 
 int init::startGame()
 {
     // ta struktura zawiera wszystkie dane gry
-    common::Map *map = new common::Map(config->map_width, config->map_height);
+    /*common::Map *map = new common::Map(config->map_width, config->map_height);
 
     // mutex do synchronizacji
     std::mutex *mutex = new std::mutex;
@@ -28,4 +28,5 @@ int init::startGame()
     /// @todo zakończenie gry!
     // delete map;
     // delete mutex;
+*/
 }

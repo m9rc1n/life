@@ -1,4 +1,4 @@
-#include "../include.hpp"
+#include "client_ui.hpp"
 #include "ui_client_ui.h"
 
 Client_UI::Client_UI(common::Config *config_p, QWidget *parent) :

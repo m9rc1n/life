@@ -4,7 +4,6 @@
 #include <chrono> // c++11
 
 #include "../include.hpp"
-#include <QApplication>
 
 namespace client
 {

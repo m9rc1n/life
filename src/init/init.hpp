@@ -15,7 +15,7 @@ namespace init
      * 
      * @todo write me
      */
-    int run(Ui::Init_UI init);
+    int run(Ui::Init_UI *init);
 
     /**
      * @brief startGame

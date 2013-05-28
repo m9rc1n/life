@@ -1,4 +1,4 @@
-#include "../include.hpp"
+#include "init_ui.hpp"
 #include "ui_init_ui.h"
 
 Init_UI::Init_UI(common::Config *config_p, Ui::Client_UI *client_ui, QWidget *parent) :
