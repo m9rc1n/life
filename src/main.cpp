@@ -8,8 +8,8 @@ int main(int argc, char **argv)
 
     QApplication app(argc, argv);
 
-    Ui::Client_UI *client_ui = new Ui::Client_UI(config, argc, argv);
-    Ui::Init_UI *init_ui = new Ui::Init_UI(config, argc, argv, client_ui);
+    Ui::Client_UI *client_ui = new Ui::Client_UI(config);
+    Ui::Init_UI *init_ui = new Ui::Init_UI(config, client_ui);
 
     init::run(init_ui); // nie musimy wolac tego jako osobnego watku
 

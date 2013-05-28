@@ -1,13 +1,11 @@
 #include "../include.hpp"
 #include "ui_init_ui.h"
 
-Init_UI::Init_UI(common::Config *config_p, int argc_p, char **argv_p, Ui::Client_UI *client_ui, QWidget *parent) :
+Init_UI::Init_UI(common::Config *config_p, Ui::Client_UI *client_ui, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Init_UI),
     cui(client_ui),
-    config(config_p),
-    argc(argc_p),
-    argv(argv_p)
+    config(config_p)
 {
     ui->setupUi(this);
 }

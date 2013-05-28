@@ -8,7 +8,7 @@ int init::run(Ui::Init_UI *init_ui)
 {
     config->map_width = 4;
     config->map_height = 5;
-    init_ui->show();
+    //init_ui->show();
 }
 
 int init::startGame()
