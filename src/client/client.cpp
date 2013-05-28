@@ -1,6 +1,6 @@
 #include "client.hpp" 
  
-int client::run(std::mutex *mutex, common::Map *map, common::Config *config, int argc, char **argv)
+int client::run(std::mutex *mutex, common::Map *map)
 {
     std::cout << "Jestem klientem!\n" << std::endl;
     

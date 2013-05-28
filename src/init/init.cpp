@@ -19,7 +19,7 @@ int init::startGame()
     // mutex do synchronizacji
     std::mutex *mutex = new std::mutex;
 
-    std::thread client_thread(bind(client::run, mutex, map, config, argc, argv));
+    std::thread client_thread(bind(client::run, mutex, map));
     std::thread server_thread(bind(server::run, mutex, map, config));
 
     client_thread.join();
