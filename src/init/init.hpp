@@ -1,7 +1,7 @@
 #ifndef INIT_INIT_HPP
 #define INIT_INIT_HPP
 
-#include "../include.hpp"
+#include "init_ui.hpp"
 
 namespace init
 {

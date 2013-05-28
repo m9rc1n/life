@@ -1,12 +1,16 @@
 #include "client_ui.hpp"
-#include "ui_client_ui.h"
+//#include "ui_client_ui.h"
 
+using namespace Ui;
+
+
+/// @TODO Dodac parametry zamiast null dla konstruktora ClientUI w linii 11
 Client_UI::Client_UI(common::Config *config_p, QWidget *parent) :
     QWidget(parent),
     config(config_p),
-    ui(new Ui::Client_UI)
+    ui(new Ui::Client_UI(NULL, NULL))
 {
-    ui->setupUi(this);
+ //    ui->setupUi(this); // nie kompilowalo sie
 }
 
 Client_UI::~Client_UI()
