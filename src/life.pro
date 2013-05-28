@@ -13,7 +13,6 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     client/client.cpp \
     common/Predator.cpp \
     common/MapObject.cpp \
@@ -27,12 +26,12 @@ SOURCES += main.cpp\
     common/Tree.cpp \
     common/Lair.cpp \
     init/init_ui.cpp \
-    client/client_ui.cpp
+    client/client_ui.cpp \
+    client/PaintingVisitor.cpp \
+    client/StatisticsVisitor.cpp
 
-HEADERS  += mainwindow.hpp \
+HEADERS  += \
     include.hpp \
-    client/drawingQT.hpp \
-    client/drawingAPI.hpp \
     client/client.hpp \
     common/Waterhole.hpp \
     common/Visitor.hpp \
@@ -48,7 +47,9 @@ HEADERS  += mainwindow.hpp \
     server/server.hpp \
     server/Map.hpp \
     init/init_ui.hpp \
-    client/client_ui.hpp
+    client/client_ui.hpp \
+    client/PaintingVisitor.hpp \
+    client/StatisticsVisitor.hpp
 
 OTHER_FILES += \
     makefile \
