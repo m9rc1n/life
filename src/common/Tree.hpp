@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef COMMON_TREE_HPP
 #define COMMON_TREE_HPP
 
@@ -31,3 +32,9 @@ namespace common
 };
 
 #endif
+=======
+#ifndef TREE_HPP
+#define TREE_HPP
+
+#endif // TREE_HPP
+>>>>>>> 7c59914ddb14ddda7465e784eb78c267d664536a

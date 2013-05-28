@@ -1,5 +1,0 @@
-<map id="Creature" name="Creature">
-<area shape="rect" id="node5" href="$classHerbivore.html" title="Klasa reprezentujaca roslinozerce." alt="" coords="5,732,133,852"/>
-<area shape="rect" id="node7" href="$classPredator.html" title="Klasa reprezentujaca drapieznika." alt="" coords="157,723,285,861"/>
-<area shape="rect" id="node2" href="$classMapObject.html" title="Klasa abstrakcyjna reprezentująca dowolny obiekt znajdujący się na mapie (stworzenie, drzewo itp)." alt="" coords="81,5,209,264"/>
-</map>

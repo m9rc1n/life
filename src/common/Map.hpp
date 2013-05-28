@@ -11,6 +11,7 @@
 #include "Creature.hpp"
 #include "Herbivore.hpp"
 #include "Predator.hpp"
+#include "Visitor.hpp"
 
 namespace common
 {
