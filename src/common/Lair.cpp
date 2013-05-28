@@ -7,3 +7,6 @@ void Lair::accept(Visitor &visitor)
 {
     visitor.visit(*this);
 }
+
+void Lair::draw()
+{}

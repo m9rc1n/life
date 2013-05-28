@@ -5,7 +5,7 @@ using namespace common;
 
 void Herbivore::accept(Visitor &visitor)
 {
-    visitor.visitMapObject(*this);
+    visitor.visit(*this);
 }
 
 

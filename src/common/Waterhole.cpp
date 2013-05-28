@@ -6,3 +6,6 @@ void Waterhole::accept(Visitor &visitor)
 {
     visitor.visit(*this);
 }
+
+void Waterhole::draw()
+{}

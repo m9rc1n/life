@@ -22,7 +22,10 @@ SOURCES += main.cpp\
     common/Creature.cpp \
     init/init.cpp \
     server/server.cpp \
-    common/Visitor.cpp
+    common/Visitor.cpp \
+    common/Waterhole.cpp \
+    common/Tree.cpp \
+    common/Lair.cpp
 
 HEADERS  += mainwindow.hpp \
     include.hpp \
