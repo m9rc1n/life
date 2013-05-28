@@ -1,5 +1,7 @@
 #include "init_ui.hpp"
+#include "init.hpp"
 #include "ui_init_ui.h"
+#include "../client/client_ui.hpp"
 
 /// @TODO Dodac paramtry przy wolaniu konstruktora Init_UI w linii 10
 Init_UI::Init_UI(common::Config *config_p, Client_UI *client_ui, QWidget *parent) :
@@ -18,7 +20,7 @@ Init_UI::~Init_UI()
 
 void Init_UI::on_pushButton_clicked()
 {
-    //init::startGame();
-    //this->hide();
-    //this->cui->show();
+    init::startGame();
+    this->hide();
+    this->cui->show();
 }
