@@ -3,12 +3,13 @@
 #include "../include.hpp"
 
 using namespace init;
+// using namespace Ui;
 
 int init::run(common::Config *config, int argc, char **argv)
 {
     config->map_width = 4;
     config->map_height = 5;
-
+/*
     QApplication app(argc, argv);
 
     QGraphicsScene scene;
@@ -20,6 +21,12 @@ int init::run(common::Config *config, int argc, char **argv)
     QGraphicsView view( &scene );
     view.setRenderHints( QPainter::Antialiasing );
     view.show();
+*/
 
-    return app.exec();
+    QApplication a(argc, argv);
+    Init_UI w;
+    w.show();
+
+    return a.exec();
+    // return app.exec();
 }

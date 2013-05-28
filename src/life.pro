@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     common/Visitor.cpp \
     common/Waterhole.cpp \
     common/Tree.cpp \
-    common/Lair.cpp
+    common/Lair.cpp \
+    init/init_ui.cpp
 
 HEADERS  += mainwindow.hpp \
     include.hpp \
@@ -44,7 +45,8 @@ HEADERS  += mainwindow.hpp \
     common/Config.hpp \
     init/init.hpp \
     server/server.hpp \
-    server/Map.hpp
+    server/Map.hpp \
+    init/init_ui.hpp
 
 OTHER_FILES += \
     makefile \
@@ -57,3 +59,6 @@ OTHER_FILES += \
 QMAKE_CXXFLAGS += -std=c++11
 
 LIBS += -lboost_system -lboost_thread -lboost_serialization
+
+FORMS += \
+    init/init_ui.ui

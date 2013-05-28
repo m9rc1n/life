@@ -16,6 +16,7 @@
 
 #include "common/Visitor.hpp"
 #include "init/init.hpp"
+#include "init/init_ui.hpp"
 
 #include "client/client.hpp"
 
