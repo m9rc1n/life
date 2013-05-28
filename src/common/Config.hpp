@@ -33,8 +33,8 @@ namespace common
         int amount_waterholes;
         int amount_lairs;
 
-        MaslovPyramid predators_pyramid;
-        MaslovPyramid herbivores_pyramid;
+        MaslovPyramid *predators_pyramid;
+        MaslovPyramid *herbivores_pyramid;
 
         std::vector <GeneticEquation> equations;
 
