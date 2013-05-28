@@ -3,20 +3,22 @@
 
 #include <QWidget>
 #include "../common/Config.hpp"
+#include "ui_init_ui.h"
 
 
 namespace Ui
 {
-    // class Init_UI;
-    class Client_UI;
+    class Init_UI;
+}
 
+class Client_UI;
 
 class Init_UI : public QWidget
 {
     Q_OBJECT
     
 public:
-    explicit Init_UI(common::Config *config, Ui::Client_UI *client_ui, QWidget *parent = 0);
+    explicit Init_UI(common::Config *config, Client_UI *client_ui, QWidget *parent = 0);
     ~Init_UI();
     
 private slots:
@@ -24,10 +26,9 @@ private slots:
 
 private:
     Ui::Init_UI *ui;
-    Ui::Client_UI *cui;
+    Client_UI *cui;
 
     common::Config *config;
 };
 
-}
 #endif // INIT_UI_H

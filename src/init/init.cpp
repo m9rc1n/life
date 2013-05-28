@@ -2,9 +2,7 @@
 #include <mutex>  // c++11
 #include "init.hpp"
 
-using namespace Ui;
-
-int init::run(Ui::Init_UI *init_ui)
+int init::run(Init_UI *init_ui)
 {
     // init_ui->config->map_width = 4;
     // init_ui->config->map_height = 5;

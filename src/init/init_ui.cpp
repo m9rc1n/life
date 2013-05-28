@@ -1,17 +1,14 @@
 #include "init_ui.hpp"
 #include "ui_init_ui.h"
 
-using namespace Ui;
-
-
 /// @TODO Dodac paramtry przy wolaniu konstruktora Init_UI w linii 10
-Init_UI::Init_UI(common::Config *config_p, Ui::Client_UI *client_ui, QWidget *parent) :
+Init_UI::Init_UI(common::Config *config_p, Client_UI *client_ui, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Init_UI(NULL, NULL, NULL)),
+    ui(new Ui::Init_UI()),
     cui(client_ui),
     config(config_p)
 {
-  //  ui->setupUi(this); // nie kompilowalo sie (?)
+    ui->setupUi(this);
 }
 
 Init_UI::~Init_UI()
