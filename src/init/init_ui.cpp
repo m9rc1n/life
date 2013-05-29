@@ -63,6 +63,13 @@ void Init_UI::on_pushButton_clicked()
         return;
     }
 
+    if( herbivorsTable.indexOf(0) != -1 )
+    {
+        /// @todo you should fill herbivors pyramide again
+        // reset pyramide
+        return;
+    }
+
     config->herbivores_pyramid = new common::MaslovPyramid(herbivorsTable[0], herbivorsTable[1], herbivorsTable[2], herbivorsTable[3], herbivorsTable[4]);
     config->predators_pyramid  = new common::MaslovPyramid(predatorsTable[0], predatorsTable[1], predatorsTable[2], predatorsTable[3]);
 
@@ -362,4 +369,35 @@ void Init_UI::enableItemFromPredator_3(int index, QVariant v)
     ui->comboBox_5->model()->setData(index_1, v, Qt::UserRole -1);
     ui->comboBox_7->model()->setData(index_2, v, Qt::UserRole -1);
     ui->comboBox_6->model()->setData(index_3, v, Qt::UserRole -1);
+}
+
+void Init_UI::on_spinBox_1_editingFinished()
+{
+    int spin = ui->spinBox_1->value();
+    config->amount_herbivores = spin;
+    std::cout << spin << std::endl;
+}
+
+void Init_UI::on_spinBox_2_editingFinished()
+{
+    int spin = ui->spinBox_2->value();
+    config->amount_predators= spin;
+}
+
+void Init_UI::on_spinBox_3_editingFinished()
+{
+    int spin = ui->spinBox_3->value();
+    config->amount_trees = spin;
+}
+
+void Init_UI::on_spinBox_4_editingFinished()
+{
+    int spin = ui->spinBox_4->value();
+    config->amount_waterholes = spin;
+}
+
+void Init_UI::on_spinBox_5_editingFinished()
+{
+    int spin = ui->spinBox_5->value();
+    config->amount_lairs = spin;
 }

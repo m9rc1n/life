@@ -47,6 +47,12 @@ private slots:
     void comboBox7_Activated(int);
     void comboBox8_Activated(int);
 
+    void on_spinBox_1_editingFinished();
+    void on_spinBox_2_editingFinished();
+    void on_spinBox_3_editingFinished();
+    void on_spinBox_4_editingFinished();
+    void on_spinBox_5_editingFinished();
+
 private:
     Ui::Init_UI     *ui;
     Client_UI       *cui;
