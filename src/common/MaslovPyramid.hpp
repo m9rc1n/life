@@ -1,24 +1,26 @@
 #ifndef MASLOVPYRAMID_H
 #define MASLOVPYRAMID_H
 
-class MaslovPyramid
+namespace common
 {
-public:
-    MaslovPyramid(int hunting_or_running, int drinking, int sleeping, int procreating);
+    class MaslovPyramid
+    {
+    public:
+        MaslovPyramid(int hunting_or_running, int drinking, int sleeping, int procreating);
 
-    int getHuntingOrRunningPriority();
-    int getDrinkingPriority();
-    int getSleepingPriority();
-    int getProcreatingPriority();
+        int getHuntingOrRunningPriority();
+        int getDrinkingPriority();
+        int getSleepingPriority();
+        int getProcreatingPriority();
 
-private:
-    int hunting_or_running_; // dla roslinozercy - ucieczka; dla drapieznika - polowanie
-    int drinking_;
-    int sleeping_;
-    int procreating_;
+    private:
+        int hunting_or_running_; // dla roslinozercy - ucieczka; dla drapieznika - polowanie
+        int drinking_;
+        int sleeping_;
+        int procreating_;
 
-    void checkData();
-
-};
+        void checkData();
+    };
+}
 
 #endif // MASLOVPYRAMID_H

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-MaslovPyramid::MaslovPyramid(int hunting_or_running, int drinking, int sleeping, int procreating):
+common::MaslovPyramid::MaslovPyramid(int hunting_or_running, int drinking, int sleeping, int procreating):
     hunting_or_running_(hunting_or_running),
     drinking_(drinking),
     sleeping_(sleeping),
@@ -18,7 +18,7 @@ MaslovPyramid::MaslovPyramid(int hunting_or_running, int drinking, int sleeping,
  *
  * @TODO uzyj mnie, najlepiej w jakichs testach modulowych
  */
-void MaslovPyramid::checkData()
+void common::MaslovPyramid::checkData()
 {
     int arr[4] = {hunting_or_running_, drinking_, sleeping_, procreating_};
     std::sort(arr, arr+4);
@@ -33,22 +33,22 @@ void MaslovPyramid::checkData()
 }
 
 
-int MaslovPyramid::getHuntingOrRunningPriority()
+int common::MaslovPyramid::getHuntingOrRunningPriority()
 {
     return hunting_or_running_;
 }
 
-int MaslovPyramid::getDrinkingPriority()
+int common::MaslovPyramid::getDrinkingPriority()
 {
     return drinking_;
 }
 
-int MaslovPyramid::getSleepingPriority()
+int common::MaslovPyramid::getSleepingPriority()
 {
     return sleeping_;
 }
 
-int MaslovPyramid::getProcreatingPriority()
+int common::MaslovPyramid::getProcreatingPriority()
 {
     return procreating_;
 }
