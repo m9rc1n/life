@@ -14,7 +14,7 @@ Init_UI::Init_UI(common::Config *config_p, Client_UI *client_ui, QWidget *parent
     ui->setupUi(this);
 
     predatorsPyramide = {"NONE", "HUNTING", "DRINKING", "SLEEPING", "PROCREATING"};
-    herbivorsPyramide = {"NONE", "RUNNING", "DRINKING", "EATING", "SLEEPING", "PROCREATING"};
+    herbivorsPyramide = {"NONE", "RUNNING", "DRINKING", "SLEEPING", "PROCREATING", "EATING"};
 
     predatorsTable = {0, 0, 0, 0};
     herbivorsTable = {0, 0, 0, 0, 0};
@@ -63,7 +63,7 @@ void Init_UI::on_pushButton_clicked()
         return;
     }
 
-    config->herbivores_pyramid = new common::MaslovPyramid(herbivorsTable[0], herbivorsTable[1], herbivorsTable[2], herbivorsTable[3]);
+    config->herbivores_pyramid = new common::MaslovPyramid(herbivorsTable[0], herbivorsTable[1], herbivorsTable[2], herbivorsTable[3], herbivorsTable[4]);
     config->predators_pyramid  = new common::MaslovPyramid(predatorsTable[0], predatorsTable[1], predatorsTable[2], predatorsTable[3]);
 
     init::startGame();

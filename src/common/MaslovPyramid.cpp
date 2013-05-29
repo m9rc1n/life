@@ -2,11 +2,12 @@
 #include <iostream>
 #include <algorithm>
 
-common::MaslovPyramid::MaslovPyramid(int hunting_or_running, int drinking, int sleeping, int procreating):
+common::MaslovPyramid::MaslovPyramid(int hunting_or_running, int drinking, int sleeping, int procreating, int eating):
     hunting_or_running_(hunting_or_running),
     drinking_(drinking),
     sleeping_(sleeping),
-    procreating_(procreating)
+    procreating_(procreating),
+    eating_(eating)
 {
     checkData();
 }
