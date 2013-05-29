@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(250, 189, 255);</string>
+   <string notr="true">background-color: rgb(85, 170, 255);</string>
   </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
@@ -76,6 +76,9 @@
         <bold>true</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(170, 255, 255);</string>
+      </property>
       <property name="text">
        <string>MASLOV PYRAMID FOR PREDATORS</string>
       </property>
@@ -86,7 +89,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="formLayoutWidget_4">
+  <widget class="QGroupBox" name="formGroupBox_4">
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -94,6 +97,11 @@
      <width>381</width>
      <height>131</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 255, 127);
+selection-color: rgb(170, 0, 0);
+selection-background-color: rgb(255, 170, 127);</string>
    </property>
    <layout class="QFormLayout" name="formLayout_4">
     <property name="fieldGrowthPolicy">
@@ -161,6 +169,10 @@
         <bold>true</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border-color: rgb(0, 0, 0);
+background-color: rgb(170, 255, 255);</string>
+      </property>
       <property name="text">
        <string>AMOUNT OF</string>
       </property>
@@ -171,16 +183,33 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="formLayoutWidget">
+  <widget class="QGroupBox" name="formGroupBox">
    <property name="geometry">
     <rect>
      <x>400</x>
      <y>320</y>
      <width>381</width>
-     <height>141</height>
+     <height>144</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 255, 127);
+selection-color: rgb(170, 0, 0);
+selection-background-color: rgb(255, 170, 127);</string>
+   </property>
    <layout class="QFormLayout" name="formLayout">
+    <property name="leftMargin">
+     <number>2</number>
+    </property>
+    <property name="topMargin">
+     <number>2</number>
+    </property>
+    <property name="rightMargin">
+     <number>2</number>
+    </property>
+    <property name="bottomMargin">
+     <number>2</number>
+    </property>
     <item row="0" column="0">
      <widget class="QLabel" name="label_3">
       <property name="text">
@@ -233,14 +262,19 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="formLayoutWidget_3">
+  <widget class="QGroupBox" name="formGroupBox_3">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>150</y>
      <width>381</width>
-     <height>156</height>
+     <height>161</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 255, 127);
+selection-color: rgb(170, 0, 0);
+selection-background-color: rgb(255, 170, 127);</string>
    </property>
    <layout class="QFormLayout" name="formLayout_2">
     <property name="fieldGrowthPolicy">
@@ -253,19 +287,8 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_15">
-      <property name="text">
-       <string>Neutral</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_16">
-      <property name="text">
-       <string>Less Portant</string>
-      </property>
-     </widget>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="comboBox_0"/>
     </item>
     <item row="1" column="0">
      <widget class="QLabel" name="label_14">
@@ -274,24 +297,35 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="comboBox_1"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_15">
+      <property name="text">
+       <string>Neutral</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QComboBox" name="comboBox_2"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_16">
+      <property name="text">
+       <string>Less Portant</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="comboBox_3"/>
+    </item>
     <item row="4" column="0">
      <widget class="QLabel" name="label_17">
       <property name="text">
        <string>Portant</string>
       </property>
      </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QComboBox" name="comboBox_0"/>
-    </item>
-    <item row="1" column="1">
-     <widget class="QComboBox" name="comboBox_1"/>
-    </item>
-    <item row="2" column="1">
-     <widget class="QComboBox" name="comboBox_2"/>
-    </item>
-    <item row="3" column="1">
-     <widget class="QComboBox" name="comboBox_3"/>
     </item>
     <item row="4" column="1">
      <widget class="QComboBox" name="comboBox_4"/>
@@ -317,6 +351,9 @@
         <weight>75</weight>
         <bold>true</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(170, 255, 255);</string>
       </property>
       <property name="text">
        <string>MASLOV PYRAMID FOR HERBIVORS</string>
@@ -353,15 +390,6 @@
     </item>
    </layout>
   </widget>
-  <zorder>verticalLayoutWidget</zorder>
-  <zorder>verticalLayoutWidget_3</zorder>
-  <zorder>formLayoutWidget_4</zorder>
-  <zorder>label_23</zorder>
-  <zorder>verticalLayoutWidget_4</zorder>
-  <zorder>formLayoutWidget</zorder>
-  <zorder>formLayoutWidget_3</zorder>
-  <zorder>verticalLayoutWidget_2</zorder>
-  <zorder>gridLayoutWidget</zorder>
  </widget>
  <resources/>
  <connections/>
