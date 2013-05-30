@@ -2,6 +2,10 @@
 #define INIT_INIT_HPP
 
 #include "init_ui.hpp"
+#include "../common/Map.hpp"
+#include "../client/client.hpp"
+#include "../server/server.hpp"
+#include "../client/client_ui.hpp"
 
 namespace init
 {
@@ -25,7 +29,7 @@ namespace init
      *
      * @return
      */
-    int startGame();
+    int startGame(Client_UI *client_UI);
 
 }
 

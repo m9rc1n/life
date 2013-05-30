@@ -9,7 +9,8 @@ common::MaslovPyramid::MaslovPyramid(int hunting_or_running, int drinking, int s
     procreating_(procreating),
     eating_(eating)
 {
-    checkData();
+    /// @todo raczej nie ma gdzie się popsuć
+    // checkData();
 }
 
 
@@ -52,4 +53,9 @@ int common::MaslovPyramid::getSleepingPriority()
 int common::MaslovPyramid::getProcreatingPriority()
 {
     return procreating_;
+}
+
+int common::MaslovPyramid::getEatingPriority()
+{
+    return eating_;
 }

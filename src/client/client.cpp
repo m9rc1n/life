@@ -1,11 +1,12 @@
-#include "client.hpp" 
+#include "client.hpp"
  
-int client::run(std::mutex *mutex, common::Map *map)
+int client::run(std::mutex *mutex, common::Map *map, Client_UI *client_UI)
 {
     std::cout << "Jestem klientem!\n" << std::endl;
-    
+
     common::Map* localMap;
 
+    client_UI->show();
     for(int i = 0;; ++i) // nieskonczona petla
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(820));

@@ -7,7 +7,7 @@
 
 namespace client
 {
-    int run(std::mutex *mutex, common::Map *map);
+    int run(std::mutex *mutex, common::Map *map, Client_UI *client_UI);
     // tutaj deklaracje jakichs klas uzytych w kliencie, np.
     // class GameWindow;
 }
