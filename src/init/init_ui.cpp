@@ -49,6 +49,8 @@ Init_UI::~Init_UI()
 
 void Init_UI::on_pushButton_clicked()
 {
+/** @todo wyłączam żeby nie przeszkadzało
+ *
     if( predatorsTable.indexOf(0) != -1 )
     {
         /// @todo you should fill predators pyramide again
@@ -69,7 +71,7 @@ void Init_UI::on_pushButton_clicked()
         // reset pyramide
         return;
     }
-
+*/
     config->herbivores_pyramid = new common::MaslovPyramid(herbivorsTable[0], herbivorsTable[1], herbivorsTable[2], herbivorsTable[3], herbivorsTable[4]);
     config->predators_pyramid  = new common::MaslovPyramid(predatorsTable[0], predatorsTable[1], predatorsTable[2], predatorsTable[3]);    
 

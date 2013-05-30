@@ -12,6 +12,7 @@ int init::run(Init_UI *init_ui)
 int init::startGame(Client_UI *client_UI)
 {
     // ta struktura zawiera wszystkie dane gry
+
     common::Map *map = new common::Map(12, 12/*config->map_width, config->map_height*/);
 
     // mutex do synchronizacji
@@ -25,8 +26,16 @@ int init::startGame(Client_UI *client_UI)
     std::thread server_thread(bind(server::run, mutex, map, common::Config::getInstance()));
     std::thread client_thread(bind(client::run, mutex, map, client_UI));
 
+
+    std::cout << "Dochodzę o tutaj w init::startGame1" << std::endl;
     client_thread.join();
+    std::cout << "Dochodzę o tutaj w init::startGame2" << std::endl;
     server_thread.join();
+    std::cout << "Dochodzę o tutaj w init::startGame3" << std::endl;
+
+    // client::run(mutex, map, client_ui);
+
+    std::cout << "Dochodzę o tutaj w init::startGame" << std::endl;
 
     /// @todo zakończenie gry!
     // delete map;
