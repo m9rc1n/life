@@ -57,7 +57,7 @@ HEADERS  += \
     common/GeneticEquation.hpp \
     init/initui.h \
     server/genetics/Genome.hpp \
-    server/SimulationVisitor.h
+    server/SimulationVisitor.hpp
 
 OTHER_FILES += \
     makefile \

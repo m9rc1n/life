@@ -1,5 +1,5 @@
-#ifndef SIMULATIONVISITOR_H
-#define SIMULATIONVISITOR_H
+#ifndef SIMULATIONVISITOR_HPP
+#define SIMULATIONVISITOR_HPP
 
 #include "../common/Visitor.hpp"
 
