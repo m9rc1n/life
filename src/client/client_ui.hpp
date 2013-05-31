@@ -2,7 +2,7 @@
 #define CLIENT_UI_H
 
 #include <QWidget>
-#include "../include.hpp"
+#include "../common/Config.hpp"
 
 namespace Ui
 {

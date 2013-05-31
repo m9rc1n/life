@@ -4,6 +4,8 @@
 #include <chrono> // c++11
 
 #include "../include.hpp"
+#include "client_ui.hpp"
+#include "../common/Map.hpp"
 
 namespace client
 {

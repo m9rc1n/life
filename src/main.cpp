@@ -1,6 +1,7 @@
 #include "common/Config.hpp"
 #include "init/init_ui.hpp"
 #include "client/client_ui.hpp"
+#include "init/init.hpp"
 
 #include <QApplication>
 

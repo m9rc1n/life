@@ -5,7 +5,9 @@
 #include <thread> // c++11
 #include <chrono> // c++11
 
-#include "../include.hpp"
+#include "../common/Config.hpp"
+#include "../common/Map.hpp"
+#include "SimulationVisitor.h"
 
 namespace server
 {

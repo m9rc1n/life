@@ -32,10 +32,10 @@ SOURCES += main.cpp\
     common/MaslovPyramid.cpp \
     common/GeneticEquation.cpp \
     init/initui.cpp \
-    server/genetics/Genome.cpp
+    server/genetics/Genome.cpp \
+    server/SimulationVisitor.cpp
 
 HEADERS  += \
-    include.hpp \
     client/client.hpp \
     common/Waterhole.hpp \
     common/Visitor.hpp \
@@ -49,7 +49,6 @@ HEADERS  += \
     common/Config.hpp \
     init/init.hpp \
     server/server.hpp \
-    server/Map.hpp \
     init/init_ui.hpp \
     client/client_ui.hpp \
     client/PaintingVisitor.hpp \
@@ -57,7 +56,8 @@ HEADERS  += \
     common/MaslovPyramid.hpp \
     common/GeneticEquation.hpp \
     init/initui.h \
-    server/genetics/Genome.hpp
+    server/genetics/Genome.hpp \
+    server/SimulationVisitor.h
 
 OTHER_FILES += \
     makefile \
