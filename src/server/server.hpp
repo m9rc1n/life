@@ -7,7 +7,7 @@
 
 #include "../common/Config.hpp"
 #include "../common/Map.hpp"
-#include "SimulationVisitor.h"
+#include "SimulationVisitor.hpp"
 
 namespace server
 {

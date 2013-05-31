@@ -12,6 +12,7 @@
 #include "Herbivore.hpp"
 #include "Predator.hpp"
 #include "Visitor.hpp"
+#include "../server/SimulationVisitor.hpp"
 
 namespace common
 {

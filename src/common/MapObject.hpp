@@ -5,6 +5,7 @@
 #include <boost/serialization/nvp.hpp>
 
 #include "Visitor.hpp"
+#include "../server/SimulationVisitor.hpp"
 
 namespace common
 {

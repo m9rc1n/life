@@ -121,6 +121,7 @@ namespace common
         }
 
     protected:
+
         /// Zasięg widzenia
         const int radius_;
 
@@ -145,6 +146,20 @@ namespace common
         /// Maksymalna długość życia
         const int max_age_;
 
+        /**
+         * @brief
+         * Kierunek, w którym obrócone jest zwierzę, wyrażony w stopniach.
+         *
+         * Kąt liczony jest zgodnie z kierunkiem ruchu wskazówek zegara.
+         * 0 oznacza, że zwierzę jest skierowane (patrzy) w kierunku północnym (w górę ekranu).
+         * 90 - w kierunku wschodnim (w prawo)
+         * 180 - w kierunku południowym (w dół)
+         * 270 - w kierunku zachodnim (w lewo)
+         *
+         * Wartość tego pola powinna zawsze zawierać się w zakresie <0; 360)
+         */
+        double direction;
+
         /// Obecny poziom najedzenia
         double repletion_;
 
@@ -158,8 +173,7 @@ namespace common
         double age_;
 
         /// Czy zwierzę jest martwe?
-        bool is_dead_;
-
+        bool is_dead_;  
     };
 }
 
