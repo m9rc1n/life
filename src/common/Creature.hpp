@@ -2,7 +2,7 @@
 #define COMMON_CREATURE_H
 
 #include "MapObject.hpp"
-
+#include <cmath>
 
 namespace common
 {
@@ -120,6 +120,78 @@ namespace common
             ar & age_;
         }
 
+        struct WrongRotationException: public std::exception{};
+
+        /**
+         * @brief
+         * Obraca zwierzę o zadany kąt wokół własnej osi.
+         *
+         * @param degrees Zadany kąt w stopniach. Jeśli degrees > 0, to obrót w prawo; gdy degrees < 0 - obrót w lewo.
+         * @pre -360 > #degrees > 360
+         * @throws WrongRotationException
+         * @see direction_
+         */
+        void rotateByAngleInDegrees(double degrees)
+        {
+            if(degrees <= -360 or degrees >= 360)
+            {
+                throw new WrongRotationException();
+            }
+            direction_ += degrees;
+            // pilnujemy niezmiennika
+            direction_ += 360.0;
+            // fmod - odpowiednik operator % dla floatów
+            direction_ = fmod(direction_, 360.0);
+        }
+
+        /**
+         * @brief
+         * Obraca zwierzę o zadany kąt wokół własnej osi.
+         *
+         * @param degrees Zadany kąt w radianach. Jeśli radians > 0, to obrót w prawo; gdy radians < 0 - obrót w lewo.
+         * @pre -2pi > #degrees > 2pi
+         * @throws WrongRotationException
+         * @see direction_
+         */
+        void rotateByAngleInRadians(double radians)
+        {
+            rotateByAngleInDegrees(radians * 180.0 / M_PI);
+        }
+
+        /**
+         * @brief
+         * Zwraca kierunek patrzenia zwierzęcia w stopniach.
+         *
+         * @see direction_
+         */
+        double getDirectionInDegrees()
+        {
+            return direction_;
+        }
+
+        /**
+         * @brief
+         * Zwraca kierunek patrzenia zwierzęcia w radianach.
+         *
+         * @see direction_
+         */
+        double getDirectionInRadians()
+        {
+            return direction_ * M_PI / 180.0;
+        }
+
+        /**
+         * @brief
+         * Przesuwa zwierzę o zadany dystans w kierunku w którym zwierzę patrzy.
+         *
+         * @see direction_
+         * @todo write me!
+         */
+        void moveByDistance()
+        {
+
+        }
+
     protected:
 
         /// Zasięg widzenia
@@ -158,7 +230,7 @@ namespace common
          *
          * Wartość tego pola powinna zawsze zawierać się w zakresie <0; 360)
          */
-        double direction;
+        double direction_;
 
         /// Obecny poziom najedzenia
         double repletion_;
