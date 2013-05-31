@@ -232,14 +232,32 @@ namespace common
          * @returns false, jeśli zwierzę obróciło się dokładnie o #degrees stopni;
          *          true,  jeśli zwierzę obróciło się o mniej niż #degrees stopni (co oznacza, że teraz zwierzę patrzy na ten obiekt)
          *
-         * @todo WRITE ME
+         * @todo test me
          */
-        void partiallyTurnToObject(const MapObject &object, double degrees)
+        bool partiallyTurnToObject(const MapObject &object, double degrees)
         {
             double destined_direction = getDirectionOfObjectInDegrees(object);
 
-            //double angle_difference =
+            double angle_difference = destined_direction - direction_;
+            angle_difference = std::min(angle_difference, 360 + angle_difference);
 
+            double angle_difference_abs = abs(angle_difference);
+
+            if(angle_difference_abs <= degrees)
+            {
+                direction_ = destined_direction;
+                return true;
+            }
+            else if(angle_difference < 0)
+            {
+                direction_-= destined_direction;
+                return false;
+            }
+            else //(angle_difference > 0)
+            {
+                direction_+= destined_direction;
+                return false;
+            }
         }
 
     protected:
