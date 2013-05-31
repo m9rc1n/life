@@ -185,11 +185,11 @@ namespace common
          * Przesuwa zwierzę o zadany dystans w kierunku w którym zwierzę patrzy.
          *
          * @see direction_
-         * @todo write me!
          */
-        void moveByDistance()
+        void moveByDistance(double distance)
         {
-
+            moveByVector(sin(getDirectionInRadians()) * distance,
+                         cos(getDirectionInRadians()) * distance);
         }
 
     protected:
