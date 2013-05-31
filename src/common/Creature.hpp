@@ -94,13 +94,13 @@ namespace common
         virtual void accept(Visitor &) = 0;
 
         /**
-        * @brief
-        * Serializacja
-        *
-        * Serializuje skladowe obiektu oraz klase bazowa.
-        *
-        * @see Map::serialize
-        */
+         * @brief
+         * Serializacja
+         *
+         * Serializuje skladowe obiektu oraz klase bazowa.
+         *
+         * @see Map::serialize
+         */
         template<class Archive>
         void serialize(Archive & ar, const unsigned int version)
         {
@@ -140,7 +140,7 @@ namespace common
             direction_ += degrees;
             // pilnujemy niezmiennika
             direction_ += 360.0;
-            // fmod - odpowiednik operator % dla floatów
+            // fmod - odpowiednik operatora % dla floatów
             direction_ = fmod(direction_, 360.0);
         }
 
@@ -190,6 +190,56 @@ namespace common
         {
             moveByVector(sin(getDirectionInRadians()) * distance,
                          cos(getDirectionInRadians()) * distance);
+        }
+
+        /**
+         * @brief
+         * Zwraca kierunek, w którym należałoby obrócić zwierzę, aby patrzyło ono dokładnie na zadany obiekt.
+         *
+         * @param object Obiekt, któ¶ego kierunek wyznaczamy.
+         */
+        double getDirectionOfObjectInDegrees(const MapObject &object)
+        {
+            double x_distance = object.getX() - this->getX();
+            double y_distance = object.getY() - this->getY();
+
+            double distance = sqrt(x_distance*x_distance + y_distance*y_distance);
+
+            double x_factor = x_distance / distance; // zmienna sponsorowana przez tvn
+            //double y_factor = y_distance / distance;
+
+            return asin(x_factor) * 180.0 / M_PI; // asin = arcus sinus
+        }
+
+        /**
+         * @brief
+         * Obraca zwierzę w taki sposób, aby patrzyło na zadany obiekt.
+         *
+         * @param object Obiekt na który ma patrzeć zwierzę.
+         */
+        void turnToObject(const MapObject &object)
+        {
+            direction_ = getDirectionOfObjectInDegrees(object);
+        }
+
+        /**
+         * @brief
+         * Obraca zwierzę w kierunku zadanego obiektu, ale nie bardziej niz o zadany kąt.
+         *
+         * @param object Obiekt w kierunku którego ma się obracać zwierzę.
+         * @param degrees O ile stopni ma się maksymalnie obrócić zwierzę.
+         *
+         * @returns false, jeśli zwierzę obróciło się dokładnie o #degrees stopni;
+         *          true,  jeśli zwierzę obróciło się o mniej niż #degrees stopni (co oznacza, że teraz zwierzę patrzy na ten obiekt)
+         *
+         * @todo WRITE ME
+         */
+        void partiallyTurnToObject(const MapObject &object, double degrees)
+        {
+            double destined_direction = getDirectionOfObjectInDegrees(object);
+
+            //double angle_difference =
+
         }
 
     protected:
@@ -246,6 +296,7 @@ namespace common
 
         /// Czy zwierzę jest martwe?
         bool is_dead_;  
+
     };
 }
 
