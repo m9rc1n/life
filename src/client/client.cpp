@@ -45,14 +45,16 @@ void client::Client::run()
 {
     common::Map* localMap;
 
-    client::PaintingVisitor painter;
-    client::StatisticsVisitor stater;
-
     QImage image(resultSize, QImage::Format_RGB32);
+
+    client::PaintingVisitor painter(&image);
+    client::StatisticsVisitor stater;
 
     for(int i = 0;; ++i) // nieskonczona petla
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+        image.fill(666666);
 
         for (int y = 10+i; y < 20+i; ++y)
         {
@@ -70,13 +72,31 @@ void client::Client::run()
         config->mutex.unlock();
 
         localMap->accept(painter);
+
+        /*
+        std::vector<common::MapObject*>::iterator obj = localMap->objects.begin();
+
+        for (obj; obj!=localMap->objects.end(); obj++)
+        {
+            /// @todo nie działa ??? (*i)->accept(painter);
+            // localMap->objects.at(i);
+        }
+        */
+
+        for (int index=0; index<localMap->objects.size(); index++)
+        {
+            /// @todo nie działa ??? (*i)->accept(painter);
+            // localMap->objects.at(i);
+            localMap->objects[index]->accept(painter);
+        }
+
         localMap->accept(stater);
 
         // robimy cos z mapa: wyswietlamy, aktualizujemy statystyki
         // za pomoca wizytatorow, np. jesli mamy wizytatoror Stat
         // to robimy Stat.visit(*localMap);
 
-        // delete localMap; // mozna zmienic na sprytny wskaznik
+        delete localMap; // mozna zmienic na sprytny wskaznik
     }
     /*
     forever {

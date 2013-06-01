@@ -2,6 +2,7 @@
 #include <mutex>
 #include <thread> // c++11
 #include <chrono> // c++11
+#include <vector>
 
 #include <QSize>
 #include <QThread>

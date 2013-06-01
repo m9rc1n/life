@@ -28,7 +28,7 @@ Client_UI::Client_UI(QWidget *parent) :
 
   setWindowTitle(tr("Predators vs. Herbivores"));
   setCursor(Qt::CrossCursor);
-  resize(2000, 2000);
+  resize(600, 600);
 }
 
 

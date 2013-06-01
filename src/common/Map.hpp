@@ -7,11 +7,16 @@
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/export.hpp>
 
-#include "MapObject.hpp"
-#include "Creature.hpp"
+/// @todo Potrzebne kiedy herbivore i inni to mają?
+// #include "MapObject.hpp"
+// #include "Creature.hpp"
 #include "Herbivore.hpp"
 #include "Predator.hpp"
 #include "Visitor.hpp"
+#include "Lair.hpp"
+#include "Tree.hpp"
+#include "Waterhole.hpp"
+
 #include "../server/SimulationVisitor.hpp"
 
 namespace common
@@ -101,7 +106,8 @@ namespace common
             ar & height_;
         }
         
-    protected:
+    /// @todo tymczasowo ustawiam public protected:
+    public:
         /**
          * @brief
          * Wektor zawierający wszystkie obiekty znajdujące się na mapie
