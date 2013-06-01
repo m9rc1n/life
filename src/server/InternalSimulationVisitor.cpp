@@ -20,6 +20,7 @@ void InternalSimulationVisitor::visit(common::Creature &)
 }
 void InternalSimulationVisitor::visit(common::Predator &)
 {
+
 }
 void InternalSimulationVisitor::visit(common::Herbivore &)
 {

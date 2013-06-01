@@ -277,6 +277,15 @@ namespace common
             y_pos_++;
         }
 
+        int getRadius() const
+        {
+            return radius_;
+        }
+        int getAngle() const
+        {
+            return angle_;
+        }
+
     protected:
 
         /// Zasięg widzenia
@@ -335,6 +344,7 @@ namespace common
         /// Czy zwierzę robi teraz coś konkretnego (true) czy błąka się bez celu (false)?
         bool is_active_;
 
+        /// Wektor obiektów, o których isteniu zwierzę wie w danej chwili
         std::vector<std::pair<common::MapObject*, double> > knownObjects;
 
     };
