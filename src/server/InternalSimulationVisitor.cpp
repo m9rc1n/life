@@ -18,8 +18,10 @@ void InternalSimulationVisitor::visit(common::Creature &)
 {
     // abstract class, nothing to do here
 }
-void InternalSimulationVisitor::visit(common::Predator &)
+void InternalSimulationVisitor::visit(common::Predator &predator)
 {
+    bool aware = AwarenessDetector::isAware(visited_creature_, predator);
+
 
 }
 void InternalSimulationVisitor::visit(common::Herbivore &)

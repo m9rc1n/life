@@ -2,6 +2,7 @@
 #define INTERNALSIMULATIONVISITOR_HPP
 
 #include "../common/Visitor.hpp"
+#include "AwarenessDetector.hpp"
 
 class InternalSimulationVisitor : public common::Visitor
 {
@@ -11,7 +12,7 @@ public:
     virtual void visit(common::Map &);
     virtual void visit(common::MapObject &);
     virtual void visit(common::Creature &);
-    virtual void visit(common::Predator &);
+    virtual void visit(common::Predator &predator);
     virtual void visit(common::Herbivore &);
     virtual void visit(common::Waterhole &);
     virtual void visit(common::Lair &);
