@@ -1,10 +1,14 @@
 #include "server.hpp" 
+#include <QWidget>
+
+server::Server::Server(common::Config *config, QObject *parent)
+    : QThread(parent),
+      config(config)
+{}
 
 
-void server::run(std::mutex *mutex, common::Map *map, common::Config *config)
+void server::Server::run()
 {
-    std::cout << "Jestem serwerem!\n" << std::endl;
-    
     common::Map *localMap = new common::Map(config->map_height, config->map_width); // generujemy mape na podstawie config
 
     std::chrono::steady_clock::time_point current, previous;
@@ -17,14 +21,19 @@ void server::run(std::mutex *mutex, common::Map *map, common::Config *config)
         
         // aktualizacja mapy za pomoca wizytatorow
         //double time = std::chrono::duration_cast<std::chrono::duration<double>>(current - previous);
+
+        /// @todo Michał czemu visitor jest w pętli? musi być?
+        /// tak, w wizytatorze robię właściwie całą symulację
+
         SimulationVisitor visitor(150);
         localMap->accept(visitor);
-        
-        mutex->lock();
+
+        config->mutex.lock();
         {
-            *map = *localMap;
+            *(config->map) = *localMap;
         }
-        mutex->unlock();
-        
+        config->mutex.unlock();
     }
 }
+
+

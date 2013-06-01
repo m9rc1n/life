@@ -1,7 +1,6 @@
 #ifndef COMMON_VISITOR_HPP
 #define COMMON_VISITOR_HPP
 
- 
 namespace common
 {
     

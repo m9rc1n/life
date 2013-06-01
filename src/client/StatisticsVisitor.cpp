@@ -5,32 +5,32 @@ client::StatisticsVisitor::StatisticsVisitor()
 
 }
 
-void client::StatisticsVisitor::visit(Map &)
+void client::StatisticsVisitor::visit(common::Map &)
 {
 
 }
 
-void client::StatisticsVisitor::visit(Predator &)
+void client::StatisticsVisitor::visit(common::Predator &)
 {
 
 }
 
-void client::StatisticsVisitor::visit(Herbivore &)
+void client::StatisticsVisitor::visit(common::Herbivore &)
 {
 
 }
 
-void client::StatisticsVisitor::visit(Waterhole &)
+void client::StatisticsVisitor::visit(common::Waterhole &)
 {
 
 }
 
-void client::StatisticsVisitor::visit(Lair &)
+void client::StatisticsVisitor::visit(common::Lair &)
 {
 
 }
 
-void client::StatisticsVisitor::visit(Tree &)
+void client::StatisticsVisitor::visit(common::Tree &)
 {
 
 }

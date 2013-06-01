@@ -19,7 +19,7 @@ class Init_UI : public QWidget
     Q_OBJECT
     
 public:
-    explicit Init_UI(common::Config *config, Client_UI *client_ui, QWidget *parent = 0);
+    explicit Init_UI(common::Config *config, QWidget *parent = 0);
     ~Init_UI();
 
     void enableItemFromPredator_0(int index, QVariant v);
@@ -55,7 +55,6 @@ private slots:
 
 private:
     Ui::Init_UI     *ui;
-    Client_UI       *cui;
     common::Config  *config;
     int             prevIndex;
 

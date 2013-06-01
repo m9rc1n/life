@@ -2,16 +2,17 @@
 #define PAINTINGVISITOR_H
 
 #include "../common/Visitor.hpp"
-
+#include <QImage>
+#include "../common/Map.hpp"
 
 // forward declarations:
-class Map;
-class Predator;
-class Herbivore;
-class Waterhole;
-class Lair;
-class Tree;
-
+/*class common::Map;
+class common::Predator;
+class common::Herbivore;
+class common::Waterhole;
+class common::Lair;
+class common::Tree;
+*/
 namespace client
 {
 
@@ -27,14 +28,16 @@ namespace client
     class PaintingVisitor : public common::Visitor
     {
     public:
-        PaintingVisitor();
+        PaintingVisitor(QImage *image);
 
-        void visit(Map &);
-        void visit(Predator &);
-        void visit(Herbivore &);
-        void visit(Waterhole &);
-        void visit(Lair &);
-        void visit(Tree &);
+        virtual void visit(common::Map &obj);
+        virtual void visit(common::Predator &obj);
+        virtual void visit(common::Herbivore &obj);
+        virtual void visit(common::Waterhole &obj);
+        virtual void visit(common::Lair &obj);
+        virtual void visit(common::Tree &obj);
+    private:
+        QImage *image;
     };
 }
 

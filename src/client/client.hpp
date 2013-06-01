@@ -2,14 +2,48 @@
 #include <mutex>
 #include <thread> // c++11
 #include <chrono> // c++11
+#include <vector>
 
-#include "../include.hpp"
-#include "client_ui.hpp"
+#include <QSize>
+#include <QThread>
+#include <QImage>
+
 #include "../common/Map.hpp"
+#include "../common/Config.hpp"
+#include "PaintingVisitor.hpp"
+#include "StatisticsVisitor.hpp"
 
 namespace client
 {
-    int run(std::mutex *mutex, common::Map *map, Client_UI *client_UI);
-    // tutaj deklaracje jakichs klas uzytych w kliencie, np.
-    // class GameWindow;
+
+    class Client : public QThread
+    {
+        Q_OBJECT
+
+    public:
+        Client(common::Config *config, QObject *parent = 0);
+        ~Client();
+        void render(double centerX, double centerY, double scaleFactor, QSize resultSize);
+
+    signals:
+        void renderedImage(const QImage &image, double scaleFactor);
+
+    protected:
+        void run();
+
+        int run(std::mutex *mutex, common::Map *map);
+
+    private:
+        common::Config  *config;
+        double          centerX;
+        double          centerY;
+        double          scaleFactor;
+        QSize           resultSize;
+        bool            restart;
+        bool            abort;
+
+        enum            { ColormapSize = 512 };
+        uint            colormap[ColormapSize];
+    };
 }
+

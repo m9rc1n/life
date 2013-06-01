@@ -4,10 +4,9 @@
 #include "../client/client_ui.hpp"
 
 /// @TODO Dodac paramtry przy wolaniu konstruktora Init_UI w linii 10
-Init_UI::Init_UI(common::Config *config_p, Client_UI *client_ui, QWidget *parent) :
+Init_UI::Init_UI(common::Config *config_p, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Init_UI()),
-    cui(client_ui),
     config(config_p),
     prevIndex(0)
 {
@@ -71,13 +70,12 @@ void Init_UI::on_pushButton_clicked()
         // reset pyramide
         return;
     }
-*/
+
     config->herbivores_pyramid = new common::MaslovPyramid(herbivorsTable[0], herbivorsTable[1], herbivorsTable[2], herbivorsTable[3], herbivorsTable[4]);
     config->predators_pyramid  = new common::MaslovPyramid(predatorsTable[0], predatorsTable[1], predatorsTable[2], predatorsTable[3]);    
-
+*/
     this->hide();
-    // this->cui->show();
-    init::startGame(cui);
+    init::startGame();
 }
 
 void Init_UI::comboBox0_Activated(int index)
