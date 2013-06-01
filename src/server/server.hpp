@@ -9,6 +9,7 @@
 #include <QThread>
 #include "../common/Config.hpp"
 #include "../common/Map.hpp"
+#include "MapGenerator.hpp"
 #include "SimulationVisitor.hpp"
 
 namespace server

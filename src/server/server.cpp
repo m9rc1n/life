@@ -12,6 +12,8 @@ void server::Server::run()
     common::Map *localMap = new common::Map(common::Config::getInstance()->map->getWidth(),
                                             common::Config::getInstance()->map->getHeight()); // generujemy mape na podstawie config
 
+    MapGenerator::generateMap();
+
     std::chrono::steady_clock::time_point current, previous;
 
     for(int i = 0;; ++i) // nieskonczona petla
