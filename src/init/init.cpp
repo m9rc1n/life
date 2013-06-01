@@ -14,6 +14,6 @@ int init::startGame()
     Client_UI *client_ui = new Client_UI;
     client_ui->show();
 
-    server::Server* server_thread = new server::Server(common::Config::getInstance());
+    server::Server* server_thread = new server::Server();
     server_thread->start();
 }

@@ -33,6 +33,15 @@ namespace common
     public:
         /**
          * @brief
+         * Konstruktor tworzacy pusta mape
+         */
+        Map():
+            Map(.0,.0)
+        {
+        }
+
+        /**
+         * @brief
          * Konstruktor tworzacy pusta mape o zadanych wymiarach
          */
         Map(int width, int height):

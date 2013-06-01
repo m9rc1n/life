@@ -25,13 +25,18 @@ namespace common
 
     private:
         // singleton
-        Config()
+        Config():
+            map_width(1000),
+            map_height(1000)
         {
-            map = new common::Map(0,0);
+            map = NULL;
         }
         Config(Config &);
 
     public:
+        int     map_width;
+        int     map_height;
+
         int     amount_predators;
         int     amount_herbivores;
         int     amount_trees;

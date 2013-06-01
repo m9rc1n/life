@@ -17,6 +17,8 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     int x = obj.getX();
     int y = obj.getY();
 
+    std::cout << x << " " << y << std::endl;
+
     long colorDarkPredator = 555555;
     long colorLightPredator = 7777777;
 

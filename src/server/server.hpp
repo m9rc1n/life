@@ -19,13 +19,10 @@ namespace server
         Q_OBJECT
 
     public:
-        Server(common::Config *config, QObject *parent = 0);
+        Server( QObject *parent = 0);
 
     protected:
         void run();
-
-    private:
-        common::Config *config;
 
     };
 }

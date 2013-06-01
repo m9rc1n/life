@@ -17,27 +17,18 @@ class MapGenerator
 {
     MapGenerator() = delete;
 
-    static double getRandomX()
+    static double getRandomDouble(common::Map *map)
     {
-        return getRandomDouble(common::Config::getInstance()->map->getWidth());
-    }
-
-    static double getRandomY()
-    {
-        return getRandomDouble(common::Config::getInstance()->map->getHeight());
-    }
-
-    static double getRandomDouble(int max)
-    {
-      time_t t = time(NULL);
-      std::mt19937 seed((int)t);
-      std::uniform_real_distribution<double> dist(0.0, (double)max);
-      boost::variate_generator<std::mt19937&, std::uniform_real_distribution<> > random(seed,dist);
-      return random();
+        static int max = map->getWidth();
+        static time_t t = time(NULL);
+        static std::mt19937 seed((int)t);
+        static std::uniform_real_distribution<double> dist(0.0, (double)max);
+        static boost::variate_generator<std::mt19937&, std::uniform_real_distribution<> > random(seed,dist);
+        return (random)();
     }
 
 public:
-    static void generateMap()
+    static void generateMap(common::Map *map)
     {
 
         int amount_herbivores = common::Config::getInstance()->amount_herbivores;
@@ -48,32 +39,32 @@ public:
 
         for(int i=0; i < amount_herbivores; ++i)
         {
-            common::Herbivore *h = new common::Herbivore(getRandomX(), getRandomY());
-            common::Config::getInstance()->map->appendObject(h);
+            common::Herbivore *h = new common::Herbivore(getRandomDouble(map), getRandomDouble(map));
+            map->appendObject(h);
         }
 
         for(int i=0; i < amount_predators; ++i)
         {
-            common::Predator *p = new common::Predator(getRandomX(), getRandomY());
-            common::Config::getInstance()->map->appendObject(p);
+            common::Predator *p = new common::Predator(getRandomDouble(map), getRandomDouble(map));
+            map->appendObject(p);
         }
 
         for(int i=0; i < amount_lairs; ++i)
         {
-            common::Lair *l = new common::Lair(getRandomX(), getRandomY());
-            common::Config::getInstance()->map->appendObject(l);
+            common::Lair *l = new common::Lair(getRandomDouble(map), getRandomDouble(map));
+            map->appendObject(l);
         }
 
         for(int i=0; i < amount_trees; ++i)
         {
-            common::Tree *t = new common::Tree(getRandomX(), getRandomY());
-            common::Config::getInstance()->map->appendObject(t);
+            common::Tree *t = new common::Tree(getRandomDouble(map), getRandomDouble(map));
+            map->appendObject(t);
         }
 
         for(int i=0; i < amount_waterholes; ++i)
         {
-            common::Waterhole *w = new common::Waterhole(getRandomX(), getRandomY());
-            common::Config::getInstance()->map->appendObject(w);
+            common::Waterhole *w = new common::Waterhole(getRandomDouble(map), getRandomDouble(map));
+            map->appendObject(w);
         }
     }
 };

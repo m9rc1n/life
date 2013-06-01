@@ -15,7 +15,6 @@ void SimulationVisitor::visit(common::Map &map)
 
 void SimulationVisitor::visit(common::Predator &predator)
 {
-    std::cout << "(" << predator.getX() << " " << predator.getY() << ")" << std::endl;
 
     InternalSimulationVisitor internal_visitor(predator, visited_map_);
     visited_map_->accept(internal_visitor);
