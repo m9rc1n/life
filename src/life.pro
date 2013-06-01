@@ -76,4 +76,4 @@ FORMS += \
 
 QMAKE_CXXFLAGS += -std=c++11
 
-LIBS += -lboost_system -lboost_thread -lboost_serialization
+LIBS += -lboost_system -lboost_thread -lboost_serialization -lm

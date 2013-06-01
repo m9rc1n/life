@@ -5,6 +5,10 @@
 
 #include "MaslovPyramid.hpp"
 #include "GeneticEquation.hpp"
+#include "Map.hpp"
+
+#include <QMutex>
+#include <QWaitCondition>
 
 namespace common
 {
@@ -21,23 +25,32 @@ namespace common
 
     private:
         // singleton
-        Config(){ }
+        Config() :
+            map_width(1000),
+            map_height(1000)
+        {
+            map = new common::Map(map_width, map_height);
+        }
         Config(Config &);
 
     public:
-        int map_width;
-        int map_height;
-        int amount_predators;
-        int amount_herbivores;
-        int amount_trees;
-        int amount_waterholes;
-        int amount_lairs;
+        int     map_width;
+        int     map_height;
+        int     amount_predators;
+        int     amount_herbivores;
+        int     amount_trees;
+        int     amount_waterholes;
+        int     amount_lairs;
 
-        MaslovPyramid *predators_pyramid;
-        MaslovPyramid *herbivores_pyramid;
+        MaslovPyramid   *predators_pyramid;
+        MaslovPyramid   *herbivores_pyramid;
 
         std::vector <GeneticEquation> equations;
 
+        QMutex           mutex;
+        QWaitCondition   condition;
+
+        common::Map      *map;
 
         static Config *getInstance()
         {

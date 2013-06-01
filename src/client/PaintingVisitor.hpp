@@ -29,12 +29,12 @@ namespace client
     public:
         PaintingVisitor();
 
-        void visit(Map &);
-        void visit(Predator &);
-        void visit(Herbivore &);
-        void visit(Waterhole &);
-        void visit(Lair &);
-        void visit(Tree &);
+        virtual void visit(common::Map &);
+        virtual void visit(common::Predator &);
+        virtual void visit(common::Herbivore &);
+        virtual void visit(common::Waterhole &);
+        virtual void visit(common::Lair &);
+        virtual void visit(common::Tree &);
     };
 }
 

@@ -9,35 +9,11 @@ int init::run(Init_UI *init_ui)
     init_ui->show();
 }
 
-int init::startGame(Client_UI *client_UI)
+int init::startGame()
 {
-    // ta struktura zawiera wszystkie dane gry
+    Client_UI *client_ui = new Client_UI;
+    client_ui->show();
 
-    common::Map *map = new common::Map(12, 12/*config->map_width, config->map_height*/);
-
-    // mutex do synchronizacji
-    std::mutex *mutex = new std::mutex;
-
-    /// @todo Ogólnie jest problem z wywoływaniem GUI na dwóch różnych wątkach
-    /// teoretycznie UI wg QT powinno być tylko w wątku głównym i tak sobie myśle że
-    /// spróbujmy nie oddzielać tego dając kolejny wątek
-    /// std::thread client_thread(bind(client::run, mutex, map));
-
-    std::thread server_thread(bind(server::run, mutex, map, common::Config::getInstance()));
-    std::thread client_thread(bind(client::run, mutex, map, client_UI));
-
-
-    std::cout << "Dochodzę o tutaj w init::startGame1" << std::endl;
-    client_thread.join();
-    std::cout << "Dochodzę o tutaj w init::startGame2" << std::endl;
-    server_thread.join();
-    std::cout << "Dochodzę o tutaj w init::startGame3" << std::endl;
-
-    // client::run(mutex, map, client_ui);
-
-    std::cout << "Dochodzę o tutaj w init::startGame" << std::endl;
-
-    /// @todo zakończenie gry!
-    // delete map;
-    // delete mutex;
+    server::Server* server_thread = new server::Server(common::Config::getInstance());
+    server_thread->start();
 }
