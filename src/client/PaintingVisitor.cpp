@@ -10,12 +10,15 @@ void client::PaintingVisitor::visit(common::Map & obj)
 {
     long colorMap = 666666;
     image->fill(colorMap);
+    std::cout << "Jestem w mapie" <<std::endl;
 }
 
 void client::PaintingVisitor::visit(common::Predator &obj)
 {    
-    int x = obj.getX();
-    int y = obj.getY();
+
+    std::cout << "Jestem w Predatorze" <<std::endl;
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
 
     std::cout << x << " " << y << std::endl;
 
@@ -66,8 +69,11 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
 void client::PaintingVisitor::visit(common::Herbivore &obj)
 {
-    int x = obj.getX();
-    int y = obj.getY();
+
+    std::cout << "Jestem w Herbivorze" <<std::endl;
+
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
 
     long colorDarkHerb = 555555;
     long colorLightHerb = 7777777;
@@ -104,8 +110,8 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
 
 void client::PaintingVisitor::visit(common::Waterhole &obj)
 {
-    int x = obj.getX();
-    int y = obj.getY();
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
 
     long colorLightWave = 555555;
     long colorDarkWave = 7777777;
@@ -169,8 +175,8 @@ void client::PaintingVisitor::visit(common::Waterhole &obj)
 
 void client::PaintingVisitor::visit(common::Lair &obj)
 {
-    int x = obj.getX();
-    int y = obj.getY();
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
 
     long colorUpLair = 555555;
     long colorDownLair = 7777777;
@@ -226,8 +232,8 @@ void client::PaintingVisitor::visit(common::Lair &obj)
 
 void client::PaintingVisitor::visit(common::Tree &obj)
 {
-    int x = obj.getX();
-    int y = obj.getY();
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
 
     long colorUpTree = 555555;
     long colorDownTree = 7777777;

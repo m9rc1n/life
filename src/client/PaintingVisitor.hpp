@@ -37,8 +37,15 @@ namespace client
         virtual void visit(common::Lair &obj);
         virtual void visit(common::Tree &obj);
 
-        virtual void visit(common::MapObject &){} // formalnosc
-        virtual void visit(common::Creature &){} // formalnosc
+        virtual void visit(common::MapObject &obj){
+
+            std::cout << "Wchodzę w MapObject" << std::endl;
+
+        } // formalnosc
+        virtual void visit(common::Creature &obj){
+
+            std::cout << "Wchodzę w PaintCreature" << std::endl;
+        } // formalnosc
     private:
         QImage *image;
     };

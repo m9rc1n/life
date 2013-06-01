@@ -123,6 +123,7 @@ void Client_UI::zoom(double zoomFactor)
 {
     curScale *= zoomFactor;
     update();
+    // client_thread->render(centerX, centerY, curScale, size());
     client_thread->render(centerX, centerY, curScale, size());
 }
 
