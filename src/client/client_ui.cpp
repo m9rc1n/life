@@ -13,8 +13,9 @@ const double ZoomInFactor = 0.8f;
 const double ZoomOutFactor = 1 / ZoomInFactor;
 const int ScrollStep = 20;
 
-Client_UI::Client_UI(QWidget *parent) :
+Client_UI::Client_UI(common::Config *config, QWidget *parent) :
     QWidget(parent),
+    config(config),
     ui(new Ui::Client_UI())
 {
   ui->setupUi(this);
@@ -28,7 +29,7 @@ Client_UI::Client_UI(QWidget *parent) :
 
   setWindowTitle(tr("Predators vs. Herbivores"));
   setCursor(Qt::CrossCursor);
-  resize(600, 600);
+  resize(config->map_width*10, config->map_height*10);
 }
 
 
@@ -123,7 +124,6 @@ void Client_UI::zoom(double zoomFactor)
 {
     curScale *= zoomFactor;
     update();
-    // client_thread->render(centerX, centerY, curScale, size());
     client_thread->render(centerX, centerY, curScale, size());
 }
 

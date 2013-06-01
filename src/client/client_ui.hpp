@@ -18,7 +18,7 @@ class Client_UI : public QWidget
     Q_OBJECT
 
     public:
-        Client_UI(QWidget *parent = 0);
+        Client_UI(common::Config *config, QWidget *parent = 0);
         ~Client_UI();
 
     protected:
@@ -35,6 +35,7 @@ class Client_UI : public QWidget
 
         Ui::Client_UI   *ui;
         client::Client  *client_thread;
+        common::Config  *config;
         QPixmap         pixmap;
         QPoint          pixmapOffset;
         QPoint          lastDragPos;
