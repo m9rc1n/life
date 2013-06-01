@@ -26,7 +26,7 @@ namespace common
          */
         virtual MapObject *clone()
         {
-            return new Waterhole(*this);
+            return static_cast<MapObject*>(new Waterhole(*this));
         }
         
         /**

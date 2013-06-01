@@ -271,6 +271,12 @@ namespace common
             }
         }
 
+        void moveInSomeRandomDirection()
+        {
+            x_pos_++;
+            y_pos_++;
+        }
+
     protected:
 
         /// Zasięg widzenia

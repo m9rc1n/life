@@ -49,7 +49,7 @@ void client::Client::run()
 
     for(int i = 0;; ++i) // nieskonczona petla
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
         config->mutex.lock();
             localMap = new common::Map(*(config->map));

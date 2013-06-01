@@ -10,13 +10,13 @@ void client::PaintingVisitor::visit(common::Map & obj)
 {
     long colorMap = 666666;
     image->fill(colorMap);
-    std::cout << "Jestem w mapie" <<std::endl;
+    //std::cout << "Jestem w mapie" <<std::endl;
 }
 
 void client::PaintingVisitor::visit(common::Predator &obj)
 {    
 
-    std::cout << "Jestem w Predatorze" <<std::endl;
+    //std::cout << "Jestem w Predatorze" <<std::endl;
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
@@ -68,7 +68,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 void client::PaintingVisitor::visit(common::Herbivore &obj)
 {
 
-    std::cout << "Jestem w Herbivorze" <<std::endl;
+    //std::cout << "Jestem w Herbivorze" <<std::endl;
 
     int x = obj.getX()*10;
     int y = obj.getY()*10;

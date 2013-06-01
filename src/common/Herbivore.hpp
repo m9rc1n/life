@@ -2,7 +2,7 @@
 #define COMMON_HERBIVORE_H
 
 #include "Creature.hpp"
-
+#include <typeinfo>
 
 namespace common
 {
@@ -37,7 +37,7 @@ namespace common
          */
         virtual MapObject *clone()
         {
-            return new Herbivore(*this);
+            return static_cast<MapObject*>(new Herbivore(*this));
         }
 
         /**

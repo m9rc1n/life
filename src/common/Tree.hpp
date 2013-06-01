@@ -32,7 +32,7 @@ namespace common
          */
         virtual MapObject *clone()
         {
-            return new Tree(*this);
+            return static_cast<MapObject*>(new Tree(*this));
         }
         
         /**

@@ -34,7 +34,7 @@ namespace common
          */
         virtual MapObject *clone()
         {
-            return new Lair(*this);
+            return static_cast<MapObject*>(new Lair(*this));
         }
     };
 }
