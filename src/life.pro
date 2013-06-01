@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     server/genetics/Genome.cpp \
     server/SimulationVisitor.cpp \
     server/InternalSimulationVisitor.cpp \
-    server/AwarenessDetector.cpp
+    server/AwarenessDetector.cpp \
+    server/MapGenerator.cpp
 
 HEADERS  += \
     client/client.hpp \
@@ -62,7 +63,8 @@ HEADERS  += \
     server/SimulationVisitor.hpp \
     test/CreatureTest.cpp \
     server/InternalSimulationVisitor.hpp \
-    server/AwarenessDetector.hpp
+    server/AwarenessDetector.hpp \
+    server/MapGenerator.hpp
 
 OTHER_FILES += \
     makefile \

@@ -41,7 +41,7 @@ namespace common
         {
             std::cout << "Jestem mapą!" << std::endl;
         }
-        
+
         /**
          * @brief
          * Konstruktor kopiujący kopiuje elementy kolekcji #obiekty
@@ -73,6 +73,21 @@ namespace common
             {
                 objects.push_back((*iter)->clone());
             }
+        }
+
+        int getWidth()
+        {
+            return width_;
+        }
+
+        int getHeight()
+        {
+            return height_;
+        }
+
+        void appendObject(MapObject *object)
+        {
+            objects.push_back(object);
         }
         
         /**

@@ -9,7 +9,8 @@ server::Server::Server(common::Config *config, QObject *parent)
 
 void server::Server::run()
 {
-    common::Map *localMap = new common::Map(config->map_height, config->map_width); // generujemy mape na podstawie config
+    common::Map *localMap = new common::Map(common::Config::getInstance()->map->getWidth(),
+                                            common::Config::getInstance()->map->getHeight()); // generujemy mape na podstawie config
 
     std::chrono::steady_clock::time_point current, previous;
 

@@ -9,7 +9,14 @@ namespace common
     
     class Lair: public MapObject
     {
-        
+    public:
+        Lair(double x_pos, double y_pos):
+            MapObject(x_pos, y_pos)
+        {
+            // ...
+        }
+
+
         /**
          * @brief
          * Przyjecie (acceptance) wizytatora.

@@ -36,6 +36,9 @@ namespace client
         virtual void visit(common::Waterhole &obj);
         virtual void visit(common::Lair &obj);
         virtual void visit(common::Tree &obj);
+
+        virtual void visit(common::MapObject &){} // formalnosc
+        virtual void visit(common::Creature &){} // formalnosc
     private:
         QImage *image;
     };

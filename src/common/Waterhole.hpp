@@ -8,7 +8,14 @@ namespace common
     
     class Waterhole: public MapObject
     {
-        
+    public:
+
+        Waterhole(double x_pos, double y_pos):
+            MapObject(x_pos, y_pos)
+        {
+            // ...
+        }
+
         /**
          * @brief
          * Tworzy głęboką kopię obiektu

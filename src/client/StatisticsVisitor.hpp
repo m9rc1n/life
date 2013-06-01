@@ -35,6 +35,9 @@ namespace client
         virtual void visit(common::Waterhole &);
         virtual void visit(common::Lair &);
         virtual void visit(common::Tree &);
+
+        virtual void visit(common::MapObject &){} // formalnosc
+        virtual void visit(common::Creature &){} // formalnosc
     };
 }
 

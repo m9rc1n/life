@@ -15,9 +15,11 @@ namespace common
     class Tree: public MapObject
     {
     public:
-        Tree():
+        Tree(double x_pos, double y_pos):
+            MapObject(x_pos, y_pos),
             leafs_(100)
         {
+            // ...
         }
 
         /**
