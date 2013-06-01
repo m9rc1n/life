@@ -1,8 +1,9 @@
 #include "InternalSimulationVisitor.hpp"
 
-InternalSimulationVisitor::InternalSimulationVisitor(common::Creature &visited_creature, common::Map *visited_map):
+InternalSimulationVisitor::InternalSimulationVisitor(common::Creature &visited_creature, common::Map *visited_map, double time_interval):
     visited_creature_(visited_creature),
-    visited_map_(visited_map)
+    visited_map_(visited_map),
+    time_interval_(time_interval)
 {
 }
 

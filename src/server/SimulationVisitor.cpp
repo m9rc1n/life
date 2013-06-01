@@ -15,7 +15,6 @@ void SimulationVisitor::visit(common::Map &map)
 
 void SimulationVisitor::visit(common::Predator &predator)
 {
-
     InternalSimulationVisitor internal_visitor(predator, visited_map_, time_interval_);
     visited_map_->accept(internal_visitor);
 
