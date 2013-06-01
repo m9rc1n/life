@@ -7,6 +7,8 @@ namespace common
     
     // forward declarations:
     class Map;
+    class MapObject;
+    class Creature;
     class Predator;
     class Herbivore;
     class Waterhole;
@@ -25,6 +27,8 @@ namespace common
     {
     public:
         virtual void visit(Map &) = 0;
+        virtual void visit(MapObject &) = 0;
+        virtual void visit(Creature &) = 0;
         virtual void visit(Predator &) = 0;
         virtual void visit(Herbivore &) = 0;
         virtual void visit(Waterhole &) = 0;

@@ -70,6 +70,8 @@ namespace common
          */
         virtual MapObject *clone() = 0;
 
+        virtual ~Creature(){}
+
         /**
         * @brief
         * Funkcja podaje informację czy stworzenie jest martwe.
@@ -196,7 +198,8 @@ namespace common
          * @brief
          * Zwraca kierunek, w którym należałoby obrócić zwierzę, aby patrzyło ono dokładnie na zadany obiekt.
          *
-         * @param object Obiekt, któ¶ego kierunek wyznaczamy.
+         * @param object obiekt, do którego kierunek wyznaczamy.
+         * @return wynik w stopniach
          */
         double getDirectionOfObjectInDegrees(const MapObject &object)
         {
@@ -206,9 +209,16 @@ namespace common
             double distance = sqrt(x_distance*x_distance + y_distance*y_distance);
 
             double x_factor = x_distance / distance; // zmienna sponsorowana przez tvn
-            //double y_factor = y_distance / distance;
+            double y_factor = y_distance / distance;
 
-            return asin(x_factor) * 180.0 / M_PI; // asin = arcus sinus
+            double arcsin = asin(x_factor) * 180.0 / M_PI; // arcus sinus
+
+            if(y_factor < 0)
+            {
+                arcsin = 180 - arcsin; // 3. i 4. ćwiartka układu współrzędnych
+            }
+
+            return fmod(arcsin + 360, 360);
         }
 
         /**
@@ -314,6 +324,10 @@ namespace common
 
         /// Czy zwierzę jest martwe?
         bool is_dead_;  
+
+        /// Czy zwierzę robi teraz coś konkretnego (true) czy błąka się bez celu (false)?
+        bool is_active_;
+
 
     };
 }

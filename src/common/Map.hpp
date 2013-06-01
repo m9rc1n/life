@@ -12,7 +12,6 @@
 #include "Herbivore.hpp"
 #include "Predator.hpp"
 #include "Visitor.hpp"
-#include "../server/SimulationVisitor.hpp"
 
 namespace common
 {
@@ -117,7 +116,6 @@ namespace common
         int height_;
         
         friend class boost::serialization::access;
-        
     };
 }
 

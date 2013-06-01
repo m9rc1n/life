@@ -8,9 +8,8 @@ namespace common
 {
     /**
     * @brief
-    * Abstrakcyjna klasa reprezentujaca roslinozerce
+    * Klasa reprezentujaca roslinozerce
     *
-    * @todo write me
     */
     class Herbivore: public Creature
     {
@@ -45,7 +44,11 @@ namespace common
          * @brief
          * Przyjecie (acceptance) wizytatora.
          */
-        virtual void accept(Visitor &visitor);
+        virtual void accept(Visitor &visitor)
+        {
+            visitor.visit(*this);
+        }
+
 
         /**
         * @brief

@@ -53,11 +53,17 @@ namespace common
             return new Predator(*this);
         }
 
+        virtual ~Predator()
+        {}
+
         /**
          * @brief
          * Przyjecie (acceptance) wizytatora.
          */
-        virtual void accept(Visitor & visitor);
+        virtual void accept(Visitor & visitor)
+        {
+            visitor.visit(*this);
+        }
 
         /**
          * @brief

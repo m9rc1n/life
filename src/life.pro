@@ -33,7 +33,9 @@ SOURCES += main.cpp\
     common/GeneticEquation.cpp \
     init/initui.cpp \
     server/genetics/Genome.cpp \
-    server/SimulationVisitor.cpp
+    server/SimulationVisitor.cpp \
+    server/InternalSimulationVisitor.cpp \
+    server/AwarenessDetector.cpp
 
 HEADERS  += \
     client/client.hpp \
@@ -57,7 +59,10 @@ HEADERS  += \
     common/GeneticEquation.hpp \
     init/initui.h \
     server/genetics/Genome.hpp \
-    server/SimulationVisitor.hpp
+    server/SimulationVisitor.hpp \
+    test/CreatureTest.cpp \
+    server/InternalSimulationVisitor.hpp \
+    server/AwarenessDetector.hpp
 
 OTHER_FILES += \
     makefile \
