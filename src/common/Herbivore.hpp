@@ -61,6 +61,7 @@ namespace common
         {
             ar & boost::serialization::base_object<Creature>(*this);
         }
+
     };
 }
 

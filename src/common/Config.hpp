@@ -26,8 +26,8 @@ namespace common
     private:
         // singleton
         Config():
-            map_width(1000),
-            map_height(1000)
+            map_width(100),
+            map_height(100)
         {
             map = NULL;
         }

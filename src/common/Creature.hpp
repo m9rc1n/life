@@ -3,6 +3,7 @@
 
 #include "MapObject.hpp"
 #include <cmath>
+#include <vector>
 
 namespace common
 {
@@ -328,6 +329,7 @@ namespace common
         /// Czy zwierzę robi teraz coś konkretnego (true) czy błąka się bez celu (false)?
         bool is_active_;
 
+        std::vector<std::pair<common::MapObject*, double> > knownObjects;
 
     };
 }

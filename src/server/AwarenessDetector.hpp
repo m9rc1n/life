@@ -1,6 +1,12 @@
 #ifndef AWARENESSDETECTOR_HPP
 #define AWARENESSDETECTOR_HPP
 
+#include "../common/Herbivore.hpp"
+#include "../common/Predator.hpp"
+#include "../common/Tree.hpp"
+#include "../common/Waterhole.hpp"
+#include "../common/Lair.hpp"
+
 /**
  * @brief
  * Klasa grupująca różne funkcje, których zadaniem jest sprawdzanie, czy stworzenia są świadome obiektów
@@ -24,8 +30,10 @@
 
 class AwarenessDetector
 {
+    AwarenessDetector() = delete;
 public:
-    AwarenessDetector();
+    static bool isAware(common::Herbivore &herbivore, common::MapObject &map_object);
+    static bool isAware(common::Predator &predator,   common::MapObject &map_object);
 };
 
 #endif // AWARENESSDETECTOR_HPP

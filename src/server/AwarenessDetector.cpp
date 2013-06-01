@@ -1,5 +1,13 @@
 #include "AwarenessDetector.hpp"
 
-AwarenessDetector::AwarenessDetector()
+
+bool AwarenessDetector::isAware(common::Herbivore &herbivore, common::MapObject &map_object)
 {
+    double dist = herbivore.getDistance(object);
+}
+
+
+bool AwarenessDetector::isAware(common::Predator &predator, common::MapObject &map_object)
+{
+
 }

@@ -3,8 +3,10 @@
 
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/nvp.hpp>
+#include <cmath>
 
 #include "Visitor.hpp"
+
 
 namespace common
 {
@@ -62,6 +64,14 @@ namespace common
         double getY() const
         {
             return y_pos_;
+        }
+
+        /// zwraca odległość od drugiego obiektu
+        double getDistance(const MapObject &another) const
+        {
+            double dx = getX() - another.getX();
+            double dy = getY() - another.getY();
+            return sqrt(dx*dx + dy*dy);
         }
 
         /**
