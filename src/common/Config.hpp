@@ -28,9 +28,13 @@ namespace common
         // singleton
         Config():
             map_width(100),
+<<<<<<< HEAD
             map_height(100),
             map(NULL),
             objectsCounter(0)
+=======
+            map_height(100)
+>>>>>>> 0b7ff1578436ce3910758293f6bf615dc21d2799
         {
         }
         Config(Config &);
