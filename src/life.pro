@@ -36,7 +36,15 @@ SOURCES += main.cpp\
     server/SimulationVisitor.cpp \
     server/InternalSimulationVisitor.cpp \
     server/AwarenessDetector.cpp \
-    server/MapGenerator.cpp
+    server/MapGenerator.cpp \
+    server/actions/Action.cpp \
+    server/actions/EatingAction.cpp \
+    server/actions/RunningAction.cpp \
+    server/actions/DrinkingAction.cpp \
+    server/actions/SleepingAction.cpp \
+    server/actions/HuntingAction.cpp \
+    server/actions/ProcreatingAction.cpp \
+    server/ActionPerformVisitor.cpp
 
 HEADERS  += \
     client/client.hpp \
@@ -64,7 +72,15 @@ HEADERS  += \
     test/CreatureTest.cpp \
     server/InternalSimulationVisitor.hpp \
     server/AwarenessDetector.hpp \
-    server/MapGenerator.hpp
+    server/MapGenerator.hpp \
+    server/actions/Action.hpp \
+    server/actions/EatingAction.hpp \
+    server/actions/RunningAction.hpp \
+    server/actions/DrinkingAction.hpp \
+    server/actions/SleepingAction.hpp \
+    server/actions/HuntingAction.hpp \
+    server/actions/ProcreatingAction.hpp \
+    server/ActionPerformVisitor.hpp
 
 OTHER_FILES += \
     makefile \

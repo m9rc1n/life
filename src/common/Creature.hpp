@@ -387,7 +387,7 @@ namespace common
             {
                 *iter += time;
                 std::cout << *iter << std::endl;
-                if(*iter > 3)
+                if(*iter > 3000) // 3000 ms
                 {
                     knownObjects->erase(iter++);
                 }
@@ -397,6 +397,7 @@ namespace common
                 }
             }
         }
+
 
     protected:
 

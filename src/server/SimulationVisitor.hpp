@@ -11,6 +11,14 @@
 #include "../common/MapObject.hpp"
 
 #include "InternalSimulationVisitor.hpp"
+#include "ActionPerformVisitor.hpp"
+
+#include "actions/DrinkingAction.hpp"
+#include "actions/EatingAction.hpp"
+#include "actions/HuntingAction.hpp"
+#include "actions/ProcreatingAction.hpp"
+#include "actions/RunningAction.hpp"
+#include "actions/SleepingAction.hpp"
 
 namespace server
 {
