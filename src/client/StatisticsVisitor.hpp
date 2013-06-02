@@ -2,6 +2,7 @@
 #define STATISTICSVISITOR_H
 
 #include "../common/Visitor.hpp"
+#include "Statistics.hpp"
 
 
 // forward declarations:
@@ -27,7 +28,7 @@ namespace client
     class StatisticsVisitor : public common::Visitor
     {
     public:
-        StatisticsVisitor();
+        StatisticsVisitor(Statistics *stat);
 
         virtual void visit(common::Map &);
         virtual void visit(common::Predator &);
@@ -38,6 +39,8 @@ namespace client
 
         virtual void visit(common::MapObject &){} // formalnosc
         virtual void visit(common::Creature &){} // formalnosc
+    private:
+        Statistics      *stat;
     };
 }
 

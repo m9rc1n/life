@@ -437,7 +437,6 @@ namespace common
             }
         }
 
-
         /**
          * @brief Podaje piramidę potrzeb zwierzęcia.
          *
@@ -445,7 +444,9 @@ namespace common
          */
         virtual MaslovPyramid *getMaslovPyramid() = 0;
 
-    protected:
+    /// @todo zaprzyjaznic z wizytatorami? protected:
+    public:
+    // protected:
 
         /// Zasięg widzenia
         /// @todo CONST

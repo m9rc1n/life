@@ -12,13 +12,10 @@ void client::PaintingVisitor::visit(common::Map & obj)
 {
     long colorMap = 666666;
     image->fill(colorMap);
-    //std::cout << "Jestem w mapie" <<std::endl;
 }
 
 void client::PaintingVisitor::visit(common::Predator &obj)
 {    
-    temp_counter++;
-    //std::cout << "Jestem w Predatorze" <<std::endl;
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
@@ -27,7 +24,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
 /// draw Predator ////////////////////////////////////////
 
-    if( temp_counter%2 == 0 )
+    if((x+y)%2 == 0 )
     {
         image->setPixel (QPoint (x+0, y+0), colorLightPredator);
         image->setPixel (QPoint (x+1, y+0), colorDarkPredator);
@@ -91,17 +88,75 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
 /// end Predator /////////////////////////////////////////
 
+    int ageIndex = obj.age_/obj.max_age_ * 10;
+    int energyIndex = obj.energy_/obj.max_energy_ * 10;
+    int repletionIndex = obj.repletion_/obj.max_repletion_ * 10;
+    int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
+
+    long colorAgeLow = 11111111;
+    long colorAgeHigh = 22222222;
+    long colorEnergyHigh = 11111111;
+    long colorEnergyLow = 22222222;
+    long colorRepletionLow = 22222222;
+    long colorRepletionHigh = 1111111;
+    long colorHydrationLow = 111111111;
+    long colorHydrationHigh = 222222222;
+
 /// draw Stats ///////////////////////////////////////////
 
+    for( int i=0; i<ageIndex; i++)
+    {
+        if(ageIndex < 5)
+        {
+            image->setPixel (QPoint (x+i, y+6), colorAgeLow);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+i, y+6), colorAgeHigh);
+        }
+    }
+
+    for( int i=0; i<energyIndex; i++)
+    {
+        if(energyIndex < 5)
+        {
+            image->setPixel (QPoint (x+i, y+7), colorEnergyLow);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+i, y+7), colorEnergyHigh);
+        }
+    }
+
+    for( int i=0; i<repletionIndex; i++)
+    {
+        if(repletionIndex < 5)
+        {
+            image->setPixel (QPoint (x+i, y+8), colorRepletionLow);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+i, y+8), colorRepletionHigh);
+        }
+    }
+
+    for( int i=0; i<hydrationIndex; i++)
+    {
+        if(hydrationIndex < 5)
+        {
+            image->setPixel (QPoint (x+i, y+9), colorHydrationLow);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+i, y+9), colorHydrationHigh);
+        }
+    }
 /// end Stats ////////////////////////////////////////////
 
 }
 
 void client::PaintingVisitor::visit(common::Herbivore &obj)
 {
-
-    //std::cout << "Jestem w Herbivorze" <<std::endl;
-
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
@@ -132,8 +187,69 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
 
 /// end Herbivore ////////////////////////////////////////
 
+    int ageIndex = obj.age_/obj.max_age_ * 10;
+    int energyIndex = obj.energy_/obj.max_energy_ * 10;
+    int repletionIndex = obj.repletion_/obj.max_repletion_ * 10;
+    int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
+
+    long colorAgeLow = 11111111;
+    long colorAgeHigh = 22222222;
+    long colorEnergyHigh = 11111111;
+    long colorEnergyLow = 22222222;
+    long colorRepletionLow = 22222222;
+    long colorRepletionHigh = 1111111;
+    long colorHydrationLow = 111111111;
+    long colorHydrationHigh = 222222222;
+
 /// draw Stats ///////////////////////////////////////////
 
+    for( int i=0; i<ageIndex; i++)
+    {
+        if(ageIndex < 5)
+        {
+            image->setPixel (QPoint (x+i, y+6), colorAgeLow);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+i, y+6), colorAgeHigh);
+        }
+    }
+
+    for( int i=0; i<energyIndex; i++)
+    {
+        if(energyIndex < 5)
+        {
+            image->setPixel (QPoint (x+i, y+7), colorEnergyLow);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+i, y+7), colorEnergyHigh);
+        }
+    }
+
+    for( int i=0; i<repletionIndex; i++)
+    {
+        if(repletionIndex < 5)
+        {
+            image->setPixel (QPoint (x+i, y+8), colorRepletionLow);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+i, y+8), colorRepletionHigh);
+        }
+    }
+
+    for( int i=0; i<hydrationIndex; i++)
+    {
+        if(hydrationIndex < 5)
+        {
+            image->setPixel (QPoint (x+i, y+9), colorHydrationLow);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+i, y+9), colorHydrationHigh);
+        }
+    }
 /// end Stats ////////////////////////////////////////////
 
 }

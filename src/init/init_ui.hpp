@@ -1,7 +1,7 @@
 #ifndef INIT_UI_H
 #define INIT_UI_H
 
-#include <QWidget>
+#include <QMainWindow>
 #include "../common/Config.hpp"
 #include "ui_init_ui.h"
 #include "../common/MaslovPyramid.hpp"
@@ -14,12 +14,12 @@ namespace Ui
 
 class Client_UI;
 
-class Init_UI : public QWidget
+class Init_UI : public QMainWindow
 {
     Q_OBJECT
     
 public:
-    explicit Init_UI(common::Config *config, QWidget *parent = 0);
+    explicit Init_UI(common::Config *config, QMainWindow *parent = 0);
     ~Init_UI();
 
     void enableItemFromPredator_0(int index, QVariant v);
@@ -52,6 +52,12 @@ private slots:
     void on_spinBox_3_editingFinished();
     void on_spinBox_4_editingFinished();
     void on_spinBox_5_editingFinished();
+    void about();
+
+private:
+
+    void createActions();
+    void createMenus();
 
 private:
     Ui::Init_UI     *ui;
@@ -67,6 +73,13 @@ private:
     QModelIndex     index_2;
     QModelIndex     index_3;
     QModelIndex     index_4;
+
+    QMenu           *helpMenu;
+    QMenu           *fileMenu;
+
+    QAction         *exitAct;
+    QAction         *aboutAct;
+    QAction         *aboutQtAct;
 };
 
 #endif // INIT_UI_H
