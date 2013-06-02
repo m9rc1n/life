@@ -1,8 +1,8 @@
 #include "client_ui.hpp"
 #include "ui_client_ui.h"
 
-Client_UI::Client_UI(common::Config *config, QWidget *parent) :
-    QWidget(parent),
+Client_UI::Client_UI(common::Config *config, QMainWindow *parent) :
+    QMainWindow(parent),
     config(config),
     ui(new Ui::Client_UI())
 {
@@ -46,36 +46,17 @@ void Client_UI::drawLabel()
 
 void Client_UI::paintEvent(QPaintEvent *e /* event */)
 {
-    imageLabel->setPixmap(*pixmap);
-
-/*    QPainter painter(pixmap);
-    //painter.scale(scaleFactor, scaleFactor);
-
-
-
-    QString text = tr("Use mouse wheel or the '+' and '-' keys to zoom. "
-                      "Press and hold left mouse button to scroll.");
-
-    QFontMetrics metrics = painter.fontMetrics();
-    int textWidth = metrics.width(text);
-
-    painter.setPen(Qt::NoPen);
-    painter.setBrush(QColor(0, 0, 0, 127));
-    painter.drawRect((width() - textWidth) / 2 - 5, 0, textWidth + 10, metrics.lineSpacing() + 5);
-    painter.setPen(Qt::white);
-    painter.drawText((width() - textWidth) / 2, metrics.leading() + metrics.ascent(), text);
-*/
 }
 
 void Client_UI::print(){}
 void Client_UI::zoomIn()
 {
-    scaleImage(1.25);
+    scaleImage(1.1);
 }
 
 void Client_UI::zoomOut()
 {
-    scaleImage(0.8);
+    scaleImage(0.9);
 }
 
 void Client_UI::normalSize()
@@ -119,7 +100,7 @@ void Client_UI::resizeEvent(QResizeEvent * /* event */)
 void Client_UI::updatePixmap(const QImage &image, double scaleFactor)
 {
     *pixmap = QPixmap::fromImage(image);
-    repaint();
+    imageLabel->setPixmap(*pixmap);
 }
 
 void Client_UI::updateActions()
@@ -139,10 +120,10 @@ void Client_UI::scaleImage(double factor)
     adjustScrollBar(ui->scrollArea->horizontalScrollBar(), factor);
     adjustScrollBar(ui->scrollArea->verticalScrollBar(), factor);
 
-    zoomInAct->setEnabled(scaleFactor < 2.0);
-    zoomOutAct->setEnabled(scaleFactor > 0.7);
+    zoomInAct->setEnabled(scaleFactor < 2.5);
+    zoomOutAct->setEnabled(scaleFactor > 0.56);
 
-    client_thread->render(0, 0, scaleFactor, size());
+    // client_thread->render(0, 0, scaleFactor, size());
 }
 
 void Client_UI::adjustScrollBar(QScrollBar *scrollBar, double factor)
@@ -185,9 +166,15 @@ void Client_UI::createActions()
     connect(fitToWindowAct, SIGNAL(triggered()), this, SLOT(fitToWindow()));
 
     aboutAct = new QAction(tr("&About"), this);
+    aboutAct->setEnabled(true);
+    aboutAct->setCheckable(true);
+    aboutAct->setShortcut(tr("Ctrl+A"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
     aboutQtAct = new QAction(tr("About &Qt"), this);
+    aboutQtAct->setEnabled(true);
+    aboutQtAct->setCheckable(true);
+    aboutQtAct->setShortcut(tr("Ctrl+W"));
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
     this->addAction(zoomInAct);
