@@ -31,9 +31,27 @@
 class AwarenessDetector
 {
     AwarenessDetector() = delete;
+
+    /**
+     * @brief
+     * Czy zwierzę widzi obiekt?
+     *
+     * @todo wymyśl mi lepszą nazwę
+     */
+    static bool doesItSee(common::Creature &creature, common::MapObject &map_object);
+
+    /**
+     * @brief
+     * Czy zwierzę słyszy obiekt?
+     */
+    static bool doesItHear(common::Creature &creature, common::MapObject &map_object);
 public:
-    static bool isAware(common::Herbivore &herbivore, common::MapObject &map_object);
-    static bool isAware(common::Predator &predator,   common::MapObject &map_object);
+    /**
+     * @brief
+     * Czy zwierzę widzi lub słyszy obiekt?
+     */
+    static bool isAware(common::Creature &creature, common::MapObject &map_object);
+
 };
 
 #endif // AWARENESSDETECTOR_HPP

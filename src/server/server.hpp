@@ -1,10 +1,7 @@
-
-
 #include <mutex> // c++11
 #include <iostream>
 #include <thread> // c++11
 #include <chrono> // c++11
-
 
 #include <QThread>
 #include "../common/Config.hpp"
