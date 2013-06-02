@@ -33,6 +33,11 @@ void SimulationVisitor::visit(common::Predator &predator)
     ActionPerformVisitor action_visitor(predator, visited_map_, time_interval_, actions);
     visited_map_->accept(action_visitor);
 
+    server::Action::compare cmp;
+    std::sort(actions.begin(), actions.end(), cmp);
+
+    std::sort(actions.begin(), actions.end(), server::Action::compare());
+
     bool action_performed = 0;
 
     for(auto iter = actions.begin(); iter != actions.end() and not action_performed; ++iter)
@@ -44,6 +49,18 @@ void SimulationVisitor::visit(common::Predator &predator)
     predator.makeThirsty(time_interval_);
     predator.makeTired(time_interval_);
 
+    if(!action_performed)
+    {
+        if(predator.isActive())
+        {
+            predator.setInactive();
+        }
+        predator.doSomething(time_interval_);
+    }
+    else
+    {
+        predator.setActive();
+    }
     normalizeXY(predator);
 }
 
@@ -65,6 +82,9 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
     ActionPerformVisitor action_visitor(herbivore, visited_map_, time_interval_, actions);
     visited_map_->accept(action_visitor);
 
+    server::Action::compare cmp;
+    std::sort(actions.begin(), actions.end(), cmp);
+
     bool action_performed = 0;
 
     for(auto iter = actions.begin(); iter != actions.end() and not action_performed; ++iter)
@@ -82,7 +102,11 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
         {
             herbivore.setInactive();
         }
-
+        herbivore.doSomething(time_interval_);
+    }
+    else
+    {
+        herbivore.setActive();
     }
 
     normalizeXY(herbivore);

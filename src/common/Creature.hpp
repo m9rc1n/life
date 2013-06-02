@@ -536,6 +536,7 @@ namespace common
         void setInactive()
         {
             is_active_ = 0;
+            action_time = 0;
         }
 
         /// Ustawia zwierzę jako aktywne
@@ -548,6 +549,31 @@ namespace common
         bool isActive() const
         {
             return is_active_;
+        }
+
+        /// Robi jakąś akcję, gdy zwierzę nie ma nic do roboty
+        void doSomething(double time)
+        {
+            action_time += time;
+            if(action_time > 3000) // 3 sec
+            {
+                int random = rand()%4;
+                switch(random)
+                {
+                    case 0: current_action = WALKING;       break;
+                    case 1: current_action = STAYING;       break;
+                    case 2: current_action = ROTATING_LEFT; break;
+                    case 3: current_action = ROTATING_RIGHT;break;
+                }
+                action_time = 0;
+            }
+            switch (current_action)
+            {
+                case WALKING: moveByDistance(time*speed_/35000); break;
+                case STAYING: break;
+                case ROTATING_LEFT: rotateByAngleInDegrees(-time*speed_/18000); break;
+                case ROTATING_RIGHT: rotateByAngleInDegrees(time*speed_/18000); break;
+            }
         }
 
         /**

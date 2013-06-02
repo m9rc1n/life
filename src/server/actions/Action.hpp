@@ -21,9 +21,9 @@ namespace server
 
         struct compare
         {
-            inline bool operator() (const Action& action1, const Action& action2)
+            bool operator() (Action* action1, Action* action2)
             {
-                return (action1.getPriority() < action2.getPriority());
+                return (action1->getPriority() < action2->getPriority());
             }
         };
     };
