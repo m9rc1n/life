@@ -425,10 +425,6 @@ namespace common
             }
         }
 
-    /// @todo zaprzyjaznic z wizytatorami? protected:
-
-    public:
-
         /**
          * @brief Podaje piramidę potrzeb zwierzęcia.
          *
@@ -436,7 +432,9 @@ namespace common
          */
         virtual MaslovPyramid *getMaslovPyramid() = 0;
 
-    protected:
+    /// @todo zaprzyjaznic z wizytatorami? protected:
+    public:
+    // protected:
 
         /// Zasięg widzenia
         const int radius_;
