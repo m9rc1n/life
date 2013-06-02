@@ -13,12 +13,14 @@ public:
     virtual void visit(common::MapObject &);
     virtual void visit(common::Creature &);
     virtual void visit(common::Predator &predator);
-    virtual void visit(common::Herbivore &);
+    virtual void visit(common::Herbivore &herbivore);
     virtual void visit(common::Waterhole &);
     virtual void visit(common::Lair &);
     virtual void visit(common::Tree &);
 
 private:
+    void addToListOfKnownObjects(common::MapObject &object);
+
     common::Creature &visited_creature_;
     common::Map *visited_map_;
     double time_interval_;

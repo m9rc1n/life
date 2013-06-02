@@ -3,15 +3,15 @@
 
 #include <vector>
 
-#include "MaslovPyramid.hpp"
-#include "GeneticEquation.hpp"
-#include "Map.hpp"
-
 #include <QMutex>
 #include <QWaitCondition>
 
 namespace common
 {
+    class Map;
+    class MaslovPyramid;
+    class GeneticEquation;
+
     /**
     * @brief
     * Klasa przechowujaca komplet ustawien wybranych przez uzytkownika na ekranie
@@ -19,6 +19,7 @@ namespace common
     *
     * Singleton.
     *
+    * @todo hermetyzacja!!!
     */
     class Config
     {
@@ -27,11 +28,16 @@ namespace common
         // singleton
         Config():
             map_width(100),
-            map_height(50)
+            map_height(50),
+            map(NULL),
+            objectsCounter(0)
         {
-            map = NULL;
         }
         Config(Config &);
+
+        /// liczba obiektów utworzonych na planszy (nie dekrementujemy przy kasowaniu obiektów)
+        /// ten sam obiekt znajdujący się w kilku kopiach mapy liczony jest raz (nie inkrementujemy przy kopiowaniu)
+        int objectsCounter;
 
     public:
         int     map_width;
@@ -46,7 +52,7 @@ namespace common
         MaslovPyramid   *predators_pyramid;
         MaslovPyramid   *herbivores_pyramid;
 
-        std::vector <GeneticEquation> equations;
+        //std::vector <GeneticEquation> equations;
 
         QMutex           mutex;
         QWaitCondition   condition;
@@ -57,6 +63,24 @@ namespace common
         {
             static Config instance;
             return &instance;
+        }
+
+        /**
+         * @brief Zwiększa licznik obiektów na mapie
+         *
+         * Wołać w dwóch przypadkach: 1) kreacja obiektów na początkiu gry 2) rozmnażanie zwierząt i tworzenie potomka
+         */
+        void increaseObjectsCounter()
+        {
+            objectsCounter++;
+        }
+
+        /**
+         *@return wartość licznika obiektów na mapie
+         */
+        int getObjectsCounter() const
+        {
+            return objectsCounter;
         }
 
         /// @todo różne scenariusze?
