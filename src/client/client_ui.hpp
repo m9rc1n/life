@@ -1,7 +1,7 @@
 #ifndef CLIENT_UI_H
 #define CLIENT_UI_H
 
-#include <QWidget>
+#include <QMainWindow>
 #include <QPixmap>
 #include "client.hpp"
 #include "../common/Config.hpp"
@@ -14,6 +14,7 @@
 #include <QScrollBar>
 #include <QMessageBox>
 #include <QImage>
+#include <QMenu>
 
 namespace Ui
 {
@@ -21,13 +22,13 @@ namespace Ui
 }
 
 
-class Client_UI : public QWidget
+class Client_UI : public QMainWindow
 {
     Q_OBJECT
 
     public:
 
-        Client_UI(common::Config *config, QWidget *parent = 0);
+        Client_UI(common::Config *config, QMainWindow *parent = 0);
         ~Client_UI();
 
     protected:
@@ -70,6 +71,9 @@ class Client_UI : public QWidget
         QAction         *aboutAct;
         QAction         *aboutQtAct;
         double          scaleFactor;
+
+        QMenu           *viewMenu;
+        QMenu           *helpMenu;
 };
 
 #endif // CLIENT_UI_H

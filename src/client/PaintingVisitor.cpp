@@ -1,5 +1,7 @@
 #include "PaintingVisitor.hpp"
 
+int temp_counter = 0;
+
 client::PaintingVisitor::PaintingVisitor(QImage *image) :
     image(image)
 {
@@ -15,7 +17,7 @@ void client::PaintingVisitor::visit(common::Map & obj)
 
 void client::PaintingVisitor::visit(common::Predator &obj)
 {    
-
+    temp_counter++;
     //std::cout << "Jestem w Predatorze" <<std::endl;
     int x = obj.getX()*10;
     int y = obj.getY()*10;
@@ -25,37 +27,67 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
 /// draw Predator ////////////////////////////////////////
 
-    image->setPixel (QPoint (x+0, y+0), colorLightPredator);
-    image->setPixel (QPoint (x+1, y+0), colorDarkPredator);
-    image->setPixel (QPoint (x+3, y+0), colorDarkPredator);
-    image->setPixel (QPoint (x+4, y+0), colorLightPredator);
-    image->setPixel (QPoint (x+5, y+0), colorDarkPredator);
+    if( temp_counter%2 == 0 )
+    {
+        image->setPixel (QPoint (x+0, y+0), colorLightPredator);
+        image->setPixel (QPoint (x+1, y+0), colorDarkPredator);
+        image->setPixel (QPoint (x+3, y+0), colorDarkPredator);
+        image->setPixel (QPoint (x+4, y+0), colorLightPredator);
+        image->setPixel (QPoint (x+5, y+0), colorDarkPredator);
 
-    image->setPixel (QPoint (x+1, y+1), colorLightPredator);
-    image->setPixel (QPoint (x+3, y+1), colorLightPredator);
-    image->setPixel (QPoint (x+5, y+1), colorLightPredator);
-    image->setPixel (QPoint (x+7, y+1), colorLightPredator);
-    image->setPixel (QPoint (x+8, y+1), colorDarkPredator);
-    image->setPixel (QPoint (x+9, y+1), colorLightPredator);
+        image->setPixel (QPoint (x+1, y+1), colorLightPredator);
+        image->setPixel (QPoint (x+3, y+1), colorLightPredator);
+        image->setPixel (QPoint (x+5, y+1), colorLightPredator);
+        image->setPixel (QPoint (x+7, y+1), colorLightPredator);
+        image->setPixel (QPoint (x+8, y+1), colorDarkPredator);
+        image->setPixel (QPoint (x+9, y+1), colorLightPredator);
 
-    image->setPixel (QPoint (x+1, y+2), colorDarkPredator);
-    image->setPixel (QPoint (x+3, y+2), colorDarkPredator);
-    image->setPixel (QPoint (x+5, y+2), colorDarkPredator);
-    image->setPixel (QPoint (x+7, y+2), colorLightPredator);
-    image->setPixel (QPoint (x+8, y+2), colorLightPredator);
-    image->setPixel (QPoint (x+9, y+2), colorLightPredator);
+        image->setPixel (QPoint (x+1, y+2), colorDarkPredator);
+        image->setPixel (QPoint (x+3, y+2), colorDarkPredator);
+        image->setPixel (QPoint (x+5, y+2), colorDarkPredator);
+        image->setPixel (QPoint (x+7, y+2), colorLightPredator);
+        image->setPixel (QPoint (x+8, y+2), colorLightPredator);
+        image->setPixel (QPoint (x+9, y+2), colorLightPredator);
 
-    image->setPixel (QPoint (x+1, y+3), colorLightPredator);
-    image->setPixel (QPoint (x+3, y+3), colorLightPredator);
-    image->setPixel (QPoint (x+5, y+3), colorLightPredator);
-    image->setPixel (QPoint (x+7, y+3), colorLightPredator);
+        image->setPixel (QPoint (x+1, y+3), colorLightPredator);
+        image->setPixel (QPoint (x+3, y+3), colorLightPredator);
+        image->setPixel (QPoint (x+5, y+3), colorLightPredator);
+        image->setPixel (QPoint (x+7, y+3), colorLightPredator);
 
-    image->setPixel (QPoint (x+1, y+4), colorDarkPredator);
-    image->setPixel (QPoint (x+2, y+4), colorLightPredator);
-    image->setPixel (QPoint (x+3, y+4), colorDarkPredator);
-    image->setPixel (QPoint (x+5, y+4), colorDarkPredator);
-    image->setPixel (QPoint (x+6, y+4), colorLightPredator);
-    image->setPixel (QPoint (x+7, y+4), colorDarkPredator);
+        image->setPixel (QPoint (x+1, y+4), colorDarkPredator);
+        image->setPixel (QPoint (x+2, y+4), colorLightPredator);
+        image->setPixel (QPoint (x+3, y+4), colorDarkPredator);
+        image->setPixel (QPoint (x+5, y+4), colorDarkPredator);
+        image->setPixel (QPoint (x+6, y+4), colorLightPredator);
+        image->setPixel (QPoint (x+7, y+4), colorDarkPredator);
+    }
+    else
+    {
+        image->setPixel (QPoint (x+7, y+0), colorLightPredator);
+        image->setPixel (QPoint (x+8, y+0), colorDarkPredator);
+        image->setPixel (QPoint (x+9, y+0), colorLightPredator);
+
+        image->setPixel (QPoint (x+0, y+1), colorLightPredator);
+        image->setPixel (QPoint (x+1, y+1), colorDarkPredator);
+        image->setPixel (QPoint (x+3, y+1), colorDarkPredator);
+        image->setPixel (QPoint (x+4, y+1), colorLightPredator);
+        image->setPixel (QPoint (x+5, y+1), colorDarkPredator);
+        image->setPixel (QPoint (x+7, y+1), colorLightPredator);
+        image->setPixel (QPoint (x+8, y+1), colorLightPredator);
+        image->setPixel (QPoint (x+9, y+1), colorLightPredator);
+
+        image->setPixel (QPoint (x+1, y+2), colorDarkPredator);
+        image->setPixel (QPoint (x+3, y+2), colorDarkPredator);
+        image->setPixel (QPoint (x+5, y+2), colorDarkPredator);
+        image->setPixel (QPoint (x+7, y+2), colorLightPredator);
+
+        image->setPixel (QPoint (x+1, y+3), colorLightPredator);
+        image->setPixel (QPoint (x+3, y+3), colorLightPredator);
+        image->setPixel (QPoint (x+5, y+3), colorLightPredator);
+        image->setPixel (QPoint (x+2, y+3), colorLightPredator);
+        image->setPixel (QPoint (x+6, y+3), colorDarkPredator);
+        image->setPixel (QPoint (x+7, y+3), colorLightPredator);
+    }
 
 /// end Predator /////////////////////////////////////////
 
