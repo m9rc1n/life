@@ -36,7 +36,8 @@ namespace common
             max_repletion_(0),
             max_hydration_(0),
             max_energy_(0),
-            max_age_(0)
+            max_age_(0),
+            knownObjects(new QMap<int, double >)
         {
             /// @todo write me
         }
@@ -57,7 +58,27 @@ namespace common
             max_repletion_(0),
             max_hydration_(0),
             max_energy_(0),
-            max_age_(0)
+            max_age_(0),
+            knownObjects(new QMap<int, double>)
+        {
+            /// @todo write me
+        }
+
+        /**
+        * @brief
+        * Konstruktor kopiujący
+        */
+        Creature(const Creature &another):
+            MapObject(another),
+            radius_(another.radius_),
+            angle_(another.angle_),
+            speed_(another.speed_),
+            fecundity_(another.fecundity_),
+            max_repletion_(another.max_repletion_),
+            max_hydration_(another.max_hydration_),
+            max_energy_(another.max_energy_),
+            max_age_(another.max_age_),
+            knownObjects(new QMap<int, double >(*another.knownObjects))
         {
             /// @todo write me
         }
@@ -331,7 +352,7 @@ namespace common
          */
         bool isObjectKnown(const MapObject &object) const
         {
-            return knownObjects.find(object.getIdentifier()) != knownObjects.end();
+            return knownObjects->find(object.getIdentifier()) != knownObjects->end();
         }
 
         /**
@@ -340,15 +361,15 @@ namespace common
          */
         void setObjectKnown(const MapObject &object)
         {
-            QMap<int, std::pair<double, const MapObject*> >::iterator iter = knownObjects.find(object.getIdentifier());
+            QMap<int, double>::iterator iter = knownObjects->find(object.getIdentifier());
             // i did not use isObjectKnown because of performance reasons... but it's the same
-            if(iter != knownObjects.end())
+            if(iter != knownObjects->end())
             {
-                iter->first = 0; // ostatnio widziany: wlasnie teraz
+                *iter = 0; // ostatnio widziany: wlasnie teraz
             }
             else
             {
-                knownObjects.insert(object.getIdentifier(), std::make_pair(0,&object)); // dodajemy
+                knownObjects->insert(object.getIdentifier(), .0); // dodajemy
             }
         }
 
@@ -362,12 +383,17 @@ namespace common
          */
         void updateListOfKnownObjects(double time)
         {
-            for(QMap<int, std::pair<double, const MapObject*> >::iterator iter = knownObjects.begin(); iter != knownObjects.end(); ++iter)
+            for(QMap<int, double >::iterator iter = knownObjects->begin(); iter != knownObjects->end();)
             {
-                iter->first += time;
-                if(iter->first > 3)
+                *iter += time;
+                std::cout << *iter << std::endl;
+                if(*iter > 3)
                 {
-                    knownObjects.erase(iter);
+                    knownObjects->erase(iter++);
+                }
+                else
+                {
+                    ++iter;
                 }
             }
         }
@@ -431,7 +457,7 @@ namespace common
         bool is_active_;
 
         /// Zbiór innych obiektów, o których isteniu zwierzę wie w danej chwili
-        QMap<int, std::pair<double, const MapObject*> > knownObjects;
+        QMap<int, double > *knownObjects;
 
     };
 }

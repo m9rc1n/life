@@ -17,6 +17,8 @@ void SimulationVisitor::visit(common::Map &map)
 
 void SimulationVisitor::visit(common::Predator &predator)
 {
+    predator.updateListOfKnownObjects(time_interval_);
+
     InternalSimulationVisitor internal_visitor(predator, visited_map_, time_interval_);
     visited_map_->accept(internal_visitor); // this updates predator.knownObjects
 
@@ -32,6 +34,7 @@ void SimulationVisitor::visit(common::Predator &predator)
 
 void SimulationVisitor::visit(common::Herbivore &herbivore)
 {
+    herbivore.updateListOfKnownObjects(time_interval_);
 
     InternalSimulationVisitor internal_visitor(herbivore, visited_map_, time_interval_);
     visited_map_->accept(internal_visitor);
