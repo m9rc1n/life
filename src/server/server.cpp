@@ -23,7 +23,7 @@ void server::Server::run()
 
     MapGenerator::generateMap(localMap);
 
-    std::chrono::steady_clock::time_point current, previous;
+    std::chrono::steady_clock::time_point current = std::chrono::steady_clock::now(), previous;
 
     for(int i = 0;; ++i) // nieskonczona petla
     {

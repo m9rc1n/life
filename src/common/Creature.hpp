@@ -44,8 +44,7 @@ namespace common
             max_energy_(10),
             max_age_(10),
             knownObjects(new QMap<int, double >),
-            walking_time(0),
-            staying_time(0)
+            action_time(0)
         {
             /// @todo write me
         }
@@ -78,8 +77,7 @@ namespace common
             max_energy_(max_energy),
             max_age_(max_age),
             knownObjects(new QMap<int, double >),
-            walking_time(0),
-            staying_time(0)
+            action_time(0)
         {
             /// @todo write me
         }
@@ -335,21 +333,10 @@ namespace common
         {
             partiallyTurnToObject(object, degrees);
             double angle_difference = getAngleDifference(object);
-            if(angle_difference < 90)
+            if(fabs(angle_difference) < 90)
             {
                 moveByDistance(distance);
             }
-        }
-
-        /**
-         * @brief Tylko na potrzeby testów
-         *
-         * @todo remove me
-         */
-        void moveInSomeRandomDirection()
-        {
-            x_pos_++;
-            y_pos_++;
         }
 
         /**
@@ -428,6 +415,14 @@ namespace common
         void eat()
         {
             repletion_ = max_repletion_ ;
+        }
+
+        /**
+         * @brief Sprawia, że zwierzę staje się zjedzone.
+         */
+        void beEaten()
+        {
+            is_dead_ = 1;
         }
 
         /**
@@ -537,6 +532,24 @@ namespace common
             return max_age_;
         }
 
+        /// Ustawia zwierzę jako nieaktywne
+        void setInactive()
+        {
+            is_active_ = 0;
+        }
+
+        /// Ustawia zwierzę jako aktywne
+        void setActive()
+        {
+            is_active_ = 1;
+        }
+
+        /// Sprawdza, czy zwierzę jest aktywne
+        bool isActive() const
+        {
+            return is_active_;
+        }
+
         /**
          * @brief Podaje piramidę potrzeb zwierzęcia.
          *
@@ -607,11 +620,11 @@ namespace common
         /// Zbiór innych obiektów, o których isteniu zwierzę wie w danej chwili
         QMap<int, double > *knownObjects;
 
-        /// Czas, od jakiego zwierzę chodzi (o ile się porusza)
-        double walking_time;
+        /// Czynność wykonywana aktualnie przez zwierzę (ważne tylko gdy #is_active_ == false)
+        enum {WALKING, STAYING, ROTATING_RIGHT, ROTATING_LEFT} current_action;
 
-        /// Czas, od jakiego zwierzę stoi (o ile się porusza)
-        double staying_time;
+        /// Czas, od jakiego zwierzę wykonuje akcję (ważne tylko gdy #is_active_ == false)
+        double action_time;
     };
 }
 

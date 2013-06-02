@@ -43,6 +43,8 @@ void SimulationVisitor::visit(common::Predator &predator)
     predator.makeHungry(time_interval_);
     predator.makeThirsty(time_interval_);
     predator.makeTired(time_interval_);
+
+    normalizeXY(predator);
 }
 
 void SimulationVisitor::visit(common::Herbivore &herbivore)
@@ -73,6 +75,43 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
     herbivore.makeHungry(time_interval_);
     herbivore.makeThirsty(time_interval_);
     herbivore.makeTired(time_interval_);
+
+    if(!action_performed)
+    {
+        if(herbivore.isActive())
+        {
+            herbivore.setInactive();
+        }
+
+    }
+
+    normalizeXY(herbivore);
+}
+
+void SimulationVisitor::normalizeXY(common::Creature &creature)
+{
+    int w = common::Config::getInstance()->map_width;
+    int h = common::Config::getInstance()->map_height;
+
+    int x = creature.getX();
+    int y = creature.getY();
+
+    if(x < 0)
+    {
+        creature.moveByVector(-x,0);
+    }
+    if(y < 0)
+    {
+        creature.moveByVector(0,-y);
+    }
+    if(x > w)
+    {
+        creature.moveByVector(w-x,0);
+    }
+    if(y > h)
+    {
+        creature.moveByVector(0,h-y);
+    }
 }
 
 void SimulationVisitor::visit(common::Waterhole &)

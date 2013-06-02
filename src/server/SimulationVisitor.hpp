@@ -43,6 +43,7 @@ namespace server
     private:
         common::Map *visited_map_;
         double time_interval_;
+        void normalizeXY(common::Creature &creature);
 
     };
 }

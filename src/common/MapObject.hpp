@@ -58,6 +58,7 @@ namespace common
         {
             x_pos_ += x_vec;
             y_pos_ += y_vec;
+
         }
 
         /// zwraca współrzędną X położenia
@@ -122,7 +123,13 @@ namespace common
         /// składowa y położenia
         double y_pos_;
 
-        /// unikatory identyfikator stworzenia
+        /**
+         * @brief unikatowy identyfikator obiektu
+         *
+         * Potrzebny jest dodatkowy identyfikator, ponieważ struktura przechowująca dane o obiektach (std::vector)
+         * nie gwarantuje ważnośći wskaźników. Ten identyfikator jest numerem kolejnym obiektu w kolejności ich
+         * tworzenia w programie i jest stały przez cały czas istnienia obiektu.
+         */
         const int identifier_;
     };
     BOOST_SERIALIZATION_ASSUME_ABSTRACT(MapObject)
