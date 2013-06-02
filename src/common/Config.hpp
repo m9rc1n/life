@@ -39,6 +39,8 @@ namespace common
         int objectsCounter;
 
     public:
+
+        common::Map      *map;
         int     map_width;
         int     map_height;
 
@@ -55,8 +57,6 @@ namespace common
 
         QMutex           mutex;
         QWaitCondition   condition;
-
-        common::Map      *map;
 
         static Config *getInstance()
         {

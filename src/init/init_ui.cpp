@@ -381,7 +381,6 @@ void Init_UI::on_spinBox_1_editingFinished()
 {
     int spin = ui->spinBox_1->value();
     config->amount_herbivores = spin;
-    std::cout << spin << std::endl;
 }
 
 void Init_UI::on_spinBox_2_editingFinished()

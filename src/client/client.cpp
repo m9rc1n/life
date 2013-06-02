@@ -24,7 +24,6 @@ void client::Client::run()
 
         config->mutex.lock();
             localMap = new common::Map(*(config->map));
-            std::cout << localMap->objects.size();
         config->mutex.unlock();
 
         localMap->accept(painter);

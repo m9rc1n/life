@@ -46,10 +46,7 @@ namespace common
          */
         Map(int width, int height):
             width_ (width),
-            height_(height)
-        {
-            std::cout << "Jestem mapą!" << std::endl;
-        }
+            height_(height) {}
 
         /**
          * @brief
