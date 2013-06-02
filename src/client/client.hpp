@@ -39,11 +39,6 @@ namespace client
         double          centerY;
         double          scaleFactor;
         QSize           resultSize;
-        bool            restart;
-        bool            abort;
-
-        enum            { ColormapSize = 512 };
-        uint            colormap[ColormapSize];
     };
 }
 
