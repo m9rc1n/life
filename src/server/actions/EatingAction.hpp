@@ -8,8 +8,8 @@ namespace server
     class EatingAction : public server::Action
     {
     public:
-        EatingAction(int priority);
-        virtual void perform(common::Creature &);
+        EatingAction(int priority, common::Creature & creature, common::MapObject& object);
+        virtual bool perform();
     };
 }
 #endif // EATINGACTION_HPP

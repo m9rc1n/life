@@ -7,8 +7,8 @@ namespace server {
 class RunningAction : public server::Action
 {
 public:
-    RunningAction(int priority);
-    virtual void perform(common::Creature &);
+    RunningAction(int priority, common::Creature & creature, common::MapObject& object);
+    virtual bool perform();
 };
 
 } // namespace server

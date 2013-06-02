@@ -7,8 +7,8 @@ namespace server {
 class SleepingAction : public server::Action
 {
 public:
-    SleepingAction(int priority);
-    virtual void perform(common::Creature &);
+    SleepingAction(int priority, common::Creature & creature, common::MapObject& object);
+    virtual bool perform();
 };
 
 } // namespace server

@@ -7,8 +7,8 @@ namespace server {
 class ProcreatingAction : public server::Action
 {
 public:
-    ProcreatingAction(int priority);
-    virtual void perform(common::Creature &);
+    ProcreatingAction(int priority, common::Creature & creature, common::MapObject& object);
+    virtual bool perform();
 };
 
 } // namespace server

@@ -25,6 +25,15 @@ namespace common
             Creature(x_pos, y_pos)
         {} // kod w klasie Creature
 
+        /**
+         * @brief Podaje piramidę potrzeb zwierzęcia.
+         *
+         * W przyszłości być moze będzie podawać indywidualną piramidę; póki co jest ona globalna.
+         */
+        MaslovPyramid *getMaslovPyramid()
+        {
+            return Config::getInstance()->herbivores_pyramid;
+        }
 
         /**
          * @brief

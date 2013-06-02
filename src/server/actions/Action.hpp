@@ -9,9 +9,11 @@ namespace server
     {
     protected:
         int priority_;
+        common::Creature &creature_;
+        common::MapObject &object_;
     public:
-        Action(int priority);
-        virtual void perform(common::Creature &) = 0;
+        Action(int priority, common::Creature & creature, common::MapObject& object);
+        virtual bool perform(){}
         int getPriority() const
         {
             return priority_;

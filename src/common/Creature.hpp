@@ -51,9 +51,9 @@ namespace common
         */
         Creature(double x_pos, double y_pos):
             MapObject(x_pos, y_pos),
-            radius_(0),
-            angle_(0),
-            speed_(0),
+            radius_(45),
+            angle_(45),
+            speed_(45),
             fecundity_(0),
             max_repletion_(0),
             max_hydration_(0),
@@ -256,6 +256,19 @@ namespace common
         }
 
         /**
+         * @brief Podaje, o ile stopni musi się obrócić stworzenie, aby patrzeć na obiekt
+         */
+        double getAngleDifference(const MapObject &object)
+        {
+            double destined_direction = getDirectionOfObjectInDegrees(object);
+
+            double angle_difference = destined_direction - direction_;
+            angle_difference = std::min(angle_difference, 360 + angle_difference);
+
+            return angle_difference;
+        }
+
+        /**
          * @brief
          * Obraca zwierzę w kierunku zadanego obiektu, ale nie bardziej niz o zadany kąt.
          *
@@ -270,26 +283,40 @@ namespace common
         bool partiallyTurnToObject(const MapObject &object, double degrees)
         {
             double destined_direction = getDirectionOfObjectInDegrees(object);
-
-            double angle_difference = destined_direction - direction_;
-            angle_difference = std::min(angle_difference, 360 + angle_difference);
-
+            double angle_difference = getAngleDifference(object);
             double angle_difference_abs = abs(angle_difference);
 
             if(angle_difference_abs <= degrees)
             {
                 direction_ = destined_direction;
+                direction_ = fmod(direction_, 360);
                 return true;
             }
             else if(angle_difference < 0)
             {
                 direction_-= destined_direction;
+                direction_ = fmod(direction_, 360);
                 return false;
             }
             else //(angle_difference > 0)
             {
                 direction_+= destined_direction;
+                direction_ = fmod(direction_, 360);
                 return false;
+            }
+        }
+
+        /**
+         * @brief
+         * Obraca się odrobinę w kierunku stworzenia, jednocześnie robiąc krok do przosu
+         */
+        void partiallyTurnAndMoveToObject(const MapObject &object, double degrees, double distance)
+        {
+            partiallyTurnToObject(object, degrees);
+            double angle_difference = getAngleDifference(object);
+            if(angle_difference < 90)
+            {
+                moveByDistance(distance);
             }
         }
 
@@ -398,6 +425,13 @@ namespace common
             }
         }
 
+
+        /**
+         * @brief Podaje piramidę potrzeb zwierzęcia.
+         *
+         * W przyszłości być moze będzie podawać indywidualną piramidę; póki co jest ona globalna.
+         */
+        virtual MaslovPyramid *getMaslovPyramid() = 0;
 
     protected:
 
