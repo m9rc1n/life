@@ -17,26 +17,32 @@ namespace common
     {
     public:
         /**
-        * @brief
-        * Konstruktor wywoływany w momencie narodzin stworzenia. Parametry stworzenia są
-        * ustalane na podstawie odpowiednich parametrów ojca i matki.
-        *
-        * Ten konstruktor zakłada, że matka i ojciec znajdują się w tym samym miejscu.
-        * Nowe stworzenie również pojawi się w tym samym miejscu.
-        *
-        * @param mother referencja do matki
-        * @param father referencja do ojca
-        */
+         * @brief
+         * Konstruktor wywoływany w momencie narodzin stworzenia. Parametry stworzenia są
+         * ustalane na podstawie odpowiednich parametrów ojca i matki.
+         *
+         * Ten konstruktor zakłada, że matka i ojciec znajdują się w tym samym miejscu.
+         * Nowe stworzenie również pojawi się w tym samym miejscu.
+         *
+         * @param mother referencja do matki
+         * @param father referencja do ojca
+         */
         Creature(const Creature &mother, const Creature &father):
             MapObject(mother),
             radius_(0),
             angle_(0),
             speed_(0),
             fecundity_(0),
-            max_repletion_(0),
-            max_hydration_(0),
-            max_energy_(0),
-            max_age_(0),
+            repletion_(4),
+            hydration_(4),
+            energy_(4),
+            age_(0),
+            is_dead_(0),
+            is_active_(1),
+            max_repletion_(10),
+            max_hydration_(10),
+            max_energy_(10),
+            max_age_(10),
             knownObjects(new QMap<int, double >)
         {
             /// @todo write me
@@ -51,15 +57,21 @@ namespace common
         */
         Creature(double x_pos, double y_pos):
             MapObject(x_pos, y_pos),
-            radius_(45),
-            angle_(45),
-            speed_(45),
+            radius_(10),
+            angle_(22),
+            speed_(10),
             fecundity_(0),
-            max_repletion_(0),
-            max_hydration_(0),
-            max_energy_(0),
-            max_age_(0),
-            knownObjects(new QMap<int, double>)
+            repletion_(4),
+            hydration_(4),
+            energy_(4),
+            age_(0),
+            is_dead_(0),
+            is_active_(1),
+            max_repletion_(10),
+            max_hydration_(10),
+            max_energy_(10),
+            max_age_(10),
+            knownObjects(new QMap<int, double >)
         {
             /// @todo write me
         }
@@ -282,9 +294,10 @@ namespace common
          */
         bool partiallyTurnToObject(const MapObject &object, double degrees)
         {
+            assert(degrees - fabs(degrees) < 0.01);
             double destined_direction = getDirectionOfObjectInDegrees(object);
             double angle_difference = getAngleDifference(object);
-            double angle_difference_abs = abs(angle_difference);
+            double angle_difference_abs = fabs(angle_difference);
 
             if(angle_difference_abs <= degrees)
             {
@@ -294,13 +307,13 @@ namespace common
             }
             else if(angle_difference < 0)
             {
-                direction_-= destined_direction;
+                direction_-= degrees;
                 direction_ = fmod(direction_, 360);
                 return false;
             }
             else //(angle_difference > 0)
             {
-                direction_+= destined_direction;
+                direction_+= degrees;
                 direction_ = fmod(direction_, 360);
                 return false;
             }
@@ -413,7 +426,6 @@ namespace common
             for(QMap<int, double >::iterator iter = knownObjects->begin(); iter != knownObjects->end();)
             {
                 *iter += time;
-                std::cout << *iter << std::endl;
                 if(*iter > 3000) // 3000 ms
                 {
                     knownObjects->erase(iter++);
@@ -436,10 +448,12 @@ namespace common
     protected:
 
         /// Zasięg widzenia
-        const int radius_;
+        /// @todo CONST
+         int radius_;
 
         /// Kąt widzenia
-        const int angle_;
+         /// @todo CONST
+         int angle_;
 
         /// Prędkość poruszania się
         const int speed_;

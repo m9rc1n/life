@@ -1,4 +1,5 @@
 #include "server.hpp" 
+#include "../common/MaslovPyramid.hpp"
 #include <QWidget>
 
 server::Server::Server(QObject *parent)
@@ -12,6 +13,9 @@ void server::Server::run()
                                             common::Config::getInstance()->map_height); // generujemy mape na podstawie config
 
     common::Config::getInstance()->map = new common::Map();
+
+    common::Config::getInstance()->predators_pyramid = new common::MaslovPyramid(1,2,3,4,5);
+    common::Config::getInstance()->herbivores_pyramid = new common::MaslovPyramid(1,2,3,4,5);
 
     MapGenerator::generateMap(localMap);
 
@@ -37,7 +41,7 @@ void server::Server::run()
         }
         common::Config::getInstance()->mutex.unlock();
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        std::this_thread::sleep_for(std::chrono::milliseconds(250));
     }
 }
 

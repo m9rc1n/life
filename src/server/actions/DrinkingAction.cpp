@@ -11,7 +11,9 @@ namespace server
     {
         if(creature_.isThirsty())
         {
-            creature_.partiallyTurnAndMoveToObject(object_, 1,1);
+            std::cout << "Going to waterhole (" << object_.getX() << ", " << object_.getY()<< ") "<< std::endl;
+            creature_.partiallyTurnAndMoveToObject(object_,2,0.2);
+            return true;
         }
     }
 

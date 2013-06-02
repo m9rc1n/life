@@ -29,9 +29,16 @@ void SimulationVisitor::visit(common::Predator &predator)
         predators_pyramid = new common::MaslovPyramid(1,2,3,4,5);
     }
 
-    //std::vector<server::Action> actions;
-    //ActionPerformVisitor action_visitor(predator, visited_map_, time_interval_, actions);
-    //visited_map_->accept(action_visitor);
+    std::vector<server::Action*> actions;
+    ActionPerformVisitor action_visitor(predator, visited_map_, time_interval_, actions);
+    visited_map_->accept(action_visitor);
+
+    bool action_performed = 0;
+
+    for(auto iter = actions.begin(); iter != actions.end() and not action_performed; ++iter)
+    {
+        action_performed = (*iter)->perform();
+    }
 }
 
 void SimulationVisitor::visit(common::Herbivore &herbivore)

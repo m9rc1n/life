@@ -3,7 +3,8 @@
 
 bool AwarenessDetector::isAware(common::Creature &creature, common::MapObject &map_object)
 {
-    return doesItHear(creature, map_object) or doesItSee(creature, map_object);
+    bool is_aware = doesItHear(creature, map_object) or doesItSee(creature, map_object);
+    return is_aware;
 }
 
 bool AwarenessDetector::doesItHear(common::Creature &creature, common::MapObject &map_object)
