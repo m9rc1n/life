@@ -4,6 +4,7 @@
 #include "MapObject.hpp"
 #include <cmath>
 #include <vector>
+#include <QMap>
 
 namespace common
 {
@@ -35,7 +36,8 @@ namespace common
             max_repletion_(0),
             max_hydration_(0),
             max_energy_(0),
-            max_age_(0)
+            max_age_(0),
+            knownObjects(new QMap<int, double >)
         {
             /// @todo write me
         }
@@ -56,7 +58,27 @@ namespace common
             max_repletion_(0),
             max_hydration_(0),
             max_energy_(0),
-            max_age_(0)
+            max_age_(0),
+            knownObjects(new QMap<int, double>)
+        {
+            /// @todo write me
+        }
+
+        /**
+        * @brief
+        * Konstruktor kopiujący
+        */
+        Creature(const Creature &another):
+            MapObject(another),
+            radius_(another.radius_),
+            angle_(another.angle_),
+            speed_(another.speed_),
+            fecundity_(another.fecundity_),
+            max_repletion_(another.max_repletion_),
+            max_hydration_(another.max_hydration_),
+            max_energy_(another.max_energy_),
+            max_age_(another.max_age_),
+            knownObjects(new QMap<int, double >(*another.knownObjects))
         {
             /// @todo write me
         }
@@ -271,20 +293,111 @@ namespace common
             }
         }
 
+        /**
+         * @brief Tylko na potrzeby testów
+         *
+         * @todo remove me
+         */
         void moveInSomeRandomDirection()
         {
             x_pos_++;
             y_pos_++;
         }
 
+        /**
+         * @return zasięg widzenia zwierzęcia
+         */
         int getRadius() const
         {
             return radius_;
         }
+        /**
+         * @return  kąt widzenia zwierzęcia
+         */
         int getAngle() const
         {
             return angle_;
         }
+
+        /**
+         * @brief Sprawdza, czy zwierzę jest zmęczone
+         * @return 1 wtedy i tylko wtedy, gdy wartość energii zwierzęcia jest niższa od połowy wartości maksymalnej
+         */
+        bool isTired() const
+        {
+            return energy_ < 0.5 * max_energy_;
+        }
+
+        /**
+         * @brief Sprawdza, czy zwierzę jest głodne
+         * @return 1 wtedy i tylko wtedy, gdy wartość najedzenia zwierzęcia jest niższa od połowy wartości maksymalnej
+         */
+        bool isHungry() const
+        {
+            return repletion_ < 0.5 * max_repletion_;
+        }
+
+        /**
+         * @brief Sprawdza, czy zwierzę jest spragnione
+         * @return 1 wtedy i tylko wtedy, gdy wartość napojenia zwierzęcia jest niższa od połowy wartości maksymalnej
+         */
+        bool isThirsty() const
+        {
+            return hydration_ < 0.5 * max_hydration_;
+        }
+
+        /**
+         * @brief Sprawdza, czy stworzenie zna dany obiekt (tj. czy widziało/słyszało go w ostatnim czasie
+         * @return 1 wtedy i tylko wtedy, gdy obiekt znajduje się na liście znanych obiektów
+         */
+        bool isObjectKnown(const MapObject &object) const
+        {
+            return knownObjects->find(object.getIdentifier()) != knownObjects->end();
+        }
+
+        /**
+         * @brief
+         * Dodaje obiekt do listy znanych obiektów (jeśli go tam nie ma) lub oznacza dotyczący go wpis jako aktualny
+         */
+        void setObjectKnown(const MapObject &object)
+        {
+            QMap<int, double>::iterator iter = knownObjects->find(object.getIdentifier());
+            // i did not use isObjectKnown because of performance reasons... but it's the same
+            if(iter != knownObjects->end())
+            {
+                *iter = 0; // ostatnio widziany: wlasnie teraz
+            }
+            else
+            {
+                knownObjects->insert(object.getIdentifier(), .0); // dodajemy
+            }
+        }
+
+        /**
+         * @brief
+         * Aktualizuje listę znanych obiektów
+         *
+         * Zwiększa czas w elementach o zadaną wartość i usuwa te elementy, dla których czas przekroczy pewną wartość.
+         *
+         * @param Czas kroku symulacji (wartość o jaką będą zwiększone wartości w liście)
+         */
+        void updateListOfKnownObjects(double time)
+        {
+            for(QMap<int, double >::iterator iter = knownObjects->begin(); iter != knownObjects->end();)
+            {
+                *iter += time;
+                std::cout << *iter << std::endl;
+                if(*iter > 3000) // 3000 ms
+                {
+                    knownObjects->erase(iter++);
+                }
+                else
+                {
+                    ++iter;
+                }
+            }
+        }
+
 
     protected:
 
@@ -344,8 +457,8 @@ namespace common
         /// Czy zwierzę robi teraz coś konkretnego (true) czy błąka się bez celu (false)?
         bool is_active_;
 
-        /// Wektor obiektów, o których isteniu zwierzę wie w danej chwili
-        std::vector<std::pair<common::MapObject*, double> > knownObjects;
+        /// Zbiór innych obiektów, o których isteniu zwierzę wie w danej chwili
+        QMap<int, double > *knownObjects;
 
     };
 }

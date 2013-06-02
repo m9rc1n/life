@@ -1,4 +1,6 @@
 #include "SimulationVisitor.hpp"
+#include "../common/Config.hpp"
+#include "../common/MaslovPyramid.hpp"
 #include <vector>
 
 using namespace server;
@@ -15,17 +17,38 @@ void SimulationVisitor::visit(common::Map &map)
 
 void SimulationVisitor::visit(common::Predator &predator)
 {
+    predator.updateListOfKnownObjects(time_interval_);
+
     InternalSimulationVisitor internal_visitor(predator, visited_map_, time_interval_);
-    visited_map_->accept(internal_visitor);
+    visited_map_->accept(internal_visitor); // this updates predator.knownObjects
+
+    common::MaslovPyramid *predators_pyramid = common::Config::getInstance()->predators_pyramid;
+
+    if(!predators_pyramid)
+    {
+        predators_pyramid = new common::MaslovPyramid(1,2,3,4,5);
+    }
+
+    std::vector<server::Action> actions;
 
 }
 
 void SimulationVisitor::visit(common::Herbivore &herbivore)
 {
+    herbivore.updateListOfKnownObjects(time_interval_);
+
     InternalSimulationVisitor internal_visitor(herbivore, visited_map_, time_interval_);
     visited_map_->accept(internal_visitor);
 
-    herbivore.moveInSomeRandomDirection();
+    common::MaslovPyramid *herbivores_pyramid = common::Config::getInstance()->herbivores_pyramid;
+
+    if(!herbivores_pyramid)
+    {
+        herbivores_pyramid = new common::MaslovPyramid(1,2,3,4,5);
+    }
+
+
+
 }
 
 void SimulationVisitor::visit(common::Waterhole &)

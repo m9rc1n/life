@@ -20,20 +20,54 @@ void InternalSimulationVisitor::visit(common::Creature &)
 }
 void InternalSimulationVisitor::visit(common::Predator &predator)
 {
+    if(visited_creature_.getIdentifier() == predator.getIdentifier())
+    {
+        return;
+    }
     bool aware = AwarenessDetector::isAware(visited_creature_, predator);
+    if(aware)
+    {
+        addToListOfKnownObjects(predator);
+    }
+}
+void InternalSimulationVisitor::visit(common::Herbivore &herbivore)
+{
+    if(visited_creature_.getIdentifier() == herbivore.getIdentifier())
+    {
+        return;
+    }
+    bool aware = AwarenessDetector::isAware(visited_creature_, herbivore);
+    if(aware)
+    {
+        addToListOfKnownObjects(herbivore);
+    }
+}
+void InternalSimulationVisitor::visit(common::Waterhole &waterhole)
+{
+    bool aware = AwarenessDetector::isAware(visited_creature_, waterhole);
+    if(aware)
+    {
+        addToListOfKnownObjects(waterhole);
+    }
+}
+void InternalSimulationVisitor::visit(common::Lair &lair)
+{
+    bool aware = AwarenessDetector::isAware(visited_creature_, lair);
+    if(aware)
+    {
+        addToListOfKnownObjects(lair);
+    }
+}
+void InternalSimulationVisitor::visit(common::Tree &tree)
+{
+    bool aware = AwarenessDetector::isAware(visited_creature_, tree);
+    if(aware)
+    {
+        addToListOfKnownObjects(tree);
+    }
+}
 
-
-}
-void InternalSimulationVisitor::visit(common::Herbivore &)
+void InternalSimulationVisitor::addToListOfKnownObjects(common::MapObject &object)
 {
-}
-void InternalSimulationVisitor::visit(common::Waterhole &)
-{
-
-}
-void InternalSimulationVisitor::visit(common::Lair &)
-{
-}
-void InternalSimulationVisitor::visit(common::Tree &)
-{
+    visited_creature_.setObjectKnown(object);
 }

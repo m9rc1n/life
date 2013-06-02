@@ -70,10 +70,11 @@ void Init_UI::on_pushButton_clicked()
         // reset pyramide
         return;
     }
-
     config->herbivores_pyramid = new common::MaslovPyramid(herbivorsTable[0], herbivorsTable[1], herbivorsTable[2], herbivorsTable[3], herbivorsTable[4]);
     config->predators_pyramid  = new common::MaslovPyramid(predatorsTable[0], predatorsTable[1], predatorsTable[2], predatorsTable[3]);    
+
 */
+
     this->hide();
     init::startGame();
 }
