@@ -1,6 +1,8 @@
 #include "server.hpp" 
 #include "../common/MaslovPyramid.hpp"
 #include <QWidget>
+#include <ctime>
+#include <cstdlib>
 
 server::Server::Server(QObject *parent)
     : QThread(parent)
@@ -9,6 +11,8 @@ server::Server::Server(QObject *parent)
 
 void server::Server::run()
 {
+    srand(time(NULL));
+
     common::Map *localMap = new common::Map(common::Config::getInstance()->map_width,
                                             common::Config::getInstance()->map_height); // generujemy mape na podstawie config
 
@@ -41,7 +45,7 @@ void server::Server::run()
         }
         common::Config::getInstance()->mutex.unlock();
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(250));
+        std::this_thread::sleep_for(std::chrono::milliseconds(150));
     }
 }
 

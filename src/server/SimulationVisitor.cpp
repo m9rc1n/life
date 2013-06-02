@@ -37,8 +37,12 @@ void SimulationVisitor::visit(common::Predator &predator)
 
     for(auto iter = actions.begin(); iter != actions.end() and not action_performed; ++iter)
     {
-        action_performed = (*iter)->perform();
+        action_performed = (*iter)->perform(time_interval_);
     }
+
+    predator.makeHungry(time_interval_);
+    predator.makeThirsty(time_interval_);
+    predator.makeTired(time_interval_);
 }
 
 void SimulationVisitor::visit(common::Herbivore &herbivore)
@@ -55,8 +59,20 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
         herbivores_pyramid = new common::MaslovPyramid(1,2,3,4,5);
     }
 
+    std::vector<server::Action*> actions;
+    ActionPerformVisitor action_visitor(herbivore, visited_map_, time_interval_, actions);
+    visited_map_->accept(action_visitor);
 
+    bool action_performed = 0;
 
+    for(auto iter = actions.begin(); iter != actions.end() and not action_performed; ++iter)
+    {
+        action_performed = (*iter)->perform(time_interval_);
+    }
+
+    herbivore.makeHungry(time_interval_);
+    herbivore.makeThirsty(time_interval_);
+    herbivore.makeTired(time_interval_);
 }
 
 void SimulationVisitor::visit(common::Waterhole &)

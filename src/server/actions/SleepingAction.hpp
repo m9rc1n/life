@@ -8,7 +8,7 @@ class SleepingAction : public server::Action
 {
 public:
     SleepingAction(int priority, common::Creature & creature, common::MapObject& object);
-    virtual bool perform();
+    virtual bool perform(double time_interval);
 };
 
 } // namespace server

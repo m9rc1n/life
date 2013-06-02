@@ -43,7 +43,9 @@ namespace common
             max_hydration_(10),
             max_energy_(10),
             max_age_(10),
-            knownObjects(new QMap<int, double >)
+            knownObjects(new QMap<int, double >),
+            walking_time(0),
+            staying_time(0)
         {
             /// @todo write me
         }
@@ -55,23 +57,29 @@ namespace common
         *
         * Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne).
         */
-        Creature(double x_pos, double y_pos):
+        Creature(double x_pos, double y_pos, double direction,
+                 int radius, int angle, int speed,
+                 int max_repletion, int max_hydration, int max_energy,
+                 int fecundity, int max_age):
             MapObject(x_pos, y_pos),
-            radius_(10),
-            angle_(22),
-            speed_(10),
-            fecundity_(0),
-            repletion_(4),
-            hydration_(4),
-            energy_(4),
+            direction_(direction),
+            radius_(radius),
+            angle_(angle),
+            speed_(speed),
+            fecundity_(fecundity),
+            repletion_(max_repletion / 2),
+            hydration_(max_hydration / 2),
+            energy_(max_energy_ / 2),
             age_(0),
             is_dead_(0),
-            is_active_(1),
-            max_repletion_(10),
-            max_hydration_(10),
-            max_energy_(10),
-            max_age_(10),
-            knownObjects(new QMap<int, double >)
+            is_active_(0),
+            max_repletion_(max_repletion),
+            max_hydration_(max_hydration),
+            max_energy_(max_energy),
+            max_age_(max_age),
+            knownObjects(new QMap<int, double >),
+            walking_time(0),
+            staying_time(0)
         {
             /// @todo write me
         }
@@ -345,21 +353,6 @@ namespace common
         }
 
         /**
-         * @return zasięg widzenia zwierzęcia
-         */
-        int getRadius() const
-        {
-            return radius_;
-        }
-        /**
-         * @return  kąt widzenia zwierzęcia
-         */
-        int getAngle() const
-        {
-            return angle_;
-        }
-
-        /**
          * @brief Sprawdza, czy zwierzę jest zmęczone
          * @return 1 wtedy i tylko wtedy, gdy wartość energii zwierzęcia jest niższa od połowy wartości maksymalnej
          */
@@ -384,6 +377,57 @@ namespace common
         bool isThirsty() const
         {
             return hydration_ < 0.5 * max_hydration_;
+        }
+
+        /**
+         * @brief zmniejsza współczynnik najedzenia zwierzęcia
+         * @param time czas jako upłynął w kroku symulacji
+         */
+        void makeHungry(double time)
+        {
+            repletion_ -= time;
+        }
+
+        /**
+         * @brief zmniejsza współczynnik napojenia zwierzęcia
+         * @param time czas jako upłynął w kroku symulacji
+         */
+        void makeThirsty(double time)
+        {
+            hydration_ -= time;
+        }
+
+        /**
+         * @brief zmniejsza współczynnik energii zwierzęcia
+         * @param time czas jako upłynął w kroku symulacji
+         */
+        void makeTired(double time)
+        {
+            energy_ -= time;
+        }
+
+        /**
+         * @brief Pije wodę z wodopoju, zwiększając poziom napojenia do maksimum.
+         */
+        void drink()
+        {
+            hydration_ = max_hydration_;
+        }
+
+        /**
+         * @brief Zapada w sen, zwiększając poziom wypoczęcia do maksimum.
+         */
+        void fallAsleep()
+        {
+            energy_ = max_energy_;
+        }
+
+        /**
+         * @brief Je (liście lub roślinożercę), zwiększając poziom najedzenia do maksimum.
+         */
+        void eat()
+        {
+            repletion_ = max_repletion_ ;
         }
 
         /**
@@ -438,6 +482,62 @@ namespace common
         }
 
         /**
+         * @brief Sprawdza, czy zwierzę zna dany obiekt
+         */
+        bool knows(MapObject &object)
+        {
+            return knownObjects->find(object.getIdentifier()) != knownObjects->end();
+        }
+
+        /// Zwraca zasięg widzenia
+        int getRadius() const
+        {
+            return radius_;
+        }
+
+        /// Zwraca kąt widzenia
+        int getAngle() const
+        {
+            return angle_;
+        }
+
+        /// Zwraca prędkość poruszania się
+        int getSpeed() const
+        {
+            return speed_;
+        }
+
+        /// Zwraca płodność
+        int getFecundity() const
+        {
+            return fecundity_;
+        }
+
+        /// Zwraca maksymalny poziom najedzenia (inaczej: odporność na głód)
+        int getMaxRepletion() const
+        {
+            return max_repletion_;
+        }
+
+        /// Zwraca maksymalny poziom napojenia (inaczej: odporność na pragnienie)
+        int getMaxHydration() const
+        {
+            return max_hydration_;
+        }
+
+        /// Zwraca maksymalny poziom energii (inaczej: odporność na zmęczenie)
+        int getMaxEnergy() const
+        {
+            return max_energy_;
+        }
+
+        /// Zwraca maksymalna długość życia
+        int getMaxAge() const
+        {
+            return max_age_;
+        }
+
+        /**
          * @brief Podaje piramidę potrzeb zwierzęcia.
          *
          * W przyszłości być moze będzie podawać indywidualną piramidę; póki co jest ona globalna.
@@ -449,12 +549,10 @@ namespace common
     // protected:
 
         /// Zasięg widzenia
-        /// @todo CONST
-         int radius_;
+        const int radius_;
 
         /// Kąt widzenia
-         /// @todo CONST
-         int angle_;
+        const int angle_;
 
         /// Prędkość poruszania się
         const int speed_;
@@ -509,6 +607,11 @@ namespace common
         /// Zbiór innych obiektów, o których isteniu zwierzę wie w danej chwili
         QMap<int, double > *knownObjects;
 
+        /// Czas, od jakiego zwierzę chodzi (o ile się porusza)
+        double walking_time;
+
+        /// Czas, od jakiego zwierzę stoi (o ile się porusza)
+        double staying_time;
     };
 }
 

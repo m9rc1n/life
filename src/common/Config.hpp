@@ -29,7 +29,8 @@ namespace common
             map_width(100),
             map_height(100),
             map(NULL),
-            objectsCounter(0)
+            objectsCounter(0),
+            parameter_sum(200)
         {
         }
         Config(Config &);
@@ -52,6 +53,8 @@ namespace common
 
         MaslovPyramid   *predators_pyramid;
         MaslovPyramid   *herbivores_pyramid;
+
+        int parameter_sum;
 
         //std::vector <GeneticEquation> equations;
 

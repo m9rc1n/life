@@ -8,7 +8,7 @@ class ProcreatingAction : public server::Action
 {
 public:
     ProcreatingAction(int priority, common::Creature & creature, common::MapObject& object);
-    virtual bool perform();
+    virtual bool perform(double time_interval);
 };
 
 } // namespace server

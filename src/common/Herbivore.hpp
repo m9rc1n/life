@@ -21,8 +21,11 @@ namespace common
         *
         * Stworzenie pojawi się w wybranym miejscu na planszy (powinno ono byc wolne).
         */
-        Herbivore(double x_pos, double y_pos):
-            Creature(x_pos, y_pos)
+        Herbivore(double x_pos, double y_pos, double direction,
+                  int radius, int angle, int speed,
+                  int max_repletion, int max_hydration, int max_energy,
+                  int fecundity, int max_age):
+            Creature(x_pos, y_pos, direction, radius, angle, speed, max_repletion, max_hydration, max_energy, fecundity, max_age)
         {} // kod w klasie Creature
 
         /**

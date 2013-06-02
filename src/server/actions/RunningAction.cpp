@@ -6,7 +6,7 @@ RunningAction::RunningAction(int priority, common::Creature & creature, common::
     Action(priority, creature, object)
 {
 }
-bool RunningAction::perform()
+bool RunningAction::perform(double time_interval)
 {
 
 }

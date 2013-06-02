@@ -7,11 +7,20 @@ server::EatingAction::EatingAction(int priority, common::Creature & creature, co
 {
 }
 
-bool server::EatingAction::perform()
+bool server::EatingAction::perform(double time_interval)
 {
     if(creature_.isHungry())
     {
-        creature_.partiallyTurnAndMoveToObject(object_, 0.4,0.25);
-        return true;
+        if(creature_.getDistance(object_) < 1) // cel osiagniety
+        {
+            creature_.eat();
+            return true;
+        }
+        else
+        {
+            creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval/ 15000, creature_.getSpeed() * time_interval/ 15000);
+            return true;
+        }
     }
+    return false;
 }
