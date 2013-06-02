@@ -13,7 +13,7 @@ namespace server
         common::MapObject &object_;
     public:
         Action(int priority, common::Creature & creature, common::MapObject& object);
-        virtual bool perform(){}
+        virtual bool perform(){ throw new std::exception(); return true; }
         int getPriority() const
         {
             return priority_;

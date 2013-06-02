@@ -68,7 +68,6 @@ HEADERS  += \
     common/GeneticEquation.hpp \
     server/genetics/Genome.hpp \
     server/SimulationVisitor.hpp \
-    test/CreatureTest.cpp \
     server/InternalSimulationVisitor.hpp \
     server/AwarenessDetector.hpp \
     server/MapGenerator.hpp \
