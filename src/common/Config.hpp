@@ -2,7 +2,6 @@
 #define COMMON_CONFIG_H
 
 #include <vector>
-
 #include <QMutex>
 #include <QWaitCondition>
 

@@ -399,7 +399,9 @@ namespace common
         }
 
 
-    protected:
+    /// @todo zaprzyjaznic z wizytatorami? protected:
+
+    public:
 
         /// Zasięg widzenia
         const int radius_;

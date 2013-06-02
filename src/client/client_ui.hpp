@@ -31,27 +31,21 @@ class Client_UI : public QMainWindow
         Client_UI(common::Config *config, QMainWindow *parent = 0);
         ~Client_UI();
 
-    protected:
-
-        void paintEvent(QPaintEvent *event);
-        void resizeEvent(QResizeEvent *event);
-        void drawLabel();
-
     private slots:
 
-        void updatePixmap(const QImage &image, double scaleFactor);
-        void print();
+        void updatePixmap(const QImage &image);
+        void updatePopCre(int update);
+        void updatePopHer(int update);
+        void updatePopPre(int update);
         void zoomIn();
         void zoomOut();
         void normalSize();
-        void fitToWindow();
         void about();
 
     private:
 
         void createActions();
         void createMenus();
-        void updateActions();
         void scaleImage(double factor);
         void adjustScrollBar(QScrollBar *scrollBar, double factor);
 
@@ -62,18 +56,17 @@ class Client_UI : public QMainWindow
         QLabel          *imageLabel;
         QImage          *image;
 
-        QAction         *printAct;
         QAction         *exitAct;
         QAction         *zoomInAct;
         QAction         *zoomOutAct;
         QAction         *normalSizeAct;
-        QAction         *fitToWindowAct;
         QAction         *aboutAct;
         QAction         *aboutQtAct;
         double          scaleFactor;
 
         QMenu           *viewMenu;
         QMenu           *helpMenu;
+        QMenu           *fileMenu;
 };
 
 #endif // CLIENT_UI_H

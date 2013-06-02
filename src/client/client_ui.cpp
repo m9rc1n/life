@@ -6,32 +6,29 @@ Client_UI::Client_UI(common::Config *config, QMainWindow *parent) :
     config(config),
     ui(new Ui::Client_UI())
 {
-  ui->setupUi(this);
+    ui->setupUi(this);
 
-  pixmap = new QPixmap(config->map_width*10, config->map_height*10);
+    pixmap = new QPixmap(config->map_width*10, config->map_height*10);
 
-  client_thread = new client::Client(common::Config::getInstance());
-  connect(client_thread, SIGNAL(renderedImage(QImage,double)), this, SLOT(updatePixmap(QImage,double)));
+    client_thread = new client::Client(common::Config::getInstance());
+    client_thread->start();
+    connect(client_thread, SIGNAL(renderedImage(QImage)), this, SLOT(updatePixmap(QImage)));
+    connect(client_thread, SIGNAL(toPopPre(int)), this, SLOT(updatePopPre(int)));
+    connect(client_thread, SIGNAL(toPopHer(int)), this, SLOT(updatePopHer(int)));
+    connect(client_thread, SIGNAL(toPopCre(int)), this, SLOT(updatePopCre(int)));
 
-  imageLabel = new QLabel;
-  imageLabel->setPixmap(*pixmap);
-  ui->scrollArea->setWidget(imageLabel);
+    imageLabel = new QLabel;
+    imageLabel->setPixmap(*pixmap);
+    imageLabel->setScaledContents(true);
+    ui->scrollArea->setWidget(imageLabel);
 
-  createActions();
+    createActions();
+    createMenus();
 
-  setWindowTitle(tr("Predators vs. Herbivores"));
-  setCursor(Qt::CrossCursor);
+    setWindowTitle(tr("Life! ------ Predators vs. Herbivores"));
+    setCursor(Qt::CrossCursor);
 
-  scaleFactor = 1.0;
-
-  imageLabel->setScaledContents(true);
-
-  printAct->setEnabled(true);
-  fitToWindowAct->setEnabled(true);
-  updateActions();
-
-  if (!fitToWindowAct->isChecked())
-      imageLabel->adjustSize();
+    scaleFactor = 1.0;
 }
 
 
@@ -40,15 +37,6 @@ Client_UI::~Client_UI()
     delete ui;
 }
 
-void Client_UI::drawLabel()
-{
-}
-
-void Client_UI::paintEvent(QPaintEvent *e /* event */)
-{
-}
-
-void Client_UI::print(){}
 void Client_UI::zoomIn()
 {
     scaleImage(1.1);
@@ -56,7 +44,7 @@ void Client_UI::zoomIn()
 
 void Client_UI::zoomOut()
 {
-    scaleImage(0.9);
+    scaleImage(0.89);
 }
 
 void Client_UI::normalSize()
@@ -65,49 +53,26 @@ void Client_UI::normalSize()
     scaleFactor = 1.0;
 }
 
-void Client_UI::fitToWindow()
-{
-    bool fitToWindow = fitToWindowAct->isChecked();
-    ui->scrollArea->setWidgetResizable(fitToWindow);
-    if (!fitToWindow) {
-        normalSize();
-    }
-    updateActions();
-}
-
 void Client_UI::about()
 {
-    QMessageBox::about(this, tr("About Image Viewer"),
-            tr("<p>The <b>Image Viewer</b> example shows how to combine QLabel "
-               "and QScrollArea to display an image. QLabel is typically used "
-               "for displaying a text, but it can also display an image. "
-               "QScrollArea provides a scrolling view around another widget. "
-               "If the child widget exceeds the size of the frame, QScrollArea "
-               "automatically provides scroll bars. </p><p>The example "
-               "demonstrates how QLabel's ability to scale its contents "
-               "(QLabel::scaledContents), and QScrollArea's ability to "
-               "automatically resize its contents "
-               "(QScrollArea::widgetResizable), can be used to implement "
-               "zooming and scaling features. </p><p>In addition the example "
-               "shows how to use QPainter to print an image.</p>"));
+    QMessageBox::about(this, tr("About Life!"),
+            tr("<p>The <b>Life!</b></p>"
+               "<p><b>How to use: </b></p>"
+               "<p>Ctrl++ : <b> zoom in </b></p>"
+               "<p>Ctrl+- : <b> zoom out </b></p>"
+               "<p>Ctrl+S : <b> reset scale </b></p>"
+               "<p>Ctrl+Q : <b> quit </b></p>"
+               "<p>Ctrl+A : <b> about/help </b></p>"
+               "<p>Ctrl+W : <b> about Qt </b></p>"
+               "<p><b> Authors: </b>"
+               "Michal Krawczak \n"
+               "Marcin Urbanski</p>"));
 }
 
-void Client_UI::resizeEvent(QResizeEvent * /* event */)
-{
-    client_thread->render(0, 0, 1, size());
-}
-
-void Client_UI::updatePixmap(const QImage &image, double scaleFactor)
+void Client_UI::updatePixmap(const QImage &image)
 {
     *pixmap = QPixmap::fromImage(image);
     imageLabel->setPixmap(*pixmap);
-}
-
-void Client_UI::updateActions()
-{
-    zoomInAct->setEnabled(!fitToWindowAct->isChecked());
-    zoomOutAct->setEnabled(!fitToWindowAct->isChecked());
-    normalSizeAct->setEnabled(!fitToWindowAct->isChecked());
 }
 
 void Client_UI::scaleImage(double factor)
@@ -120,10 +85,8 @@ void Client_UI::scaleImage(double factor)
     adjustScrollBar(ui->scrollArea->horizontalScrollBar(), factor);
     adjustScrollBar(ui->scrollArea->verticalScrollBar(), factor);
 
-    zoomInAct->setEnabled(scaleFactor < 2.5);
+    zoomInAct->setEnabled(scaleFactor < 2);
     zoomOutAct->setEnabled(scaleFactor > 0.56);
-
-    // client_thread->render(0, 0, scaleFactor, size());
 }
 
 void Client_UI::adjustScrollBar(QScrollBar *scrollBar, double factor)
@@ -135,35 +98,24 @@ void Client_UI::adjustScrollBar(QScrollBar *scrollBar, double factor)
 void Client_UI::createActions()
 {
 
-    printAct = new QAction(tr("&Print..."), this);
-    printAct->setShortcut(tr("Ctrl+P"));
-    printAct->setEnabled(false);
-    connect(printAct, SIGNAL(triggered()), this, SLOT(print()));
-
     exitAct = new QAction(tr("E&xit"), this);
     exitAct->setShortcut(tr("Ctrl+Q"));
     connect(exitAct, SIGNAL(triggered()), this, SLOT(close()));
 
     zoomInAct = new QAction(tr("Zoom &In (25%)"), this);
     zoomInAct->setShortcut(tr("Ctrl++"));
-    zoomInAct->setEnabled(false);
+    zoomInAct->setEnabled(true);
     connect(zoomInAct, SIGNAL(triggered()), this, SLOT(zoomIn()));
 
     zoomOutAct = new QAction(tr("Zoom &Out (25%)"), this);
     zoomOutAct->setShortcut(tr("Ctrl+-"));
-    zoomOutAct->setEnabled(false);
+    zoomOutAct->setEnabled(true);
     connect(zoomOutAct, SIGNAL(triggered()), this, SLOT(zoomOut()));
 
     normalSizeAct = new QAction(tr("&Normal Size"), this);
     normalSizeAct->setShortcut(tr("Ctrl+S"));
-    normalSizeAct->setEnabled(false);
+    normalSizeAct->setEnabled(true);
     connect(normalSizeAct, SIGNAL(triggered()), this, SLOT(normalSize()));
-
-    fitToWindowAct = new QAction(tr("&Fit to Window"), this);
-    fitToWindowAct->setEnabled(false);
-    fitToWindowAct->setCheckable(true);
-    fitToWindowAct->setShortcut(tr("Ctrl+F"));
-    connect(fitToWindowAct, SIGNAL(triggered()), this, SLOT(fitToWindow()));
 
     aboutAct = new QAction(tr("&About"), this);
     aboutAct->setEnabled(true);
@@ -179,10 +131,43 @@ void Client_UI::createActions()
 
     this->addAction(zoomInAct);
     this->addAction(zoomOutAct);
-    this->addAction(fitToWindowAct);
     this->addAction(normalSizeAct);
     this->addAction(aboutAct);
     this->addAction(aboutQtAct);
     this->addAction(exitAct);
+}
+
+void Client_UI::createMenus()
+{
+    fileMenu = new QMenu(tr("&File"), this);
+    fileMenu->addAction(exitAct);
+
+    viewMenu = new QMenu(tr("&View"), this);
+    viewMenu->addAction(zoomInAct);
+    viewMenu->addAction(zoomOutAct);
+    viewMenu->addAction(normalSizeAct);
+
+    helpMenu = new QMenu(tr("&Help"), this);
+    helpMenu->addAction(aboutAct);
+    helpMenu->addAction(aboutQtAct);
+
+    menuBar()->addMenu(fileMenu);
+    menuBar()->addMenu(viewMenu);
+    menuBar()->addMenu(helpMenu);
+}
+
+void Client_UI::updatePopCre(int update)
+{
+    ui->pop_cre->display(update);
+}
+
+void Client_UI::updatePopHer(int update)
+{
+    ui->pop_her->display(update);
+}
+
+void Client_UI::updatePopPre(int update)
+{
+    ui->pop_pre->display(update);
 }
 

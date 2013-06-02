@@ -179,10 +179,10 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_40">
+          <widget class="QLCDNumber" name="pop_cre">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
@@ -204,10 +204,10 @@ background-color: rgb(6, 72, 255);</string>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_41">
+          <widget class="QLCDNumber" name="pop_her">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
@@ -215,10 +215,10 @@ background-color: rgb(6, 72, 255);</string>
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_42">
+          <widget class="QLCDNumber" name="pop_pre">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
@@ -320,22 +320,22 @@ background-color: rgb(6, 72, 255);</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_46">
+         <item row="1" column="1">
+          <widget class="QLCDNumber" name="pop_pre_6">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_47">
+         <item row="0" column="1">
+          <widget class="QLCDNumber" name="pop_pre_5">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
@@ -468,10 +468,10 @@ background-color: rgb(6, 72, 255);</string>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_48">
+          <widget class="QLCDNumber" name="pop_pre_4">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
@@ -479,10 +479,10 @@ background-color: rgb(6, 72, 255);</string>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_49">
+          <widget class="QLCDNumber" name="pop_pre_8">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
@@ -524,22 +524,22 @@ background-color: rgb(6, 72, 255);</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_50">
+         <item row="1" column="1">
+          <widget class="QLCDNumber" name="pop_pre_3">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_51">
+         <item row="0" column="1">
+          <widget class="QLCDNumber" name="pop_pre_2">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
@@ -581,22 +581,22 @@ background-color: rgb(6, 72, 255);</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_52">
+         <item row="1" column="1">
+          <widget class="QLCDNumber" name="pop_pre_7">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLCDNumber" name="lcdNumber_53">
+         <item row="0" column="1">
+          <widget class="QLCDNumber" name="pop_pre_9">
            <property name="styleSheet">
-            <string notr="true">
-background-color: rgb(6, 72, 255);</string>
+            <string notr="true">background-color: rgb(97, 97, 97);
+</string>
            </property>
            <property name="value" stdset="0">
             <double>0.000000000000000</double>
@@ -607,18 +607,8 @@ background-color: rgb(6, 72, 255);</string>
        </widget>
       </widget>
      </widget>
-     <zorder>scrollArea_3</zorder>
-     <zorder>scrollArea_3</zorder>
-     <zorder>scrollArea_3</zorder>
     </widget>
    </widget>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>horizontalLayoutWidget</zorder>
-   <zorder>horizontalLayoutWidget_2</zorder>
-   <zorder>label</zorder>
-   <zorder>line</zorder>
-   <zorder>scrollArea</zorder>
-   <zorder>scrollArea_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -629,12 +619,6 @@ background-color: rgb(6, 72, 255);</string>
      <height>23</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuAbout">
-    <property name="title">
-     <string>About</string>
-    </property>
-   </widget>
-   <addaction name="menuAbout"/>
   </widget>
   <action name="actionAbout_Life">
    <property name="text">

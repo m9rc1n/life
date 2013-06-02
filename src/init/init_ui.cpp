@@ -4,8 +4,8 @@
 #include "../client/client_ui.hpp"
 
 /// @TODO Dodac paramtry przy wolaniu konstruktora Init_UI w linii 10
-Init_UI::Init_UI(common::Config *config_p, QWidget *parent) :
-    QWidget(parent),
+Init_UI::Init_UI(common::Config *config_p, QMainWindow *parent) :
+    QMainWindow(parent),
     ui(new Ui::Init_UI()),
     config(config_p),
     prevIndex(0)
@@ -39,6 +39,11 @@ Init_UI::Init_UI(common::Config *config_p, QWidget *parent) :
     connect( ui->comboBox_6, SIGNAL( activated(int) ), this, SLOT(comboBox6_Activated(int)) );
     connect( ui->comboBox_7, SIGNAL( activated(int) ), this, SLOT(comboBox7_Activated(int)) );
     connect( ui->comboBox_8, SIGNAL( activated(int) ), this, SLOT(comboBox8_Activated(int)) );
+
+    createActions();
+    createMenus();
+
+    setWindowTitle(tr("Life! ------ Predators vs. Herbivores"));
 }
 
 Init_UI::~Init_UI()
@@ -401,4 +406,58 @@ void Init_UI::on_spinBox_5_editingFinished()
 {
     int spin = ui->spinBox_5->value();
     config->amount_lairs = spin;
+}
+
+
+void Init_UI::createMenus()
+{
+    fileMenu = new QMenu(tr("&File"), this);
+    fileMenu->addAction(exitAct);
+
+    helpMenu = new QMenu(tr("&Help"), this);
+    helpMenu->addAction(aboutAct);
+    helpMenu->addAction(aboutQtAct);
+
+    menuBar()->addMenu(fileMenu);
+    menuBar()->addMenu(helpMenu);
+}
+
+void Init_UI::createActions()
+{
+
+    exitAct = new QAction(tr("E&xit"), this);
+    exitAct->setShortcut(tr("Ctrl+Q"));
+    connect(exitAct, SIGNAL(triggered()), this, SLOT(close()));
+
+    aboutAct = new QAction(tr("&About"), this);
+    aboutAct->setEnabled(true);
+    aboutAct->setCheckable(true);
+    aboutAct->setShortcut(tr("Ctrl+A"));
+    connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
+
+    aboutQtAct = new QAction(tr("About &Qt"), this);
+    aboutQtAct->setEnabled(true);
+    aboutQtAct->setCheckable(true);
+    aboutQtAct->setShortcut(tr("Ctrl+W"));
+    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+
+    this->addAction(aboutAct);
+    this->addAction(aboutQtAct);
+    this->addAction(exitAct);
+}
+
+void Init_UI::about()
+{
+    QMessageBox::about(this, tr("About Life!"),
+            tr("<p>The <b>Life!</b></p>"
+               "<p><b>How to use: </b></p>"
+               "<p>Ctrl++ : <b> zoom in </b></p>"
+               "<p>Ctrl+- : <b> zoom out </b></p>"
+               "<p>Ctrl+S : <b> reset scale </b></p>"
+               "<p>Ctrl+Q : <b> quit </b></p>"
+               "<p>Ctrl+A : <b> about/help </b></p>"
+               "<p>Ctrl+W : <b> about Qt </b></p>"
+               "<p><b> Authors: </b>"
+               "Michal Krawczak \n"
+               "Marcin Urbanski</p>"));
 }

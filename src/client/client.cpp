@@ -8,33 +8,18 @@ client::Client::Client(common::Config *config, QObject *parent)
 
 client::Client::~Client(){}
 
-void client::Client::render(double centerX, double centerY, double scaleFactor,
-                          QSize resultSize)
-{
-    QMutexLocker locker(&(config->mutex));
-
-    this->centerX = centerX;
-    this->centerY = centerY;
-    this->scaleFactor = scaleFactor;
-    this->resultSize = resultSize;
-
-    if (!isRunning()) {
-        start(LowPriority);
-    } else {
-        config->condition.wakeOne();
-    }
-}
-
 void client::Client::run()
 {
     common::Map* localMap;
 
     QImage image(QSize(config->map_width*10, config->map_height*10), QImage::Format_RGB32);
-    client::PaintingVisitor painter(&image);
-    client::StatisticsVisitor stater;
 
     for(int i = 0;; ++i) // nieskonczona petla
     {
+
+        client::PaintingVisitor painter(&image);
+        client::StatisticsVisitor stater(Statistics::getInstance());
+
         std::this_thread::sleep_for(std::chrono::milliseconds(250));
 
         config->mutex.lock();
@@ -43,8 +28,17 @@ void client::Client::run()
         config->mutex.unlock();
 
         localMap->accept(painter);
+        localMap->accept(stater);
 
-        emit renderedImage(image, scaleFactor);
+        emit renderedImage(image);
+
+        int popHer = Statistics::getInstance()->populationHerbivores;
+        int popPre = Statistics::getInstance()->populationPredators;
+        int popCre = popHer + popPre;
+
+        emit toPopCre(popCre);
+        emit toPopHer(popHer);
+        emit toPopPre(popPre);
 
         delete localMap; // mozna zmienic na sprytny wskaznik
     }

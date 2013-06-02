@@ -31,7 +31,6 @@ SOURCES += main.cpp\
     client/PaintingVisitor.cpp \
     common/MaslovPyramid.cpp \
     common/GeneticEquation.cpp \
-    init/initui.cpp \
     server/genetics/Genome.cpp \
     server/SimulationVisitor.cpp \
     server/InternalSimulationVisitor.cpp \
@@ -44,7 +43,8 @@ SOURCES += main.cpp\
     server/actions/SleepingAction.cpp \
     server/actions/HuntingAction.cpp \
     server/actions/ProcreatingAction.cpp \
-    server/ActionPerformVisitor.cpp
+    server/ActionPerformVisitor.cpp \
+    client/Statistics.cpp
 
 HEADERS  += \
     client/client.hpp \
@@ -66,7 +66,6 @@ HEADERS  += \
     client/StatisticsVisitor.hpp \
     common/MaslovPyramid.hpp \
     common/GeneticEquation.hpp \
-    init/initui.h \
     server/genetics/Genome.hpp \
     server/SimulationVisitor.hpp \
     test/CreatureTest.cpp \
@@ -80,7 +79,8 @@ HEADERS  += \
     server/actions/SleepingAction.hpp \
     server/actions/HuntingAction.hpp \
     server/actions/ProcreatingAction.hpp \
-    server/ActionPerformVisitor.hpp
+    server/ActionPerformVisitor.hpp \
+    client/Statistics.hpp
 
 OTHER_FILES += \
     makefile \
@@ -94,7 +94,6 @@ OTHER_FILES += \
 FORMS += \
     init/init_ui.ui \
     client/client_ui.ui \
-    init/initui.ui
 
 
 QMAKE_CXXFLAGS += -std=c++11

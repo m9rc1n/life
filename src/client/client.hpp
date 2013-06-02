@@ -23,10 +23,11 @@ namespace client
     public:
         Client(common::Config *config, QObject *parent = 0);
         ~Client();
-        void render(double centerX, double centerY, double scaleFactor, QSize resultSize);
-
     signals:
-        void renderedImage(const QImage &image, double scaleFactor);
+        void renderedImage(const QImage &image);
+        void toPopPre(int update);
+        void toPopHer(int update);
+        void toPopCre(int update);
 
     protected:
         void run();
@@ -35,10 +36,6 @@ namespace client
 
     private:
         common::Config  *config;
-        double          centerX;
-        double          centerY;
-        double          scaleFactor;
-        QSize           resultSize;
     };
 }
 
