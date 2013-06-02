@@ -8,7 +8,7 @@ class DrinkingAction : public server::Action
 {
 public:
     DrinkingAction(int priority, common::Creature & creature, common::MapObject& object);
-    virtual bool perform();
+    virtual bool perform(double time_interval);
 };
 
 } // namespace server

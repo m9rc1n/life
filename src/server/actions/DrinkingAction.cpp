@@ -7,14 +7,22 @@ namespace server
         Action(priority, creature, object)
     {
     }
-    bool DrinkingAction::perform()
+    bool DrinkingAction::perform(double time_interval)
     {
         if(creature_.isThirsty())
         {
-            std::cout << "Going to waterhole (" << object_.getX() << ", " << object_.getY()<< ") "<< std::endl;
-            creature_.partiallyTurnAndMoveToObject(object_,2,0.2);
-            return true;
+            if(creature_.getDistance(object_) < 1) // cel osiagniety
+            {
+                creature_.drink();
+                return true;
+            }
+            else
+            {
+                creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval/ 15000, creature_.getSpeed() * time_interval/ 15000);
+                return true;
+            }
         }
+        return false;
     }
 
 } // namespace server

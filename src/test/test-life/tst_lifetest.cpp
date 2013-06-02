@@ -95,17 +95,17 @@ void lifeTest::testCase2()
 
 void lifeTest::testCase3()
 {
-    common::Predator p1(1,1);
-    common::Predator p2(2,2);
+    common::Predator p1(10,10);
+    common::Predator p2(20,20);
     p1.direction_ = 0;
     p1.angle_ = 25;
-    p1.radius_ = 2;
+    p1.radius_ = 20;
     QTEST_ASSERT(!AwarenessDetector::isAware(p1, p2));
     p1.angle_ = 44;
-    p1.radius_ = 2;
+    p1.radius_ = 20;
     QTEST_ASSERT(!AwarenessDetector::isAware(p1, p2));
     p1.angle_ = 46;
-    p1.radius_ = 2;
+    p1.radius_ = 20;
     QTEST_ASSERT(AwarenessDetector::isAware(p1, p2));
     std::cout << ":)" << std::endl;
 }
