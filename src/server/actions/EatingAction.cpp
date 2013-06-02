@@ -2,12 +2,12 @@
 
 using namespace server;
 
-server::EatingAction::EatingAction(int priority):
-    Action(priority)
+server::EatingAction::EatingAction(int priority, common::Creature & creature, common::MapObject& object):
+    Action(priority, creature, object)
 {
 }
 
-void server::EatingAction::perform(common::Creature & creature)
+bool server::EatingAction::perform()
 {
 
 }

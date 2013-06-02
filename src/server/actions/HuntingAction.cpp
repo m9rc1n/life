@@ -2,11 +2,11 @@
 
 namespace server {
 
-HuntingAction::HuntingAction(int priority):
-    Action(priority)
+HuntingAction::HuntingAction(int priority, common::Creature & creature, common::MapObject& object):
+    Action(priority, creature, object)
 {
 }
-void HuntingAction::perform(common::Creature & creature)
+bool HuntingAction::perform()
 {
 
 }

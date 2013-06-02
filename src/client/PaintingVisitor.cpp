@@ -16,7 +16,6 @@ void client::PaintingVisitor::visit(common::Map & obj)
 
 void client::PaintingVisitor::visit(common::Predator &obj)
 {    
-    temp_counter++;
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
@@ -25,7 +24,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
 /// draw Predator ////////////////////////////////////////
 
-    if( temp_counter%2 == 0 )
+    if((x+y)%2 == 0 )
     {
         image->setPixel (QPoint (x+0, y+0), colorLightPredator);
         image->setPixel (QPoint (x+1, y+0), colorDarkPredator);

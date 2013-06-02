@@ -5,11 +5,13 @@
 #include "../common/Map.hpp"
 #include "../common/Predator.hpp"
 #include "../common/Herbivore.hpp"
+#include "../common/MaslovPyramid.hpp"
+#include "actions/Action.hpp"
 
 class ActionPerformVisitor : public common::Visitor
 {
 public:
-    ActionPerformVisitor(common::Creature &visited_creature, common::Map *visited_map, double time_interval);
+    ActionPerformVisitor(common::Creature &visited_creature, common::Map *visited_map, double time_interval, std::vector<server::Action> &actions);
 
     virtual void visit(common::Map &);
     virtual void visit(common::MapObject &);
@@ -25,6 +27,7 @@ private:
     common::Map *visited_map_;
     double time_interval_;
     enum {PREDATOR, HERBIVORE} visited_creature_type_;
+    std::vector<server::Action> &actions_;
 };
 
 #endif // ACTIONPERFORMVISITOR_HPP

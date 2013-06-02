@@ -2,11 +2,11 @@
 
 namespace server {
 
-ProcreatingAction::ProcreatingAction(int priority):
-    Action(priority)
+ProcreatingAction::ProcreatingAction(int priority, common::Creature & creature, common::MapObject& object):
+    Action(priority, creature, object)
 {
 }
-void ProcreatingAction::perform(common::Creature & creature)
+bool ProcreatingAction::perform()
 {
 
 }

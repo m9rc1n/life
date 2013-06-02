@@ -2,11 +2,11 @@
 
 namespace server {
 
-SleepingAction::SleepingAction(int priority):
-    Action(priority)
+SleepingAction::SleepingAction(int priority, common::Creature & creature, common::MapObject& object):
+    Action(priority, creature, object)
 {
 }
-void SleepingAction::perform(common::Creature & creature)
+bool SleepingAction::perform()
 {
 
 }
