@@ -298,7 +298,7 @@ void Client_UI::updatePopCop(int update)
 
 void Client_UI::updatePopTot()
 {
-    ui->pop_tot->display(common::Config::getInstance()->getObjectsCounter());
+    // ui->pop_tot->display(common::Config::getInstance()->getObjectsCounter());
 }
 
 void Client_UI::updatePopSle(int update)

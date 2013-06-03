@@ -13,12 +13,15 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(230, 240, 220);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>10</x>
+      <y>10</y>
       <width>771</width>
       <height>101</height>
      </rect>
@@ -57,8 +60,8 @@
    <widget class="QWidget" name="verticalLayoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>280</y>
+      <x>220</x>
+      <y>320</y>
       <width>381</width>
       <height>31</height>
      </rect>
@@ -91,16 +94,14 @@ background-color: rgb(170, 255, 255);</string>
    <widget class="QGroupBox" name="formGroupBox_3">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>140</y>
+      <x>10</x>
+      <y>150</y>
       <width>381</width>
       <height>161</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 255, 127);
-selection-color: rgb(170, 0, 0);
-selection-background-color: rgb(255, 170, 127);</string>
+     <string notr="true">background-color: rgb(85, 170, 255);</string>
     </property>
     <layout class="QFormLayout" name="formLayout_2">
      <property name="fieldGrowthPolicy">
@@ -161,16 +162,14 @@ selection-background-color: rgb(255, 170, 127);</string>
    <widget class="QGroupBox" name="formGroupBox_4">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>140</y>
+      <x>400</x>
+      <y>150</y>
       <width>381</width>
       <height>131</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 255, 127);
-selection-color: rgb(170, 0, 0);
-selection-background-color: rgb(255, 170, 127);</string>
+     <string notr="true">background-color: rgb(85, 170, 255);</string>
     </property>
     <layout class="QFormLayout" name="formLayout_4">
      <property name="fieldGrowthPolicy">
@@ -221,16 +220,14 @@ selection-background-color: rgb(255, 170, 127);</string>
    <widget class="QGroupBox" name="formGroupBox">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>310</y>
+      <x>220</x>
+      <y>350</y>
       <width>381</width>
       <height>144</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 255, 127);
-selection-color: rgb(170, 0, 0);
-selection-background-color: rgb(255, 170, 127);</string>
+     <string notr="true">background-color: rgb(85, 170, 255);</string>
     </property>
     <layout class="QFormLayout" name="formLayout">
      <property name="leftMargin">
@@ -300,8 +297,8 @@ selection-background-color: rgb(255, 170, 127);</string>
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>110</y>
+      <x>400</x>
+      <y>120</y>
       <width>381</width>
       <height>31</height>
      </rect>
@@ -333,10 +330,10 @@ selection-background-color: rgb(255, 170, 127);</string>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>500</y>
-      <width>771</width>
-      <height>81</height>
+      <width>781</width>
+      <height>71</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -348,6 +345,17 @@ selection-background-color: rgb(255, 170, 127);</string>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Cantarell</family>
+         <pointsize>18</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(170, 170, 255);</string>
+       </property>
        <property name="text">
         <string>Let's START THE GAME</string>
        </property>
@@ -358,8 +366,8 @@ selection-background-color: rgb(255, 170, 127);</string>
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>110</y>
+      <x>10</x>
+      <y>120</y>
       <width>381</width>
       <height>31</height>
      </rect>
@@ -399,7 +407,6 @@ selection-background-color: rgb(255, 170, 127);</string>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
