@@ -122,7 +122,7 @@ void Client_UI::createConnections()
     connect(client_thread, SIGNAL(toMaxPreAge(double)), this, SLOT(updateMaxPreAge(double)));
     connect(client_thread, SIGNAL(toMaxPreEne(double)), this, SLOT(updateMaxPreEne(double)));
 
-    connect(client_thread, SIGNAL(toDiePreAge(double)), this, SLOT(updateDieAge(double)));
+    connect(client_thread, SIGNAL(toDiePreAge(double)), this, SLOT(updateDiePreAge(double)));
 
     connect(client_thread, SIGNAL(toAveHerAge(double)), this, SLOT(updateAveHerAge(double)));
     connect(client_thread, SIGNAL(toAveHerEne(double)), this, SLOT(updateAveHerEne(double)));
@@ -138,7 +138,7 @@ void Client_UI::createConnections()
     connect(client_thread, SIGNAL(toMaxHerAge(double)), this, SLOT(updateMaxHerAge(double)));
     connect(client_thread, SIGNAL(toMaxHerEne(double)), this, SLOT(updateMaxHerEne(double)));
 
-    connect(client_thread, SIGNAL(toDieHerAge(double)), this, SLOT(updateDieAge(double)));
+    connect(client_thread, SIGNAL(toDieHerAge(double)), this, SLOT(updateDieHerAge(double)));
 }
 
 void Client_UI::createActions()
