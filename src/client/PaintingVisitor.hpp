@@ -39,6 +39,8 @@ namespace client
 
     private:
         void drawDeadCreature(common::Creature &);
+        void drawSleepingCreature(common::Creature &obj);
+        void drawProcreatingCreature(common::Creature &obj);
 
         QImage *image;
     };

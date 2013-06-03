@@ -36,6 +36,46 @@ void client::PaintingVisitor::drawDeadCreature(common::Creature &obj)
     image->setPixel (QPoint (x+2, y+5), color);
 }
 
+void client::PaintingVisitor::drawSleepingCreature(common::Creature &obj)
+{
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
+
+    long color = 555555;
+
+    image->setPixel (QPoint (x+0, y+0), color);
+    image->setPixel (QPoint (x+1, y+0), color);
+    image->setPixel (QPoint (x+2, y+0), color);
+    image->setPixel (QPoint (x+3, y+0), color);
+    image->setPixel (QPoint (x+2, y+1), color);
+    image->setPixel (QPoint (x+1, y+2), color);
+    image->setPixel (QPoint (x+0, y+3), color);
+    image->setPixel (QPoint (x+1, y+3), color);
+    image->setPixel (QPoint (x+2, y+3), color);
+    image->setPixel (QPoint (x+3, y+3), color);
+
+}
+
+void client::PaintingVisitor::drawProcreatingCreature(common::Creature &obj)
+{
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
+
+    long color = 555555;
+
+    image->setPixel (QPoint (x+0, y+0), color);
+    image->setPixel (QPoint (x+1, y+0), color);
+    image->setPixel (QPoint (x+2, y+0), color);
+    image->setPixel (QPoint (x+3, y+0), color);
+    image->setPixel (QPoint (x+2, y+1), color);
+    image->setPixel (QPoint (x+1, y+2), color);
+    image->setPixel (QPoint (x+0, y+3), color);
+    image->setPixel (QPoint (x+1, y+3), color);
+    image->setPixel (QPoint (x+2, y+3), color);
+    image->setPixel (QPoint (x+3, y+3), color);
+
+}
+
 void client::PaintingVisitor::visit(common::Predator &obj)
 {
     if(obj.isDead())
@@ -43,6 +83,19 @@ void client::PaintingVisitor::visit(common::Predator &obj)
         drawDeadCreature(obj);
         return;
     }
+    else
+    if(obj.isSleeping())
+    {
+        drawSleepingCreature(obj);
+        return;
+    }
+    else
+    if(obj.isProcreating())
+    {
+        drawProcreatingCreature(obj);
+        return;
+    }
+
 
     int x = obj.getX()*10;
     int y = obj.getY()*10;
@@ -190,6 +243,19 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
        drawDeadCreature(obj);
        return;
     }
+    else
+    if(obj.isSleeping())
+    {
+        drawSleepingCreature(obj);
+        return;
+    }
+    else
+    if(obj.isProcreating())
+    {
+        drawProcreatingCreature(obj);
+        return;
+    }
+
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 

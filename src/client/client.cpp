@@ -14,13 +14,14 @@ void client::Client::run()
 
     QImage image(QSize(config->map_width*10, config->map_height*10), QImage::Format_RGB32);
 
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
     for(int i = 0;; ++i) // nieskonczona petla
     {
-
         client::PaintingVisitor painter(&image);
         client::StatisticsVisitor stater(Statistics::getInstance());
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(250));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
         config->mutex.lock();
             localMap = new common::Map(*(config->map));

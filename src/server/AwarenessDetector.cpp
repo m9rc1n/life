@@ -30,10 +30,7 @@ bool AwarenessDetector::doesItSee(common::Creature &creature, common::MapObject 
         return false;
     }
 
-    double current_direction = creature.getDirectionInDegrees();
-    double object_direction = creature.getDirectionOfObjectInDegrees(map_object);
-    double diff = abs(current_direction - object_direction);
-    double angle = std::min(diff, 360 - diff);
+    double angle = fabs(creature.getAngleDifference(map_object));
 
     if(angle > creature.getAngle())
     {
