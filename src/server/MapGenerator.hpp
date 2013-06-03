@@ -27,7 +27,7 @@ class MapGenerator
      */
     static double getRandomX()
     {
-        static int max = common::Config::getInstance()->map_width;
+        static int max = common::Config::getInstance()->getMapWidth();
         static time_t t = time(NULL);
         static std::mt19937 seed((int)t);
         static std::uniform_real_distribution<double> dist(5.0, (double)max-5);
@@ -40,7 +40,7 @@ class MapGenerator
      */
     static double getRandomY()
     {
-        static int max = common::Config::getInstance()->map_height;
+        static int max = common::Config::getInstance()->getMapHeight();
         static time_t t = time(NULL);
         static std::mt19937 seed((int)t + 37);
         static std::uniform_real_distribution<double> dist(5.0, (double)max-5);

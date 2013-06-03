@@ -8,7 +8,7 @@ Client_UI::Client_UI(common::Config *config, QMainWindow *parent) :
 {
     ui->setupUi(this);
 
-    pixmap = new QPixmap(config->map_width*10+10, config->map_height*10+10);
+    pixmap = new QPixmap(config->getMapWidth()*10+10, config->getMapHeight()*10+10);
 
     client_thread = new client::Client(common::Config::getInstance());
     client_thread->start();
@@ -158,6 +158,12 @@ void Client_UI::createActions()
     aboutQtAct->setShortcut(tr("Ctrl+W"));
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
+    showParametresAct = new QAction(tr("&Show Parametres"), this);
+    showParametresAct->setEnabled(true);
+    showParametresAct->setCheckable(true);
+    showParametresAct->setShortcut(tr("Ctrl+P"));
+    connect(showParametresAct, SIGNAL(triggered()), this, SLOT(showParametres()));
+
     this->addAction(zoomInAct);
     this->addAction(zoomOutAct);
     this->addAction(normalSizeAct);
@@ -172,7 +178,7 @@ void Client_UI::createActions()
 
 void Client_UI::speedSimulationHigh()
 {
-    config->simulation_speed = simulation_speed(HIGH);
+    config->setSimulationSpeed(simulation_speed(HIGH));
     simulationLAct->setChecked(false);
     simulationMAct->setChecked(false);
 }
@@ -180,14 +186,14 @@ void Client_UI::speedSimulationHigh()
 
 void Client_UI::speedSimulationLow()
 {
-    config->simulation_speed = simulation_speed(LOW);
+    config->setSimulationSpeed(simulation_speed(LOW));
     simulationHAct->setChecked(false);
     simulationMAct->setChecked(false);
 }
 
 void Client_UI::speedSimulationMedium()
 {
-    config->simulation_speed = simulation_speed(MEDIUM);
+    config->setSimulationSpeed(simulation_speed(MEDIUM));
     simulationHAct->setChecked(false);
     simulationLAct->setChecked(false);
 }
@@ -205,6 +211,8 @@ void Client_UI::createMenus()
     viewMenu->addAction(simulationLAct);
     viewMenu->addAction(simulationMAct);
     viewMenu->addAction(simulationHAct);
+    viewMenu->addSeparator();
+    viewMenu->addAction(showParametresAct);
 
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutAct);
@@ -215,6 +223,18 @@ void Client_UI::createMenus()
     menuBar()->addMenu(fileMenu);
     menuBar()->addMenu(viewMenu);
     menuBar()->addMenu(helpMenu);
+}
+
+void Client_UI::showParametres()
+{
+    if(config->getShowCreaturesParametres())
+    {
+        config->setShowCreaturesParametres(false);
+    }
+    else
+    {
+        config->setShowCreaturesParametres(true);
+    }
 }
 
 void Client_UI::updatePopCre(int update)

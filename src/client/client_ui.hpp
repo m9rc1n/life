@@ -45,6 +45,7 @@ class Client_UI : public QMainWindow
         void speedSimulationLow();
         void speedSimulationHigh();
         void speedSimulationMedium();
+        void showParametres();
 
     private:
 
@@ -70,6 +71,7 @@ class Client_UI : public QMainWindow
         QAction         *simulationMAct;
         QAction         *simulationHAct;
         QAction         *legendAct;
+        QAction         *showParametresAct;
         double          scaleFactor;
 
         QMenu           *viewMenu;

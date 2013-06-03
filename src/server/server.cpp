@@ -34,7 +34,7 @@ void server::Server::run()
         // aktualizacja mapy za pomoca wizytatorow
         std::chrono::milliseconds time = std::chrono::duration_cast<std::chrono::milliseconds>(current - previous);
 
-        double speed = common::Config::getInstance()->simulation_speed;
+        double speed = common::Config::getInstance()->getSimulationSpeed();
 
         SimulationVisitor visitor(speed * time.count());
         localMap->accept(visitor);
