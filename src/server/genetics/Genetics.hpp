@@ -4,17 +4,19 @@
 namespace common
 {
  // fwd declaration
-  class Creature;
+    class Creature;
 }
 
 namespace server
 {
+    // fwd declaration
+    class Genome;
 
-class Genetics
-{
-    Genetics() = delete;
-public:
-    static void makeChild(common::Creature*, common::Creature*);
+    class Genetics
+    {
+        Genetics() = delete;
+    public:
+        static void makeChild(common::Creature*, common::Creature*);
 };
 
 } // namespace server

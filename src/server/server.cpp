@@ -33,10 +33,9 @@ void server::Server::run()
         // aktualizacja mapy za pomoca wizytatorow
         std::chrono::milliseconds time = std::chrono::duration_cast<std::chrono::milliseconds>(current - previous);
 
-        /// @todo Michał czemu visitor jest w pętli? musi być?
-        /// tak, w wizytatorze robię właściwie całą symulację
+        double speed = common::Config::getInstance()->simulation_speed;
 
-        SimulationVisitor visitor(time.count());
+        SimulationVisitor visitor(speed * time.count());
         localMap->accept(visitor);
 
         common::Config::getInstance()->mutex.lock();
@@ -45,7 +44,7 @@ void server::Server::run()
         }
         common::Config::getInstance()->mutex.unlock();
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(150));
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 }
 

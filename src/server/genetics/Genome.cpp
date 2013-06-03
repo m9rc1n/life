@@ -2,7 +2,7 @@
 
 namespace server {
 
-Genome::Genome()
+Genome::Genome(common::Creature *creature)
 {
 }
 
