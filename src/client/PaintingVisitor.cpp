@@ -110,7 +110,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     QRgb colorDarkPredator;
     QRgb colorLightPredator;
 
-    if(obj.is_male)
+    if(obj.is_male_)
     {
         colorDarkPredator = 555555;
         colorLightPredator = 7777777;
@@ -307,7 +307,7 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     QRgb colorDarkHerb;
     QRgb colorLightHerb;
 
-    if(obj.is_male)
+    if(obj.is_male_)
     {
         colorDarkHerb = qRgb(255, 255, 255);
         colorLightHerb = qRgb(0, 0, 0);

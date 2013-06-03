@@ -819,7 +819,7 @@ namespace common
         bool is_dead_;
 
         /// Czy osobnik jest mężczyzną
-        bool is_male;
+        bool is_male_;
 
         /// Czy zwierzę robi teraz coś konkretnego (true) czy błąka się bez celu (false)?
         bool is_active_;
