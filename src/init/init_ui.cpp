@@ -377,32 +377,31 @@ void Init_UI::enableItemFromPredator_3(int index, QVariant v)
 void Init_UI::on_spinBox_1_editingFinished()
 {
     int spin = ui->spinBox_1->value();
-    config->amount_herbivores = spin;
-   // std::cout << spin << std::endl;
+    config->setNumberOfHerbivores(spin);
 }
 
 void Init_UI::on_spinBox_2_editingFinished()
 {
     int spin = ui->spinBox_2->value();
-    config->amount_predators= spin;
+    config->setNumberOfPredators(spin);
 }
 
 void Init_UI::on_spinBox_3_editingFinished()
 {
     int spin = ui->spinBox_3->value();
-    config->amount_trees = spin;
+    config->setNumberOfTrees(spin);
 }
 
 void Init_UI::on_spinBox_4_editingFinished()
 {
     int spin = ui->spinBox_4->value();
-    config->amount_waterholes = spin;
+    config->setNumberOfWaterholes(spin);
 }
 
 void Init_UI::on_spinBox_5_editingFinished()
 {
     int spin = ui->spinBox_5->value();
-    config->amount_lairs = spin;
+    config->setNumberOfLairs(spin);
 }
 
 

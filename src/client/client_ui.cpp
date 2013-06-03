@@ -8,7 +8,7 @@ Client_UI::Client_UI(common::Config *config, QMainWindow *parent) :
 {
     ui->setupUi(this);
 
-    pixmap = new QPixmap(config->map_width*10+10, config->map_height*10+10);
+    pixmap = new QPixmap(config->getMapWidth()*10+10, config->getMapHeight()*10+10);
 
     client_thread = new client::Client(common::Config::getInstance());
     client_thread->start();
@@ -178,7 +178,7 @@ void Client_UI::createActions()
 
 void Client_UI::speedSimulationHigh()
 {
-    config->simulation_speed = simulation_speed(HIGH);
+    config->setSimulationSpeed(simulation_speed(HIGH));
     simulationLAct->setChecked(false);
     simulationMAct->setChecked(false);
 }
@@ -186,14 +186,14 @@ void Client_UI::speedSimulationHigh()
 
 void Client_UI::speedSimulationLow()
 {
-    config->simulation_speed = simulation_speed(LOW);
+    config->setSimulationSpeed(simulation_speed(LOW));
     simulationHAct->setChecked(false);
     simulationMAct->setChecked(false);
 }
 
 void Client_UI::speedSimulationMedium()
 {
-    config->simulation_speed = simulation_speed(MEDIUM);
+    config->setSimulationSpeed(simulation_speed(MEDIUM));
     simulationHAct->setChecked(false);
     simulationLAct->setChecked(false);
 }
@@ -227,13 +227,13 @@ void Client_UI::createMenus()
 
 void Client_UI::showParametres()
 {
-    if(config->show_creatures_parametres)
+    if(config->getShowCreaturesParametres())
     {
-        config->show_creatures_parametres=false;
+        config->setShowCreaturesParametres(false);
     }
     else
     {
-        config->show_creatures_parametres=true;
+        config->setShowCreaturesParametres(true);
     }
 }
 

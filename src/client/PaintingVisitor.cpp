@@ -262,7 +262,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     if(showCreatureParametres)
     {
 
-        float maxIndex = config->parameter_sum;
+        float maxIndex = config->getParameterSum();
 
         int speedIndex = round((obj.getSpeed() * 20)/maxIndex);
         int radiusIndex = round((obj.getRadius() * 20)/maxIndex);
@@ -567,7 +567,7 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     if(showCreatureParametres)
     {
 
-        float maxIndex = config->parameter_sum;
+        float maxIndex = config->getParameterSum();
 
         int speedIndex = round((obj.getSpeed() * 20)/maxIndex);
         int radiusIndex = round((obj.getRadius() * 20)/maxIndex);

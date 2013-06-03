@@ -13,7 +13,7 @@ void client::Client::run()
     common::Map* localMap;
     bool showCreaturesParametres;
 
-    QImage image(QSize(config->map_width*10+10, config->map_height*10+10), QImage::Format_RGB32);
+    QImage image(QSize(config->getMapWidth()*10+10, config->getMapHeight()*10+10), QImage::Format_RGB32);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
@@ -23,7 +23,7 @@ void client::Client::run()
 
         config->mutex.lock();
             localMap = new common::Map(*(config->map));
-            showCreaturesParametres = config->show_creatures_parametres;
+            showCreaturesParametres = config->getShowCreaturesParametres();
         config->mutex.unlock();
 
         client::PaintingVisitor painter(&image, showCreaturesParametres);

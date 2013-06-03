@@ -146,8 +146,8 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
 
 void SimulationVisitor::normalizeXY(common::Creature &creature)
 {
-    int w = common::Config::getInstance()->map_width;
-    int h = common::Config::getInstance()->map_height;
+    int w = common::Config::getInstance()->getMapWidth();
+    int h = common::Config::getInstance()->getMapHeight();
 
     int x = creature.getX();
     int y = creature.getY();

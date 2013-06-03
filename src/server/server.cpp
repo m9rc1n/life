@@ -13,8 +13,8 @@ void server::Server::run()
 {
     srand(time(NULL));
 
-    common::Map *localMap = new common::Map(common::Config::getInstance()->map_width,
-                                            common::Config::getInstance()->map_height); // generujemy mape na podstawie config
+    common::Map *localMap = new common::Map(common::Config::getInstance()->getMapWidth(),
+                                            common::Config::getInstance()->getMapHeight()); // generujemy mape na podstawie config
 
     common::Config::getInstance()->map = new common::Map();
 
@@ -33,7 +33,7 @@ void server::Server::run()
         // aktualizacja mapy za pomoca wizytatorow
         std::chrono::milliseconds time = std::chrono::duration_cast<std::chrono::milliseconds>(current - previous);
 
-        double speed = common::Config::getInstance()->simulation_speed;
+        double speed = common::Config::getInstance()->getSimulationSpeed();
 
         SimulationVisitor visitor(speed * time.count());
         localMap->accept(visitor);
