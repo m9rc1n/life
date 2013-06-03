@@ -5,14 +5,6 @@
 #include <QImage>
 #include "../common/Map.hpp"
 
-// forward declarations:
-/*class common::Map;
-class common::Predator;
-class common::Herbivore;
-class common::Waterhole;
-class common::Lair;
-class common::Tree;
-*/
 namespace client
 {
 
@@ -27,7 +19,7 @@ namespace client
     public:
         PaintingVisitor(QImage *image);
 
-        virtual void visit(common::Map &obj);
+        virtual void visit(common::Map &);
         virtual void visit(common::Predator &obj);
         virtual void visit(common::Herbivore &obj);
         virtual void visit(common::Waterhole &obj);

@@ -3,15 +3,7 @@
 
 #include "../common/Visitor.hpp"
 #include "Statistics.hpp"
-
-
-// forward declarations:
-class Map;
-class Predator;
-class Herbivore;
-class Waterhole;
-class Lair;
-class Tree;
+#include "../common/Map.hpp"
 
 namespace client
 {
@@ -31,8 +23,8 @@ namespace client
         StatisticsVisitor(Statistics *stat);
 
         virtual void visit(common::Map &);
-        virtual void visit(common::Predator &);
-        virtual void visit(common::Herbivore &);
+        virtual void visit(common::Predator &obj);
+        virtual void visit(common::Herbivore &obj);
         virtual void visit(common::Waterhole &);
         virtual void visit(common::Lair &);
         virtual void visit(common::Tree &);

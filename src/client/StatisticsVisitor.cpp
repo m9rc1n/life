@@ -12,13 +12,21 @@ void client::StatisticsVisitor::visit(common::Map &)
 
 }
 
-void client::StatisticsVisitor::visit(common::Predator &)
+void client::StatisticsVisitor::visit(common::Predator &obj)
 {
+    if (obj.is_dead_)
+    {
+        return;
+    }
     (*stat).populationPredators++;
 }
 
-void client::StatisticsVisitor::visit(common::Herbivore &)
+void client::StatisticsVisitor::visit(common::Herbivore &obj)
 {
+    if (obj.is_dead_)
+    {
+        return;
+    }
     (*stat).populationHerbivores++;
 }
 

@@ -8,9 +8,9 @@ client::PaintingVisitor::PaintingVisitor(QImage *image) :
 
 }
 
-void client::PaintingVisitor::visit(common::Map & obj)
+void client::PaintingVisitor::visit(common::Map &)
 {
-    long colorMap = 666666;
+    long colorMap = 0xDDFFDD;
     image->fill(colorMap);
 }
 
@@ -46,6 +46,9 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
     int x = obj.getX()*10;
     int y = obj.getY()*10;
+
+    if (x < 0 || y < 0)
+        return;
 
     long colorDarkPredator = 555555;
     long colorLightPredator = 7777777;
@@ -121,14 +124,14 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     int repletionIndex = obj.repletion_/obj.max_repletion_ * 10;
     int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
 
-    long colorAgeLow = 11111111;
-    long colorAgeHigh = 22222222;
-    long colorEnergyHigh = 11111111;
-    long colorEnergyLow = 22222222;
-    long colorRepletionLow = 22222222;
-    long colorRepletionHigh = 1111111;
-    long colorHydrationLow = 111111111;
-    long colorHydrationHigh = 222222222;
+    long colorAgeLow = 0xFF0000;
+    long colorAgeHigh = 0x0000FF;
+    long colorEnergyHigh = 0x0000FF;
+    long colorEnergyLow = 0xFF0000;
+    long colorRepletionLow = 0xFF0000;
+    long colorRepletionHigh = 0x0000FF;
+    long colorHydrationLow = 0xFF0000;
+    long colorHydrationHigh = 0x0000FF;
 
 /// draw Stats ///////////////////////////////////////////
 
@@ -148,11 +151,11 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     {
         if(energyIndex < 5)
         {
-            image->setPixel (QPoint (x+i, y+7), colorEnergyLow);
+            image->setPixel (QPoint (x+i, y+8), colorEnergyLow);
         }
         else
         {
-            image->setPixel (QPoint (x+i, y+7), colorEnergyHigh);
+            image->setPixel (QPoint (x+i, y+8), colorEnergyHigh);
         }
     }
 
@@ -160,11 +163,11 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     {
         if(repletionIndex < 5)
         {
-            image->setPixel (QPoint (x+i, y+8), colorRepletionLow);
+            image->setPixel (QPoint (x+i, y+10), colorRepletionLow);
         }
         else
         {
-            image->setPixel (QPoint (x+i, y+8), colorRepletionHigh);
+            image->setPixel (QPoint (x+i, y+10), colorRepletionHigh);
         }
     }
 
@@ -172,11 +175,11 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     {
         if(hydrationIndex < 5)
         {
-            image->setPixel (QPoint (x+i, y+9), colorHydrationLow);
+            image->setPixel (QPoint (x+i, y+12), colorHydrationLow);
         }
         else
         {
-            image->setPixel (QPoint (x+i, y+9), colorHydrationHigh);
+            image->setPixel (QPoint (x+i, y+12), colorHydrationHigh);
         }
     }
 /// end Stats ////////////////////////////////////////////
@@ -193,30 +196,57 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    long colorDarkHerb = 555555;
-    long colorLightHerb = 7777777;
+    if (x < 0 || y < 0)
+        return;
+
+    long colorDarkHerb = 0x0;
+    long colorLightHerb = 0xFFFFFF;
 
 /// draw Herbivore ///////////////////////////////////////
 
-    image->setPixel (QPoint (x+2, y+0), colorDarkHerb);
+    if((x+y)%2 == 0 )
+    {
+        image->setPixel (QPoint (x+2, y+0), colorDarkHerb);
+        image->setPixel (QPoint (x+1, y+1), colorLightHerb);
+        image->setPixel (QPoint (x+2, y+1), colorLightHerb);
 
-    image->setPixel (QPoint (x+1, y+1), colorLightHerb);
-    image->setPixel (QPoint (x+2, y+1), colorLightHerb);
+        image->setPixel (QPoint (x+3, y+2), colorLightHerb);
+        image->setPixel (QPoint (x+4, y+2), colorDarkHerb);
+        image->setPixel (QPoint (x+5, y+2), colorLightHerb);
+        image->setPixel (QPoint (x+6, y+2), colorDarkHerb);
+        image->setPixel (QPoint (x+7, y+2), colorLightHerb);
 
-    image->setPixel (QPoint (x+3, y+2), colorLightHerb);
-    image->setPixel (QPoint (x+4, y+2), colorDarkHerb);
-    image->setPixel (QPoint (x+5, y+2), colorLightHerb);
-    image->setPixel (QPoint (x+6, y+2), colorDarkHerb);
-    image->setPixel (QPoint (x+7, y+2), colorLightHerb);
+        image->setPixel (QPoint (x+3, y+3), colorLightHerb);
+        image->setPixel (QPoint (x+4, y+3), colorLightHerb);
+        image->setPixel (QPoint (x+5, y+3), colorDarkHerb);
+        image->setPixel (QPoint (x+6, y+3), colorLightHerb);
+        image->setPixel (QPoint (x+8, y+3), colorLightHerb);
 
-    image->setPixel (QPoint (x+3, y+3), colorLightHerb);
-    image->setPixel (QPoint (x+4, y+3), colorLightHerb);
-    image->setPixel (QPoint (x+5, y+3), colorDarkHerb);
-    image->setPixel (QPoint (x+6, y+3), colorLightHerb);
-    image->setPixel (QPoint (x+8, y+3), colorLightHerb);
+        image->setPixel (QPoint (x+3, y+4), colorLightHerb);
+        image->setPixel (QPoint (x+6, y+4), colorLightHerb);
+    }
+    else
+    {
+        image->setPixel (QPoint (x+2, y+1), colorDarkHerb);
 
-    image->setPixel (QPoint (x+3, y+4), colorLightHerb);
-    image->setPixel (QPoint (x+6, y+4), colorLightHerb);
+        image->setPixel (QPoint (x+1, y+2), colorLightHerb);
+        image->setPixel (QPoint (x+2, y+2), colorLightHerb);
+
+        image->setPixel (QPoint (x+3, y+2), colorLightHerb);
+        image->setPixel (QPoint (x+4, y+2), colorDarkHerb);
+        image->setPixel (QPoint (x+5, y+2), colorLightHerb);
+        image->setPixel (QPoint (x+6, y+2), colorDarkHerb);
+        image->setPixel (QPoint (x+7, y+2), colorLightHerb);
+
+        image->setPixel (QPoint (x+3, y+3), colorLightHerb);
+        image->setPixel (QPoint (x+4, y+3), colorLightHerb);
+        image->setPixel (QPoint (x+5, y+3), colorDarkHerb);
+        image->setPixel (QPoint (x+6, y+3), colorLightHerb);
+        image->setPixel (QPoint (x+8, y+1), colorLightHerb);
+
+        image->setPixel (QPoint (x+4, y+4), colorLightHerb);
+        image->setPixel (QPoint (x+7, y+4), colorLightHerb);
+    }
 
 /// end Herbivore ////////////////////////////////////////
 
@@ -225,14 +255,14 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     int repletionIndex = obj.repletion_/obj.max_repletion_ * 10;
     int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
 
-    long colorAgeLow = 11111111;
-    long colorAgeHigh = 22222222;
-    long colorEnergyHigh = 11111111;
-    long colorEnergyLow = 22222222;
-    long colorRepletionLow = 22222222;
-    long colorRepletionHigh = 1111111;
-    long colorHydrationLow = 111111111;
-    long colorHydrationHigh = 222222222;
+    long colorAgeLow = 0xFF0000;
+    long colorAgeHigh = 0x0000FF;
+    long colorEnergyHigh = 0x0000FF;
+    long colorEnergyLow = 0xFF0000;
+    long colorRepletionLow = 0xFF0000;
+    long colorRepletionHigh = 0x0000FF;
+    long colorHydrationLow = 0xFF0000;
+    long colorHydrationHigh = 0x0000FF;
 
 /// draw Stats ///////////////////////////////////////////
 
@@ -252,11 +282,11 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     {
         if(energyIndex < 5)
         {
-            image->setPixel (QPoint (x+i, y+7), colorEnergyLow);
+            image->setPixel (QPoint (x+i, y+8), colorEnergyLow);
         }
         else
         {
-            image->setPixel (QPoint (x+i, y+7), colorEnergyHigh);
+            image->setPixel (QPoint (x+i, y+8), colorEnergyHigh);
         }
     }
 
@@ -264,11 +294,11 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     {
         if(repletionIndex < 5)
         {
-            image->setPixel (QPoint (x+i, y+8), colorRepletionLow);
+            image->setPixel (QPoint (x+i, y+10), colorRepletionLow);
         }
         else
         {
-            image->setPixel (QPoint (x+i, y+8), colorRepletionHigh);
+            image->setPixel (QPoint (x+i, y+10), colorRepletionHigh);
         }
     }
 
@@ -276,11 +306,11 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     {
         if(hydrationIndex < 5)
         {
-            image->setPixel (QPoint (x+i, y+9), colorHydrationLow);
+            image->setPixel (QPoint (x+i, y+12), colorHydrationLow);
         }
         else
         {
-            image->setPixel (QPoint (x+i, y+9), colorHydrationHigh);
+            image->setPixel (QPoint (x+i, y+12), colorHydrationHigh);
         }
     }
 /// end Stats ////////////////////////////////////////////
@@ -292,8 +322,8 @@ void client::PaintingVisitor::visit(common::Waterhole &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    long colorLightWave = 555555;
-    long colorDarkWave = 7777777;
+    long colorLightWave = 0x0011FF;
+    long colorDarkWave = 0x0000FF;
 
 /// draw Waterhole ///////////////////////////////////////
 
@@ -358,7 +388,7 @@ void client::PaintingVisitor::visit(common::Lair &obj)
     int y = obj.getY()*10;
 
     long colorUpLair = 555555;
-    long colorDownLair = 7777777;
+    long colorDownLair = 0x111111;
 
 /// draw Lair ////////////////////////////////////////////
 

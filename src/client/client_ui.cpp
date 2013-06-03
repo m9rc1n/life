@@ -39,12 +39,12 @@ Client_UI::~Client_UI()
 
 void Client_UI::zoomIn()
 {
-    scaleImage(1.1);
+    scaleImage(1.25);
 }
 
 void Client_UI::zoomOut()
 {
-    scaleImage(0.89);
+    scaleImage(0.8);
 }
 
 void Client_UI::normalSize()
