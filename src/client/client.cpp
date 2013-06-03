@@ -12,7 +12,7 @@ void client::Client::run()
 {
     common::Map* localMap;
 
-    QImage image(QSize(config->map_width*10, config->map_height*10), QImage::Format_RGB32);
+    QImage image(QSize(config->map_width*10+10, config->map_height*10+10), QImage::Format_RGB32);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
