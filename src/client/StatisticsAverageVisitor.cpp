@@ -4,7 +4,6 @@ client::StatisticsAverageVisitor::StatisticsAverageVisitor(Statistics *stat) :
     stat(stat)
 {
     stat->averageAgeHerbivores = 0;
-    stat->averageDieAgeHerbivores = 0;
     stat->averageEnergyHerbivores = 0;
     stat->averageFecundityHerbivores = 0;
     stat->averageHydrationHerbivores = 0;
@@ -18,7 +17,6 @@ client::StatisticsAverageVisitor::StatisticsAverageVisitor(Statistics *stat) :
     stat->averageAngleHerbivores = 0;
 
     stat->averageAgePredators = 0;
-    stat->averageDieAgePredators = 0;
     stat->averageEnergyPredators = 0;
     stat->averageFecundityPredators = 0;
     stat->averageHydrationPredators = 0;
@@ -47,6 +45,10 @@ void client::StatisticsAverageVisitor::visit(common::Predator &obj)
         (*stat).averageRadiusPredators += obj.radius_;
         (*stat).averageSpeedPredators += obj.hydration_;
         (*stat).averageRepletionPredators += obj.repletion_;
+        (*stat).averageMaxEnergyPredators += obj.max_energy_;
+        (*stat).averageMaxHydrationPredators += obj.max_hydration_;
+        (*stat).averageMaxRepletionPredators += obj.max_repletion_;
+        (*stat).averageMaxAgePredators += obj.max_age_;
     }
     else
     {
@@ -66,6 +68,10 @@ void client::StatisticsAverageVisitor::visit(common::Herbivore &obj)
         (*stat).averageRadiusHerbivores += obj.radius_;
         (*stat).averageSpeedHerbivores += obj.hydration_;
         (*stat).averageRepletionHerbivores += obj.repletion_;
+        (*stat).averageMaxEnergyHerbivores += obj.max_energy_;
+        (*stat).averageMaxHydrationHerbivores += obj.max_hydration_;
+        (*stat).averageMaxRepletionHerbivores += obj.max_repletion_;
+        (*stat).averageMaxAgeHerbivores += obj.max_age_;
     }
     else
     {

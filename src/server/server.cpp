@@ -14,8 +14,8 @@ void server::Server::run()
 {
     srand(time(NULL));
 
-    localMap = new common::Map(common::Config::getInstance()->map_width,
-                                            common::Config::getInstance()->map_height); // generujemy mape na podstawie config
+    localMap = new common::Map(common::Config::getInstance()->getMapWidth(),
+                                            common::Config::getInstance()->getMapHeight()); // generujemy mape na podstawie config
 
     common::Config::getInstance()->map = new common::Map();
 

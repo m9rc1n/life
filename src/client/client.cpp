@@ -42,7 +42,7 @@ void client::Client::run()
         emit toPopCre(popCre);
         emit toPopHer(popHer);
         emit toPopPre(popPre);
-        // emit toPopTot(popTot);
+        emit toPopTot(config->getObjectsCounter());
         emit toPopSle(Statistics::getInstance()->populationSleeping);
         emit toPopCop(Statistics::getInstance()->populationProcreating);
 

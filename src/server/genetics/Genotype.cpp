@@ -43,14 +43,14 @@ namespace server
     {
         double sum = radius_ + angle_ + speed_ + max_hydration_ + max_repletion_ + max_energy_ + fecundity_ + max_age_;
 
-        radius_          = floor(common::Config::getInstance()->parameter_sum * radius_          /sum);
-        angle_           = floor(common::Config::getInstance()->parameter_sum * angle_           /sum);
-        speed_           = floor(common::Config::getInstance()->parameter_sum * speed_           /sum);
-        max_repletion_   = floor(common::Config::getInstance()->parameter_sum * max_repletion_   /sum);
-        max_hydration_   = floor(common::Config::getInstance()->parameter_sum * max_hydration_   /sum);
-        max_energy_      = floor(common::Config::getInstance()->parameter_sum * max_energy_      /sum);
-        fecundity_       = floor(common::Config::getInstance()->parameter_sum * max_energy_      /sum);
-        max_age_         = common::Config::getInstance()->parameter_sum - radius_ - angle_ - speed_ - max_repletion_ -
+        radius_          = floor(common::Config::getInstance()->getParameterSum() * radius_          /sum);
+        angle_           = floor(common::Config::getInstance()->getParameterSum() * angle_           /sum);
+        speed_           = floor(common::Config::getInstance()->getParameterSum() * speed_           /sum);
+        max_repletion_   = floor(common::Config::getInstance()->getParameterSum() * max_repletion_   /sum);
+        max_hydration_   = floor(common::Config::getInstance()->getParameterSum() * max_hydration_   /sum);
+        max_energy_      = floor(common::Config::getInstance()->getParameterSum() * max_energy_      /sum);
+        fecundity_       = floor(common::Config::getInstance()->getParameterSum() * max_energy_      /sum);
+        max_age_         = common::Config::getInstance()->getParameterSum() - radius_ - angle_ - speed_ - max_repletion_ -
                                                                 max_hydration_ - max_energy_ - fecundity_;
         if(max_age_ < 5) // anomalia... poprawiamy ręcznie
         {

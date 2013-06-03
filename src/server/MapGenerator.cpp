@@ -33,14 +33,14 @@ void MapGenerator::getParameters()
 
     double sum = radius + angle + speed + max_hydration + max_repletion + max_energy + fecundity + max_age;
 
-    radius          = floor(common::Config::getInstance()->parameter_sum * radius          /sum);
-    angle           = floor(common::Config::getInstance()->parameter_sum * angle           /sum);
-    speed           = floor(common::Config::getInstance()->parameter_sum * speed           /sum);
-    max_repletion   = floor(common::Config::getInstance()->parameter_sum * max_repletion   /sum);
-    max_hydration   = floor(common::Config::getInstance()->parameter_sum * max_hydration   /sum);
-    max_energy      = floor(common::Config::getInstance()->parameter_sum * max_energy      /sum);
-    fecundity       = floor(common::Config::getInstance()->parameter_sum * max_energy      /sum);
-    max_age         = common::Config::getInstance()->parameter_sum - radius - angle - speed - max_repletion -
+    radius          = floor(common::Config::getInstance()->getParameterSum() * radius          /sum);
+    angle           = floor(common::Config::getInstance()->getParameterSum() * angle           /sum);
+    speed           = floor(common::Config::getInstance()->getParameterSum() * speed           /sum);
+    max_repletion   = floor(common::Config::getInstance()->getParameterSum() * max_repletion   /sum);
+    max_hydration   = floor(common::Config::getInstance()->getParameterSum() * max_hydration   /sum);
+    max_energy      = floor(common::Config::getInstance()->getParameterSum() * max_energy      /sum);
+    fecundity       = floor(common::Config::getInstance()->getParameterSum() * max_energy      /sum);
+    max_age         = common::Config::getInstance()->getParameterSum() - radius - angle - speed - max_repletion -
                                                             max_hydration - max_energy - fecundity;
 
     is_male = getRandomBool();
