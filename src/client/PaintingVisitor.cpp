@@ -5,7 +5,7 @@ int temp_counter = 0;
 client::PaintingVisitor::PaintingVisitor(QImage *image) :
     image(image)
 {
-    config = common::Config.getInstance();
+    config = common::Config::getInstance();
 }
 
 void client::PaintingVisitor::visit(common::Map &)
