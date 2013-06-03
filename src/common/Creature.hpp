@@ -48,7 +48,8 @@ namespace common
             is_sleeping_(0),
             time_sleeping_(0),
             is_procreating_(0),
-            time_procreating_(0)
+            time_procreating_(0),
+            time_to_procreate_(100)
         {
         }
 
@@ -84,7 +85,8 @@ namespace common
             is_sleeping_(0),
             time_sleeping_(0),
             is_procreating_(0),
-            time_procreating_(0)
+            time_procreating_(0),
+            time_to_procreate_(100)
         {
         }
 
@@ -114,7 +116,8 @@ namespace common
             is_sleeping_(another.is_sleeping_),
             time_sleeping_(another.time_sleeping_),
             is_procreating_(another.is_procreating_),
-            time_procreating_(another.time_procreating_)
+            time_procreating_(another.time_procreating_),
+            time_to_procreate_(another.time_to_procreate_)
         {
         }
 
@@ -696,6 +699,24 @@ namespace common
         {
             is_procreating_ = 1;
             time_procreating_ = 0;
+            time_to_procreate_ = 100;
+        }
+
+        /// Aktualizuje czas do następnej prokreacji
+        void updateTimeToProcreate(double time)
+        {
+            time_to_procreate_ -= time * fecundity_ * 4;
+            if(time_to_procreate_ < 0)
+            {
+                time_to_procreate_ = 0;
+            }
+            std::cout << time_to_procreate_ << std::endl;
+        }
+
+        /// Zwraca czas do następnej prokreacji
+        double getTimeToProcreate() const
+        {
+            return time_to_procreate_;
         }
 
         /// Robi jakąś akcję, gdy zwierzę nie ma nic do roboty
@@ -810,6 +831,9 @@ namespace common
 
         /// Jeśli zwierzę teraz kopluje, to od jakiego czasu (w milisekundach)
         double time_procreating_;
+
+        /// Czas za jaki zwierzę będzie mogło się znowu rozmnażać (maleje od 100 do 0)
+        double time_to_procreate_;
     };
 }
 

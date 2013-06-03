@@ -62,6 +62,7 @@ void SimulationVisitor::visit(common::Predator &predator)
     predator.makeThirsty(time_interval_/25000);
     predator.makeTired(time_interval_/25000);
     predator.makeOlder(time_interval_/25000);
+    predator.updateTimeToProcreate(time_interval_/25000);
 
     if(!action_performed)
     {
@@ -125,6 +126,7 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
     herbivore.makeThirsty(time_interval_/25000);
     herbivore.makeTired(time_interval_/25000);
     herbivore.makeOlder(time_interval_/25000);
+    herbivore.updateTimeToProcreate(time_interval_/25000);
 
     if(!action_performed)
     {
