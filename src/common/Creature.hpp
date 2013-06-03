@@ -850,9 +850,6 @@ namespace common
 
         /// Obecny partner (ważne tylko gdy is_procreating_ == 1)
         Creature *current_procreating_partner_;
-
-        /// Płeć
-        enum {MALE, FEMALE} gender;
     };
 }
 
