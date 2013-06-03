@@ -20,6 +20,8 @@ namespace server
 
     protected:
         void run();
+        static common::Map *localMap;
 
+        friend class Genetics;
     };
 }

@@ -1,17 +1,19 @@
 #include "MapGenerator.hpp"
 
- double MapGenerator::x_pos;
- double MapGenerator::y_pos;
- double MapGenerator::direction;
+double MapGenerator::x_pos;
+double MapGenerator::y_pos;
+double MapGenerator::direction;
 
- int MapGenerator::radius;
- int MapGenerator::angle;
- int MapGenerator::speed;
- int MapGenerator::max_repletion;
- int MapGenerator::max_hydration;
- int MapGenerator::max_energy;
- int MapGenerator::fecundity;
- int MapGenerator::max_age;
+int MapGenerator::radius;
+int MapGenerator::angle;
+int MapGenerator::speed;
+int MapGenerator::max_repletion;
+int MapGenerator::max_hydration;
+int MapGenerator::max_energy;
+int MapGenerator::fecundity;
+int MapGenerator::max_age;
+
+bool MapGenerator::is_male;
 
 void MapGenerator::getParameters()
 {
@@ -31,15 +33,17 @@ void MapGenerator::getParameters()
 
     double sum = radius + angle + speed + max_hydration + max_repletion + max_energy + fecundity + max_age;
 
-    radius          = round(common::Config::getInstance()->getParameterSum() * radius          /sum);
-    angle           = round(common::Config::getInstance()->getParameterSum() * angle           /sum);
-    speed           = round(common::Config::getInstance()->getParameterSum() * speed           /sum);
-    max_repletion   = round(common::Config::getInstance()->getParameterSum() * max_repletion   /sum);
-    max_hydration   = round(common::Config::getInstance()->getParameterSum() * max_hydration   /sum);
-    max_energy      = round(common::Config::getInstance()->getParameterSum() * max_energy      /sum);
-    fecundity       = round(common::Config::getInstance()->getParameterSum() * max_energy      /sum);
-    max_age         = common::Config::getInstance()->getParameterSum() - radius - angle - speed - max_repletion -
-                                                            max_hydration - max_energy - fecundity - max_age;
+    radius          = floor(common::Config::getInstance()->parameter_sum * radius          /sum);
+    angle           = floor(common::Config::getInstance()->parameter_sum * angle           /sum);
+    speed           = floor(common::Config::getInstance()->parameter_sum * speed           /sum);
+    max_repletion   = floor(common::Config::getInstance()->parameter_sum * max_repletion   /sum);
+    max_hydration   = floor(common::Config::getInstance()->parameter_sum * max_hydration   /sum);
+    max_energy      = floor(common::Config::getInstance()->parameter_sum * max_energy      /sum);
+    fecundity       = floor(common::Config::getInstance()->parameter_sum * max_energy      /sum);
+    max_age         = common::Config::getInstance()->parameter_sum - radius - angle - speed - max_repletion -
+                                                            max_hydration - max_energy - fecundity;
+
+    is_male = getRandomBool();
 }
 
 void MapGenerator::generateMap(common::Map *map)
@@ -56,7 +60,7 @@ void MapGenerator::generateMap(common::Map *map)
         getParameters();
 
         common::Herbivore *h = new common::Herbivore(x_pos, y_pos, direction, radius, angle, speed,
-                                   max_repletion, max_hydration, max_energy, fecundity, max_age);
+                                   max_repletion, max_hydration, max_energy, fecundity, max_age, is_male);
         map->appendObject(h);
     }
 
@@ -65,7 +69,7 @@ void MapGenerator::generateMap(common::Map *map)
         getParameters();
 
         common::Predator *p = new common::Predator(x_pos, y_pos, direction, radius, angle, speed,
-                                  max_repletion, max_hydration, max_energy, fecundity, max_age);
+                                  max_repletion, max_hydration, max_energy, fecundity, max_age, is_male);
         map->appendObject(p);
     }
 
