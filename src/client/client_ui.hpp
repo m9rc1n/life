@@ -41,6 +41,9 @@ class Client_UI : public QMainWindow
         void zoomOut();
         void normalSize();
         void about();
+        void speedSimulationLow();
+        void speedSimulationHigh();
+        void speedSimulationMedium();
 
     private:
 
@@ -62,11 +65,21 @@ class Client_UI : public QMainWindow
         QAction         *normalSizeAct;
         QAction         *aboutAct;
         QAction         *aboutQtAct;
+        QAction         *simulationLAct;
+        QAction         *simulationMAct;
+        QAction         *simulationHAct;
         double          scaleFactor;
 
         QMenu           *viewMenu;
         QMenu           *helpMenu;
         QMenu           *fileMenu;
+
+        enum simulation_speed
+        {
+            LOW = 1,
+            MEDIUM = 2,
+            HIGH = 4
+        };
 };
 
 #endif // CLIENT_UI_H

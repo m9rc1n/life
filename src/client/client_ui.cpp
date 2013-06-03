@@ -123,6 +123,24 @@ void Client_UI::createActions()
     aboutAct->setShortcut(tr("Ctrl+A"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
+    simulationLAct = new QAction(tr("Speed Simulation &Low"), this);
+    simulationLAct->setEnabled(true);
+    simulationLAct->setCheckable(true);
+    simulationLAct->setShortcut(tr("1"));
+    connect(simulationLAct, SIGNAL(triggered()), this, SLOT(speedSimulationLow()));
+
+    simulationMAct = new QAction(tr("Speed Simulation &Medium"), this);
+    simulationMAct->setEnabled(true);
+    simulationMAct->setCheckable(true);
+    simulationMAct->setShortcut(tr("2"));
+    connect(simulationMAct, SIGNAL(triggered()), this, SLOT(speedSimulationMedium()));
+
+    simulationHAct = new QAction(tr("Speed Simulation &High"), this);
+    simulationHAct->setEnabled(true);
+    simulationHAct->setCheckable(true);
+    simulationHAct->setShortcut(tr("3"));
+    connect(simulationHAct, SIGNAL(triggered()), this, SLOT(speedSimulationHigh()));
+
     aboutQtAct = new QAction(tr("About &Qt"), this);
     aboutQtAct->setEnabled(true);
     aboutQtAct->setCheckable(true);
@@ -137,6 +155,28 @@ void Client_UI::createActions()
     this->addAction(exitAct);
 }
 
+void Client_UI::speedSimulationHigh()
+{
+    config->simulation_speed = simulation_speed(HIGH);
+    simulationLAct->setChecked(false);
+    simulationMAct->setChecked(false);
+}
+
+
+void Client_UI::speedSimulationLow()
+{
+    config->simulation_speed = simulation_speed(LOW);
+    simulationHAct->setChecked(false);
+    simulationMAct->setChecked(false);
+}
+
+void Client_UI::speedSimulationMedium()
+{
+    config->simulation_speed = simulation_speed(MEDIUM);
+    simulationHAct->setChecked(false);
+    simulationLAct->setChecked(false);
+}
+
 void Client_UI::createMenus()
 {
     fileMenu = new QMenu(tr("&File"), this);
@@ -146,6 +186,10 @@ void Client_UI::createMenus()
     viewMenu->addAction(zoomInAct);
     viewMenu->addAction(zoomOutAct);
     viewMenu->addAction(normalSizeAct);
+    viewMenu->addSeparator();
+    viewMenu->addAction(simulationLAct);
+    viewMenu->addAction(simulationMAct);
+    viewMenu->addAction(simulationHAct);
 
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutAct);

@@ -10,7 +10,7 @@ client::PaintingVisitor::PaintingVisitor(QImage *image) :
 
 void client::PaintingVisitor::visit(common::Map &)
 {
-    long colorMap = 0xDDFFDD;
+    QRgb colorMap = qRgb(180, 200, 180);
     image->fill(colorMap);
 }
 
@@ -20,7 +20,7 @@ void client::PaintingVisitor::drawDeadCreature(common::Creature &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    long color = 7777777;
+    QRgb color = 7777777;
 
     image->setPixel (QPoint (x+0, y+2), color);
     image->setPixel (QPoint (x+1, y+2), color);
@@ -41,7 +41,7 @@ void client::PaintingVisitor::drawSleepingCreature(common::Creature &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    long color = 555555;
+    QRgb color = 555555;
 
     image->setPixel (QPoint (x+0, y+0), color);
     image->setPixel (QPoint (x+1, y+0), color);
@@ -107,8 +107,8 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     if (x < 0 || y < 0)
         return;
 
-    long colorDarkPredator = 555555;
-    long colorLightPredator = 7777777;
+    QRgb colorDarkPredator = 555555;
+    QRgb colorLightPredator = 7777777;
 
 /// draw Predator ////////////////////////////////////////
 
@@ -182,26 +182,15 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
     int procreateIndex = obj.getTimeToProcreate() / 10;
 
-<<<<<<< HEAD
-    long colorAgeLow = 0xFF0000;
-    long colorAgeHigh = 0x0000FF;
-    long colorEnergyHigh = 0x0000FF;
-    long colorEnergyLow = 0xFF0000;
-    long colorRepletionLow = 0xFF0000;
-    long colorRepletionHigh = 0x0000FF;
-    long colorHydrationLow = 0xFF0000;
-    long colorHydrationHigh = 0x0000FF;
-=======
-    long colorAgeLow = 11111111;
-    long colorAgeHigh = 22222222;
-    long colorEnergyHigh = 11111111;
-    long colorEnergyLow = 22222222;
-    long colorRepletionLow = 22222222;
-    long colorRepletionHigh = 1111111;
-    long colorHydrationLow = 111111111;
-    long colorHydrationHigh = 222222222;
+    QRgb colorAgeLow = 0xFF0000;
+    QRgb colorAgeHigh = 0x0000FF;
+    QRgb colorEnergyHigh = 0x0000FF;
+    QRgb colorEnergyLow = 0xFF0000;
+    QRgb colorRepletionLow = 0xFF0000;
+    QRgb colorRepletionHigh = 0x0000FF;
+    QRgb colorHydrationLow = 0xFF0000;
+    QRgb colorHydrationHigh = 0x0000FF;
     QRgb colorTimeToProcreateLow =  qRgb(200, 2, 2);
->>>>>>> 14002aad7c5f42b080c1fb291147f841561af441
 
 /// draw Stats ///////////////////////////////////////////
 
@@ -287,8 +276,8 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     if (x < 0 || y < 0)
         return;
 
-    long colorDarkHerb = 0x0;
-    long colorLightHerb = 0xFFFFFF;
+    QRgb colorDarkHerb = 0x0;
+    QRgb colorLightHerb = 0xFFFFFF;
 
 /// draw Herbivore ///////////////////////////////////////
 
@@ -344,26 +333,15 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
     int procreateIndex = obj.getTimeToProcreate() / 10;
 
-<<<<<<< HEAD
-    long colorAgeLow = 0xFF0000;
-    long colorAgeHigh = 0x0000FF;
-    long colorEnergyHigh = 0x0000FF;
-    long colorEnergyLow = 0xFF0000;
-    long colorRepletionLow = 0xFF0000;
-    long colorRepletionHigh = 0x0000FF;
-    long colorHydrationLow = 0xFF0000;
-    long colorHydrationHigh = 0x0000FF;
-=======
-    long colorAgeLow = 11111111;
-    long colorAgeHigh = 22222222;
-    long colorEnergyHigh = 11111111;
-    long colorEnergyLow = 22222222;
-    long colorRepletionLow = 22222222;
-    long colorRepletionHigh = 1111111;
-    long colorHydrationLow = 111111111;
-    long colorHydrationHigh = 222222222;
+    QRgb colorAgeLow = 0xFF0000;
+    QRgb colorAgeHigh = 0x0000FF;
+    QRgb colorEnergyHigh = 0x0000FF;
+    QRgb colorEnergyLow = 0xFF0000;
+    QRgb colorRepletionLow = 0xFF0000;
+    QRgb colorRepletionHigh = 0x0000FF;
+    QRgb colorHydrationLow = 0xFF0000;
+    QRgb colorHydrationHigh = 0x0000FF;
     QRgb colorTimeToProcreateLow =  qRgb(200, 2, 2);
->>>>>>> 14002aad7c5f42b080c1fb291147f841561af441
 
 /// draw Stats ///////////////////////////////////////////
 
@@ -427,8 +405,8 @@ void client::PaintingVisitor::visit(common::Waterhole &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    long colorLightWave = 0x0011FF;
-    long colorDarkWave = 0x0000FF;
+    QRgb colorLightWave = 0x0011FF;
+    QRgb colorDarkWave = 0x0000FF;
 
 /// draw Waterhole ///////////////////////////////////////
 
@@ -492,8 +470,8 @@ void client::PaintingVisitor::visit(common::Lair &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    long colorUpLair = 555555;
-    long colorDownLair = 0x111111;
+    QRgb colorUpLair = 555555;
+    QRgb colorDownLair = 0x111111;
 
 /// draw Lair ////////////////////////////////////////////
 
@@ -549,8 +527,8 @@ void client::PaintingVisitor::visit(common::Tree &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    long colorUpTree = 555555;
-    long colorDownTree = 7777777;
+    QRgb colorUpTree = 555555;
+    QRgb colorDownTree = 7777777;
 
 /// draw Tree ////////////////////////////////////////////
 
