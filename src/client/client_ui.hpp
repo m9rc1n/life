@@ -34,9 +34,42 @@ class Client_UI : public QMainWindow
     private slots:
 
         void updatePixmap(const QImage &image);
+
         void updatePopCre(int update);
         void updatePopHer(int update);
         void updatePopPre(int update);
+        void updatePopTot(int update);
+        void updatePopSle(int update);
+        void updatePopCop(int update);
+
+        void updateAvePreAng(double update);
+        void updateAvePreSpe(double update);
+        void updateAvePreEne(double update);
+        void updateAvePreFec(double update);
+        void updateAvePreRad(double update);
+        void updateAvePreHyd(double update);
+        void updateAvePreRep(double update);
+        void updateAvePreAge(double update);
+        void updateMaxPreAge(double update);
+        void updateMaxPreEne(double update);
+        void updateMaxPreRep(double update);
+        void updateMaxPreHyd(double update);
+        void updateDiePreAge(double update);
+
+        void updateAveHerAng(double update);
+        void updateAveHerSpe(double update);
+        void updateAveHerEne(double update);
+        void updateAveHerFec(double update);
+        void updateAveHerRad(double update);
+        void updateAveHerHyd(double update);
+        void updateAveHerRep(double update);
+        void updateAveHerAge(double update);
+        void updateMaxHerAge(double update);
+        void updateMaxHerEne(double update);
+        void updateMaxHerRep(double update);
+        void updateMaxHerHyd(double update);
+        void updateDieHerAge(double update);
+
         void zoomIn();
         void zoomOut();
         void normalSize();
@@ -50,6 +83,7 @@ class Client_UI : public QMainWindow
     private:
 
         void createActions();
+        void createConnections();
         void createMenus();
         void scaleImage(double factor);
         void adjustScrollBar(QScrollBar *scrollBar, double factor);

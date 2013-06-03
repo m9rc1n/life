@@ -1,5 +1,6 @@
-#ifndef STATISTICSVISITOR_H
-#define STATISTICSVISITOR_H
+#ifndef STATISTICSAVERAGEVISITOR_H
+#define STATISTICSAVERAGEVISITOR_H
+
 
 #include "../common/Visitor.hpp"
 #include "Statistics.hpp"
@@ -15,10 +16,10 @@ namespace client
      * wyświetlać je na ekranie, zbierać statystyki etc.
      */
 
-    class StatisticsVisitor : public common::Visitor
+    class StatisticsAverageVisitor : public common::Visitor
     {
     public:
-        StatisticsVisitor(Statistics *stat);
+        StatisticsAverageVisitor(Statistics *stat);
 
         virtual void visit(common::Map &);
         virtual void visit(common::Predator &obj);
@@ -35,4 +36,4 @@ namespace client
 }
 
 
-#endif // STATISTICSVISITOR_H
+#endif // STATISTICSAVERAGEVISITOR_H

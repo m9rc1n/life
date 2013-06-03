@@ -27,7 +27,6 @@ SOURCES += main.cpp\
     common/Lair.cpp \
     init/init_ui.cpp \
     client/client_ui.cpp \
-    client/StatisticsVisitor.cpp \
     client/PaintingVisitor.cpp \
     common/MaslovPyramid.cpp \
     common/GeneticEquation.cpp \
@@ -45,7 +44,9 @@ SOURCES += main.cpp\
     server/ActionPerformVisitor.cpp \
     client/Statistics.cpp \
     server/genetics/Genetics.cpp \
-    server/genetics/Genotype.cpp
+    server/genetics/Genotype.cpp \
+    client/StatisticsAverageVisitor.cpp \
+    client/StatisticsSumVisitor.cpp
 
 HEADERS  += \
     client/client.hpp \
@@ -64,7 +65,6 @@ HEADERS  += \
     init/init_ui.hpp \
     client/client_ui.hpp \
     client/PaintingVisitor.hpp \
-    client/StatisticsVisitor.hpp \
     common/MaslovPyramid.hpp \
     common/GeneticEquation.hpp \
     server/SimulationVisitor.hpp \
@@ -81,7 +81,9 @@ HEADERS  += \
     server/ActionPerformVisitor.hpp \
     client/Statistics.hpp \
     server/genetics/Genetics.hpp \
-    server/genetics/Genotype.hpp
+    server/genetics/Genotype.hpp \
+    client/StatisticsSumVisitor.hpp \
+    client/StatisticsAverageVisitor.hpp
 
 OTHER_FILES += \
     makefile \

@@ -12,10 +12,6 @@ Client_UI::Client_UI(common::Config *config, QMainWindow *parent) :
 
     client_thread = new client::Client(common::Config::getInstance());
     client_thread->start();
-    connect(client_thread, SIGNAL(renderedImage(QImage)), this, SLOT(updatePixmap(QImage)));
-    connect(client_thread, SIGNAL(toPopPre(int)), this, SLOT(updatePopPre(int)));
-    connect(client_thread, SIGNAL(toPopHer(int)), this, SLOT(updatePopHer(int)));
-    connect(client_thread, SIGNAL(toPopCre(int)), this, SLOT(updatePopCre(int)));
 
     imageLabel = new QLabel;
     imageLabel->setPixmap(*pixmap);
@@ -24,6 +20,7 @@ Client_UI::Client_UI(common::Config *config, QMainWindow *parent) :
 
     createActions();
     createMenus();
+    createConnections();
 
     setWindowTitle(tr("Life! ------ Predators vs. Herbivores"));
     setCursor(Qt::CrossCursor);
@@ -99,6 +96,49 @@ void Client_UI::adjustScrollBar(QScrollBar *scrollBar, double factor)
 {
     scrollBar->setValue(int(factor * scrollBar->value()
                             + ((factor - 1) * scrollBar->pageStep()/2)));
+}
+
+void Client_UI::createConnections()
+{
+    connect(client_thread, SIGNAL(renderedImage(QImage)), this, SLOT(updatePixmap(QImage)));
+
+    connect(client_thread, SIGNAL(toPopPre(int)), this, SLOT(updatePopPre(int)));
+    connect(client_thread, SIGNAL(toPopHer(int)), this, SLOT(updatePopHer(int)));
+    connect(client_thread, SIGNAL(toPopTot(int)), this, SLOT(updatePopTot(int)));
+    connect(client_thread, SIGNAL(toPopCop(int)), this, SLOT(updatePopCop(int)));
+    connect(client_thread, SIGNAL(toPopCre(int)), this, SLOT(updatePopCre(int)));
+
+    connect(client_thread, SIGNAL(toAvePreAge(double)), this, SLOT(updateAvePreAge(double)));
+    connect(client_thread, SIGNAL(toAvePreEne(double)), this, SLOT(updateAvePreEne(double)));
+    connect(client_thread, SIGNAL(toAvePreFec(double)), this, SLOT(updateAvePreFec(double)));
+    connect(client_thread, SIGNAL(toAvePreAng(double)), this, SLOT(updateAvePreAng(double)));
+    connect(client_thread, SIGNAL(toAvePreRad(double)), this, SLOT(updateAvePreRad(double)));
+    connect(client_thread, SIGNAL(toAvePreSpe(double)), this, SLOT(updateAvePreSpe(double)));
+    connect(client_thread, SIGNAL(toAvePreRep(double)), this, SLOT(updateAvePreRep(double)));
+    connect(client_thread, SIGNAL(toAvePreHyd(double)), this, SLOT(updateAvePreHyd(double)));
+
+    connect(client_thread, SIGNAL(toMaxPreRep(double)), this, SLOT(updateMaxPreRep(double)));
+    connect(client_thread, SIGNAL(toMaxPreHyd(double)), this, SLOT(updateMaxPreHyd(double)));
+    connect(client_thread, SIGNAL(toMaxPreAge(double)), this, SLOT(updateMaxPreAge(double)));
+    connect(client_thread, SIGNAL(toMaxPreEne(double)), this, SLOT(updateMaxPreEne(double)));
+
+    connect(client_thread, SIGNAL(toDiePreAge(double)), this, SLOT(updateMaxDieAge(double)));
+
+    connect(client_thread, SIGNAL(toAveHerAge(double)), this, SLOT(updateAveHerAge(double)));
+    connect(client_thread, SIGNAL(toAveHerEne(double)), this, SLOT(updateAveHerEne(double)));
+    connect(client_thread, SIGNAL(toAveHerFec(double)), this, SLOT(updateAveHerFec(double)));
+    connect(client_thread, SIGNAL(toAveHerAng(double)), this, SLOT(updateAveHerAng(double)));
+    connect(client_thread, SIGNAL(toAveHerRad(double)), this, SLOT(updateAveHerRad(double)));
+    connect(client_thread, SIGNAL(toAveHerSpe(double)), this, SLOT(updateAveHerSpe(double)));
+    connect(client_thread, SIGNAL(toAveHerRep(double)), this, SLOT(updateAveHerRep(double)));
+    connect(client_thread, SIGNAL(toAveHerHyd(double)), this, SLOT(updateAveHerHyd(double)));
+
+    connect(client_thread, SIGNAL(toMaxHerRep(double)), this, SLOT(updateMaxHerRep(double)));
+    connect(client_thread, SIGNAL(toMaxHerHyd(double)), this, SLOT(updateMaxHerHyd(double)));
+    connect(client_thread, SIGNAL(toMaxHerAge(double)), this, SLOT(updateMaxHerAge(double)));
+    connect(client_thread, SIGNAL(toMaxHerEne(double)), this, SLOT(updateMaxHerEne(double)));
+
+    connect(client_thread, SIGNAL(toDieHerAge(double)), this, SLOT(updateMaxDieAge(double)));
 }
 
 void Client_UI::createActions()
@@ -252,3 +292,147 @@ void Client_UI::updatePopPre(int update)
     ui->pop_pre->display(update);
 }
 
+void Client_UI::updatePopCop(int update)
+{
+    ui->pop_cop->display(update);
+}
+
+void Client_UI::updatePopTot(int update)
+{
+    ui->pop_tot->display(update);
+}
+
+void Client_UI::updatePopSle(int update)
+{
+    ui->pop_sle->display(update);
+}
+
+void Client_UI::updateAveHerAge(double update)
+{
+    ui->ave_her_age->display(update);
+}
+
+void Client_UI::updateAveHerAng(double update)
+{
+    ui->ave_her_ang->display(update);
+}
+
+void Client_UI::updateAveHerEne(double update)
+{
+    ui->ave_her_ene->display(update);
+}
+
+void Client_UI::updateAveHerFec(double update)
+{
+    ui->ave_her_fec->display(update);
+}
+
+void Client_UI::updateAveHerHyd(double update)
+{
+    ui->ave_her_hyd->display(update);
+}
+
+void Client_UI::updateAveHerRad(double update)
+{
+    ui->ave_her_rad->display(update);
+}
+
+void Client_UI::updateAveHerRep(double update)
+{
+    ui->ave_her_rep->display(update);
+}
+
+void Client_UI::updateAveHerSpe(double update)
+{
+    ui->ave_her_spe->display(update);
+}
+
+void Client_UI::updateMaxHerAge(double update)
+{
+    ui->max_her_age->display(update);
+}
+
+void Client_UI::updateMaxHerEne(double update)
+{
+    ui->max_her_ene->display(update);
+}
+
+void Client_UI::updateMaxHerHyd(double update)
+{
+    ui->max_her_hyd->display(update);
+}
+
+void Client_UI::updateMaxHerRep(double update)
+{
+    ui->max_her_rep->display(update);
+}
+
+void Client_UI::updateDieHerAge(double update)
+{
+    ui->die_her_age->display(update);
+}
+
+void Client_UI::updateAvePreAge(double update)
+{
+    ui->ave_pre_age->display(update);
+}
+
+void Client_UI::updateAvePreAng(double update)
+{
+    ui->ave_pre_ang->display(update);
+}
+
+void Client_UI::updateAvePreEne(double update)
+{
+    ui->ave_pre_ene->display(update);
+}
+
+void Client_UI::updateAvePreFec(double update)
+{
+    ui->ave_pre_fec->display(update);
+}
+
+void Client_UI::updateAvePreHyd(double update)
+{
+    ui->ave_pre_hyd->display(update);
+}
+
+void Client_UI::updateAvePreRad(double update)
+{
+    ui->ave_pre_rad->display(update);
+}
+
+void Client_UI::updateAvePreRep(double update)
+{
+    ui->ave_pre_rep->display(update);
+}
+
+void Client_UI::updateAvePreSpe(double update)
+{
+    ui->ave_pre_spe->display(update);
+}
+
+void Client_UI::updateMaxPreAge(double update)
+{
+    ui->max_pre_age->display(update);
+}
+
+void Client_UI::updateMaxPreEne(double update)
+{
+    ui->max_pre_ene->display(update);
+}
+
+void Client_UI::updateMaxPreHyd(double update)
+{
+    ui->max_pre_hyd->display(update);
+}
+
+void Client_UI::updateMaxPreRep(double update)
+{
+    ui->max_pre_rep->display(update);
+}
+
+void Client_UI::updateDiePreAge(double update)
+{
+    ui->die_pre_age->display(update);
+}
