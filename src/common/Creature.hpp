@@ -697,7 +697,8 @@ namespace common
 
         bool hasOppositeSex(const Creature &another) const
         {
-            return
+            /// @todo
+            return true;
         }
         /**
          * @brief Zaczyna kopulację
