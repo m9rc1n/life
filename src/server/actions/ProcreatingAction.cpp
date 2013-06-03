@@ -14,7 +14,7 @@ namespace server {
         {
             if(creature_.getDistance(object_) < 1) // cel osiagniety
             {
-                // write me
+                // write me plz
                 return true;
             }
             else
