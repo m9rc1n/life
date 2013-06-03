@@ -5,7 +5,7 @@ int temp_counter = 0;
 client::PaintingVisitor::PaintingVisitor(QImage *image) :
     image(image)
 {
-
+    config = common::Config.getInstance();
 }
 
 void client::PaintingVisitor::visit(common::Map &)
@@ -20,7 +20,7 @@ void client::PaintingVisitor::drawDeadCreature(common::Creature &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    QRgb color = 7777777;
+    QRgb color = qRgb(40, 0, 0);
 
     image->setPixel (QPoint (x+0, y+2), color);
     image->setPixel (QPoint (x+1, y+2), color);
@@ -41,7 +41,7 @@ void client::PaintingVisitor::drawSleepingCreature(common::Creature &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    QRgb color = 555555;
+    QRgb color = qRgb(0, 0, 100);
 
     image->setPixel (QPoint (x+0, y+0), color);
     image->setPixel (QPoint (x+1, y+0), color);
@@ -107,14 +107,25 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     if (x < 0 || y < 0)
         return;
 
-    QRgb colorDarkPredator = 555555;
-    QRgb colorLightPredator = 7777777;
+    QRgb colorDarkPredator;
+    QRgb colorLightPredator;
+
+    if(obj.is_male_)
+    {
+        colorDarkPredator = 555555;
+        colorLightPredator = 7777777;
+    } else
+    {
+        colorLightPredator = 555555;
+        colorDarkPredator = 7777777;
+    }
+
 
 /// draw Predator ////////////////////////////////////////
 
     if((x+y)%2 == 0 )
     {
-        image->setPixel (QPoint (x+0, y+0), colorLightPredator);
+        image->setPixel (QPoint (x+0, y+0), colorDarkPredator);
         image->setPixel (QPoint (x+1, y+0), colorDarkPredator);
         image->setPixel (QPoint (x+3, y+0), colorDarkPredator);
         image->setPixel (QPoint (x+4, y+0), colorLightPredator);
@@ -182,6 +193,17 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
     int procreateIndex = obj.getTimeToProcreate() / 10;
 
+    int maxIndex = config->parameter_sum;
+
+    int speedIndex = obj.getSpeed()/maxIndex;
+    int radiusIndex = obj.getRadius()/maxIndex;
+    int angleIndex = obj.getAngle()/maxIndex;
+    int fecundityIndex = obj.getFecundity()/maxIndex;
+    int repletionMaxIndex = obj.getMaxRepletion()/maxIndex;
+    int hydrationMaxIndex = obj.getMaxHydration()/maxIndex;
+    int ageMaxIndex = obj.getMaxAge()/maxIndex;
+    int energyMaxIndex = obj.getMaxEnergy()/maxIndex;
+
     QRgb colorAgeLow = 0xFF0000;
     QRgb colorAgeHigh = 0x0000FF;
     QRgb colorEnergyHigh = 0x0000FF;
@@ -244,7 +266,13 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
     for( int i=0; i<procreateIndex; i++)
     {
-        image->setPixel (QPoint (x+i, y+10), colorTimeToProcreateLow);
+        image->setPixel (QPoint (x+i, y+14), colorTimeToProcreateLow);
+    }
+
+
+    for( int i=0; i<procreateIndex; i++)
+    {
+        image->setPixel (QPoint (x+i, y+16), colorTimeToProcreateLow);
     }
 /// end Stats ////////////////////////////////////////////
 
@@ -276,14 +304,25 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     if (x < 0 || y < 0)
         return;
 
-    QRgb colorDarkHerb = 0x0;
-    QRgb colorLightHerb = 0xFFFFFF;
+    QRgb colorDarkHerb;
+    QRgb colorLightHerb;
+
+    if(obj.is_male_)
+    {
+        colorDarkHerb = qRgb(255, 255, 255);
+        colorLightHerb = qRgb(0, 0, 0);
+    }
+    else
+    {
+        colorDarkHerb = qRgb(0, 0, 0);
+        colorLightHerb = qRgb(255, 255, 255);
+    }
 
 /// draw Herbivore ///////////////////////////////////////
 
     if((x+y)%2 == 0 )
     {
-        image->setPixel (QPoint (x+2, y+0), colorDarkHerb);
+        image->setPixel (QPoint (x+2, y+0), colorLightHerb);
         image->setPixel (QPoint (x+1, y+1), colorLightHerb);
         image->setPixel (QPoint (x+2, y+1), colorLightHerb);
 
@@ -394,7 +433,7 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     }
     for( int i=0; i<procreateIndex; i++)
     {
-        image->setPixel (QPoint (x+i, y+10), colorTimeToProcreateLow);
+        image->setPixel (QPoint (x+i, y+14), colorTimeToProcreateLow);
     }
 /// end Stats ////////////////////////////////////////////
 
@@ -405,11 +444,60 @@ void client::PaintingVisitor::visit(common::Waterhole &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    QRgb colorLightWave = 0x0011FF;
-    QRgb colorDarkWave = 0x0000FF;
+    QRgb colorUpWater = 0x0011FF;
+    QRgb colorDownWater = 0x0000FF;
 
 /// draw Waterhole ///////////////////////////////////////
 
+
+    image->setPixel (QPoint (x+3, y+1), colorUpWater);
+    image->setPixel (QPoint (x+4, y+1), colorUpWater);
+    image->setPixel (QPoint (x+5, y+1), colorUpWater);
+    image->setPixel (QPoint (x+6, y+1), colorUpWater);
+
+    image->setPixel (QPoint (x+2, y+2), colorUpWater);
+    image->setPixel (QPoint (x+4, y+2), colorUpWater);
+    image->setPixel (QPoint (x+5, y+2), colorUpWater);
+    image->setPixel (QPoint (x+7, y+2), colorUpWater);
+
+    image->setPixel (QPoint (x+1, y+3), colorUpWater);
+    image->setPixel (QPoint (x+3, y+3), colorUpWater);
+    image->setPixel (QPoint (x+4, y+3), colorUpWater);
+    image->setPixel (QPoint (x+5, y+3), colorUpWater);
+    image->setPixel (QPoint (x+6, y+3), colorUpWater);
+    image->setPixel (QPoint (x+8, y+3), colorUpWater);
+
+    image->setPixel (QPoint (x+2, y+4), colorUpWater);
+    image->setPixel (QPoint (x+3, y+4), colorUpWater);
+    image->setPixel (QPoint (x+4, y+4), colorUpWater);
+    image->setPixel (QPoint (x+5, y+4), colorUpWater);
+    image->setPixel (QPoint (x+6, y+4), colorUpWater);
+    image->setPixel (QPoint (x+7, y+4), colorUpWater);
+
+    image->setPixel (QPoint (x+1, y+5), colorUpWater);
+    image->setPixel (QPoint (x+3, y+5), colorUpWater);
+    image->setPixel (QPoint (x+4, y+5), colorUpWater);
+    image->setPixel (QPoint (x+5, y+5), colorUpWater);
+    image->setPixel (QPoint (x+6, y+5), colorUpWater);
+    image->setPixel (QPoint (x+8, y+5), colorUpWater);
+
+    image->setPixel (QPoint (x+2, y+6), colorUpWater);
+    image->setPixel (QPoint (x+4, y+6), colorUpWater);
+    image->setPixel (QPoint (x+5, y+6), colorUpWater);
+    image->setPixel (QPoint (x+7, y+6), colorUpWater);
+
+    image->setPixel (QPoint (x+4, y+7), colorDownWater);
+    image->setPixel (QPoint (x+5, y+7), colorDownWater);
+
+    image->setPixel (QPoint (x+4, y+8), colorDownWater);
+    image->setPixel (QPoint (x+5, y+8), colorDownWater);
+
+    image->setPixel (QPoint (x+3, y+9), colorDownWater);
+    image->setPixel (QPoint (x+4, y+9), colorDownWater);
+    image->setPixel (QPoint (x+5, y+9), colorDownWater);
+    image->setPixel (QPoint (x+6, y+9), colorDownWater);
+
+    /*
     image->setPixel (QPoint (x+3, y+2), colorLightWave);
     image->setPixel (QPoint (x+4, y+2), colorLightWave);
     image->setPixel (QPoint (x+5, y+2), colorDarkWave);
@@ -460,6 +548,7 @@ void client::PaintingVisitor::visit(common::Waterhole &obj)
     image->setPixel (QPoint (x+7, y+9), colorDarkWave);
     image->setPixel (QPoint (x+8, y+9), colorDarkWave);
     image->setPixel (QPoint (x+9, y+9), colorDarkWave);
+*/
 
 /// end Waterhole ////////////////////////////////////////
 

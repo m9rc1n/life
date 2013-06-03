@@ -516,7 +516,7 @@ namespace common
                 // koniec 'aktu', czas powołać do życia potomka
                 // (o ile żadne ze zwierząt nie zostało zjedzone w czasie stosunku... )
                 // aha, rodzi tylko matka
-                if(not isDead() and not current_procreating_partner_->isDead() and gender_ == FEMALE)
+                if(not isDead() and not current_procreating_partner_->isDead() and !is_male_)
                 {
                     server::Genetics::makeChild(this, current_procreating_partner_);
                 }
@@ -705,7 +705,7 @@ namespace common
 
         bool hasOppositeSex(const Creature &another) const
         {
-            return gender_ != another.gender_;
+            return is_male_ != another.is_male_;
         }
         /**
          * @brief Zaczyna kopulację
@@ -824,7 +824,10 @@ namespace common
         double age_;
 
         /// Czy zwierzę jest martwe?
-        bool is_dead_;  
+        bool is_dead_;
+
+        /// Czy osobnik jest mężczyzną
+        bool is_male_;
 
         /// Czy zwierzę robi teraz coś konkretnego (true) czy błąka się bez celu (false)?
         bool is_active_;
@@ -855,9 +858,6 @@ namespace common
 
         /// Obecny partner (ważne tylko gdy is_procreating_ == 1)
         Creature *current_procreating_partner_;
-
-        /// Płeć
-        enum {MALE, FEMALE} gender_;
     };
 }
 
