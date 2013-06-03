@@ -38,7 +38,8 @@ void MapGenerator::getParameters()
     max_hydration   = round(common::Config::getInstance()->parameter_sum * max_hydration   /sum);
     max_energy      = round(common::Config::getInstance()->parameter_sum * max_energy      /sum);
     fecundity       = round(common::Config::getInstance()->parameter_sum * max_energy      /sum);
-    max_age         = round(common::Config::getInstance()->parameter_sum * max_age         /sum);
+    max_age         = common::Config::getInstance()->parameter_sum - radius - angle - speed - max_repletion -
+                                                            max_hydration - max_energy - fecundity - max_age;
 }
 
 void MapGenerator::generateMap(common::Map *map)
