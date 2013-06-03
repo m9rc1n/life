@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(230, 240, 220);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -78,8 +78,7 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-color: rgb(0, 0, 0);
-background-color: rgb(170, 255, 255);</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>AMOUNT OF</string>
@@ -101,7 +100,7 @@ background-color: rgb(170, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);</string>
+     <string notr="true"/>
     </property>
     <layout class="QFormLayout" name="formLayout_2">
      <property name="fieldGrowthPolicy">
@@ -169,7 +168,7 @@ background-color: rgb(170, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);</string>
+     <string notr="true"/>
     </property>
     <layout class="QFormLayout" name="formLayout_4">
      <property name="fieldGrowthPolicy">
@@ -227,7 +226,7 @@ background-color: rgb(170, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 255);</string>
+     <string notr="true"/>
     </property>
     <layout class="QFormLayout" name="formLayout">
      <property name="leftMargin">
@@ -315,7 +314,7 @@ background-color: rgb(170, 255, 255);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(170, 255, 255);</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>MASLOV PYRAMID FOR PREDATORS</string>
@@ -354,7 +353,7 @@ background-color: rgb(170, 255, 255);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(170, 170, 255);</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Let's START THE GAME</string>
@@ -384,7 +383,7 @@ background-color: rgb(170, 255, 255);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(170, 255, 255);</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>MASLOV PYRAMID FOR HERBIVORS</string>
