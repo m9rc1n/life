@@ -12,7 +12,7 @@ void client::Client::run()
 {
     common::Map* localMap;
 
-    QImage image(QSize(config->map_width*10, config->map_height*10), QImage::Format_RGB32);
+    QImage image(QSize(config->map_width*10+10, config->map_height*10+10), QImage::Format_RGB32);
 
     for(int i = 0;; ++i) // nieskonczona petla
     {

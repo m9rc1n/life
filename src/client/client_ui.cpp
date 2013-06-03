@@ -8,7 +8,7 @@ Client_UI::Client_UI(common::Config *config, QMainWindow *parent) :
 {
     ui->setupUi(this);
 
-    pixmap = new QPixmap(config->map_width*10, config->map_height*10);
+    pixmap = new QPixmap(config->map_width*10+10, config->map_height*10+10);
 
     client_thread = new client::Client(common::Config::getInstance());
     client_thread->start();
@@ -85,7 +85,7 @@ void Client_UI::scaleImage(double factor)
     adjustScrollBar(ui->scrollArea->horizontalScrollBar(), factor);
     adjustScrollBar(ui->scrollArea->verticalScrollBar(), factor);
 
-    zoomInAct->setEnabled(scaleFactor < 2);
+    zoomInAct->setEnabled(scaleFactor < 4);
     zoomOutAct->setEnabled(scaleFactor > 0.56);
 }
 
