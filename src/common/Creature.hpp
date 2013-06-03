@@ -507,7 +507,8 @@ namespace common
         void updateProcreatingTime(double time)
         {
             time_procreating_ += time;
-            if(time_sleeping_  > 6000) // 6 sec
+            std::cout << time_procreating_ << std:: endl;
+            if(time_procreating_  > 3000) // 3 sec
             {
                 is_procreating_ = 0;
                 time_procreating_ = 0;
@@ -694,9 +695,18 @@ namespace common
             return is_procreating_;
         }
 
-        /// Zaczyna kopulację
-        void startProcreating()
+        bool hasOppositeSex(const Creature &another) const
         {
+            return
+        }
+        /**
+         * @brief Zaczyna kopulację
+         *
+         * @param partner partner
+         */
+        void startProcreating(Creature *partner)
+        {
+            current_procreating_partner_ = partner;
             is_procreating_ = 1;
             time_procreating_ = 0;
             time_to_procreate_ = 100;
@@ -834,6 +844,12 @@ namespace common
 
         /// Czas za jaki zwierzę będzie mogło się znowu rozmnażać (maleje od 100 do 0)
         double time_to_procreate_;
+
+        /// Obecny partner (ważne tylko gdy is_procreating_ == 1)
+        Creature *current_procreating_partner_;
+
+        /// Płeć
+        enum {MALE, FEMALE} gender;
     };
 }
 
