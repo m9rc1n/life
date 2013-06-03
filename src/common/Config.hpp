@@ -31,9 +31,8 @@ namespace common
             map(NULL),
             objectsCounter(0),
             parameter_sum(200),
-            simulation_speed(1)
-        {
-        }
+            simulation_speed(1),
+            show_creatures_parametres(false){}
         Config(Config &);
 
         /// liczba obiektów utworzonych na planszy (nie dekrementujemy przy kasowaniu obiektów)
@@ -42,26 +41,27 @@ namespace common
 
     public:
 
-        common::Map      *map;
-        int     map_width;
-        int     map_height;
+        common::Map     *map;
+        int             map_width;
+        int             map_height;
+        bool            show_creatures_parametres;
 
-        int     amount_predators;
-        int     amount_herbivores;
-        int     amount_trees;
-        int     amount_waterholes;
-        int     amount_lairs;
+        int             amount_predators;
+        int             amount_herbivores;
+        int             amount_trees;
+        int             amount_waterholes;
+        int             amount_lairs;
 
         MaslovPyramid   *predators_pyramid;
         MaslovPyramid   *herbivores_pyramid;
 
-        int     parameter_sum;
-        int     simulation_speed;
+        int             parameter_sum;
+        int             simulation_speed;
 
         //std::vector <GeneticEquation> equations;
 
-        QMutex           mutex;
-        QWaitCondition   condition;
+        QMutex          mutex;
+        QWaitCondition  condition;
 
         static Config *getInstance()
         {

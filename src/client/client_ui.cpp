@@ -158,6 +158,12 @@ void Client_UI::createActions()
     aboutQtAct->setShortcut(tr("Ctrl+W"));
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
+    showParametresAct = new QAction(tr("&Show Parametres"), this);
+    showParametresAct->setEnabled(true);
+    showParametresAct->setCheckable(true);
+    showParametresAct->setShortcut(tr("Ctrl+P"));
+    connect(showParametresAct, SIGNAL(triggered()), this, SLOT(showParametres()));
+
     this->addAction(zoomInAct);
     this->addAction(zoomOutAct);
     this->addAction(normalSizeAct);
@@ -205,6 +211,8 @@ void Client_UI::createMenus()
     viewMenu->addAction(simulationLAct);
     viewMenu->addAction(simulationMAct);
     viewMenu->addAction(simulationHAct);
+    viewMenu->addSeparator();
+    viewMenu->addAction(showParametresAct);
 
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutAct);
@@ -215,6 +223,18 @@ void Client_UI::createMenus()
     menuBar()->addMenu(fileMenu);
     menuBar()->addMenu(viewMenu);
     menuBar()->addMenu(helpMenu);
+}
+
+void Client_UI::showParametres()
+{
+    if(config->show_creatures_parametres)
+    {
+        config->show_creatures_parametres=false;
+    }
+    else
+    {
+        config->show_creatures_parametres=true;
+    }
 }
 
 void Client_UI::updatePopCre(int update)

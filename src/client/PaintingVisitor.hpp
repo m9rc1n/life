@@ -18,7 +18,7 @@ namespace client
     class PaintingVisitor : public common::Visitor
     {
     public:
-        PaintingVisitor(QImage *image);
+        PaintingVisitor(QImage *image, bool showCreatureParametres);
 
         virtual void visit(common::Map &);
         virtual void visit(common::Predator &obj);
@@ -37,6 +37,7 @@ namespace client
 
         common::Config     *config;
         QImage             *image;
+        bool                showCreatureParametres;
     };
 }
 

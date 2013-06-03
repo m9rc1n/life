@@ -32,8 +32,6 @@ namespace client
     protected:
         void run();
 
-        int run(std::mutex *mutex, common::Map *map);
-
     private:
         common::Config  *config;
     };
