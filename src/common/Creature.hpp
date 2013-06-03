@@ -474,7 +474,6 @@ namespace common
         void updateProcreatingTime(double time)
         {
             time_procreating_ += time;
-            std::cout << time_procreating_ << std:: endl;
             if(time_procreating_  > 3000) // 3 sec
             {
                 is_procreating_ = 0;
@@ -694,7 +693,6 @@ namespace common
             {
                 time_to_procreate_ = 0;
             }
-            std::cout << time_to_procreate_ << std::endl;
         }
 
         /// Zwraca czas do następnej prokreacji
