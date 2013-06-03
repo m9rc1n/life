@@ -1,13 +1,20 @@
 #ifndef SERVER_GENETICS_HPP
 #define SERVER_GENETICS_HPP
 
-namespace server {
+namespace common
+{
+ // fwd declaration
+  class Creature;
+}
+
+namespace server
+{
 
 class Genetics
 {
     Genetics() = delete;
 public:
-    makeChild();
+    static void makeChild(common::Creature*, common::Creature*);
 };
 
 } // namespace server

@@ -518,7 +518,7 @@ namespace common
                 // aha, rodzi tylko matka
                 if(not isDead() and not current_procreating_partner_->isDead() and gender_ == FEMALE)
                 {
-                    server::Genetics::makeChild(this, another);
+                    server::Genetics::makeChild(this, current_procreating_partner_);
                 }
             }
         }

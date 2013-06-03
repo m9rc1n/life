@@ -14,8 +14,8 @@ namespace server {
         {
             if(creature_.getDistance(object_) < 0.8) // cel osiagniety
             {
-                creature_.startProcreating();
-                another.startProcreating();
+                creature_.startProcreating(&another);
+                another.startProcreating(&creature_);
                 return true;
             }
             else
