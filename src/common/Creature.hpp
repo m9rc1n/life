@@ -18,43 +18,6 @@ namespace common
     {
     public:
         /**
-         * @brief
-         * Konstruktor wywoływany w momencie narodzin stworzenia. Parametry stworzenia są
-         * ustalane na podstawie odpowiednich parametrów ojca i matki.
-         *
-         * Ten konstruktor zakłada, że matka i ojciec znajdują się w tym samym miejscu.
-         * Nowe stworzenie również pojawi się w tym samym miejscu.
-         *
-         * @param mother referencja do matki
-         * @param father referencja do ojca
-         */
-        Creature(const Creature &mother, const Creature &father):
-            MapObject(mother),
-            radius_(0),
-            angle_(0),
-            speed_(0),
-            fecundity_(0),
-            repletion_(4),
-            hydration_(4),
-            energy_(4),
-            age_(0),
-            is_dead_(0),
-            is_active_(1),
-            max_repletion_(10),
-            max_hydration_(10),
-            max_energy_(10),
-            max_age_(10),
-            knownObjects(new QMap<int, double >),
-            action_time(0),
-            is_sleeping_(0),
-            time_sleeping_(0),
-            is_procreating_(0),
-            time_procreating_(0),
-            time_to_procreate_(100)
-        {
-        }
-
-        /**
         * @brief
         * Konstruktor wywoływany w przypadku, gdy stworzenie jest generowane na początku gry.
         * Wspolrzedne stworzenia są podawane jako parametry konstruktora.
@@ -64,7 +27,7 @@ namespace common
         Creature(double x_pos, double y_pos, double direction,
                  int radius, int angle, int speed,
                  int max_repletion, int max_hydration, int max_energy,
-                 int fecundity, int max_age):
+                 int fecundity, int max_age, bool is_male):
             MapObject(x_pos, y_pos),
             direction_(direction),
             radius_(radius),
@@ -87,7 +50,9 @@ namespace common
             time_sleeping_(0),
             is_procreating_(0),
             time_procreating_(0),
-            time_to_procreate_(100)
+            time_to_procreate_(100),
+            current_procreating_partner_(NULL),
+            is_male_(is_male)
         {
         }
 
@@ -118,7 +83,8 @@ namespace common
             time_sleeping_(another.time_sleeping_),
             is_procreating_(another.is_procreating_),
             time_procreating_(another.time_procreating_),
-            time_to_procreate_(another.time_to_procreate_)
+            time_to_procreate_(another.time_to_procreate_),
+            is_male_(another.is_male_)
         {
         }
 
@@ -751,14 +717,14 @@ namespace common
                     case 2: current_action = ROTATING_LEFT; break;
                     case 3: current_action = ROTATING_RIGHT;break;
                 }
-                action_time = 0;
+                action_time = rand()%1000;
             }
             switch (current_action)
             {
                 case WALKING: moveByDistance(time*speed_/42000); break;
                 case STAYING: break;
-                case ROTATING_LEFT: rotateByAngleInDegrees(-time*speed_/3000); break;
-                case ROTATING_RIGHT: rotateByAngleInDegrees(time*speed_/3000); break;
+                case ROTATING_LEFT: rotateByAngleInDegrees(-time*speed_/6000); break;
+                case ROTATING_RIGHT: rotateByAngleInDegrees(time*speed_/6000); break;
             }
         }
 

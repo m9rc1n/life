@@ -10,7 +10,8 @@ namespace server {
     {
         common::Creature &another = dynamic_cast<common::Creature &>(object_);
         if(!creature_.isHungry() && !creature_.isThirsty() && !creature_.isTired() && creature_.getTimeToProcreate() == 0 &&
-           !another.isHungry() && !another.isThirsty() && !another.isTired() && another.getTimeToProcreate() == 0)
+           !another.isHungry() && !another.isThirsty() && !another.isTired() && another.getTimeToProcreate() == 0 &&
+            creature_.hasOppositeSex(another))
         {
             if(creature_.getDistance(object_) < 0.8) // cel osiagniety
             {

@@ -18,6 +18,11 @@ class MapGenerator
     MapGenerator() = delete;
 
     /**
+     * @brief Generuje parametry stworzenia i normalizuje je, wynik zapisuje do zmiennych statychnych w klasie.
+     */
+    static void getParameters();
+
+    /**
      * @brief zwraca losową liczbę rzeczywistą z zakresu (0, W), gdzie W jest szerokością planszy.
      */
     static double getRandomX()
@@ -52,20 +57,6 @@ class MapGenerator
         return rand()%40 + 10;
     }
 
-    /**
-     * @brief Losuje wartość która może być użyta jako kierunek patrzenia zwierzęnia
-     * @return Losowa liczba z zakresu <0, 360)
-     */
-    static double getRandomDirection()
-    {
-        return rand()%360;
-    }
-
-    /**
-     * @brief Generuje parametry stworzenia i normalizuje je, wynik zapisuje do zmiennych statychnych w klasie.
-     */
-    static void getParameters();
-
     static double x_pos;
     static double y_pos;
 
@@ -80,7 +71,28 @@ class MapGenerator
     static int fecundity;
     static int max_age;
 
+    static bool is_male;
+
 public:
+
+    /**
+     * @brief Losuje wartość która może być użyta jako kierunek patrzenia zwierzęnia
+     * @return Losowa liczba z zakresu <0, 360)
+     */
+    static double getRandomDirection()
+    {
+        return rand()%360;
+    }
+
+
+    /**
+     * @brief Losuje wartość 1 lub 0
+     */
+    static bool getRandomBool()
+    {
+        return rand()%2;
+    }
+
     static void generateMap(common::Map *map);
 };
 

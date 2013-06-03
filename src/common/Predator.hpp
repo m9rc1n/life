@@ -39,8 +39,8 @@ namespace common
         Predator(double x_pos, double y_pos, double direction,
                  int radius, int angle, int speed,
                  int max_repletion, int max_hydration, int max_energy,
-                 int fecundity, int max_age):
-           Creature(x_pos, y_pos, direction, radius, angle, speed, max_repletion, max_hydration, max_energy, fecundity, max_age)
+                 int fecundity, int max_age, bool is_male):
+           Creature(x_pos, y_pos, direction, radius, angle, speed, max_repletion, max_hydration, max_energy, fecundity, max_age, is_male)
         {} // kod w klasie Creature
 
         /**
