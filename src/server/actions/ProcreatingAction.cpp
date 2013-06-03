@@ -9,17 +9,19 @@ namespace server {
     bool ProcreatingAction::perform(double time_interval)
     {
         common::Creature &another = dynamic_cast<common::Creature &>(object_);
-        if(!creature_.isHungry() && !creature_.isThirsty() && !creature_.isTired() &&
-           !another.isHungry() && !another.isThirsty() && !another.isTired())
+        if(!creature_.isHungry() && !creature_.isThirsty() && !creature_.isTired() && creature_.getTimeToProcreate() == 0 &&
+           !another.isHungry() && !another.isThirsty() && !another.isTired() && another.getTimeToProcreate() == 0)
         {
-            if(creature_.getDistance(object_) < 1) // cel osiagniety
+            if(creature_.getDistance(object_) < 0.8) // cel osiagniety
             {
-                // write me plz
+                creature_.startProcreating();
+                another.startProcreating();
                 return true;
             }
             else
             {
-                creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval / 2500, creature_.getSpeed() * time_interval / 15000);
+                creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval / 2000, creature_.getSpeed() * time_interval / 18000);
+                //object_.partiallyTurnAndMoveToObject(creature_, object_.getSpeed() * time_interval / 2000, object_.getSpeed() * time_interval / 18000);
                 return true;
             }
         }

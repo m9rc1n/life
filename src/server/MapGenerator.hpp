@@ -25,7 +25,7 @@ class MapGenerator
         static int max = common::Config::getInstance()->map_width;
         static time_t t = time(NULL);
         static std::mt19937 seed((int)t);
-        static std::uniform_real_distribution<double> dist(0.0, (double)max);
+        static std::uniform_real_distribution<double> dist(5.0, (double)max-5);
         static boost::variate_generator<std::mt19937&, std::uniform_real_distribution<> > random(seed,dist);
         return (random)();
     }
@@ -38,7 +38,7 @@ class MapGenerator
         static int max = common::Config::getInstance()->map_height;
         static time_t t = time(NULL);
         static std::mt19937 seed((int)t + 37);
-        static std::uniform_real_distribution<double> dist(0.0, (double)max);
+        static std::uniform_real_distribution<double> dist(5.0, (double)max-5);
         static boost::variate_generator<std::mt19937&, std::uniform_real_distribution<> > random(seed,dist);
         return (random)();
     }

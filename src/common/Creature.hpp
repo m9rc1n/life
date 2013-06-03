@@ -44,9 +44,13 @@ namespace common
             max_energy_(10),
             max_age_(10),
             knownObjects(new QMap<int, double >),
-            action_time(0)
+            action_time(0),
+            is_sleeping_(0),
+            time_sleeping_(0),
+            is_procreating_(0),
+            time_procreating_(0),
+            time_to_procreate_(100)
         {
-            /// @todo write me
         }
 
         /**
@@ -77,7 +81,12 @@ namespace common
             max_energy_(max_energy),
             max_age_(max_age),
             knownObjects(new QMap<int, double >),
-            action_time(0)
+            action_time(0),
+            is_sleeping_(0),
+            time_sleeping_(0),
+            is_procreating_(0),
+            time_procreating_(0),
+            time_to_procreate_(100)
         {
         }
 
@@ -103,7 +112,12 @@ namespace common
             max_hydration_(another.max_hydration_),
             max_energy_(another.max_energy_),
             max_age_(another.max_age_),
-            knownObjects(new QMap<int, double >(*another.knownObjects))
+            knownObjects(new QMap<int, double >(*another.knownObjects)),
+            is_sleeping_(another.is_sleeping_),
+            time_sleeping_(another.time_sleeping_),
+            is_procreating_(another.is_procreating_),
+            time_procreating_(another.time_procreating_),
+            time_to_procreate_(another.time_to_procreate_)
         {
         }
 
@@ -473,6 +487,34 @@ namespace common
         }
 
         /**
+         * @brief Zwiększa czas snu, o ile zwierzę śpi
+         * @param time czas jako upłynął w kroku symulacji, w milisekundach
+         */
+        void updateSleepTime(double time)
+        {
+            time_sleeping_ += time;
+            if(time_sleeping_  > 4000) // 4 sec
+            {
+                is_sleeping_ = 0;
+                time_sleeping_ = 0;
+            }
+        }
+
+        /**
+         * @brief Zwiększa czas kopulacji, o ile zwierzę kopuluje
+         * @param time czas jako upłynął w kroku symulacji, w milisekundach
+         */
+        void updateProcreatingTime(double time)
+        {
+            time_procreating_ += time;
+            if(time_sleeping_  > 6000) // 6 sec
+            {
+                is_procreating_ = 0;
+                time_procreating_ = 0;
+            }
+        }
+
+        /**
          * @brief Umiera ze starości, głodu, pragnienia lub wycieńczenia
          */
         void die()
@@ -494,6 +536,8 @@ namespace common
         void fallAsleep()
         {
             energy_ = max_energy_;
+            is_sleeping_ = 1;
+            time_sleeping_ = 0;
         }
 
         /**
@@ -552,7 +596,7 @@ namespace common
             for(QMap<int, double >::iterator iter = knownObjects->begin(); iter != knownObjects->end();)
             {
                 *iter += time;
-                if(*iter > 3000) // 3000 ms
+                if(*iter > 2000) // 2000 ms
                 {
                     knownObjects->erase(iter++);
                 }
@@ -638,11 +682,48 @@ namespace common
             return is_active_;
         }
 
+        /// Sprawdza, czy zwierzę śpi
+        bool isSleeping() const
+        {
+            return is_sleeping_;
+        }
+
+        /// Sprawdza, czy zwierzę teraz kopuluje
+        bool isProcreating() const
+        {
+            return is_procreating_;
+        }
+
+        /// Zaczyna kopulację
+        void startProcreating()
+        {
+            is_procreating_ = 1;
+            time_procreating_ = 0;
+            time_to_procreate_ = 100;
+        }
+
+        /// Aktualizuje czas do następnej prokreacji
+        void updateTimeToProcreate(double time)
+        {
+            time_to_procreate_ -= time * fecundity_ * 4;
+            if(time_to_procreate_ < 0)
+            {
+                time_to_procreate_ = 0;
+            }
+            std::cout << time_to_procreate_ << std::endl;
+        }
+
+        /// Zwraca czas do następnej prokreacji
+        double getTimeToProcreate() const
+        {
+            return time_to_procreate_;
+        }
+
         /// Robi jakąś akcję, gdy zwierzę nie ma nic do roboty
         void doSomething(double time)
         {
             action_time += time;
-            if(action_time > 3000) // 3 sec
+            if(action_time > 1800) // 1,8 sec
             {
                 int random = rand()%4;
                 switch(random)
@@ -738,6 +819,21 @@ namespace common
 
         /// Czas, od jakiego zwierzę wykonuje akcję (ważne tylko gdy #is_active_ == false)
         double action_time;
+
+        /// Czy zwierzę śpi (w jaskini)?
+        bool is_sleeping_;
+
+        /// Od jak dawna zwierzę śpi (w milisekundach)
+        double time_sleeping_;
+
+        /// Czy zwierzę teraz kopuluje?
+        bool is_procreating_;
+
+        /// Jeśli zwierzę teraz kopluje, to od jakiego czasu (w milisekundach)
+        double time_procreating_;
+
+        /// Czas za jaki zwierzę będzie mogło się znowu rozmnażać (maleje od 100 do 0)
+        double time_to_procreate_;
     };
 }
 

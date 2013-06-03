@@ -7,15 +7,13 @@
 
 namespace client
 {
-
-
     /**
-    * @brief
-    * Wizytator robiący statystyki obiektów na mapie.
-    *
-    * Konkretne wizytatory mogą np. symulować poszczególne obiekty,
-    * wyświetlać je na ekranie, zbierać statystyki etc.
-    */
+     * @brief
+     * Wizytator robiący statystyki obiektów na mapie.
+     *
+     * Konkretne wizytatory mogą np. symulować poszczególne obiekty,
+     * wyświetlać je na ekranie, zbierać statystyki etc.
+     */
 
     class StatisticsVisitor : public common::Visitor
     {

@@ -1,4 +1,6 @@
 #include "StatisticsVisitor.hpp"
+#include "../common/Predator.hpp"
+#include "../common/Herbivore.hpp"
 
 client::StatisticsVisitor::StatisticsVisitor(Statistics *stat) :
     stat(stat)
@@ -12,22 +14,21 @@ void client::StatisticsVisitor::visit(common::Map &)
 
 }
 
-void client::StatisticsVisitor::visit(common::Predator &obj)
+
+void client::StatisticsVisitor::visit(common::Predator &predator)
 {
-    if (obj.is_dead_)
+    if(!predator.isDead()) // martwych nie liczymy
     {
-        return;
+        (*stat).populationPredators++;
     }
-    (*stat).populationPredators++;
 }
 
-void client::StatisticsVisitor::visit(common::Herbivore &obj)
+void client::StatisticsVisitor::visit(common::Herbivore &herbivore)
 {
-    if (obj.is_dead_)
+    if(!herbivore.isDead())
     {
-        return;
+        (*stat).populationHerbivores++;
     }
-    (*stat).populationHerbivores++;
 }
 
 void client::StatisticsVisitor::visit(common::Waterhole &)

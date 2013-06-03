@@ -19,6 +19,17 @@ void SimulationVisitor::visit(common::Predator &predator)
 {
     if(predator.isDead()) return;
 
+    if(predator.isSleeping())
+    {
+        predator.updateSleepTime(time_interval_);
+        return;
+    }
+    if(predator.isProcreating())
+    {
+        predator.updateProcreatingTime(time_interval_);
+        return;
+    }
+
     predator.updateListOfKnownObjects(time_interval_);
 
     InternalSimulationVisitor internal_visitor(predator, visited_map_, time_interval_);
@@ -51,6 +62,7 @@ void SimulationVisitor::visit(common::Predator &predator)
     predator.makeThirsty(time_interval_/25000);
     predator.makeTired(time_interval_/25000);
     predator.makeOlder(time_interval_/25000);
+    predator.updateTimeToProcreate(time_interval_/25000);
 
     if(!action_performed)
     {
@@ -64,12 +76,25 @@ void SimulationVisitor::visit(common::Predator &predator)
     {
         predator.setActive();
     }
+
     normalizeXY(predator);
 }
 
 void SimulationVisitor::visit(common::Herbivore &herbivore)
 {
     if(herbivore.isDead()) return;
+
+    if(herbivore.isSleeping())
+    {
+        herbivore.updateSleepTime(time_interval_);
+        return;
+    }
+
+    if(herbivore.isProcreating())
+    {
+        herbivore.updateProcreatingTime(time_interval_);
+        return;
+    }
 
     herbivore.updateListOfKnownObjects(time_interval_);
 
@@ -101,6 +126,7 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
     herbivore.makeThirsty(time_interval_/25000);
     herbivore.makeTired(time_interval_/25000);
     herbivore.makeOlder(time_interval_/25000);
+    herbivore.updateTimeToProcreate(time_interval_/25000);
 
     if(!action_performed)
     {
@@ -126,21 +152,25 @@ void SimulationVisitor::normalizeXY(common::Creature &creature)
     int x = creature.getX();
     int y = creature.getY();
 
-    if(x < 0)
+    if(x < 1.8)
     {
-        creature.moveByVector(-x,0);
+        creature.rotateByAngleInDegrees(90);
+        creature.moveTo(2, creature.getY());
     }
-    if(y < 0)
+    if(y < 1.8)
     {
-        creature.moveByVector(0,-y);
+        creature.rotateByAngleInDegrees(90);
+        creature.moveTo(creature.getX(), 2);
     }
-    if(x > w)
+    if(x > w - 1.8)
     {
-        creature.moveByVector(w-x,0);
+        creature.rotateByAngleInDegrees(90);
+        creature.moveTo(w-2, creature.getY());
     }
-    if(y > h)
+    if(y > h - 1.8)
     {
-        creature.moveByVector(0,h-y);
+        creature.rotateByAngleInDegrees(90);
+        creature.moveTo(creature.getX(), h-2);
     }
 }
 

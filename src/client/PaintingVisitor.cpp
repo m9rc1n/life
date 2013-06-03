@@ -36,6 +36,50 @@ void client::PaintingVisitor::drawDeadCreature(common::Creature &obj)
     image->setPixel (QPoint (x+2, y+5), color);
 }
 
+void client::PaintingVisitor::drawSleepingCreature(common::Creature &obj)
+{
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
+
+    long color = 555555;
+
+    image->setPixel (QPoint (x+0, y+0), color);
+    image->setPixel (QPoint (x+1, y+0), color);
+    image->setPixel (QPoint (x+2, y+0), color);
+    image->setPixel (QPoint (x+3, y+0), color);
+    image->setPixel (QPoint (x+2, y+1), color);
+    image->setPixel (QPoint (x+1, y+2), color);
+    image->setPixel (QPoint (x+0, y+3), color);
+    image->setPixel (QPoint (x+1, y+3), color);
+    image->setPixel (QPoint (x+2, y+3), color);
+    image->setPixel (QPoint (x+3, y+3), color);
+
+}
+
+void client::PaintingVisitor::drawProcreatingCreature(common::Creature &obj)
+{
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
+
+    QRgb color = qRgb(255, 0, 0);
+
+    image->setPixel (QPoint (x+1, y+0), color);
+    image->setPixel (QPoint (x+3, y+0), color);
+
+    image->setPixel (QPoint (x+0, y+1), color);
+    image->setPixel (QPoint (x+1, y+1), color);
+    image->setPixel (QPoint (x+2, y+1), color);
+    image->setPixel (QPoint (x+3, y+1), color);
+    image->setPixel (QPoint (x+4, y+1), color);
+
+    image->setPixel (QPoint (x+1, y+2), color);
+    image->setPixel (QPoint (x+2, y+2), color);
+    image->setPixel (QPoint (x+3, y+2), color);
+
+    image->setPixel (QPoint (x+2, y+3), color);
+
+}
+
 void client::PaintingVisitor::visit(common::Predator &obj)
 {
     if(obj.isDead())
@@ -43,6 +87,19 @@ void client::PaintingVisitor::visit(common::Predator &obj)
         drawDeadCreature(obj);
         return;
     }
+    else
+    if(obj.isSleeping())
+    {
+        drawSleepingCreature(obj);
+        return;
+    }
+    else
+    if(obj.isProcreating())
+    {
+        drawProcreatingCreature(obj);
+        return;
+    }
+
 
     int x = obj.getX()*10;
     int y = obj.getY()*10;
@@ -123,7 +180,9 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     int energyIndex = obj.energy_/obj.max_energy_ * 10;
     int repletionIndex = obj.repletion_/obj.max_repletion_ * 10;
     int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
+    int procreateIndex = obj.getTimeToProcreate() / 10;
 
+<<<<<<< HEAD
     long colorAgeLow = 0xFF0000;
     long colorAgeHigh = 0x0000FF;
     long colorEnergyHigh = 0x0000FF;
@@ -132,6 +191,17 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     long colorRepletionHigh = 0x0000FF;
     long colorHydrationLow = 0xFF0000;
     long colorHydrationHigh = 0x0000FF;
+=======
+    long colorAgeLow = 11111111;
+    long colorAgeHigh = 22222222;
+    long colorEnergyHigh = 11111111;
+    long colorEnergyLow = 22222222;
+    long colorRepletionLow = 22222222;
+    long colorRepletionHigh = 1111111;
+    long colorHydrationLow = 111111111;
+    long colorHydrationHigh = 222222222;
+    QRgb colorTimeToProcreateLow =  qRgb(200, 2, 2);
+>>>>>>> 14002aad7c5f42b080c1fb291147f841561af441
 
 /// draw Stats ///////////////////////////////////////////
 
@@ -182,6 +252,11 @@ void client::PaintingVisitor::visit(common::Predator &obj)
             image->setPixel (QPoint (x+i, y+12), colorHydrationHigh);
         }
     }
+
+    for( int i=0; i<procreateIndex; i++)
+    {
+        image->setPixel (QPoint (x+i, y+10), colorTimeToProcreateLow);
+    }
 /// end Stats ////////////////////////////////////////////
 
 }
@@ -193,6 +268,19 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
        drawDeadCreature(obj);
        return;
     }
+    else
+    if(obj.isSleeping())
+    {
+        drawSleepingCreature(obj);
+        return;
+    }
+    else
+    if(obj.isProcreating())
+    {
+        drawProcreatingCreature(obj);
+        return;
+    }
+
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
@@ -254,7 +342,9 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     int energyIndex = obj.energy_/obj.max_energy_ * 10;
     int repletionIndex = obj.repletion_/obj.max_repletion_ * 10;
     int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
+    int procreateIndex = obj.getTimeToProcreate() / 10;
 
+<<<<<<< HEAD
     long colorAgeLow = 0xFF0000;
     long colorAgeHigh = 0x0000FF;
     long colorEnergyHigh = 0x0000FF;
@@ -263,6 +353,17 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
     long colorRepletionHigh = 0x0000FF;
     long colorHydrationLow = 0xFF0000;
     long colorHydrationHigh = 0x0000FF;
+=======
+    long colorAgeLow = 11111111;
+    long colorAgeHigh = 22222222;
+    long colorEnergyHigh = 11111111;
+    long colorEnergyLow = 22222222;
+    long colorRepletionLow = 22222222;
+    long colorRepletionHigh = 1111111;
+    long colorHydrationLow = 111111111;
+    long colorHydrationHigh = 222222222;
+    QRgb colorTimeToProcreateLow =  qRgb(200, 2, 2);
+>>>>>>> 14002aad7c5f42b080c1fb291147f841561af441
 
 /// draw Stats ///////////////////////////////////////////
 
@@ -312,6 +413,10 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
         {
             image->setPixel (QPoint (x+i, y+12), colorHydrationHigh);
         }
+    }
+    for( int i=0; i<procreateIndex; i++)
+    {
+        image->setPixel (QPoint (x+i, y+10), colorTimeToProcreateLow);
     }
 /// end Stats ////////////////////////////////////////////
 
