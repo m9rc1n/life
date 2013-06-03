@@ -1,9 +1,6 @@
-#include "Genome.hpp"
+#include "Genetics.hpp"
 
 namespace server {
 
-Genome::Genome()
-{
-}
 
 } // namespace server
