@@ -187,22 +187,22 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
 /// end Predator /////////////////////////////////////////
 
-    int ageIndex = obj.age_/obj.max_age_ * 10;
-    int energyIndex = obj.energy_/obj.max_energy_ * 10;
-    int repletionIndex = obj.repletion_/obj.max_repletion_ * 10;
-    int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
+    int ageIndex = (obj.age_ * 10)/obj.max_age_;
+    int energyIndex = (obj.energy_ * 10)/obj.max_energy_;
+    int repletionIndex = (obj.repletion_ * 10)/obj.max_repletion_;
+    int hydrationIndex = (obj.hydration_ * 10)/obj.max_hydration_;
     int procreateIndex = obj.getTimeToProcreate() / 10;
 
-    int maxIndex = config->parameter_sum;
+    float maxIndex = config->parameter_sum;
 
-    int speedIndex = obj.getSpeed()/maxIndex * 20;
-    int radiusIndex = obj.getRadius()/maxIndex * 20;
-    int angleIndex = obj.getAngle()/maxIndex * 20;
-    int fecundityIndex = obj.getFecundity()/maxIndex * 20;
-    int repletionMaxIndex = obj.getMaxRepletion()/maxIndex * 20;
-    int hydrationMaxIndex = obj.getMaxHydration()/maxIndex * 20;
-    int ageMaxIndex = obj.getMaxAge()/maxIndex * 20;
-    int energyMaxIndex = obj.getMaxEnergy()/maxIndex * 20;
+    int speedIndex = round((obj.getSpeed() * 20)/maxIndex);
+    int radiusIndex = round((obj.getRadius() * 20)/maxIndex);
+    int angleIndex = round((obj.getAngle() * 20)/maxIndex);
+    int fecundityIndex = round((obj.getFecundity() * 20)/maxIndex);
+    int repletionMaxIndex = round((obj.getMaxRepletion() * 20)/maxIndex);
+    int hydrationMaxIndex = round((obj.getMaxHydration() * 20)/maxIndex);
+    int ageMaxIndex = round((obj.getMaxAge() * 20)/maxIndex);
+    int energyMaxIndex = round((obj.getMaxEnergy() * 20)/maxIndex);
 
     QRgb colorSpeed = qRgb(0, 0, 0);
     QRgb colorRadius = qRgb(0, 255, 0);
@@ -281,7 +281,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     int sumPrev = 0;
     int sumCon = speedIndex;
 
-    for (int i=sumPrev; i<=sumCon; i++)
+    for (int i=sumPrev; i<sumCon; i++)
     {
         if (i<10)
         {
@@ -296,7 +296,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     sumPrev = sumCon;
     sumCon += radiusIndex;
 
-    for (int i=sumPrev; i<=sumCon; i++)
+    for (int i=sumPrev; i<sumCon; i++)
     {
         if (i<10)
         {
@@ -311,7 +311,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     sumPrev = sumCon;
     sumCon += angleIndex;
 
-    for (int i=sumPrev; i<=sumCon; i++)
+    for (int i=sumPrev; i<sumCon; i++)
     {
         if (i<10)
         {
@@ -326,7 +326,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     sumPrev = sumCon;
     sumCon += fecundityIndex;
 
-    for (int i=sumPrev; i<=sumCon; i++)
+    for (int i=sumPrev; i<sumCon; i++)
     {
         if (i<10)
         {
@@ -341,7 +341,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     sumPrev = sumCon;
     sumCon += repletionMaxIndex;
 
-    for (int i=sumPrev; i<=sumCon; i++)
+    for (int i=sumPrev; i<sumCon; i++)
     {
         if (i<10)
         {
@@ -356,7 +356,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     sumPrev = sumCon;
     sumCon += hydrationMaxIndex;
 
-    for (int i=sumPrev; i<=sumCon; i++)
+    for (int i=sumPrev; i<sumCon; i++)
     {
         if (i<10)
         {
@@ -371,7 +371,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     sumPrev = sumCon;
     sumCon += ageMaxIndex;
 
-    for (int i=sumPrev; i<=sumCon; i++)
+    for (int i=sumPrev; i<sumCon; i++)
     {
         if (i<10)
         {
@@ -386,7 +386,7 @@ void client::PaintingVisitor::visit(common::Predator &obj)
     sumPrev = sumCon;
     sumCon += energyMaxIndex;
 
-    for (int i=sumPrev; i<=sumCon; i++)
+    for (int i=sumPrev; i<sumCon; i++)
     {
         if (i<10)
         {
@@ -490,11 +490,31 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
 
 /// end Herbivore ////////////////////////////////////////
 
-    int ageIndex = obj.age_/obj.max_age_ * 10;
-    int energyIndex = obj.energy_/obj.max_energy_ * 10;
-    int repletionIndex = obj.repletion_/obj.max_repletion_ * 10;
-    int hydrationIndex = obj.hydration_/obj.max_hydration_ * 10;
+    int ageIndex = (obj.age_ * 10)/obj.max_age_;
+    int energyIndex = (obj.energy_ * 10)/obj.max_energy_;
+    int repletionIndex = (obj.repletion_ * 10)/obj.max_repletion_;
+    int hydrationIndex = (obj.hydration_ * 10)/obj.max_hydration_;
     int procreateIndex = obj.getTimeToProcreate() / 10;
+
+    float maxIndex = config->parameter_sum;
+
+    int speedIndex = round((obj.getSpeed() * 20)/maxIndex);
+    int radiusIndex = round((obj.getRadius() * 20)/maxIndex);
+    int angleIndex = round((obj.getAngle() * 20)/maxIndex);
+    int fecundityIndex = round((obj.getFecundity() * 20)/maxIndex);
+    int repletionMaxIndex = round((obj.getMaxRepletion() * 20)/maxIndex);
+    int hydrationMaxIndex = round((obj.getMaxHydration() * 20)/maxIndex);
+    int ageMaxIndex = round((obj.getMaxAge() * 20)/maxIndex);
+    int energyMaxIndex = round((obj.getMaxEnergy() * 20)/maxIndex);
+
+    QRgb colorSpeed = qRgb(0, 0, 0);
+    QRgb colorRadius = qRgb(0, 255, 0);
+    QRgb colorAngle = qRgb(0, 0, 255);
+    QRgb colorFecundity = qRgb(255, 0, 0);
+    QRgb colorRepletion = qRgb(255, 255, 0);
+    QRgb colorHydration = qRgb(0, 255, 255);
+    QRgb colorAge = qRgb(255, 0, 255);
+    QRgb colorEnergy = qRgb(255, 255, 255);
 
     QRgb colorAgeLow = 0xFF0000;
     QRgb colorAgeHigh = 0x0000FF;
@@ -555,9 +575,130 @@ void client::PaintingVisitor::visit(common::Herbivore &obj)
             image->setPixel (QPoint (x+i, y+12), colorHydrationHigh);
         }
     }
+
     for( int i=0; i<procreateIndex; i++)
     {
         image->setPixel (QPoint (x+i, y+14), colorTimeToProcreateLow);
+    }
+
+    int sumPrev = 0;
+    int sumCon = speedIndex;
+
+    for (int i=sumPrev; i<sumCon; i++)
+    {
+        if (i<10)
+        {
+            image->setPixel (QPoint (x+i, y+16), colorSpeed);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+(i%10), y+17), colorSpeed);
+        }
+    }
+
+    sumPrev = sumCon;
+    sumCon += radiusIndex;
+
+    for (int i=sumPrev; i<sumCon; i++)
+    {
+        if (i<10)
+        {
+            image->setPixel (QPoint (x+i, y+16), colorRadius);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+(i%10), y+17), colorRadius);
+        }
+    }
+
+    sumPrev = sumCon;
+    sumCon += angleIndex;
+
+    for (int i=sumPrev; i<sumCon; i++)
+    {
+        if (i<10)
+        {
+            image->setPixel (QPoint (x+i, y+16), colorAngle);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+(i%10), y+17), colorAngle);
+        }
+    }
+
+    sumPrev = sumCon;
+    sumCon += fecundityIndex;
+
+    for (int i=sumPrev; i<sumCon; i++)
+    {
+        if (i<10)
+        {
+            image->setPixel (QPoint (x+i, y+16), colorFecundity);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+(i%10), y+17), colorFecundity);
+        }
+    }
+
+    sumPrev = sumCon;
+    sumCon += repletionMaxIndex;
+
+    for (int i=sumPrev; i<sumCon; i++)
+    {
+        if (i<10)
+        {
+            image->setPixel (QPoint (x+i, y+16), colorRepletion);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+(i%10), y+17), colorRepletion);
+        }
+    }
+
+    sumPrev = sumCon;
+    sumCon += hydrationMaxIndex;
+
+    for (int i=sumPrev; i<sumCon; i++)
+    {
+        if (i<10)
+        {
+            image->setPixel (QPoint (x+i, y+16), colorHydration);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+(i%10), y+17), colorHydration);
+        }
+    }
+
+    sumPrev = sumCon;
+    sumCon += ageMaxIndex;
+
+    for (int i=sumPrev; i<sumCon; i++)
+    {
+        if (i<10)
+        {
+            image->setPixel (QPoint (x+i, y+16), colorAge);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+(i%10), y+17), colorAge);
+        }
+    }
+
+    sumPrev = sumCon;
+    sumCon += energyMaxIndex;
+
+    for (int i=sumPrev; i<sumCon; i++)
+    {
+        if (i<10)
+        {
+            image->setPixel (QPoint (x+i, y+16), colorEnergy);
+        }
+        else
+        {
+            image->setPixel (QPoint (x+(i%10), y+17), colorEnergy);
+        }
     }
 /// end Stats ////////////////////////////////////////////
 
