@@ -31,7 +31,6 @@ SOURCES += main.cpp\
     client/PaintingVisitor.cpp \
     common/MaslovPyramid.cpp \
     common/GeneticEquation.cpp \
-    server/genetics/Genome.cpp \
     server/SimulationVisitor.cpp \
     server/InternalSimulationVisitor.cpp \
     server/AwarenessDetector.cpp \
@@ -44,7 +43,9 @@ SOURCES += main.cpp\
     server/actions/HuntingAction.cpp \
     server/actions/ProcreatingAction.cpp \
     server/ActionPerformVisitor.cpp \
-    client/Statistics.cpp
+    client/Statistics.cpp \
+    server/genetics/Genetics.cpp \
+    server/genetics/Genome.cpp
 
 HEADERS  += \
     client/client.hpp \
@@ -79,7 +80,8 @@ HEADERS  += \
     server/actions/HuntingAction.hpp \
     server/actions/ProcreatingAction.hpp \
     server/ActionPerformVisitor.hpp \
-    client/Statistics.hpp
+    client/Statistics.hpp \
+    server/genetics/Genetics.hpp
 
 OTHER_FILES += \
     makefile \

@@ -5,6 +5,7 @@
 #include <cmath>
 #include <vector>
 #include <QMap>
+#include "../server/genetics/Genetics.hpp"
 
 namespace common
 {
@@ -512,6 +513,13 @@ namespace common
             {
                 is_procreating_ = 0;
                 time_procreating_ = 0;
+                // koniec 'aktu', czas powołać do życia potomka
+                // (o ile żadne ze zwierząt nie zostało zjedzone w czasie stosunku... )
+                // aha, rodzi tylko matka
+                if(not isDead() and not current_procreating_partner_->isDead() and !is_male_)
+                {
+                    server::Genetics::makeChild(this, current_procreating_partner_);
+                }
             }
         }
 
@@ -697,8 +705,7 @@ namespace common
 
         bool hasOppositeSex(const Creature &another) const
         {
-            /// @todo
-            return true;
+            return is_male_ != another.is_male_;
         }
         /**
          * @brief Zaczyna kopulację
