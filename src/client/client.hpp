@@ -30,7 +30,6 @@ namespace client
         void toPopCre(int to);
         void toPopHer(int to);
         void toPopPre(int to);
-        void toPopTot(int to);
         void toPopSle(int to);
         void toPopCop(int to);
 

@@ -38,7 +38,7 @@ class Client_UI : public QMainWindow
         void updatePopCre(int update);
         void updatePopHer(int update);
         void updatePopPre(int update);
-        void updatePopTot(int update);
+        void updatePopTot();
         void updatePopSle(int update);
         void updatePopCop(int update);
 

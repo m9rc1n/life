@@ -9,6 +9,8 @@ client::StatisticsSumVisitor::StatisticsSumVisitor(Statistics *stat) :
     stat->populationPredators = 0;
     stat->populationProcreating = 0;
     stat->populationSleeping = 0;
+    stat->deadHerbivores = 0;
+    stat->deadPredators = 0;
 }
 
 void client::StatisticsSumVisitor::visit(common::Map &)
