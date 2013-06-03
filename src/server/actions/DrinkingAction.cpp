@@ -18,7 +18,7 @@ namespace server
             }
             else
             {
-                creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval/ 15000, creature_.getSpeed() * time_interval/ 15000);
+                creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval/ 2000, creature_.getSpeed() * time_interval/19000);
                 return true;
             }
         }

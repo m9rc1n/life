@@ -20,7 +20,7 @@ void InternalSimulationVisitor::visit(common::Creature &)
 }
 void InternalSimulationVisitor::visit(common::Predator &predator)
 {
-    if(visited_creature_.getIdentifier() == predator.getIdentifier())
+    if(visited_creature_.getIdentifier() == predator.getIdentifier() or predator.isDead())
     {
         return;
     }
@@ -32,7 +32,7 @@ void InternalSimulationVisitor::visit(common::Predator &predator)
 }
 void InternalSimulationVisitor::visit(common::Herbivore &herbivore)
 {
-    if(visited_creature_.getIdentifier() == herbivore.getIdentifier())
+    if(visited_creature_.getIdentifier() == herbivore.getIdentifier() or herbivore.isDead())
     {
         return;
     }

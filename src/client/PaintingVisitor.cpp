@@ -14,8 +14,36 @@ void client::PaintingVisitor::visit(common::Map & obj)
     image->fill(colorMap);
 }
 
+// pozwoliłem sobie, dla sprawdzenia jak działa zabijanie...
+void client::PaintingVisitor::drawDeadCreature(common::Creature &obj)
+{
+    int x = obj.getX()*10;
+    int y = obj.getY()*10;
+
+    long color = 7777777;
+
+    image->setPixel (QPoint (x+0, y+2), color);
+    image->setPixel (QPoint (x+1, y+2), color);
+    image->setPixel (QPoint (x+2, y+2), color);
+    image->setPixel (QPoint (x+3, y+2), color);
+    image->setPixel (QPoint (x+4, y+2), color);
+
+    image->setPixel (QPoint (x+2, y+0), color);
+    image->setPixel (QPoint (x+2, y+1), color);
+    image->setPixel (QPoint (x+2, y+2), color);
+    image->setPixel (QPoint (x+2, y+3), color);
+    image->setPixel (QPoint (x+2, y+4), color);
+    image->setPixel (QPoint (x+2, y+5), color);
+}
+
 void client::PaintingVisitor::visit(common::Predator &obj)
-{    
+{
+    if(obj.isDead())
+    {
+        drawDeadCreature(obj);
+        return;
+    }
+
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
@@ -157,6 +185,11 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
 void client::PaintingVisitor::visit(common::Herbivore &obj)
 {
+    if(obj.isDead())
+    {
+       drawDeadCreature(obj);
+       return;
+    }
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 

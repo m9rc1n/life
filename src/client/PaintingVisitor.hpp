@@ -20,9 +20,6 @@ namespace client
     /**
     * @brief
     * Wizytator rysujący obiekty na mapie.
-    *
-    * Konkretne wizytatory mogą np. symulować poszczególne obiekty,
-    * wyświetlać je na ekranie, zbierać statystyki etc.
     */
 
     class PaintingVisitor : public common::Visitor
@@ -41,6 +38,8 @@ namespace client
         virtual void visit(common::Creature &){}
 
     private:
+        void drawDeadCreature(common::Creature &);
+
         QImage *image;
     };
 }

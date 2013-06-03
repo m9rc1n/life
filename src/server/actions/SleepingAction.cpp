@@ -17,7 +17,7 @@ bool SleepingAction::perform(double time_interval)
         }
         else
         {
-            creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval / 15000, creature_.getSpeed() * time_interval / 15000);
+            creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval / 2800, creature_.getSpeed() * time_interval / 22000);
             return true;
         }
     }

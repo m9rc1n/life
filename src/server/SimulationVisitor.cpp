@@ -17,6 +17,8 @@ void SimulationVisitor::visit(common::Map &map)
 
 void SimulationVisitor::visit(common::Predator &predator)
 {
+    if(predator.isDead()) return;
+
     predator.updateListOfKnownObjects(time_interval_);
 
     InternalSimulationVisitor internal_visitor(predator, visited_map_, time_interval_);
@@ -45,9 +47,10 @@ void SimulationVisitor::visit(common::Predator &predator)
         action_performed = (*iter)->perform(time_interval_);
     }
 
-    predator.makeHungry(time_interval_);
-    predator.makeThirsty(time_interval_);
-    predator.makeTired(time_interval_);
+    predator.makeHungry(time_interval_/25000);
+    predator.makeThirsty(time_interval_/25000);
+    predator.makeTired(time_interval_/25000);
+    predator.makeOlder(time_interval_/25000);
 
     if(!action_performed)
     {
@@ -66,6 +69,8 @@ void SimulationVisitor::visit(common::Predator &predator)
 
 void SimulationVisitor::visit(common::Herbivore &herbivore)
 {
+    if(herbivore.isDead()) return;
+
     herbivore.updateListOfKnownObjects(time_interval_);
 
     InternalSimulationVisitor internal_visitor(herbivore, visited_map_, time_interval_);
@@ -92,9 +97,10 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
         action_performed = (*iter)->perform(time_interval_);
     }
 
-    herbivore.makeHungry(time_interval_);
-    herbivore.makeThirsty(time_interval_);
-    herbivore.makeTired(time_interval_);
+    herbivore.makeHungry(time_interval_/25000);
+    herbivore.makeThirsty(time_interval_/25000);
+    herbivore.makeTired(time_interval_/25000);
+    herbivore.makeOlder(time_interval_/25000);
 
     if(!action_performed)
     {

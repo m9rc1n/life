@@ -79,7 +79,6 @@ namespace common
             knownObjects(new QMap<int, double >),
             action_time(0)
         {
-            /// @todo write me
         }
 
         /**
@@ -91,6 +90,14 @@ namespace common
             radius_(another.radius_),
             angle_(another.angle_),
             speed_(another.speed_),
+            direction_(another.direction_),
+            repletion_(another.repletion_),
+            hydration_(another.hydration_),
+            energy_(another.energy_),
+            age_(another.age_),
+            is_dead_(another.is_dead_),
+            is_active_(another.is_active_),
+            action_time(another.action_time),
             fecundity_(another.fecundity_),
             max_repletion_(another.max_repletion_),
             max_hydration_(another.max_hydration_),
@@ -98,7 +105,6 @@ namespace common
             max_age_(another.max_age_),
             knownObjects(new QMap<int, double >(*another.knownObjects))
         {
-            /// @todo write me
         }
 
         /**
@@ -324,16 +330,64 @@ namespace common
                 return false;
             }
         }
+        /**
+         *
+         * @brief
+         * Obraca zwierzę w kierunku przeciwnym do zadanego obiektu, ale nie bardziej niz o zadany kąt.
+         *
+         * @see #partiallyTurnToObject
+         */
+        bool partiallyTurnFromObject(const MapObject &object, double degrees)
+        {
+            assert(degrees - fabs(degrees) < 0.01);
+            double destined_direction = getDirectionOfObjectInDegrees(object);
+            destined_direction = fmod(destined_direction + 180, 360);
+            double angle_difference = getAngleDifference(object);
+            double angle_difference_abs = fabs(angle_difference);
+
+            if(angle_difference_abs <= degrees)
+            {
+                direction_ = destined_direction;
+                direction_ = fmod(direction_, 360);
+                return true;
+            }
+            else if(angle_difference < 0)
+            {
+                direction_-= degrees;
+                direction_ = fmod(direction_, 360);
+                return false;
+            }
+            else //(angle_difference > 0)
+            {
+                direction_+= degrees;
+                direction_ = fmod(direction_, 360);
+                return false;
+            }
+        }
 
         /**
          * @brief
-         * Obraca się odrobinę w kierunku stworzenia, jednocześnie robiąc krok do przosu
+         * Obraca się odrobinę w kierunku stworzenia, jednocześnie robiąc krok do przodu
          */
         void partiallyTurnAndMoveToObject(const MapObject &object, double degrees, double distance)
         {
             partiallyTurnToObject(object, degrees);
             double angle_difference = getAngleDifference(object);
             if(fabs(angle_difference) < 90)
+            {
+                moveByDistance(distance);
+            }
+        }
+
+        /**
+         * @brief
+         * Obraca się odrobinę w kierunku przeciwnym do danego obiektu, jednocześnie próbując od niego uciec
+         */
+        void partiallyTurnOppositeAndMoveFromObject(const MapObject &object, double degrees, double distance)
+        {
+            partiallyTurnFromObject(object, degrees);
+            double angle_difference = getAngleDifference(object);
+            if(fabs(angle_difference) >= 90)
             {
                 moveByDistance(distance);
             }
@@ -373,6 +427,10 @@ namespace common
         void makeHungry(double time)
         {
             repletion_ -= time;
+            if(repletion_ < 0)
+            {
+                die();
+            }
         }
 
         /**
@@ -382,6 +440,10 @@ namespace common
         void makeThirsty(double time)
         {
             hydration_ -= time;
+            if(hydration_ < 0)
+            {
+                die();
+            }
         }
 
         /**
@@ -391,6 +453,31 @@ namespace common
         void makeTired(double time)
         {
             energy_ -= time;
+            if(energy_ < 0)
+            {
+                die();
+            }
+        }
+
+        /**
+         * @brief Zwiększa wiek zwierzęcia
+         * @param time czas jako upłynął w kroku symulacji, w milisekundach
+         */
+        void makeOlder(double time)
+        {
+            age_ += time;
+            if(age_ > max_age_)
+            {
+                die();
+            }
+        }
+
+        /**
+         * @brief Umiera ze starości, głodu, pragnienia lub wycieńczenia
+         */
+        void die()
+        {
+            is_dead_ = 1;
         }
 
         /**
@@ -569,10 +656,10 @@ namespace common
             }
             switch (current_action)
             {
-                case WALKING: moveByDistance(time*speed_/35000); break;
+                case WALKING: moveByDistance(time*speed_/42000); break;
                 case STAYING: break;
-                case ROTATING_LEFT: rotateByAngleInDegrees(-time*speed_/18000); break;
-                case ROTATING_RIGHT: rotateByAngleInDegrees(time*speed_/18000); break;
+                case ROTATING_LEFT: rotateByAngleInDegrees(-time*speed_/3000); break;
+                case ROTATING_RIGHT: rotateByAngleInDegrees(time*speed_/3000); break;
             }
         }
 
