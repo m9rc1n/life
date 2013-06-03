@@ -41,6 +41,7 @@ class Client_UI : public QMainWindow
         void zoomOut();
         void normalSize();
         void about();
+        void legend();
         void speedSimulationLow();
         void speedSimulationHigh();
         void speedSimulationMedium();
@@ -68,6 +69,7 @@ class Client_UI : public QMainWindow
         QAction         *simulationLAct;
         QAction         *simulationMAct;
         QAction         *simulationHAct;
+        QAction         *legendAct;
         double          scaleFactor;
 
         QMenu           *viewMenu;

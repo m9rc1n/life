@@ -55,7 +55,7 @@ void Client_UI::normalSize()
 
 void Client_UI::about()
 {
-    QMessageBox::about(this, tr("About Life!"),
+    QMessageBox::about (this, tr("About Life!"),
             tr("<p>The <b>Life!</b></p>"
                "<p><b>How to use: </b></p>"
                "<p>Ctrl++ : <b> zoom in </b></p>"
@@ -67,6 +67,13 @@ void Client_UI::about()
                "<p><b> Authors: </b>"
                "Michal Krawczak \n"
                "Marcin Urbanski</p>"));
+}
+
+void Client_UI::legend()
+{
+    QMessageBox::about (this, tr("Legend of Creatures"),
+        "<img src=\":/images/legend.png\"><I>Legend</I><center>Notepad+ <BIG>wersja 1.1</BIG>"
+        " <p></p></center>");
 }
 
 void Client_UI::updatePixmap(const QImage &image)
@@ -123,6 +130,11 @@ void Client_UI::createActions()
     aboutAct->setShortcut(tr("Ctrl+A"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
+    legendAct = new QAction(tr("&Legend"), this);
+    legendAct->setEnabled(true);
+    legendAct->setShortcut(tr("Ctrl+L"));
+    connect(legendAct, SIGNAL(triggered()), this, SLOT(legend()));
+
     simulationLAct = new QAction(tr("Speed Simulation &Low"), this);
     simulationLAct->setEnabled(true);
     simulationLAct->setCheckable(true);
@@ -153,6 +165,10 @@ void Client_UI::createActions()
     this->addAction(aboutAct);
     this->addAction(aboutQtAct);
     this->addAction(exitAct);
+    this->addAction(simulationHAct);
+    this->addAction(simulationMAct);
+    this->addAction(simulationLAct);
+    this->addAction(legendAct);
 }
 
 void Client_UI::speedSimulationHigh()
@@ -194,6 +210,8 @@ void Client_UI::createMenus()
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutAct);
     helpMenu->addAction(aboutQtAct);
+    helpMenu->addSeparator();
+    helpMenu->addAction(legendAct);
 
     menuBar()->addMenu(fileMenu);
     menuBar()->addMenu(viewMenu);
