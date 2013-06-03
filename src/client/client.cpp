@@ -21,7 +21,7 @@ void client::Client::run()
         client::PaintingVisitor painter(&image);
         client::StatisticsVisitor stater(Statistics::getInstance());
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
         config->mutex.lock();
             localMap = new common::Map(*(config->map));
