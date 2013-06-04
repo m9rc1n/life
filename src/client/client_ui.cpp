@@ -104,7 +104,6 @@ void Client_UI::createConnections()
 
     connect(client_thread, SIGNAL(toPopPre(int)), this, SLOT(updatePopPre(int)));
     connect(client_thread, SIGNAL(toPopHer(int)), this, SLOT(updatePopHer(int)));
-    connect(client_thread, SIGNAL(toPopTot(int)), this, SLOT(updatePopTot(int)));
     connect(client_thread, SIGNAL(toPopCop(int)), this, SLOT(updatePopCop(int)));
     connect(client_thread, SIGNAL(toPopCre(int)), this, SLOT(updatePopCre(int)));
 
@@ -297,9 +296,9 @@ void Client_UI::updatePopCop(int update)
     ui->pop_cop->display(update);
 }
 
-void Client_UI::updatePopTot(int update)
+void Client_UI::updatePopTot()
 {
-    ui->pop_tot->display(update);
+    // ui->pop_tot->display(common::Config::getInstance()->getObjectsCounter());
 }
 
 void Client_UI::updatePopSle(int update)

@@ -28,6 +28,8 @@ client::StatisticsAverageVisitor::StatisticsAverageVisitor(Statistics *stat) :
     stat->averageRadiusPredators = 0;
     stat->averageSpeedPredators = 0;
     stat->averageAnglePredators = 0;
+    stat->averageDieAgeHerbivores = 0;
+    stat->averageDieAgePredators = 0;
 }
 
 void client::StatisticsAverageVisitor::visit(common::Map &){}
@@ -75,7 +77,7 @@ void client::StatisticsAverageVisitor::visit(common::Herbivore &obj)
     }
     else
     {
-        (*stat).averageDieAgePredators += obj.age_;
+        (*stat).averageDieAgeHerbivores += obj.age_;
     }
 }
 

@@ -2,6 +2,14 @@
 
 int temp_counter = 0;
 
+/**
+ * @brief client::PaintingVisitor::PaintingVisitor
+ *  Constructor
+ * @param image
+ *  QImage - image onto map and object will be painted
+ * @param showCreatureParametres
+ *  tells whether show cratures paremetres or not
+ */
 client::PaintingVisitor::PaintingVisitor(QImage *image, bool showCreatureParametres) :
     image(image),
     showCreatureParametres(showCreatureParametres)
@@ -9,13 +17,25 @@ client::PaintingVisitor::PaintingVisitor(QImage *image, bool showCreatureParamet
     config = common::Config::getInstance();
 }
 
+/**
+ * @brief client::PaintingVisitor::visit
+ *  Map which we are visiting,
+ *  onto object are drawing
+ */
+
 void client::PaintingVisitor::visit(common::Map &)
 {
     QRgb colorMap = qRgb(180, 200, 180);
     image->fill(colorMap);
 }
 
-// pozwoliłem sobie, dla sprawdzenia jak działa zabijanie...
+/**
+ * @brief client::PaintingVisitor::drawDeadCreature
+ *  Draw creature that is dead
+ *  Drawing will be to the end of the game
+ * @param obj
+ *  Dead creature
+ */
 void client::PaintingVisitor::drawDeadCreature(common::Creature &obj)
 {
     int x = obj.getX()*10;
@@ -37,6 +57,11 @@ void client::PaintingVisitor::drawDeadCreature(common::Creature &obj)
     image->setPixel (QPoint (x+2, y+5), color);
 }
 
+/**
+ * @brief client::PaintingVisitor::drawSleepingCreature
+ *  Draw sleepnig creature
+ * @param obj
+ */
 void client::PaintingVisitor::drawSleepingCreature(common::Creature &obj)
 {
     int x = obj.getX()*10;
@@ -81,6 +106,12 @@ void client::PaintingVisitor::drawProcreatingCreature(common::Creature &obj)
 
 }
 
+/**
+ * @brief client::PaintingVisitor::visit
+ *  Draw Predator while visiting it
+ * @param obj
+ *  Object to draw
+ */
 void client::PaintingVisitor::visit(common::Predator &obj)
 {
     if(obj.isDead())
@@ -405,6 +436,12 @@ void client::PaintingVisitor::visit(common::Predator &obj)
 
 }
 
+/**
+ * @brief client::PaintingVisitor::visit
+ *  Draw Herbivore while visiting it
+ * @param obj
+ *  Object to draw
+ */
 void client::PaintingVisitor::visit(common::Herbivore &obj)
 {
     if(obj.isDead())
