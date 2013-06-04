@@ -753,8 +753,8 @@ void client::PaintingVisitor::visit(common::Waterhole &obj)
     int x = obj.getX()*10;
     int y = obj.getY()*10;
 
-    QRgb colorUpWater = qRgb(150, 150, 200);
-    QRgb colorDownWater = qRgb( 100, 100, 50);
+    QRgb colorUpWater = qRgb(50, 50, 255);
+    QRgb colorDownWater = qRgb( 100, 50, 50);
 
 /// draw Waterhole ///////////////////////////////////////
 
@@ -806,59 +806,6 @@ void client::PaintingVisitor::visit(common::Waterhole &obj)
     image->setPixel (QPoint (x+5, y+9), colorDownWater);
     image->setPixel (QPoint (x+6, y+9), colorDownWater);
 
-    /*
-    image->setPixel (QPoint (x+3, y+2), colorLightWave);
-    image->setPixel (QPoint (x+4, y+2), colorLightWave);
-    image->setPixel (QPoint (x+5, y+2), colorDarkWave);
-    image->setPixel (QPoint (x+6, y+2), colorDarkWave);
-
-    image->setPixel (QPoint (x+2, y+3), colorLightWave);
-    image->setPixel (QPoint (x+5, y+3), colorLightWave);
-    image->setPixel (QPoint (x+6, y+3), colorDarkWave);
-    image->setPixel (QPoint (x+7, y+3), colorDarkWave);
-
-    image->setPixel (QPoint (x+6, y+4), colorLightWave);
-    image->setPixel (QPoint (x+7, y+4), colorDarkWave);
-    image->setPixel (QPoint (x+8, y+4), colorDarkWave);
-
-    image->setPixel (QPoint (x+6, y+5), colorLightWave);
-    image->setPixel (QPoint (x+7, y+5), colorLightWave);
-    image->setPixel (QPoint (x+8, y+5), colorDarkWave);
-    image->setPixel (QPoint (x+9, y+5), colorDarkWave);
-
-    image->setPixel (QPoint (x+6, y+6), colorLightWave);
-    image->setPixel (QPoint (x+7, y+6), colorDarkWave);
-    image->setPixel (QPoint (x+8, y+6), colorDarkWave);
-    image->setPixel (QPoint (x+9, y+6), colorDarkWave);
-
-    image->setPixel (QPoint (x, y+7), colorLightWave);
-    image->setPixel (QPoint (x+5, y+7), colorLightWave);
-    image->setPixel (QPoint (x+6, y+7), colorDarkWave);
-    image->setPixel (QPoint (x+7, y+7), colorDarkWave);
-    image->setPixel (QPoint (x+8, y+7), colorDarkWave);
-    image->setPixel (QPoint (x+9, y+7), colorDarkWave);
-
-    image->setPixel (QPoint (x, y+8), colorDarkWave);
-    image->setPixel (QPoint (x+1, y+8), colorLightWave);
-    image->setPixel (QPoint (x+4, y+8), colorLightWave);
-    image->setPixel (QPoint (x+5, y+8), colorDarkWave);
-    image->setPixel (QPoint (x+6, y+8), colorDarkWave);
-    image->setPixel (QPoint (x+7, y+8), colorDarkWave);
-    image->setPixel (QPoint (x+8, y+8), colorDarkWave);
-    image->setPixel (QPoint (x+9, y+8), colorDarkWave);
-
-    image->setPixel (QPoint (x+0, y+9), colorDarkWave);
-    image->setPixel (QPoint (x+1, y+9), colorDarkWave);
-    image->setPixel (QPoint (x+2, y+9), colorDarkWave);
-    image->setPixel (QPoint (x+3, y+9), colorDarkWave);
-    image->setPixel (QPoint (x+4, y+9), colorDarkWave);
-    image->setPixel (QPoint (x+5, y+9), colorDarkWave);
-    image->setPixel (QPoint (x+6, y+9), colorDarkWave);
-    image->setPixel (QPoint (x+7, y+9), colorDarkWave);
-    image->setPixel (QPoint (x+8, y+9), colorDarkWave);
-    image->setPixel (QPoint (x+9, y+9), colorDarkWave);
-*/
-
 /// end Waterhole ////////////////////////////////////////
 
 }
@@ -869,7 +816,7 @@ void client::PaintingVisitor::visit(common::Lair &obj)
     int y = obj.getY()*10;
 
     QRgb colorUpLair = 555555;
-    QRgb colorDownLair = 0x111111;
+    QRgb colorDownLair = qRgb( 100, 50, 50);
 
 /// draw Lair ////////////////////////////////////////////
 

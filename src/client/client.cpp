@@ -29,11 +29,9 @@ void client::Client::run()
         config->mutex.unlock();
 
         client::PaintingVisitor painter(&image, showCreaturesParametres);
-        client::StatisticsSumVisitor staterSum(Statistics::getInstance());
-        client::StatisticsAverageVisitor staterAve(Statistics::getInstance());
+        client::StatisticsVisitor stater(Statistics::getInstance());
         localMap->accept(painter);
-        localMap->accept(staterSum);
-        localMap->accept(staterAve);
+        localMap->accept(stater);
 
         emit renderedImage(image);
 

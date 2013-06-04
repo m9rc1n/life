@@ -21,7 +21,12 @@ namespace Ui
     class Client_UI;
 }
 
-
+/**
+ * @brief The Client_UI class
+ *  Creates the GUI for the game, display statistic and coordinates from
+ *  objects on map
+ *
+ */
 class Client_UI : public QMainWindow
 {
     Q_OBJECT
@@ -34,7 +39,6 @@ class Client_UI : public QMainWindow
     private slots:
 
         void updatePixmap(const QImage &image);
-
         void updatePopCre(int update);
         void updatePopHer(int update);
         void updatePopPre(int update);

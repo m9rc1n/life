@@ -10,8 +10,7 @@
 #include "../common/Map.hpp"
 #include "../common/Config.hpp"
 #include "PaintingVisitor.hpp"
-#include "StatisticsSumVisitor.hpp"
-#include "StatisticsAverageVisitor.hpp"
+#include "StatisticsVisitor.hpp"
 
 namespace client
 {
