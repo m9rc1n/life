@@ -16,5 +16,8 @@ TEMPLATE = app
 
 
 SOURCES += tst_lifetest.cpp \
-    ../../server/AwarenessDetector.cpp
+    ../../server/AwarenessDetector.cpp \
+    ../../server/genetics/Genotype.cpp
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
+
+QMAKE_CXXFLAGS += -std=c++11
