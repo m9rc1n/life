@@ -58,10 +58,10 @@ void SimulationVisitor::visit(common::Predator &predator)
         action_performed = (*iter)->perform(time_interval_);
     }
 
-    predator.makeHungry(time_interval_/25000);
-    predator.makeThirsty(time_interval_/25000);
-    predator.makeTired(time_interval_/25000);
-    predator.makeOlder(time_interval_/25000);
+    predator.makeHungry(time_interval_/45000);
+    predator.makeThirsty(time_interval_/45000);
+    predator.makeTired(time_interval_/45000);
+    predator.makeOlder(time_interval_/15000);
     predator.updateTimeToProcreate(time_interval_/25000);
 
     if(!action_performed)
@@ -122,10 +122,10 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
         action_performed = (*iter)->perform(time_interval_);
     }
 
-    herbivore.makeHungry(time_interval_/25000);
-    herbivore.makeThirsty(time_interval_/25000);
-    herbivore.makeTired(time_interval_/25000);
-    herbivore.makeOlder(time_interval_/25000);
+    herbivore.makeHungry(time_interval_/45000);
+    herbivore.makeThirsty(time_interval_/45000);
+    herbivore.makeTired(time_interval_/45000);
+    herbivore.makeOlder(time_interval_/15000);
     herbivore.updateTimeToProcreate(time_interval_/25000);
 
     if(!action_performed)
@@ -152,24 +152,26 @@ void SimulationVisitor::normalizeXY(common::Creature &creature)
     int x = creature.getX();
     int y = creature.getY();
 
+    int sgn = (rand() % 5) - 2; // od -2 do 2
+
     if(x < 1.8)
     {
-        creature.rotateByAngleInDegrees(90);
+        creature.rotateByAngleInDegrees(sgn * 45);
         creature.moveTo(2, creature.getY());
     }
     if(y < 1.8)
     {
-        creature.rotateByAngleInDegrees(90);
+        creature.rotateByAngleInDegrees(sgn * 45);
         creature.moveTo(creature.getX(), 2);
     }
     if(x > w - 1.8)
     {
-        creature.rotateByAngleInDegrees(90);
+        creature.rotateByAngleInDegrees(sgn * 45);
         creature.moveTo(w-2, creature.getY());
     }
     if(y > h - 1.8)
     {
-        creature.rotateByAngleInDegrees(90);
+        creature.rotateByAngleInDegrees(sgn * 45);
         creature.moveTo(creature.getX(), h-2);
     }
 }

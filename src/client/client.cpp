@@ -17,7 +17,9 @@ void client::Client::run()
 
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
-    for(int i = 0;; ++i) // nieskonczona petla
+    for(int i = 0;
+        common::Config::getInstance()->isGameStopped() == 0;
+        ++i) // głowna pętla klients
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
 

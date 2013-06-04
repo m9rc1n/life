@@ -150,7 +150,6 @@ namespace common
             ar & age_;
         }
 
-        struct WrongRotationException: public std::exception{};
 
         /**
          * @brief
@@ -158,14 +157,13 @@ namespace common
          *
          * @param degrees Zadany kąt w stopniach. Jeśli degrees > 0, to obrót w prawo; gdy degrees < 0 - obrót w lewo.
          * @pre -360 > #degrees > 360
-         * @throws WrongRotationException
          * @see direction_
          */
         void rotateByAngleInDegrees(double degrees)
         {
             if(degrees <= -360 or degrees >= 360)
             {
-                throw new WrongRotationException();
+                return;
             }
             direction_ += degrees;
             // pilnujemy niezmiennika
@@ -825,6 +823,5 @@ namespace common
     };
 }
 
-BOOST_SERIALIZATION_ASSUME_ABSTRACT(Creature)
 
 #endif
