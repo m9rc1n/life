@@ -32,13 +32,16 @@ namespace common
             objectsCounter(0),
             parameter_sum(200),
             simulation_speed(1),
-            show_creatures_parametres(false){}
+            show_creatures_parametres(false),
+            stop(0)
+        {}
         Config(Config &);
 
         /// liczba obiektów utworzonych na planszy (nie dekrementujemy przy kasowaniu obiektów)
         /// ten sam obiekt znajdujący się w kilku kopiach mapy liczony jest raz (nie inkrementujemy przy kopiowaniu)
-
         int             objectsCounter;
+
+        // parametry rozgrywki, chyba nie trzeba opisywac po kolei
         int             map_width;
         int             map_height;
         int             number_of_predators;
@@ -46,9 +49,18 @@ namespace common
         int             number_of_trees;
         int             number_of_waterholes;
         int             number_of_lairs;
+
+        /// do jakiej wartosci normalizowac cechy osobnikow?
         int             parameter_sum;
+
+        /// szybkosz symulacji, mnoznik
         int             simulation_speed;
+
+        /// czy pokazywać dodatkowe paski?
         bool            show_creatures_parametres;
+
+        /// polecenie zatrzymania gry, głównie do testowania
+        bool stop;
 
     public:
         common::Map     *map;
@@ -57,6 +69,13 @@ namespace common
         //std::vector <GeneticEquation> equations;
         QMutex          mutex;
         QWaitCondition  condition;
+
+
+        /// getter dla pola #stop
+        bool isGameStopped() const
+        {
+            return stop;
+        }
 
         static Config *getInstance()
         {

@@ -83,7 +83,8 @@ HEADERS  += \
     server/genetics/Genetics.hpp \
     server/genetics/Genotype.hpp \
     client/StatisticsSumVisitor.hpp \
-    client/StatisticsAverageVisitor.hpp
+    client/StatisticsAverageVisitor.hpp \
+    test/AllocationCounter.hpp
 
 OTHER_FILES += \
     makefile \
@@ -91,7 +92,8 @@ OTHER_FILES += \
     client/makefile \
     common/makefile \
     init/makefile \
-    server/makefile
+    server/makefile \
+    server/Map.hpp~
 
 
 FORMS += \

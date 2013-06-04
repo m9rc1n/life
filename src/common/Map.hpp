@@ -53,23 +53,27 @@ namespace common
          * Konstruktor kopiujący kopiuje elementy kolekcji #obiekty
          */
         Map(const Map &another):
-        width_ (another.width_),
-        height_(another.height_) 
+            width_ (another.width_),
+            height_(another.height_)
         {
             for (std::vector <MapObject *>::const_iterator iter = another.objects.begin(); iter != another.objects.end(); ++iter)
             {
                 objects.push_back((*iter)->clone());
             }
         }
-        
+
         /**
          * @brief
          * Operator przypisania kopiuje elementy kolekcji #obiekty
          */
         Map& operator = (const Map &another)
         {
+            if(this == &another)
+            {
+                return *this;
+            }
             width_ = another.width_;
-            height_ = another.height_; 
+            height_ = another.height_;
             for (std::vector <MapObject *>::iterator iter = objects.begin(); iter != objects.end(); ++iter)
             {
                 delete *iter;
@@ -81,16 +85,37 @@ namespace common
             }
         }
 
+        /**
+         * @brief destruktor zwalnia dynamicznie alokowaną pamięć z tablicy objects
+         */
+        ~Map()
+        {
+            for(auto iter: objects)
+            {
+                delete iter;
+            }
+        }
+
+        /**
+         * @brief setter dla width_
+         */
         int getWidth()
         {
             return width_;
         }
 
+        /**
+         * @brief setter dla height_
+         */
         int getHeight()
         {
             return height_;
         }
 
+        /**
+         * @brief dodaje obiekt do mapy
+         * @pre object jest wskaźnikiem na poprawnie utworzony obiekt klasy pochodnej po MapObject
+         */
         void appendObject(MapObject *object)
         {
             objects.push_back(object);
@@ -112,10 +137,7 @@ namespace common
          * 
          * Wiecej informacji:
          * http://stackoverflow.com/questions/3396330/where-to-put-boost-class-export-for-boostserialization
-         * 
-         * Obecnie metoda nie jest uzywana
-         * 
-         * @todo uzyj mnie!
+         *
          */
         template<class Archive>
         void serialize(Archive & ar, const unsigned int version)
@@ -124,23 +146,22 @@ namespace common
             ar & width_;
             ar & height_;
         }
-        
-    /// @todo tymczasowo ustawiam public protected:
-    public:
+
+    protected:
         /**
          * @brief
          * Wektor zawierający wszystkie obiekty znajdujące się na mapie
          * 
          * Rozróżnienie typów obiektów zagwarantują wirtualne metody w hierarchii
          * klas dziedziczących po typie MapObject.
-         * 
-         * @todo zmienic strukture danych na cos lepszego (moze mapa?)
          */
         std::vector <MapObject *> objects;
         
         int width_;
         int height_;
         
+        AllocationCounter counter;
+
         friend class boost::serialization::access;
     };
 }

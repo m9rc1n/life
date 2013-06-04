@@ -8,6 +8,8 @@
 #include "Visitor.hpp"
 #include "Config.hpp"
 
+#include "../test/AllocationCounter.hpp"
+
 namespace common
 {
 
@@ -19,20 +21,12 @@ namespace common
     class MapObject
     {
     public:
-        MapObject():
-            /// musimy chyba przekazać na samym początku api w argumentach
-            x_pos_(0),
-            y_pos_(0),
-            identifier_(common::Config::getInstance()->getObjectsCounter())
-        {
-            common::Config::getInstance()->increaseObjectsCounter();
-        }
-
         /// konstruktor z podaną pozycją startową
         MapObject(double x_pos, double y_pos):
             x_pos_(x_pos),
             y_pos_(y_pos),
-            identifier_(common::Config::getInstance()->getObjectsCounter())
+            identifier_(common::Config::getInstance()->getObjectsCounter()),
+            counter()
         {
             common::Config::getInstance()->increaseObjectsCounter();
         }
@@ -41,7 +35,8 @@ namespace common
         MapObject(const MapObject &another):
             x_pos_(another.x_pos_),
             y_pos_(another.y_pos_),
-            identifier_(another.identifier_)
+            identifier_(another.identifier_),
+            counter()
         {}
 
         virtual ~MapObject(){}
@@ -131,8 +126,10 @@ namespace common
          * tworzenia w programie i jest stały przez cały czas istnienia obiektu.
          */
         const int identifier_;
+
+        AllocationCounter counter;
+
     };
-    BOOST_SERIALIZATION_ASSUME_ABSTRACT(MapObject)
 }
 
 #endif

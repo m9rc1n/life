@@ -6,7 +6,6 @@
 
 #include <QSize>
 #include <QThread>
-#include <QImage>
 
 #include "../common/Map.hpp"
 #include "../common/Config.hpp"

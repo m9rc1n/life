@@ -1,6 +1,5 @@
 #include "server.hpp" 
 #include "../common/MaslovPyramid.hpp"
-#include <QWidget>
 #include <ctime>
 #include <cstdlib>
 
@@ -26,7 +25,9 @@ void server::Server::run()
 
     std::chrono::steady_clock::time_point current = std::chrono::steady_clock::now(), previous;
 
-    for(int i = 0;; ++i) // nieskonczona petla
+    for(int i = 0;
+        common::Config::getInstance()->isGameStopped() == 0;
+        ++i) // głowna pętla serwera
     {
         previous = current;
         current = std::chrono::steady_clock::now();
@@ -47,6 +48,9 @@ void server::Server::run()
 
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
+    delete localMap;
+    delete common::Config::getInstance()->map;
+    return;
 }
 
 

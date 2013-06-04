@@ -823,6 +823,5 @@ namespace common
     };
 }
 
-BOOST_SERIALIZATION_ASSUME_ABSTRACT(Creature)
 
 #endif
