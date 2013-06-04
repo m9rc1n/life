@@ -13,21 +13,6 @@ namespace common
     class Predator: public Creature
     {
     public:
-        /**
-         * @brief
-         * Konstruktor wywoływany w momencie narodzin stworzenia. Parametry stworzenia są
-         * ustalane na podstawie odpowiednich parametrów ojca i matki.
-         *
-         * Ten konstruktor zakłada, że matka i ojciec znajdują się w tym samym miejscu.
-         * Nowe stworzenie również pojawi się w tym samym miejscu.
-         *
-         * @param mother referencja do matki
-         * @param father referencja do ojca
-         */
-        Predator(const Predator &mother, const Predator &father):
-            Creature(mother)
-        {} // kod w klasie Creature
-
 
         /**
          * @brief

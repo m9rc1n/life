@@ -22,6 +22,14 @@ public:
     virtual void visit(common::Lair &);
     virtual void visit(common::Tree &);
 
+    ~ActionPerformVisitor()
+    {
+        for(auto i: actions_)
+        {
+            delete i;
+        }
+    }
+
 private:
     common::Creature &visited_creature_;
     common::Map *visited_map_;

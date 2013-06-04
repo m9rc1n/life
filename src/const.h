@@ -63,7 +63,7 @@ const int PROCREATING_TIME_FACTOR_FOR_HERBIVORES = 12000; // lekka faworyzacja
 const int MAX_CHILDREN_FOR_PREDATORS = 1;
 
 /// maksymalna ilość dzieci z 1 "miotu" dla roślinożerców (pozwala mocno wpływać na rozgrywkę)
-const int MAX_CHILDREN_FOR_HERBIVORES = 3; // "lekka" faworyzacja
+const int MAX_CHILDREN_FOR_HERBIVORES = 2; // "lekka" faworyzacja
 
 // inne
 
@@ -74,7 +74,7 @@ const int SPEED_FACTOR_FOR_MOVING = 1800;
 const int SPEED_FACTOR_FOR_ROTATING = 18000;
 
 /// "dopalacz" dla uciekających roślinożerców (im więcej tym szybciej uciekają)
-const double BOOST_FOR_RUNNING = 1.4;
+const double BOOST_FOR_RUNNING = 1.15;
 
 /// zasięg "słyszenia" obiektów przez zwierzęta
 const int HEAR_RADIUS = 12;
