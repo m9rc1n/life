@@ -65,4 +65,18 @@ const int MAX_CHILDREN_FOR_PREDATORS = 1;
 /// maksymalna ilość dzieci z 1 "miotu" dla roślinożerców (pozwala mocno wpływać na rozgrywkę)
 const int MAX_CHILDREN_FOR_HERBIVORES = 3; // "lekka" faworyzacja
 
+// inne
+
+/// im więcej,tym stworzenia wolniej się poruszają
+const int SPEED_FACTOR_FOR_MOVING = 1800;
+
+/// im więcej,tym stworzenia wolniej się obracają
+const int SPEED_FACTOR_FOR_ROTATING = 18000;
+
+/// "dopalacz" dla uciekających roślinożerców (im więcej tym szybciej uciekają)
+const double BOOST_FOR_RUNNING = 1.4;
+
+/// zasięg "słyszenia" obiektów przez zwierzęta
+const int HEAR_RADIUS = 12;
+
 #endif // CONST_H
