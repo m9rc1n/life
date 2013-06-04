@@ -81,8 +81,10 @@ HEADERS  += \
     client/Statistics.hpp \
     server/genetics/Genetics.hpp \
     server/genetics/Genotype.hpp \
-    client/StatisticsVisitor.hpp \
-    test/AllocationCounter.hpp
+    client/StatisticsSumVisitor.hpp \
+    client/StatisticsAverageVisitor.hpp \
+    test/AllocationCounter.hpp \
+    const.h
 
 OTHER_FILES += \
     makefile \

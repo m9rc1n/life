@@ -2,6 +2,7 @@
 #define SERVER_DRINKINGACTION_HPP
 
 #include "Action.hpp"
+#include "../../const.h"
 namespace server {
 
 class DrinkingAction : public server::Action

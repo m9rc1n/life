@@ -2,6 +2,7 @@
 #define SERVER_RUNNINGACTION_HPP
 
 #include "Action.hpp"
+#include "../../const.h"
 namespace server {
 
 class RunningAction : public server::Action

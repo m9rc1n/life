@@ -2,6 +2,7 @@
 #define SERVER_PROCREATINGACTION_HPP
 
 #include "Action.hpp"
+#include "../../const.h"
 namespace server {
 
 class ProcreatingAction : public server::Action

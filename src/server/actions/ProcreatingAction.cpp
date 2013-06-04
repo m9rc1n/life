@@ -13,7 +13,7 @@ namespace server {
            !another.isHungry() && !another.isThirsty() && !another.isTired() && another.getTimeToProcreate() == 0 &&
             creature_.hasOppositeSex(another))
         {
-            if(creature_.getDistance(object_) < 0.8) // cel osiagniety
+            if(creature_.getDistance(object_) < DISTANCE_TO_ASSUME_TARGET_ACHIEVED) // cel osiagniety
             {
                 creature_.startProcreating(&another);
                 another.startProcreating(&creature_);

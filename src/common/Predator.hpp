@@ -60,6 +60,20 @@ namespace common
         {}
 
         /**
+         * @brief Prokreuje (działa tylko dla samic)
+         */
+        virtual void procreate()
+        {
+            if(not isDead() and not current_procreating_partner_->isDead() and !is_male_)
+            {
+                for(int i = 0; i < MAX_CHILDREN_FOR_PREDATORS; ++i)
+                {
+                    server::Genetics::makeChild(this, current_procreating_partner_);
+                }
+            }
+        }
+
+        /**
          * @brief Podaje piramidę potrzeb zwierzęcia.
          *
          * W przyszłości być moze będzie podawać indywidualną piramidę; póki co jest ona globalna.

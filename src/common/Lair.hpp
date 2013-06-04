@@ -13,7 +13,6 @@ namespace common
         Lair(double x_pos, double y_pos):
             MapObject(x_pos, y_pos)
         {
-            // ...
         }
 
 

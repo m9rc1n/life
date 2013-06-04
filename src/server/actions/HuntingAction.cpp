@@ -12,7 +12,7 @@ namespace server
         common::Creature &herbivore = dynamic_cast<common::Creature&> (object_);
         if(creature_.isHungry())
         {
-            if(creature_.getDistance(object_) < 1) // cel osiagniety
+            if(creature_.getDistance(object_) < DISTANCE_TO_ASSUME_TARGET_ACHIEVED ) // cel osiagniety
             {
                 creature_.eat();
                 herbivore.beEaten();

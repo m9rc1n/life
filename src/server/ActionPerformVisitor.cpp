@@ -71,7 +71,7 @@ void ActionPerformVisitor::visit(common::Lair &lair)
 }
 void ActionPerformVisitor::visit(common::Tree &tree)
 {
-    if(visited_creature_.knows(tree) and visited_creature_type_ == HERBIVORE)
+    if(visited_creature_.knows(tree) and visited_creature_type_ == HERBIVORE and tree.getLeafs() > LEAFS_EATEN_AT_ONCE)
     {
         actions_.push_back(new server::EatingAction(visited_creature_.getMaslovPyramid()->getEatingPriority(), visited_creature_, tree));
     }

@@ -2,6 +2,7 @@
 #define EATINGACTION_HPP
 
 #include "Action.hpp"
+#include "../../const.h"
 
 namespace server
 {

@@ -2,6 +2,7 @@
 #define SERVER_HUNTINGACTION_HPP
 
 #include "Action.hpp"
+#include "../../const.h"
 namespace server {
 
 class HuntingAction : public server::Action
