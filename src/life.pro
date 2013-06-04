@@ -45,8 +45,7 @@ SOURCES += main.cpp\
     client/Statistics.cpp \
     server/genetics/Genetics.cpp \
     server/genetics/Genotype.cpp \
-    client/StatisticsAverageVisitor.cpp \
-    client/StatisticsSumVisitor.cpp
+    client/StatisticsVisitor.cpp
 
 HEADERS  += \
     client/client.hpp \
@@ -82,8 +81,7 @@ HEADERS  += \
     client/Statistics.hpp \
     server/genetics/Genetics.hpp \
     server/genetics/Genotype.hpp \
-    client/StatisticsSumVisitor.hpp \
-    client/StatisticsAverageVisitor.hpp
+    client/StatisticsVisitor.hpp
 
 OTHER_FILES += \
     makefile \
