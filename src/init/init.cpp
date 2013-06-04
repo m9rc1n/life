@@ -14,7 +14,4 @@ int init::startGame()
 
     server::Server* server_thread = new server::Server();
     server_thread->start();
-
-    delete client_ui;
-    delete server_thread;
 }
