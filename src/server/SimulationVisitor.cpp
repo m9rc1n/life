@@ -58,11 +58,11 @@ void SimulationVisitor::visit(common::Predator &predator)
         action_performed = (*iter)->perform(time_interval_);
     }
 
-    predator.makeHungry(time_interval_/45000);
-    predator.makeThirsty(time_interval_/45000);
-    predator.makeTired(time_interval_/45000);
-    predator.makeOlder(time_interval_/15000);
-    predator.updateTimeToProcreate(time_interval_/25000);
+    predator.makeHungry(time_interval_/TIME_FACTOR_FOR_PREDATORS);
+    predator.makeThirsty(time_interval_/TIME_FACTOR_FOR_PREDATORS);
+    predator.makeTired(time_interval_/TIME_FACTOR_FOR_PREDATORS);
+    predator.makeOlder(time_interval_/AGE_TIME_FACTOR_FOR_PREDATORS);
+    predator.updateTimeToProcreate(time_interval_/PROCREATING_TIME_FACTOR_FOR_PREDATORS);
 
     if(!action_performed)
     {
@@ -122,11 +122,11 @@ void SimulationVisitor::visit(common::Herbivore &herbivore)
         action_performed = (*iter)->perform(time_interval_);
     }
 
-    herbivore.makeHungry(time_interval_/45000);
-    herbivore.makeThirsty(time_interval_/45000);
-    herbivore.makeTired(time_interval_/45000);
-    herbivore.makeOlder(time_interval_/15000);
-    herbivore.updateTimeToProcreate(time_interval_/25000);
+    herbivore.makeHungry(time_interval_/TIME_FACTOR_FOR_HERBIVORES);
+    herbivore.makeThirsty(time_interval_/TIME_FACTOR_FOR_HERBIVORES);
+    herbivore.makeTired(time_interval_/TIME_FACTOR_FOR_HERBIVORES);
+    herbivore.makeOlder(time_interval_/AGE_TIME_FACTOR_FOR_HERBIVORES );
+    herbivore.updateTimeToProcreate(time_interval_/PROCREATING_TIME_FACTOR_FOR_HERBIVORES);
 
     if(!action_performed)
     {
@@ -189,7 +189,7 @@ void SimulationVisitor::visit(common::Lair &)
 void SimulationVisitor::visit(common::Tree &tree)
 {
     // tree grows
-    tree.growLeafs(time_interval_);
+    tree.growLeafs(time_interval_/TIME_TO_GROW_A_LEAF);
 }
 
 void SimulationVisitor::visit(common::MapObject &)

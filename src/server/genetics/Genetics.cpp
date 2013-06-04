@@ -11,6 +11,7 @@ namespace server
         server::Genotype father_genotype (father);
 
         server::Genotype child_genotype (mother_genotype, father_genotype);
+
         for(int i=0; i<Genetics::MUTATION_COUNT; ++i)
         {
             child_genotype.mutate();

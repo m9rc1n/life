@@ -2,6 +2,7 @@
 #define SERVER_SLEEPINGACTION_HPP
 
 #include "Action.hpp"
+#include "../../const.h"
 namespace server {
 
 class SleepingAction : public server::Action

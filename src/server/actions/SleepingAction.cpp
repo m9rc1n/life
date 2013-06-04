@@ -10,7 +10,7 @@ bool SleepingAction::perform(double time_interval)
 {
     if(creature_.isTired())
     {
-        if(creature_.getDistance(object_) < 1) // cel osiagniety
+        if(creature_.getDistance(object_) < DISTANCE_TO_ASSUME_TARGET_ACHIEVED ) // cel osiagniety
         {
             creature_.fallAsleep();
             return true;

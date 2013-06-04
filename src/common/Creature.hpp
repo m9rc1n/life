@@ -6,9 +6,10 @@
 #include <vector>
 #include <QMap>
 #include "../server/genetics/Genetics.hpp"
-
+#include "../const.h"
 namespace common
 {
+    class Herbivore;
 
     /**
     * @brief
@@ -458,7 +459,7 @@ namespace common
         void updateSleepTime(double time)
         {
             time_sleeping_ += time;
-            if(time_sleeping_  > 4000) // 4 sec
+            if(time_sleeping_  > SLEEP_TIME ) // 4 sec
             {
                 is_sleeping_ = 0;
                 time_sleeping_ = 0;
@@ -472,19 +473,21 @@ namespace common
         void updateProcreatingTime(double time)
         {
             time_procreating_ += time;
-            if(time_procreating_  > 3000) // 3 sec
+            if(time_procreating_  > PROCREATION_TIME ) // 3 sec
             {
                 is_procreating_ = 0;
                 time_procreating_ = 0;
                 // koniec 'aktu', czas powołać do życia potomka
                 // (o ile żadne ze zwierząt nie zostało zjedzone w czasie stosunku... )
                 // aha, rodzi tylko matka
-                if(not isDead() and not current_procreating_partner_->isDead() and !is_male_)
-                {
-                    server::Genetics::makeChild(this, current_procreating_partner_);
-                }
+                procreate();
             }
         }
+
+        /**
+         * @brief Abstrakcyjna prokreacja
+         */
+        virtual void procreate() = 0;
 
         /**
          * @brief Umiera ze starości, głodu, pragnienia lub wycieńczenia
@@ -568,7 +571,7 @@ namespace common
             for(QMap<int, double >::iterator iter = knownObjects->begin(); iter != knownObjects->end();)
             {
                 *iter += time;
-                if(*iter > 2000) // 2000 ms
+                if(*iter > REMEMBER_FOR) // 3000 ms
                 {
                     knownObjects->erase(iter++);
                 }
@@ -717,10 +720,10 @@ namespace common
             }
             switch (current_action)
             {
-                case WALKING: moveByDistance(time*speed_/42000); break;
+                case WALKING: moveByDistance(time*speed_/WALKING_FACTOR_WHILE_NOT_ACTIVE ); break;
                 case STAYING: break;
-                case ROTATING_LEFT: rotateByAngleInDegrees(-time*speed_/6000); break;
-                case ROTATING_RIGHT: rotateByAngleInDegrees(time*speed_/6000); break;
+                case ROTATING_LEFT: rotateByAngleInDegrees(-time*speed_/ROTATING_FACTOR_WHILE_NOT_ACTIVE); break;
+                case ROTATING_RIGHT: rotateByAngleInDegrees(time*speed_/ROTATING_FACTOR_WHILE_NOT_ACTIVE); break;
             }
         }
 

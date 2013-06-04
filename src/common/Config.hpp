@@ -4,6 +4,7 @@
 #include <vector>
 #include <QMutex>
 #include <QWaitCondition>
+#include "../const.h"
 
 namespace common
 {
@@ -30,7 +31,7 @@ namespace common
             map_height(100),
             map(NULL),
             objectsCounter(0),
-            parameter_sum(200),
+            parameter_sum(PARAMETERS_SUM),
             simulation_speed(1),
             show_creatures_parametres(false),
             stop(0)

@@ -53,6 +53,21 @@ namespace common
         }
 
         /**
+         * @brief Prokreuje (działa tylko dla samic)
+         */
+        virtual void procreate()
+        {
+            int count = MAX_CHILDREN_FOR_HERBIVORES;
+            if(not isDead() and not current_procreating_partner_->isDead() and !is_male_)
+            {
+                for(int i = 0; i < count; ++i)
+                {
+                    server::Genetics::makeChild(this, current_procreating_partner_);
+                }
+            }
+        }
+
+        /**
          * @brief
          * Przyjecie (acceptance) wizytatora.
          */

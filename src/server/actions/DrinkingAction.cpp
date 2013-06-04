@@ -11,7 +11,7 @@ namespace server
     {
         if(creature_.isThirsty())
         {
-            if(creature_.getDistance(object_) < 1) // cel osiagniety
+            if(creature_.getDistance(object_) < DISTANCE_TO_ASSUME_TARGET_ACHIEVED ) // cel osiagniety
             {
                 creature_.drink();
                 return true;

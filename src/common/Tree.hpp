@@ -2,6 +2,7 @@
 #define COMMON_TREE_HPP
 
 #include "MapObject.hpp"
+#include "../const.h"
 
 namespace common
 {
@@ -17,9 +18,8 @@ namespace common
     public:
         Tree(double x_pos, double y_pos):
             MapObject(x_pos, y_pos),
-            leafs_(100)
+            leafs_(MAX_TREE_LEAFS_FOR_EXAMPLE_100)
         {
-            // ...
         }
 
         /**
@@ -59,7 +59,7 @@ namespace common
         virtual void growLeafs(double new_leafs)
         {
             leafs_ += new_leafs;
-            leafs_ = std::min(leafs_, 100.0);
+            leafs_ = std::min(leafs_, (double)MAX_TREE_LEAFS_FOR_EXAMPLE_100);
         }
 
         /**
