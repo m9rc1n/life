@@ -81,7 +81,7 @@ HEADERS  += \
     client/Statistics.hpp \
     server/genetics/Genetics.hpp \
     server/genetics/Genotype.hpp \
-    client/StatisticsVisitor.hpp
+    client/StatisticsVisitor.hpp \
     test/AllocationCounter.hpp
 
 OTHER_FILES += \
