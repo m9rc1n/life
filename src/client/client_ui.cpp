@@ -69,7 +69,7 @@ void Client_UI::about()
 void Client_UI::legend()
 {
     QMessageBox::about (this, tr("Legend of Creatures"),
-        "<img src='/src/images/legend.png'><I>Legend</I>");
+        "<img src='../src/images/legend.png'><I>Legend</I>");
 }
 
 void Client_UI::updatePixmap(const QImage &image)
