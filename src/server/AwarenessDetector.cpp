@@ -11,7 +11,7 @@ bool AwarenessDetector::doesItHear(common::Creature &creature, common::MapObject
 {
     double dist = creature.getDistance(map_object);
 
-    if(dist > 5)
+    if(dist > HEAR_RADIUS)
     {
         return false;
     }

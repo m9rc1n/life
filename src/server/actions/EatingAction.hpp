@@ -9,6 +9,7 @@ namespace server
     class EatingAction : public server::Action
     {
     public:
+        virtual~EatingAction(){};
         EatingAction(int priority, common::Creature & creature, common::MapObject& object);
         virtual bool perform(double time_interval);
     };

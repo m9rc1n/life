@@ -16,6 +16,7 @@ namespace common
             // ...
         }
 
+        virtual~Waterhole(){};
         /**
          * @brief
          * Tworzy głęboką kopię obiektu

@@ -18,6 +18,7 @@ namespace server
         {
             return priority_;
         }
+        virtual~Action(){};
 
         struct compare
         {

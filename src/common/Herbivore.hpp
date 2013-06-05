@@ -28,15 +28,6 @@ namespace common
             Creature(x_pos, y_pos, direction, radius, angle, speed, max_repletion, max_hydration, max_energy, fecundity, max_age, is_male)
         {} // kod w klasie Creature
 
-        /**
-         * @brief Podaje piramidę potrzeb zwierzęcia.
-         *
-         * W przyszłości być moze będzie podawać indywidualną piramidę; póki co jest ona globalna.
-         */
-        MaslovPyramid *getMaslovPyramid()
-        {
-            return Config::getInstance()->herbivores_pyramid;
-        }
 
         /**
          * @brief
@@ -52,6 +43,7 @@ namespace common
             return static_cast<MapObject*>(new Herbivore(*this));
         }
 
+        virtual~Herbivore(){}
         /**
          * @brief Prokreuje (działa tylko dla samic)
          */
@@ -67,6 +59,15 @@ namespace common
             }
         }
 
+        /**
+         * @brief Podaje piramidę potrzeb zwierzęcia.
+         *
+         * W przyszłości być moze będzie podawać indywidualną piramidę; póki co jest ona globalna.
+         */
+        MaslovPyramid *getMaslovPyramid()
+        {
+            return Config::getInstance()->herbivores_pyramid;
+        }
         /**
          * @brief
          * Przyjecie (acceptance) wizytatora.

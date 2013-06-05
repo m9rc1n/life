@@ -21,7 +21,7 @@ bool server::EatingAction::perform(double time_interval)
         }
         else
         {
-            creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval/ 2000, creature_.getSpeed() * time_interval/ 15000);
+            creature_.partiallyTurnAndMoveToObject(object_, creature_.getSpeed() * time_interval/ SPEED_FACTOR_FOR_MOVING, creature_.getSpeed() * time_interval/ SPEED_FACTOR_FOR_ROTATING );
             return true;
         }
     }

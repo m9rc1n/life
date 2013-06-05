@@ -15,6 +15,7 @@ namespace common
         {
         }
 
+        virtual~Lair(){};
 
         /**
          * @brief

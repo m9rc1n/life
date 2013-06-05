@@ -8,6 +8,7 @@ namespace server {
 class DrinkingAction : public server::Action
 {
 public:
+    virtual~DrinkingAction(){};
     DrinkingAction(int priority, common::Creature & creature, common::MapObject& object);
     virtual bool perform(double time_interval);
 };

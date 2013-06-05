@@ -8,6 +8,7 @@ namespace server {
 class RunningAction : public server::Action
 {
 public:
+    virtual~RunningAction(){};
     RunningAction(int priority, common::Creature & creature, common::MapObject& object);
     virtual bool perform(double time_interval);
 };

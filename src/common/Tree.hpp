@@ -22,6 +22,7 @@ namespace common
         {
         }
 
+        virtual~Tree(){};
         /**
          * @brief
          * Tworzy głęboką kopię obiektu
